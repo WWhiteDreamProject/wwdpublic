@@ -149,12 +149,7 @@ public abstract partial class SharedBodyAppearanceSystem
         if (entries.Count == 0)
             return;
 
-        ClearAppearance(ent);
-
-        ent.Comp.Entries = entries;
-        Dirty(ent);
-
-        UpdateAppearance((ent, ent.Comp));
+        SetEntries(ent.AsNullable(), entries);
     }
 
     private void OnGetBodyAppearanceData(Entity<BodyAppearanceProviderComponent> ent, ref BodyRelayedEvent<GetBodyAppearanceDataEvent> args)
@@ -253,6 +248,22 @@ public abstract partial class SharedBodyAppearanceSystem
             return;
 
         ent.Comp.Entries[index] = entry.WithColor(color);
+        Dirty(ent);
+
+        UpdateAppearance((ent, ent.Comp));
+    }
+
+    public void SetEntries(Entity<BodyAppearanceProviderComponent?> ent, List<BodyAppearanceProviderEntry> entries)
+    {
+        if (!ProviderQuery.Resolve(ent, ref ent.Comp))
+            return;
+
+        if (ent.Comp.Entries == entries)
+            return;
+
+        ClearAppearance((ent, ent.Comp));
+
+        ent.Comp.Entries = entries;
         Dirty(ent);
 
         UpdateAppearance((ent, ent.Comp));

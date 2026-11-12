@@ -7,3 +7,8 @@
   id: Hair
   layers:
   - enum.MarkingVisualLayers.Hair
+
+- type: markingCategory
+  id: PeriocularHair
+  layers:
+  - enum.MarkingVisualLayers.Face

@@ -7,6 +7,8 @@
       required: true
       default: [ AppendagesArachnidLong ]
       limit: 1
+    Bandages:
+      limit: 4
     Chelicerae:
       required: true
       default: [ CheliceraeArachnidDownwards ]
@@ -18,6 +20,10 @@
       limit: 2
     Overlay:
       limit: 1
+    Scars:
+      limit: 4
+    Tattoos:
+      limit: 4
     Wristwear:
       whitelisted: false
       limit: 2

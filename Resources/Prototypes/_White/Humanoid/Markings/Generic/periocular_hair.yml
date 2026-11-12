@@ -1,6 +1,6 @@
 - type: marking
-  id: EyesEyeArrows
-  parent: BaseEyes
+  id: PeriocularHairEyeArrows
+  parent: BasePeriocularHair
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
@@ -18,8 +18,8 @@
         color: "#242424"
 
 - type: marking
-  id: EyesEyebrows
-  parent: BaseEyes
+  id: PeriocularHairEyebrows
+  parent: BasePeriocularHair
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
@@ -37,8 +37,8 @@
         color: "#242424"
 
 - type: marking
-  id: FaceUnibrow
-  parent: BaseEyes
+  id: PeriocularHairUnibrow
+  parent: BasePeriocularHair
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:

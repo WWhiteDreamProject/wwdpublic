@@ -1,8 +1,9 @@
 - type: marking
   id: BandagesBlindfold
   parent: BaseBandages
+  groups: [Felinid, Human, Harpy, Oni, Reptilian]
   definitions:
-  - layer: enum.BodyProviderType.Head
+  - layer: enum.MarkingVisualLayers.Face
     sprite:
       sprite: _White/Humanoid/Markings/Generic/bandages.rsi
       state: blindfold
@@ -10,8 +11,9 @@
 - type: marking
   id: BandagesEyePadLeft
   parent: BaseBandages
+  groups: [Felinid, Human, Harpy, Oni, Reptilian]
   definitions:
-  - layer: enum.BodyProviderType.Head
+  - layer: enum.MarkingVisualLayers.Face
     sprite:
       sprite: _White/Humanoid/Markings/Generic/bandages.rsi
       state: eye_pad_left
@@ -19,8 +21,9 @@
 - type: marking
   id: BandagesEyePadRight
   parent: BaseBandages
+  groups: [Felinid, Human, Harpy, Oni, Reptilian]
   definitions:
-  - layer: enum.BodyProviderType.Head
+  - layer: enum.MarkingVisualLayers.Face
     sprite:
       sprite: _White/Humanoid/Markings/Generic/bandages.rsi
       state: eye_pad_right
@@ -28,8 +31,9 @@
 - type: marking
   id: BandagesEyePatchLeft
   parent: BaseBandages
+  groups: [Felinid, Human, Harpy, Oni, Reptilian]
   definitions:
-  - layer: enum.BodyProviderType.Head
+  - layer: enum.MarkingVisualLayers.Face
     sprite:
       sprite: _White/Humanoid/Markings/Generic/bandages.rsi
       state: eye_patch_left
@@ -37,8 +41,9 @@
 - type: marking
   id: BandagesEyePatchRight
   parent: BaseBandages
+  groups: [Felinid, Human, Harpy, Oni, Reptilian]
   definitions:
-  - layer: enum.BodyProviderType.Head
+  - layer: enum.MarkingVisualLayers.Face
     sprite:
       sprite: _White/Humanoid/Markings/Generic/bandages.rsi
       state: eye_patch_right
@@ -46,6 +51,7 @@
 - type: marking
   id: BandagesHead
   parent: BaseBandages
+  groups: [Arachnid, Felinid, Human, Harpy, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -55,6 +61,7 @@
 - type: marking
   id: BandagesLeftArm
   parent: BaseBandages
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.LeftArm
     sprite:
@@ -64,6 +71,7 @@
 - type: marking
   id: BandagesLeftFoot
   parent: BaseBandages
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.LeftFoot
     sprite:
@@ -73,6 +81,7 @@
 - type: marking
   id: BandagesLeftHand
   parent: BaseBandages
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.LeftHand
     sprite:
@@ -82,6 +91,7 @@
 - type: marking
   id: BandagesLeftLeg
   parent: BaseBandages
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.LeftLeg
     sprite:
@@ -91,6 +101,7 @@
 - type: marking
   id: BandagesRightArm
   parent: BaseBandages
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.RightArm
     sprite:
@@ -100,8 +111,9 @@
 - type: marking
   id: BandagesRightFoot
   parent: BaseBandages
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian]
   definitions:
-  - layer: enum.BodyProviderType.RightLeg
+  - layer: enum.BodyProviderType.RightFoot
     sprite:
       sprite: _White/Humanoid/Markings/Generic/bandages.rsi
       state: right_foot
@@ -109,6 +121,7 @@
 - type: marking
   id: BandagesRightHand
   parent: BaseBandages
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.RightHand
     sprite:
@@ -118,6 +131,7 @@
 - type: marking
   id: BandagesRightLeg
   parent: BaseBandages
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.RightLeg
     sprite:
@@ -127,6 +141,7 @@
 - type: marking
   id: BandagesShoulder
   parent: BaseBandages
+  groups: [Arachnid, Felinid, Human, Harpy, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.Chest
     sprite:
@@ -140,6 +155,7 @@
 - type: marking
   id: BandagesStomach
   parent: BaseBandages
+  groups: [Arachnid, Felinid, Human, Harpy, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.Groin
     sprite:

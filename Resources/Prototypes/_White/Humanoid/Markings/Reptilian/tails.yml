@@ -1,0 +1,20 @@
+﻿- type: marking
+  id: BaseTailReptilian
+  parent: [BaseTail, BaseReptilian]
+  abstract: true
+  appearance: true
+
+- type: marking
+  id: TailReptilianDefault
+  parent: BaseTailReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: tail-primary
+    index: primary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: tail-secondary
+    index: secondary

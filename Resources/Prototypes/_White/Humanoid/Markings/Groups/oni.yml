@@ -2,22 +2,20 @@
   id: Oni
   parent: Undergarments
   data:
-    Arms:
-      limit: 2
+    Bandages:
+      limit: 4
     Ears:
       required: true
       defaultMarkings: [ PointyEarsUpwards ]
       limit: 1
     Earrings:
       limit: 2
-    Eyes:
-      limit: 1
+    Face:
+      limit: 4
     FacialHair:
       limit: 1
     Hair:
       limit: 1
-    Head:
-      limit: 2
     Horns:
       required: true
       defaultMarkings: [ OniHornDoubleCurved ]
@@ -26,16 +24,12 @@
       limit: 2
     Nose:
       limit: 1
+    PeriocularHair:
+      limit: 1
     Scars:
       limit: 4
-    Snout:
-      limit: 1
-    Tail:
-      limit: 1
     Tattoos:
       limit: 4
-    Torso:
-      limit: 1
     Tusks:
       limit: 1
     Wristwear:

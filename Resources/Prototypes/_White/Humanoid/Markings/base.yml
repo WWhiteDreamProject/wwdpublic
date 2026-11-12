@@ -152,6 +152,11 @@
   category: Overlay
 
 - type: marking
+  id: BasePeriocularHair
+  abstract: true
+  category: PeriocularHair
+
+- type: marking
   id: BaseScars
   abstract: true
   category: Scars

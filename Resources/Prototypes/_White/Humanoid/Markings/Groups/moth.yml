@@ -25,9 +25,8 @@
     LegRight:
       limit: 1
     Scars:
+      whitelisted: false
       limit: 4
-    Snout:
-      limit: 1
     Tattoos:
       limit: 4
     Torso:

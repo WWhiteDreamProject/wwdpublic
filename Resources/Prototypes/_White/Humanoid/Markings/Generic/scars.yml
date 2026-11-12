@@ -1,6 +1,7 @@
 ﻿- type: marking
   id: ScarsEyeLeft
   parent: BaseScars
+  groups: [Felinid, Human, Harpy, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -10,6 +11,7 @@
 - type: marking
   id: ScarsEyeRight
   parent: BaseScars
+  groups: [Felinid, Human, Harpy, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -19,6 +21,7 @@
 - type: marking
   id: ScarsEyeSurgeryTopLong
   parent: BaseScars
+  groups: [Arachnid, Felinid, Human, Harpy, Moth, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.Chest
     sprite:
@@ -28,6 +31,7 @@
 - type: marking
   id: ScarsEyeSurgeryTopShort
   parent: BaseScars
+  groups: [Arachnid, Felinid, Human, Harpy, Moth, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.Chest
     sprite:
@@ -37,6 +41,7 @@
 - type: marking
   id: ScarsTorso
   parent: BaseScars
+  groups: [Arachnid, Felinid, Human, Harpy, Moth, Oni, Reptilian]
   definitions:
   - layer: enum.BodyProviderType.Chest
     sprite:

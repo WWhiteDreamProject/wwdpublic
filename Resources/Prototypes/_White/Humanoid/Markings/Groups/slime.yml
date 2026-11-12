@@ -3,11 +3,9 @@
   parent: Undergarments
   data:
     Arms:
-      limit: 4
+      limit: 2
     Earrings:
       limit: 2
-    Eyes:
-      limit: 1
     FacialHair:
       alpha: 0.72
       limit: 1
@@ -21,6 +19,12 @@
         type: !type:BodyColorGroupColoring
           group: Skin
     Legs:
-      limit: 4
+      limit: 2
+    PeriocularHair:
+      alpha: 0.72
+      limit: 1
+      coloring:
+        type: !type:BodyColorGroupColoring
+          group: Skin
     Wristwear:
       limit: 2

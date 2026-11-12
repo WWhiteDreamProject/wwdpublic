@@ -799,7 +799,6 @@
       layers:
       - enum.BodyProviderType.Tail
   - type: Sprite
-    state: tail
     layers:
     - map: [ "default" ]
       state: tail

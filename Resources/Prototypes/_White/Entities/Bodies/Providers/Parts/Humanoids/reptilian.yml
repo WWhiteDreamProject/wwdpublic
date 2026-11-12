@@ -132,8 +132,21 @@
   id: BodyProviderTailReptilian
   parent: [BaseBodyProviderTail, BaseBodyProviderTailOrganic, BaseBodyProviderPartReptilian, BaseBodyProviderTailAppearance]
   components:
+  - type: AnimatableProvider
   - type: BodyAppearanceProvider
     entries:
     - group: Skin
       path: _White/Bodies/Parts/Humanoids/reptilian.rsi
-      state: tail
+      state: tail-primary
+      index: primary
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: tail-secondary
+      index: secondary
+  - type: Sprite
+    layers:
+    - map: [ "primary" ]
+      state: tail-primary
+    - map: [ "secondary" ]
+      state: tail-secondary
+    - map: [ "enum.BodyProviderType.Tail" ]

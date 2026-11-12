@@ -14,3 +14,4 @@
   - enum.BodyProviderType.RightLeg
   - enum.BodyProviderType.Tail
   - enum.BodyProviderType.Wings
+  - enum.MarkingVisualLayers.Face

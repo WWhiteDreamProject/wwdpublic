@@ -1,0 +1,11 @@
+﻿- type: entity
+  id: ActionToggleWagging
+  name: Wagging Tail
+  description: Start or stop wagging your tail.
+  components:
+  - type: InstantAction
+    icon: { sprite: _White/Interface/Actions/wagging.rsi, state: icon }
+    iconOn: { sprite: _White/Interface/Actions/wagging.rsi, state: icon-on }
+    itemIconStyle: NoItem
+    useDelay: 1
+    event: !type:AnimatableProviderActionEvent
