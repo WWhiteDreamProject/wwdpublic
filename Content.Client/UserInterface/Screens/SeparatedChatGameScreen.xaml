@@ -31,12 +31,14 @@
                 <targeting:TargetingControl Name="Targeting" Access="Protected"/>
             </BoxContainer>
             <adminObserver:AdminObserverHandsGui Name="AdminObserverHands" Access="Protected"/>
+            <BoxContainer Name="TopRightContainer" Orientation="Vertical">
+                <alerts:AlertsUI Name="Alerts" Access="Protected" />
+            </BoxContainer>
             <!-- WD EDIT END -->
             <BoxContainer Name="TopLeftContainer" Orientation="Vertical">
                 <actions:ActionsBar Name="Actions" Access="Protected" />
                 <BoxContainer Name="VoteMenu" Access="Public" Orientation="Vertical"/>
             </BoxContainer>
-            <alerts:AlertsUI Name="Alerts" Access="Protected" />
         </LayoutContainer>
         <PanelContainer Name="SeparatedChatPanel" HorizontalExpand="True" MinWidth="300" StyleClasses="ChatMainPanel">
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="10" Margin="10">
