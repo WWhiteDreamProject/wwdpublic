@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise. Monochromatic made by DayOS (github). Edited by Timemaster99(github). The division of the torso into chest and groin was done by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bishop-left_arm-primary",
+      "directions": 4
+    },
+    {
+      "name": "bishop-left_arm-secondary",
+      "directions": 4
+    },
+    {
+      "name": "bishop-left_arm-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "bishop-left_arm-combined",
+      "directions": 4
+    },
+    {
+      "name": "bishop-left_hand",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-left_arm-primary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-left_arm-secondary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-left_hand-primary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-left_hand-secondary",
+      "directions": 4
+    },
+    {
+      "name": "morpheus-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "morpheus-left_hand",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-left_arm-primary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-left_arm-secondary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-left_hand-primary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-left_hand-secondary",
+      "directions": 4
+    },
+    {
+      "name": "wardtakahashi-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "wardtakahashi-left_hand",
+      "directions": 4
+    },
+    {
+      "name": "xion-left_arm-primary",
+      "directions": 4
+    },
+    {
+      "name": "xion-left_arm-secondary",
+      "directions": 4
+    },
+    {
+      "name": "xion-left_hand-primary",
+      "directions": 4
+    },
+    {
+      "name": "xion-left_hand-secondary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-left_arm-primary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-left_arm-secondary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-left_hand-primary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-left_hand-secondary",
+      "directions": 4
+    }
+  ]
+}

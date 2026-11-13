@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise. Monochromatic made by DayOS (github). Edited by Timemaster99(github). The division of the torso into chest and groin was done by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bishop",
+      "directions": 4
+    },
+    {
+      "name": "bishop_alt",
+      "directions": 4
+    },
+    {
+      "name": "bishop_monitor-primary",
+      "directions": 4
+    },
+    {
+      "name": "bishop_monitor-secondary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-primary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-secondary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos_monitor-primary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos_monitor-secondary",
+      "directions": 4
+    },
+    {
+      "name": "morpheus",
+      "directions": 4
+    },
+    {
+      "name": "morpheus_alt",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-primary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-secondary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard_monitor-primary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard_monitor-secondary",
+      "directions": 4
+    },
+    {
+      "name": "wardtakahashi",
+      "directions": 4
+    },
+    {
+      "name": "wardtakahashi_alt",
+      "directions": 4
+    },
+    {
+      "name": "wardtakahashi_monitor",
+      "directions": 4
+    },
+    {
+      "name": "xion-primary",
+      "directions": 4
+    },
+    {
+      "name": "xion-secondary",
+      "directions": 4
+    },
+    {
+      "name": "xion_monitor-primary",
+      "directions": 4
+    },
+    {
+      "name": "xion_monitor-secondary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-primary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-secondary",
+      "directions": 4
+    }
+  ]
+}

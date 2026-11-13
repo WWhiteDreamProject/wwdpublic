@@ -96,6 +96,12 @@ public sealed partial class MarkingDefinition
     /// </summary>
     [DataField]
     public string Index = "default";
+
+    /// <summary>
+    /// The shader applied to marking.
+    /// </summary>
+    [DataField]
+    public string? Shader;
 }
 
 /// <summary>

@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise. Monochromatic made by DayOS (github). Edited by Timemaster99(github). The division of the torso into chest and groin was done by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bishop-right_arm-primary",
+      "directions": 4
+    },
+    {
+      "name": "bishop-right_arm-secondary",
+      "directions": 4
+    },
+    {
+      "name": "bishop-right_arm-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "bishop-right_hand",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-right_arm-primary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-right_arm-secondary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-right_hand-primary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-right_hand-secondary",
+      "directions": 4
+    },
+    {
+      "name": "morpheus-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "morpheus-right_hand",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-right_arm-primary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-right_arm-secondary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-right_hand-primary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-right_hand-secondary",
+      "directions": 4
+    },
+    {
+      "name": "wardtakahashi-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "wardtakahashi-right_hand",
+      "directions": 4
+    },
+    {
+      "name": "xion-right_arm-primary",
+      "directions": 4
+    },
+    {
+      "name": "xion-right_arm-secondary",
+      "directions": 4
+    },
+    {
+      "name": "xion-right_hand-primary",
+      "directions": 4
+    },
+    {
+      "name": "xion-right_hand-secondary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-right_arm-primary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-right_arm-secondary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-right_hand-primary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-right_hand-secondary",
+      "directions": 4
+    }
+  ]
+}

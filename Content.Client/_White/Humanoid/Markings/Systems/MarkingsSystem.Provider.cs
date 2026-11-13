@@ -88,6 +88,9 @@ public sealed partial class MarkingsSystem
 
             _sprite.LayerSetColor((target, spriteComp), layerIndex, marking.Color);
 
+            if (!string.IsNullOrEmpty(marking.Shader))
+                spriteComp.LayerSetShader(layerIndex, marking.Shader); // Why its stil not in SpriteSystem?
+
             if (!prototype.CanBeDisplaced || displacement == null)
                 continue;
 
@@ -164,7 +167,8 @@ public sealed partial class MarkingsSystem
                             prototype.Category,
                             markingId,
                             definition.Sprite,
-                            definition.Index);
+                            definition.Index,
+                            definition.Shader);
                         ent.Comp.Applied.Add(marking);
                     }
                 }

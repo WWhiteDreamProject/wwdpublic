@@ -350,7 +350,7 @@ public sealed class MarkingsViewModel
                     appearanceData.Colors,
                     markings);
 
-            var marking = new Marking(color, definition.Layer, prototype.Category, id, definition.Sprite, definition.Index)
+            var marking = new Marking(color, definition.Layer, prototype.Category, id, definition.Sprite, definition.Index, definition.Shader)
             {
                 Forced = AnyEnforcementsLifted,
             };

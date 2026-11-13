@@ -1,4 +1,9 @@
 - type: markingCategory
+  id: Antenna
+  layers:
+  - enum.MarkingVisualLayers.HeadTop
+
+- type: markingCategory
   id: Appendages
   layers:
   - enum.MarkingVisualLayers.ChestBack

@@ -1,4 +1,13 @@
 - type: marking
+  id: BaseAntenna
+  abstract: true
+  category: Antenna
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
   id: BaseAppendages
   abstract: true
   category: Appendages
@@ -183,6 +192,11 @@
     default:
       type: !type:BodyColorGroupColoring
         group: Skin
+
+- type: marking
+  id: BaseScreen
+  abstract: true
+  category: Screen
 
 - type: marking
   id: BaseTail

@@ -1,0 +1,202 @@
+- type: marking
+  id: BaseHeadPositronic
+  parent: [BaseHead, BasePositronic]
+  abstract: true
+  appearance: true
+
+- type: marking
+  id: HeadPositronicBishop
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: bishop
+
+- type: marking
+  id: HeadPositronicBishopAlt
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: bishop_alt
+
+- type: marking
+  id: HeadPositronicBishopMoinitor
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: bishop_monitor-primary
+    index: primary
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: bishop_monitor-secondary
+    index: secondary
+
+- type: marking
+  id: HeadPositronicDefault
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Bodies/Parts/positronic.rsi
+      state: head
+
+- type: marking
+  id: HeadPositronicHesphiastos
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: hesphiastos-primary
+    index: primary
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: hesphiastos-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: hesphiastos-tertiary
+    index: tertiary
+
+- type: marking
+  id: HeadPositronicHesphiastosMoinitor
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: hesphiastos_monitor-primary
+    index: primary
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: hesphiastos_monitor-secondary
+    index: secondary
+
+- type: marking
+  id: HeadPositronicMorpheus
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: morpheus
+
+- type: marking
+  id: HeadPositronicMorpheusAlt
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: morpheus_alt
+
+- type: marking
+  id: HeadPositronicShellguard
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: shellguard-primary
+    index: primary
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: shellguard-secondary
+    index: secondary
+
+- type: marking
+  id: HeadPositronicShellguardMoinitor
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: shellguard_monitor-primary
+    index: primary
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: shellguard_monitor-secondary
+    index: secondary
+
+- type: marking
+  id: HeadPositronicWardtakahashi
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: wardtakahashi
+
+- type: marking
+  id: HeadPositronicWardtakahashiAlt
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: wardtakahashi_alt
+
+- type: marking
+  id: HeadPositronicWardtakahashiMoinitor
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: wardtakahashi_monitor
+
+- type: marking
+  id: HeadPositronicXion
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: xion-primary
+    index: primary
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: xion-secondary
+    index: secondary
+
+- type: marking
+  id: HeadPositronicXionMoinitor
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: xion_monitor-primary
+    index: primary
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: xion_monitor-secondary
+    index: secondary
+
+- type: marking
+  id: HeadPositronicZenghu
+  parent: BaseHeadPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: zenghu-primary
+    index: primary
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/head.rsi
+      state: zenghu-secondary
+    index: secondary

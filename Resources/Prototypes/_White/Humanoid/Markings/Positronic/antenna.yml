@@ -1,0 +1,94 @@
+﻿- type: marking
+  id: BaseAntennaPositronic
+  parent: [BaseAntenna, BasePositronic]
+  abstract: true
+
+- type: marking
+  id: AntennaPositronicAntlers
+  parent: BaseAntennaPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/antenna.rsi
+      state: antlers
+
+- type: marking
+  id: AntennaPositronicCrowned
+  parent: BaseAntennaPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/antenna.rsi
+      state: crowned
+
+- type: marking
+  id: AntennaPositronicCyberhead
+  parent: BaseAntennaPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/antenna.rsi
+      state: cyberhead
+
+- type: marking
+  id: AntennaPositronicDroneeyes
+  parent: BaseAntennaPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/antenna.rsi
+      state: droneeyes
+
+- type: marking
+  id: AntennaPositronicLight
+  parent: BaseAntennaPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/antenna.rsi
+      state: light
+
+- type: marking
+  id: AntennaPositronicLightFlashing
+  parent: BaseAntennaPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/antenna.rsi
+      state: light_flashing
+
+- type: marking
+  id: AntennaPositronicSidelights
+  parent: BaseAntennaPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/antenna.rsi
+      state: sidelights
+
+- type: marking
+  id: AntennaPositronicTesla
+  parent: BaseAntennaPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/antenna.rsi
+      state: tesla
+
+- type: marking
+  id: AntennaPositronicTowers
+  parent: BaseAntennaPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/antenna.rsi
+      state: towers
+
+- type: marking
+  id: AntennaPositronicTv
+  parent: BaseAntennaPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/antenna.rsi
+      state: tv

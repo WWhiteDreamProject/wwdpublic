@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise. Monochromatic made by DayOS (github). Edited by Timemaster99(github). The division of the torso into chest and groin was done by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bishop-right_leg-primary",
+      "directions": 4
+    },
+    {
+      "name": "bishop-right_leg-secondary",
+      "directions": 4
+    },
+    {
+      "name": "bishop-right_foot",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-right_leg-primary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-right_leg-secondary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-right_foot-primary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-right_foot-secondary",
+      "directions": 4
+    },
+    {
+      "name": "morpheus-right_leg",
+      "directions": 4
+    },
+    {
+      "name": "morpheus-right_foot",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-right_leg-primary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-right_leg-secondary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-right_foot-primary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-right_foot-secondary",
+      "directions": 4
+    },
+    {
+      "name": "wardtakahashi-right_leg",
+      "directions": 4
+    },
+    {
+      "name": "wardtakahashi-right_foot",
+      "directions": 4
+    },
+    {
+      "name": "xion-right_leg-primary",
+      "directions": 4
+    },
+    {
+      "name": "xion-right_leg-secondary",
+      "directions": 4
+    },
+    {
+      "name": "xion-right_foot-primary",
+      "directions": 4
+    },
+    {
+      "name": "xion-right_foot-secondary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-right_leg-primary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-right_leg-secondary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-right_foot-primary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-right_foot-secondary",
+      "directions": 4
+    }
+  ]
+}

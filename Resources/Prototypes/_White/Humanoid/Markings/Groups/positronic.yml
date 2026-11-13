@@ -1,0 +1,35 @@
+- type: markingGroup
+  id: Positronic
+  whitelisted: true
+  data:
+    Antenna:
+      limit: 1
+    ArmLeft:
+      required: true
+      default: [ ArmLeftPositronicDefault ]
+      limit: 1
+    ArmRight:
+      required: true
+      default: [ ArmRightPositronicDefault ]
+      limit: 1
+    Head:
+      required: true
+      default: [ HeadPositronicDefault ]
+      limit: 1
+    LegLeft:
+      required: true
+      default: [ LegLeftPositronicDefault ]
+      limit: 1
+    LegRight:
+      required: true
+      default: [ LegRightPositronicDefault ]
+      limit: 1
+    Screen:
+      limit: 1
+    Torso:
+      required: true
+      default: [ TorsoPositronicDefault ]
+      limit: 1
+    Wristwear:
+      whitelisted: false
+      limit: 2

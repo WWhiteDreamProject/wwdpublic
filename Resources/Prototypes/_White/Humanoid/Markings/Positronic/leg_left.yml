@@ -1,0 +1,163 @@
+- type: marking
+  id: BaseLegLeftPositronic
+  parent: [BaseLegLeft, BasePositronic]
+  abstract: true
+  appearance: true
+
+- type: marking
+  id: LegLeftPositronicBishop
+  parent: BaseLegLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: bishop-left_foot
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: bishop-left_leg-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: bishop-left_leg-secondary
+    index: secondary
+
+- type: marking
+  id: LegLeftPositronicDefault
+  parent: BaseLegLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Bodies/Parts/positronic.rsi
+      state: left_foot
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Bodies/Parts/positronic.rsi
+      state: left_leg
+
+- type: marking
+  id: LegLeftPositronicHesphiastos
+  parent: BaseLegLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: hesphiastos-left_foot-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: hesphiastos-left_foot-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: hesphiastos-left_leg-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: hesphiastos-left_leg-secondary
+    index: secondary
+
+- type: marking
+  id: LegLeftPositronicMorpheus
+  parent: BaseLegLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: morpheus-left_foot
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: morpheus-left_leg
+
+- type: marking
+  id: LegLeftPositronicShellguard
+  parent: BaseLegLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: shellguard-left_foot-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: shellguard-left_foot-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: shellguard-left_leg-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: shellguard-left_leg-secondary
+    index: secondary
+
+- type: marking
+  id: LegLeftPositronicWardtakahashi
+  parent: BaseLegLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: wardtakahashi-left_foot
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: wardtakahashi-left_leg
+
+- type: marking
+  id: LegLeftPositronicXion
+  parent: BaseLegLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: xion-left_foot-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: xion-left_foot-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: xion-left_leg-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: xion-left_leg-secondary
+    index: secondary
+
+- type: marking
+  id: LegLeftPositronicZenghu
+  parent: BaseLegLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: zenghu-left_foot-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: zenghu-left_foot-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: zenghu-left_leg-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/leg_left.rsi
+      state: zenghu-left_leg-secondary
+    index: secondary

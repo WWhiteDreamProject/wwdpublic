@@ -459,7 +459,7 @@ public sealed class MarkingManager
                     if (!definition.Layer.Equals(layer))
                         continue;
 
-                    markings.Add(new(colors[i], definition.Layer, prototype.Category, marking, definition.Sprite, definition.Index));
+                    markings.Add(new(colors[i], definition.Layer, prototype.Category, marking, definition.Sprite, definition.Index, definition.Shader));
                 }
             }
         }
@@ -496,7 +496,7 @@ public sealed class MarkingManager
             for (var i = prototype.Definitions.Count - 1; i >= 0; i--)
             {
                 var definition = prototype.Definitions[i];
-                markings.Add(new(colors[i], definition.Layer, prototype.Category, marking, definition.Sprite, definition.Index));
+                markings.Add(new(colors[i], definition.Layer, prototype.Category, marking, definition.Sprite, definition.Index, definition.Shader));
             }
         }
     }

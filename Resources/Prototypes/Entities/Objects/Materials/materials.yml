@@ -185,8 +185,8 @@
     - category:
         name: Prothetics
         icon:
-          sprite: Mobs/Customization/cyberlimbs/bishop/bishop_main.rsi
-          state: l_arm-combined
+          sprite: _White/Humanoid/Markings/IPC/arm_left.rsi
+          state: bishop-left_arm-combined
         entries:
         - prototype: MakeshiftLeftArm
         - prototype: MakeshiftRightArm

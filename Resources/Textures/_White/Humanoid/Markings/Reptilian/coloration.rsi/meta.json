@@ -8,7 +8,31 @@
   },
   "states": [
     {
-      "name": "tiger",
+      "name": "tiger-chest",
+      "directions": 4
+    },
+    {
+      "name": "tiger-groin",
+      "directions": 4
+    },
+    {
+      "name": "tiger-head",
+      "directions": 4
+    },
+    {
+      "name": "tiger-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "tiger-left_leg",
+      "directions": 4
+    },
+    {
+      "name": "tiger-leg_right",
+      "directions": 4
+    },
+    {
+      "name": "tiger-right_arm",
       "directions": 4
     }
   ]

@@ -49,6 +49,12 @@ public partial record struct Marking
     public string Index { get; private set; }
 
     /// <summary>
+    /// The shader applied to this marking.
+    /// </summary>
+    [DataField]
+    public string? Shader { get; private set; }
+
+    /// <summary>
     /// If true, this marking bypasses standard marking point limits and cannot be removed by the player.
     /// </summary>
     public bool Forced;
@@ -56,7 +62,7 @@ public partial record struct Marking
     /// <summary>
     /// Initializes a new instance with specified properties.
     /// </summary>
-    public Marking(Color color, Enum layer, ProtoId<MarkingCategoryPrototype> category, ProtoId<MarkingPrototype> id, SpriteSpecifier sprite, string index)
+    public Marking(Color color, Enum layer, ProtoId<MarkingCategoryPrototype> category, ProtoId<MarkingPrototype> id, SpriteSpecifier sprite, string index, string? shader)
     {
         Color = color;
         Layer = layer;
@@ -64,6 +70,7 @@ public partial record struct Marking
         Id = id;
         Sprite = sprite;
         Index = index;
+        Shader = shader;
     }
 
     /// <summary>
@@ -87,6 +94,9 @@ public partial record struct Marking
             return false;
 
         if (!Index.Equals(other.Index))
+            return false;
+
+        if (Shader != null && !Shader.Equals(other.Shader))
             return false;
 
         if (!Forced.Equals(other.Forced))

@@ -1,0 +1,169 @@
+- type: marking
+  id: BaseTorsoPositronic
+  parent: [BaseTorso, BasePositronic]
+  abstract: true
+  appearance: true
+
+- type: marking
+  id: TorsoPositronicBishop
+  parent: BaseTorsoPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: bishop-chest-primary
+    index: primary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: bishop-groin-primary
+    index: primary
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: bishop-chest-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: bishop-groin-secondary
+    index: secondary
+
+- type: marking
+  id: TorsoPositronicDefault
+  parent: BaseTorsoPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Bodies/Parts/positronic.rsi
+      state: chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Bodies/Parts/positronic.rsi
+      state: groin
+
+- type: marking
+  id: TorsoPositronicHesphiastos
+  parent: BaseTorsoPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: hesphiastos-chest-primary
+    index: primary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: hesphiastos-groin-primary
+    index: primary
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: hesphiastos-chest-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: hesphiastos-groin-secondary
+    index: secondary
+
+- type: marking
+  id: TorsoPositronicMorpheus
+  parent: BaseTorsoPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: morpheus-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: morpheus-groin
+
+- type: marking
+  id: TorsoPositronicShellguard
+  parent: BaseTorsoPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: shellguard-chest-primary
+    index: primary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: shellguard-groin-primary
+    index: primary
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: shellguard-chest-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: shellguard-groin-secondary
+    index: secondary
+
+- type: marking
+  id: TorsoPositronicWardtakahashi
+  parent: BaseTorsoPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: wardtakahashi-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: wardtakahashi-groin
+
+- type: marking
+  id: TorsoPositronicXion
+  parent: BaseTorsoPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: xion-chest-primary
+    index: primary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: xion-groin-primary
+    index: primary
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: xion-chest-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: xion-groin-secondary
+    index: secondary
+
+- type: marking
+  id: TorsoPositronicZenghu
+  parent: BaseTorsoPositronic
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: zenghu-chest-primary
+    index: primary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: zenghu-groin-primary
+    index: primary
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: zenghu-chest-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/torso.rsi
+      state: zenghu-groin-secondary
+    index: secondary

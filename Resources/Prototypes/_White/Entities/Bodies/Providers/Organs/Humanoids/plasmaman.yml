@@ -57,7 +57,7 @@
   - type: BodyAppearanceProvider
     entries:
     - group: Eyes
-      path: _White/Bodies/Organs/Humanoids/human.rsi
+      path: _White/Bodies/Organs/Humanoids/plasmaman.rsi
       state: eyes_in-body
   - type: MarkingsProvider
     data:

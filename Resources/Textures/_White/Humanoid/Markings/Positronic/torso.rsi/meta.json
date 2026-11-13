@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise. Monochromatic made by DayOS (github). Edited by Timemaster99(github). The division of the torso into chest and groin was done by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bishop-chest-primary",
+      "directions": 4
+    },
+    {
+      "name": "bishop-groin-primary",
+      "directions": 4
+    },
+    {
+      "name": "bishop-chest-secondary",
+      "directions": 4
+    },
+    {
+      "name": "bishop-groin-secondary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-chest-primary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-groin-primary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-chest-secondary",
+      "directions": 4
+    },
+    {
+      "name": "hesphiastos-groin-secondary",
+      "directions": 4
+    },
+    {
+      "name": "morpheus-chest",
+      "directions": 4
+    },
+    {
+      "name": "morpheus-groin",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-chest-primary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-groin-primary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-chest-secondary",
+      "directions": 4
+    },
+    {
+      "name": "shellguard-groin-secondary",
+      "directions": 4
+    },
+    {
+      "name": "wardtakahashi-chest",
+      "directions": 4
+    },
+    {
+      "name": "wardtakahashi-groin",
+      "directions": 4
+    },
+    {
+      "name": "xion-chest-primary",
+      "directions": 4
+    },
+    {
+      "name": "xion-groin-primary",
+      "directions": 4
+    },
+    {
+      "name": "xion-chest-secondary",
+      "directions": 4
+    },
+    {
+      "name": "xion-groin-secondary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-chest-primary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-groin-primary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-chest-secondary",
+      "directions": 4
+    },
+    {
+      "name": "zenghu-groin-secondary",
+      "directions": 4
+    }
+  ]
+}

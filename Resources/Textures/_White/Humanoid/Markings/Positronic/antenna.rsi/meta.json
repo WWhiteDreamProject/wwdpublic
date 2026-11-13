@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/yogstation13/Yogstation/commit/9c046aa5327c71f9e93e45a34283b3a4aff58bd1.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "antlers",
+      "directions": 4
+    },
+    {
+      "name": "crowned",
+      "directions": 4
+    },
+    {
+      "name": "cyberhead",
+      "directions": 4
+    },
+    {
+      "name": "droneeyes",
+      "directions": 4
+    },
+    {
+      "name": "light",
+      "directions": 4
+    },
+    {
+      "name": "light_flashing",
+      "directions": 4,
+      "delays": [
+        [
+          4,
+          0.5,
+          0.1,
+          0.5
+        ],
+        [
+          4,
+          0.5,
+          0.1,
+          0.5
+        ],
+        [
+          4,
+          0.5,
+          0.1,
+          0.5
+        ],
+        [
+          4,
+          0.5,
+          0.1,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "sidelights",
+      "directions": 4
+    },
+    {
+      "name": "tesla",
+      "directions": 4,
+      "delays": [
+        [
+          4,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          4,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          4,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          4,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "towers",
+      "directions": 4
+    },
+    {
+      "name": "tv",
+      "directions": 4
+    }
+  ]
+}

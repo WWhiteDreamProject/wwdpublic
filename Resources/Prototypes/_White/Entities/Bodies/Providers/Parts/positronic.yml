@@ -4,6 +4,9 @@
   abstract: true
   suffix: Positronic
   components:
+  - type: MarkingsProvider
+    data:
+      group: Positronic
   - type: Sprite
     sprite: _White/Bodies/Parts/positronic.rsi
 

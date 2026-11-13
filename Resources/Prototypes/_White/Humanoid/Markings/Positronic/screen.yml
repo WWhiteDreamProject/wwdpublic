@@ -1,0 +1,394 @@
+﻿- type: marking
+  id: BaseScreenPositronic
+  parent: [BaseScreen, BasePositronic]
+  abstract: true
+
+- type: marking
+  id: ScreenPositronicBlank
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: blank
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicBlue
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: blue
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicBreakout
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: breakout
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicBsod
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: bsod
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicConsole
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: console
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicEcgwave
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: ecgwave
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicEight
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: eight
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicExclaim
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: exclaim
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicEyes
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: eyes
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicEyesangry
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: eyesangry
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicEyestall
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: eyestall
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicFrown
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: frown
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicGlider
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: glider
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicGoggles
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: goggles
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicHeart
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: heart
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicL
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: l
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicLoading
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: loading
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicMonoeye
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: monoeye
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicNature
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: nature
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicOrange
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: orange
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicPink
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: pink
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicQuestion
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: question
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicRainbowdiag
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: rainbowdiag
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicRainbowhoriz
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: rainbowhoriz
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicRedtext
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: redtext
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicRgb
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: rgb
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicRing
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: ring
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicScroll
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: scroll
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicShower
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: shower
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicSinewave
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: sinewave
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicSmile
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: smile
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicSquarewave
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: squarewave
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicStars
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: stars
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicStatic
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: static
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicTetris
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: tetris
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicTextdrop
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: textdrop
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicTv
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: tv
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicWindowsxp
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: windowsxp
+    shader: unshaded
+
+- type: marking
+  id: ScreenPositronicYellow
+  parent: BaseScreenPositronic
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/screen.rsi
+      state: yellow
+    shader: unshaded

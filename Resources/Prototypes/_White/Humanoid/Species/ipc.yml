@@ -2,10 +2,8 @@
   id: IPC
   setPreference: true
   defaultColors:
-    Eyes: "#000000"
     Skin: "#AAA9AD"
   colorations:
-    Eyes: Simple
     Skin: Hues
   doll: HumanoidDollIPC
   prototype: MobHumanoidIPC

@@ -205,7 +205,7 @@ public sealed class ServerPreferencesManager : IServerPreferencesManager, IPostI
                 Pause = profile.BarkPause,
                 Pitch = profile.BarkPitch,
                 PitchVariance = profile.BarkPitchVariance,
-                Volume = profile.BarkVolume,
+                Volume = profile.BarkVolume
             },
             profile.Height,
             profile.Width,
@@ -408,7 +408,7 @@ public sealed class ServerPreferencesManager : IServerPreferencesManager, IPostI
         var msg = new PreferencesAndSettingsResponseMessage
         {
             Preferences = data.Preferences,
-            Settings = new () { MaxCharacterSlots = _maxCharacterSlots, },
+            Settings = new () { MaxCharacterSlots = _maxCharacterSlots, }
         };
         _net.ServerSendMessage(msg, session.Channel);
     }

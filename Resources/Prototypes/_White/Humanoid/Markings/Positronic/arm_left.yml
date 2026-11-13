@@ -1,0 +1,169 @@
+- type: marking
+  id: BaseArmLeftPositronic
+  parent: [BaseArmLeft, BasePositronic]
+  abstract: true
+  appearance: true
+
+- type: marking
+  id: ArmLeftPositronicBishop
+  parent: BaseArmLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: bishop-left_arm-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: bishop-left_arm-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: bishop-left_arm-tertiary
+    index: tertiary
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: bishop-left_hand
+    index: primary
+
+- type: marking
+  id: ArmLeftPositronicDefault
+  parent: BaseArmLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Bodies/Parts/positronic.rsi
+      state: left_arm
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Bodies/Parts/positronic.rsi
+      state: left_hand
+
+- type: marking
+  id: ArmLeftPositronicHesphiastos
+  parent: BaseArmLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: hesphiastos-left_arm-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: hesphiastos-left_arm-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: hesphiastos-left_hand-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: hesphiastos-left_hand-secondary
+    index: secondary
+
+- type: marking
+  id: ArmLeftPositronicMorpheus
+  parent: BaseArmLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: morpheus-left_arm
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: morpheus-left_hand
+
+- type: marking
+  id: ArmLeftPositronicShellguard
+  parent: BaseArmLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: shellguard-left_arm-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: shellguard-left_arm-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: shellguard-left_hand-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: shellguard-left_hand-secondary
+    index: secondary
+
+- type: marking
+  id: ArmLeftPositronicWardtakahashi
+  parent: BaseArmLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: wardtakahashi-left_arm
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: wardtakahashi-left_hand
+
+- type: marking
+  id: ArmLeftPositronicXion
+  parent: BaseArmLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: xion-left_arm-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: xion-left_arm-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: xion-left_hand-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: xion-left_hand-secondary
+    index: secondary
+
+- type: marking
+  id: ArmLeftPositronicZenghu
+  parent: BaseArmLeftPositronic
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: zenghu-left_arm-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: zenghu-left_arm-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: zenghu-left_hand-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Positronic/arm_left.rsi
+      state: zenghu-left_hand-secondary
+    index: secondary

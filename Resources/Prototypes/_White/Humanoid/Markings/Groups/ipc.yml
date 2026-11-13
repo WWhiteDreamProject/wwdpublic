@@ -1,7 +1,0 @@
-- type: markingGroup
-  id: IPC
-  whitelisted: true
-  data:
-    Wristwear:
-      whitelisted: false
-      limit: 2
