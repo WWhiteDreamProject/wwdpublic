@@ -61,3 +61,61 @@
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
+
+- type: entity
+  name: Shield Of Luck
+  parent:
+  - BaseShield
+  - BaseMagicalContraband
+  id: RandomShield
+  description: Random-megaladon
+  suffix: FXX
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Shields/randomwizardshield.rsi
+    state: randomshield-icon
+  - type: Item
+    sprite: _White/Objects/Shields/randomwizardshield.rsi
+    heldPrefix: randomshield
+  - type: Reflect
+    reflectProb: 0.5
+    reflects:
+    - Energy
+    - NonEnergy
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.45
+        Slash: 0.4
+        Piercing: 0.5
+        Heat: 0.5
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.2
+        Slash: 0.3
+        Piercing: 0.4
+        Heat: 0.3
+      flatReductions:
+        Heat: 1
+    blockSound:
+      collection: Dice
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts:
+        - "Destruction"
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+  - type: Repairable
+    damage:
+      groups:
+        Brute: -10
+      types:
+        Heat: -10
+    fuelCost: 4
+    doAfterDelay: 5
+    allowSelfRepair: false

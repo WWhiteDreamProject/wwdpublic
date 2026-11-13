@@ -91,3 +91,21 @@
   - type: Tag
     tags:
     - HamsterWearable
+
+- type: entity
+  parent: ClothingHeadHatWizardBase
+  id: ClothingHeadHatwizardrandom
+  suffix: FXX
+  name: Emerald Wizard hat
+  description: Emerald Enchance.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Head/Hats/randomwizardhat.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Head/Hats/randomwizardhat.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - WhitelistChameleon
