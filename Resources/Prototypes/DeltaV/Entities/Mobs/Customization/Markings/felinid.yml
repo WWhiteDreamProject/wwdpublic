@@ -2,7 +2,7 @@
   id: FelinidFluffyTailRings
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Tajaran
+  speciesRestriction: [Felinid, Human, Tajaran, IPC] # Einstein Engines - Tajaran  # WWDP EDIT - IPC
   sprites:
   # WWDP EDIT START
   - sprite: _White/Mobs/Customization/Felinid/felinid_tails_deltav-no-wagging.rsi
@@ -15,7 +15,7 @@
   id: FelinidFluffyTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Tajaran
+  speciesRestriction: [Felinid, Human, Tajaran, IPC] # Einstein Engines - Tajaran  # WWDP EDIT - IPC
   sprites:
   - sprite: _White/Mobs/Customization/Felinid/felinid_tails_deltav-no-wagging.rsi # WWDP EDIT
     state: Felinid_fluffy_tail_full_stopped # WWDP EDIT
@@ -24,7 +24,7 @@
   id: FelinidAlternativeTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Tajaran
+  speciesRestriction: [Felinid, Human, Tajaran, IPC] # Einstein Engines - Tajaran  # WWDP EDIT - IPC
   sprites:
     - sprite: _White/Mobs/Customization/Felinid/alternative_tail_deltav-no-wagging.rsi # WWDP EDIT
       state: m_waggingtail_cat_FRONT_stopped # WWDP EDIT
@@ -33,7 +33,7 @@
   id: FelinidTiger
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Tajaran
+  speciesRestriction: [Felinid, Human, Tajaran, IPC] # Einstein Engines - Tajaran  # WWDP EDIT - IPC
   sprites:
     - sprite: DeltaV/Mobs/Customization/Felinid/tiger_tail.rsi
       state: m_tail_tiger_primary
