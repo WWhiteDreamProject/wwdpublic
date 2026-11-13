@@ -1,0 +1,30 @@
+﻿- type: marking
+  id: BaseArmsVox
+  parent: [BaseArms, BaseVox]
+  abstract: true
+  forcedColoring: true
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#937E3D"
+
+- type: marking
+  id: ArmsVoxScales
+  parent: BaseArmsVox
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/arms.rsi
+      state: scales-left_arm
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/arms.rsi
+      state: scales-left_hand
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/arms.rsi
+      state: scales-right_arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/arms.rsi
+      state: scales-right_hand

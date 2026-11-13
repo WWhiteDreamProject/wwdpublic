@@ -1,33 +1,41 @@
 - type: markingGroup
   id: Vox
   parent: Undergarments
+  whitelisted: true
   data:
     Arms:
-      limit: 2
-    Ears:
+      required: true
+      default: [ ArmsVoxScales ]
+      limit: 1
+    Bandages:
+      whitelisted: false
+      limit: 4
+    Beak:
+      required: true
+      default: [ BaseBeakDefault ]
       limit: 1
     Earrings:
+      whitelisted: false
       limit: 2
-    Eyes:
-      limit: 1
+    Face:
+      whitelisted: false
+      limit: 4
     FacialHair:
       limit: 1
     Hair:
       limit: 1
-    Head:
-      limit: 2
     Legs:
-      limit: 2
-    Nose:
+      required: true
+      default: [ LegsVoxScales ]
+      limit: 1
+    PeriocularHair:
+      whitelisted: false
       limit: 1
     Scars:
+      whitelisted: false
       limit: 4
-    Snout:
-      limit: 1
     Tattoos:
       limit: 4
-    Torso:
-      limit: 1
     Wristwear:
       whitelisted: false
       limit: 2

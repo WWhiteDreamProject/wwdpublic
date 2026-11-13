@@ -1,0 +1,49 @@
+﻿- type: marking
+  id: BaseFacialHairVox
+  parent: [BaseFacialHair, BaseVox]
+  abstract: true
+
+- type: marking
+  id: FacialHairVoxBeard
+  parent: BaseFacialHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/facial_hair.rsi
+      state: beard
+
+- type: marking
+  id: FacialHairVoxColonel
+  parent: BaseFacialHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/facial_hair.rsi
+      state: colonel
+
+- type: marking
+  id: FacialHairVoxFu
+  parent: BaseFacialHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/facial_hair.rsi
+      state: fu
+
+- type: marking
+  id: FacialHairVoxMane
+  parent: BaseFacialHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/facial_hair.rsi
+      state: mane
+
+- type: marking
+  id: FacialHairVoxNeck
+  parent: BaseFacialHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/facial_hair.rsi
+      state: neck

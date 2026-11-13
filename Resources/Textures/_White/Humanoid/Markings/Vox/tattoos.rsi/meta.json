@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken https://github.com/ParadiseSS13/Paradise/blob/ef7a4d962915cb36b138eeb59663f0053d4906fe/icons/mob/sprite_accessories/vox/vox_body_markings.dmi. Modified by Flareguy(github). The division of the torso into chest and groin was done by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "heart_left_arm",
+      "directions": 4
+    },
+    {
+      "name": "heart_right_arm",
+      "directions": 4
+    },
+    {
+      "name": "hive-chest",
+      "directions": 4
+    },
+    {
+      "name": "hive-groin",
+      "directions": 4
+    },
+    {
+      "name": "nightling-chest",
+      "directions": 4
+    },
+    {
+      "name": "nightling-groin",
+      "directions": 4
+    }
+  ]
+}

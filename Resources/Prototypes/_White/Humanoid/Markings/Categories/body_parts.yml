@@ -25,6 +25,11 @@
   - enum.BodyProviderType.RightHand
 
 - type: markingCategory
+  id: Beak
+  layers:
+  - enum.MarkingVisualLayers.Snout
+
+- type: markingCategory
   id: Chelicerae
   layers:
   - enum.MarkingVisualLayers.HeadBottom

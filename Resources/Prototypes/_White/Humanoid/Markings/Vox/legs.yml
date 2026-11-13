@@ -1,0 +1,30 @@
+﻿- type: marking
+  id: BaseLegsVox
+  parent: [BaseLegs, BaseVox]
+  abstract: true
+  forcedColoring: true
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#937E3D"
+
+- type: marking
+  id: LegsVoxScales
+  parent: BaseLegsVox
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/legs.rsi
+      state: scales-left_foot
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/legs.rsi
+      state: scales-left_leg
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/legs.rsi
+      state: scales-right_foot
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/legs.rsi
+      state: scales-right_leg

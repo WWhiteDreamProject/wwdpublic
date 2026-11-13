@@ -29,6 +29,7 @@
 - type: entity
   id: BaseBodyProviderPartAppearance
   parent: BaseBodyProviderPart
+  abstract: true
   components:
   - type: BodyAppearanceProvider
   - type: MarkingsProvider
@@ -39,6 +40,7 @@
 - type: entity
   id: BaseBodyProviderPartGibbable
   parent: BaseBodyProviderPart
+  abstract: true
   components:
   - type: AmputatableProvider
   - type: GibbableProvider
@@ -46,6 +48,7 @@
 - type: entity
   id: BaseBodyProviderPartOrganic
   parent: BaseBodyProviderPart
+  abstract: true
   components:
   - type: BloodstreamProvider
   - type: PainfulProvider

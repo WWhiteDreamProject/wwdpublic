@@ -1,0 +1,48 @@
+﻿- type: marking
+  id: BaseTattoosVox
+  parent: [BaseTattoos, BaseVox]
+  abstract: true
+
+- type: marking
+  id: TattoosVoxHeartLeftArm
+  parent: BaseTattoosVox
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/tattoos.rsi
+      state: heart_left_arm
+
+- type: marking
+  id: TattoosVoxHeartRightArm
+  parent: BaseTattoosVox
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/tattoos.rsi
+      state: heart_right_arm
+
+- type: marking
+  id: TattoosVoxHive
+  parent: BaseTattoosVox
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/tattoos.rsi
+      state: hive-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/tattoos.rsi
+      state: hive-groin
+
+- type: marking
+  id: TattoosVoxNightling
+  parent: BaseTattoosVox
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/tattoos.rsi
+      state: nightling-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/tattoos.rsi
+      state: nightling-groin

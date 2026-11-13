@@ -1,0 +1,202 @@
+﻿- type: marking
+  id: BaseHairVox
+  parent: [BaseHair, BaseVox]
+  abstract: true
+
+- type: marking
+  id: HairVoxAfro
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: afro
+
+- type: marking
+  id: HairVoxBraid
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: braid
+
+- type: marking
+  id: HairVoxBraidLong
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: braid_long
+
+- type: marking
+  id: HairVoxBraidShort
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: braid_short
+
+- type: marking
+  id: HairVoxFlowing
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: flowing
+
+- type: marking
+  id: HairVoxHawk
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: hawk
+
+- type: marking
+  id: HairVoxHorns
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: horns
+
+- type: marking
+  id: HairVoxKingly
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: kingly
+
+- type: marking
+  id: HairVoxMange
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: mange
+
+- type: marking
+  id: HairVoxMohawk
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: mohawk
+
+- type: marking
+  id: HairVoxNights
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: nights
+
+- type: marking
+  id: HairVoxPonytail
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: ponytail
+
+- type: marking
+  id: HairVoxQuillsCrested
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: quills_crested
+
+- type: marking
+  id: HairVoxQuillsEmperor
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: quills_emperor
+
+- type: marking
+  id: HairVoxQuillsKeel
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: quills_keel
+
+- type: marking
+  id: HairVoxQuillsKeet
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: quills_keet
+
+- type: marking
+  id: HairVoxQuillShort
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: quills_short
+
+- type: marking
+  id: HairVoxQuillsTiel
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: quills_tiel
+
+- type: marking
+  id: HairVoxRazor
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: razor
+
+- type: marking
+  id: HairVoxRazorClipped
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: razor_clipped
+
+- type: marking
+  id: HairVoxSurf
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: surf
+
+- type: marking
+  id: HairVoxYasu
+  parent: BaseHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/hair.rsi
+      state: yasu

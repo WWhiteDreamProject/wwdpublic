@@ -40,6 +40,11 @@
   category: Bandages
 
 - type: marking
+  id: BaseBeak
+  abstract: true
+  category: Beak
+
+- type: marking
   id: BaseChelicerae
   abstract: true
   category: Chelicerae

@@ -1,0 +1,18 @@
+﻿- type: marking
+  id: BaseBeakVox
+  parent: [BaseBeak, BaseVox]
+  abstract: true
+  forcedColoring: true
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#937E3D"
+
+- type: marking
+  id: BaseBeakDefault
+  parent: BaseBeakVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.Snout
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/beak.rsi
+      state: deafult

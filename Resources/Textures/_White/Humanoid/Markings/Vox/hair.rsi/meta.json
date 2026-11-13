@@ -1,98 +1,98 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Paradise at https://github.com/ParadiseSS13/Paradise/blob/dcd1f5d88a8c5ba9634fc3fce67a76ada45f71dc/icons/mob/sprite_accessories/vox/vox_hair.dmi and greyscaled",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise/blob/dcd1f5d88a8c5ba9634fc3fce67a76ada45f71dc/icons/mob/sprite_accessories/vox/vox_hair.dmi and greyscaled.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "crestedquills_s",
+      "name": "afro",
       "directions": 4
     },
     {
-      "name": "emperorquills_s",
+      "name": "braid",
       "directions": 4
     },
     {
-      "name": "keelquills_s",
+      "name": "braid_short",
       "directions": 4
     },
     {
-      "name": "keetquills_s",
+      "name": "braid_long",
       "directions": 4
     },
     {
-      "name": "shortquills_s",
+      "name": "flowing",
       "directions": 4
     },
     {
-      "name": "tielquills_s",
+      "name": "hawk",
       "directions": 4
     },
     {
-      "name": "kingly_s",
+      "name": "horns",
       "directions": 4
     },
     {
-      "name": "afro_s",
+      "name": "kingly",
       "directions": 4
     },
     {
-      "name": "yasu_s",
+      "name": "mange",
       "directions": 4
     },
     {
-      "name": "razor_s",
+      "name": "mohawk",
       "directions": 4
     },
     {
-      "name": "razor_clipped_s",
+      "name": "nights",
       "directions": 4
     },
     {
-      "name": "mohawk_s",
+      "name": "ponytail",
       "directions": 4
     },
     {
-      "name": "horns_s",
+      "name": "quills_crested",
       "directions": 4
     },
     {
-      "name": "nights_s",
+      "name": "quills_emperor",
       "directions": 4
     },
     {
-      "name": "hawk_s",
+      "name": "quills_keel",
       "directions": 4
     },
     {
-      "name": "long_braid_s",
+      "name": "quills_keet",
       "directions": 4
     },
     {
-      "name": "short_braid_s",
+      "name": "quills_short",
       "directions": 4
     },
     {
-      "name": "mange_s",
+      "name": "quills_tiel",
       "directions": 4
     },
     {
-      "name": "ponytail_s",
+      "name": "razor",
       "directions": 4
     },
     {
-      "name": "braid_s",
+      "name": "razor_clipped",
       "directions": 4
     },
     {
-      "name": "surf_s",
+      "name": "surf",
       "directions": 4
     },
     {
-      "name": "flowing_s",
+      "name": "yasu",
       "directions": 4
     }
   ]
