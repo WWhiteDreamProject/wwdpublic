@@ -1,0 +1,152 @@
+﻿- type: marking
+  id: BaseHornsReptilian
+  parent: [BaseHorns, BaseReptilian]
+  abstract: true
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
+  id: HornsReptilianAngler
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: angler
+
+- type: marking
+  id: HornsReptilianArgali
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: argali-left
+    index: left
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: argali-right
+    index: right
+
+- type: marking
+  id: HornsReptilianAyrshire
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: ayrshire-left
+    index: left
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: ayrshire-right
+    index: right
+
+- type: marking
+  id: HornsReptilianBighorn
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: bighorn-left
+    index: left
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: bighorn-right
+    index: right
+
+- type: marking
+  id: HornsReptilianCurled
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: curled-left
+    index: left
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: curled-right
+    index: right
+
+- type: marking
+  id: HornsReptilianDouble
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: double-left
+    index: left
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: double-right
+    index: right
+
+- type: marking
+  id: HornsReptilianMyrsore
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: myrsore-left
+    index: left
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: myrsore-right
+    index: right
+
+- type: marking
+  id: HornsReptilianRam
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: ram-left
+    index: left
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: ram-right
+    index: right
+
+- type: marking
+  id: HornsReptilianShort
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: short-left
+    index: left
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: short-right
+    index: right
+
+- type: marking
+  id: HornsReptilianSimple
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: simple-left
+    index: left
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: simple-right
+    index: right

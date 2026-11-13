@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Pigeonpeas(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "kobold",
+      "directions": 4
+    },
+    {
+      "name": "kobold_floppy",
+      "directions": 4
+    }
+  ]
+}

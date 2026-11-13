@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297. Neckfull taken https://github.com/Bubberstation/Bubberstation/commit/8bc6b83404803466a560b694bf22ef3c0ac266a2 and resprited by mishutka09(discord). Splotch modified from sharp by KittenColony(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "aquatic",
+      "directions": 4
+    },
+    {
+      "name": "axolotl",
+      "directions": 4
+    },
+    {
+      "name": "big",
+      "directions": 4
+    },
+    {
+      "name": "divinity",
+      "directions": 4
+    },
+    {
+      "name": "hood-primary",
+      "directions": 4
+    },
+    {
+      "name": "hood-secondary",
+      "directions": 4
+    },
+    {
+      "name": "neckfull",
+      "directions": 4
+    },
+    {
+      "name": "short",
+      "directions": 4
+    },
+    {
+      "name": "simple",
+      "directions": 4
+    }
+  ]
+}

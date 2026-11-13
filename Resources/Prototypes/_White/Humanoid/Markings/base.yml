@@ -87,6 +87,15 @@
         color: "#241C11"
 
 - type: marking
+  id: BaseFrills
+  abstract: true
+  category: Frills
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
   id: BaseHair
   abstract: true
   category: Hair
@@ -162,6 +171,15 @@
   category: Scars
 
 - type: marking
+  id: BaseSnout
+  abstract: true
+  category: Snout
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
   id: BaseTail
   abstract: true
   category: Tail
@@ -188,6 +206,10 @@
   id: BaseTorso
   abstract: true
   category: Torso
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
 
 - type: marking
   id: BaseTusks

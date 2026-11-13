@@ -1,0 +1,82 @@
+﻿- type: marking
+  id: BaseFrillsReptilian
+  parent: [BaseFrills, BaseReptilian]
+  abstract: true
+
+- type: marking
+  id: FrillsReptilianAquatic
+  parent: BaseFrillsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/frills.rsi
+      state: aquatic
+
+- type: marking
+  id: FrillsReptilianAxolotl
+  parent: BaseFrillsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/frills.rsi
+      state: axolotl
+
+- type: marking
+  id: FrillsReptilianBig
+  parent: BaseFrillsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/frills.rsi
+      state: big
+
+- type: marking
+  id: FrillsReptilianDivinity
+  parent: BaseFrillsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/frills.rsi
+      state: divinity
+
+- type: marking
+  id: FrillsReptilianHood
+  parent: BaseFrillsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/frills.rsi
+      state: hood-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/frills.rsi
+      state: hood-secondary
+    index: secondary
+
+- type: marking
+  id: FrillsReptilianNeckfull
+  parent: BaseFrillsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/frills.rsi
+      state: neckfull
+
+- type: marking
+  id: FrillsReptilianShort
+  parent: BaseFrillsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/frills.rsi
+      state: short
+
+- type: marking
+  id: FrillsReptilianSimple
+  parent: BaseFrillsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/frills.rsi
+      state: simple

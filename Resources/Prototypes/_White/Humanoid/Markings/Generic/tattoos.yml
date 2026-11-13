@@ -11,7 +11,7 @@
 - type: marking
   id: TattoosCampbellLeftLeg
   parent: BaseTattoos
-  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian]
+  groups: [Arachnid, Felinid, Human, Moth, Oni]
   definitions:
   - layer: enum.BodyProviderType.LeftLeg
     sprite:
@@ -31,7 +31,7 @@
 - type: marking
   id: TattoosCampbellRightLeg
   parent: BaseTattoos
-  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian]
+  groups: [Arachnid, Felinid, Human, Moth, Oni]
   definitions:
   - layer: enum.BodyProviderType.RightLeg
     sprite:
@@ -103,7 +103,7 @@
 - type: marking
   id: TattoosSilverburghLeftLeg
   parent: BaseTattoos
-  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian]
+  groups: [Arachnid, Felinid, Human, Moth, Oni]
   definitions:
   - layer: enum.BodyProviderType.LeftLeg
     sprite:
@@ -113,7 +113,7 @@
 - type: marking
   id: TattoosSilverburghRightLeg
   parent: BaseTattoos
-  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian]
+  groups: [Arachnid, Felinid, Human, Moth, Oni]
   definitions:
   - layer: enum.BodyProviderType.RightLeg
     sprite:

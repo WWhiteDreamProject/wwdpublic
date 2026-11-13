@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297. Underbelly made by Nairod(github). The division of the torso into chest and groin was done by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "backspikes-chest",
+      "directions": 4
+    },
+    {
+      "name": "backspikes-groin",
+      "directions": 4
+    },
+    {
+      "name": "underbelly-chest",
+      "directions": 4
+    },
+    {
+      "name": "underbelly-groin",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+﻿- type: marking
+  id: BaseSnoutReptilian
+  parent: [BaseSnout, BaseReptilian]
+  abstract: true
+
+- type: marking
+  id: SnoutReptilianRound
+  parent: BaseSnoutReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.Snout
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/snout.rsi
+      state: round
+
+- type: marking
+  id: SnoutReptilianSharp
+  parent: BaseSnoutReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.Snout
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/snout.rsi
+      state: round
+
+- type: marking
+  id: SnoutReptilianSplotch
+  parent: BaseSnoutReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.Snout
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/snout.rsi
+      state: splotch-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Snout
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/snout.rsi
+      state: splotch-secondary
+    index: secondary

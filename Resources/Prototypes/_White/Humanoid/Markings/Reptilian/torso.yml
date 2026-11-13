@@ -1,0 +1,30 @@
+﻿- type: marking
+  id: BaseTorsoReptilian
+  parent: [BaseTorso, BaseReptilian]
+  abstract: true
+
+- type: marking
+  id: TorsoReptilianBackspikes
+  parent: BaseTorsoReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/torso.rsi
+      state: backspikes-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/torso.rsi
+      state: backspikes-groin
+
+- type: marking
+  id: TorsoReptilianUnderbelly
+  parent: BaseTorsoReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/torso.rsi
+      state: underbelly-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/torso.rsi
+      state: underbelly-groin

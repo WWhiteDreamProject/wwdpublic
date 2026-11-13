@@ -7,7 +7,7 @@
   id: BandagesReptilianBlindfold
   parent: BaseBandagesReptilian
   definitions:
-  - layer: enum.BodyProviderType.Head
+  - layer: enum.MarkingVisualLayers.Face
     sprite:
       sprite: _White/Humanoid/Markings/Reptilian/bandages.rsi
       state: blindfold
@@ -16,7 +16,7 @@
   id: BandagesReptilianEyePatchLeft
   parent: BaseBandagesReptilian
   definitions:
-  - layer: enum.BodyProviderType.Head
+  - layer: enum.MarkingVisualLayers.Face
     sprite:
       sprite: _White/Humanoid/Markings/Reptilian/bandages.rsi
       state: eye_patch_left
@@ -25,7 +25,7 @@
   id: BandagesReptilianEyePatchRight
   parent: BaseBandagesReptilian
   definitions:
-  - layer: enum.BodyProviderType.Head
+  - layer: enum.MarkingVisualLayers.Face
     sprite:
       sprite: _White/Humanoid/Markings/Reptilian/bandages.rsi
       state: eye_patch_right

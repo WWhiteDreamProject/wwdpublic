@@ -47,6 +47,11 @@
   - enum.MarkingVisualLayers.Face
 
 - type: markingCategory
+  id: Frills
+  layers:
+  - enum.MarkingVisualLayers.HeadSide
+
+- type: markingCategory
   id: Head
   layers:
   - enum.BodyProviderType.Head

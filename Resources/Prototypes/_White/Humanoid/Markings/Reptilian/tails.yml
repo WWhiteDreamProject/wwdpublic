@@ -18,3 +18,39 @@
       sprite: _White/Bodies/Parts/Humanoids/reptilian.rsi
       state: tail-secondary
     index: secondary
+
+- type: marking
+  id: TailReptilianLarge
+  parent: BaseTailReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: large
+
+- type: marking
+  id: TailReptilianSpikes
+  parent: BaseTailReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: spikes
+
+- type: marking
+  id: TailReptilianTigerD
+  parent: BaseTailReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: tiger_d
+
+- type: marking
+  id: TailReptilianTigerL
+  parent: BaseTailReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: tiger_l

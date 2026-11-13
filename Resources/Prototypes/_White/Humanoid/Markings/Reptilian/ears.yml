@@ -1,0 +1,22 @@
+﻿- type: marking
+  id: BaseEarsReptilian
+  parent: [BaseEars, BaseReptilian]
+  abstract: true
+
+- type: marking
+  id: EarsReptilianKobold
+  parent: BaseEarsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: kobold
+
+- type: marking
+  id: EarsReptilianKoboldFloppy
+  parent: BaseEarsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: kobold_floppy

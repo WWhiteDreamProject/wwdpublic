@@ -3,12 +3,22 @@
   parent: Undergarments
   whitelisted: true
   data:
+    Bandages:
+      limit: 4
+    Ears:
+      limit: 1
     Earrings:
       whitelisted: false
       limit: 2
+    Frills:
+      limit: 1
+    Horns:
+      limit: 1
+    Scars:
+      limit: 4
     Snout:
       required: true
-      default: [ LizardSnoutRound ]
+      default: [ SnoutReptilianRound ]
       limit: 1
     Tail:
       required: true
@@ -16,6 +26,8 @@
       limit: 1
     Tattoos:
       limit: 4
+    Torso:
+      limit: 1
     Wristwear:
       whitelisted: false
       limit: 2

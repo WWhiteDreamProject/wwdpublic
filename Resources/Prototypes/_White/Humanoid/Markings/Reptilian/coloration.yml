@@ -1,0 +1,37 @@
+﻿- type: marking
+  id: BaseColorationReptilian
+  parent: [BaseColoration, BaseReptilian]
+  abstract: true
+
+- type: marking
+  id: ColorationReptilianTiger
+  parent: BaseColorationReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/coloration.rsi
+      state: tiger-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/coloration.rsi
+      state: tiger-groin
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/coloration.rsi
+      state: tiger-head
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/coloration.rsi
+      state: tiger-left_arm
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/coloration.rsi
+      state: tiger-left_leg
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/coloration.rsi
+      state: tiger-right_arm
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/coloration.rsi
+      state: tiger-right_leg

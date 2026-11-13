@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297. Argali, ayrshire, bighorn and myrsore made by Ubaser(github). Edited, resprited and reshaded by PuroSlavKing(github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "angler",
+      "directions": 4
+    },
+    {
+      "name": "argali-left",
+      "directions": 4
+    },
+    {
+      "name": "argali-right",
+      "directions": 4
+    },
+    {
+      "name": "ayrshire-left",
+      "directions": 4
+    },
+    {
+      "name": "ayrshire-right",
+      "directions": 4
+    },
+    {
+      "name": "bighorn-left",
+      "directions": 4
+    },
+    {
+      "name": "bighorn-right",
+      "directions": 4
+    },
+    {
+      "name": "curled-left",
+      "directions": 4
+    },
+    {
+      "name": "curled-right",
+      "directions": 4
+    },
+    {
+      "name": "double-left",
+      "directions": 4
+    },
+    {
+      "name": "double-right",
+      "directions": 4
+    },
+    {
+      "name": "myrsore-left",
+      "directions": 4
+    },
+    {
+      "name": "myrsore-right",
+      "directions": 4
+    },
+    {
+      "name": "ram-left",
+      "directions": 4
+    },
+    {
+      "name": "ram-right",
+      "directions": 4
+    },
+    {
+      "name": "short-left",
+      "directions": 4
+    },
+    {
+      "name": "short-right",
+      "directions": 4
+    },
+    {
+      "name": "simple-left",
+      "directions": 4
+    },
+    {
+      "name": "simple-right",
+      "directions": 4
+    }
+  ]
+}
