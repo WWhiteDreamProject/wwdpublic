@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
+using Content.Shared.Hands.Components; // WWDP EDIT
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
@@ -117,17 +118,39 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
     protected virtual void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component,
         GettingPickedUpAttemptEvent args)
     {
-        if (args.User == args.Item)
-            return;
+        // WWDP EDIT START
+        // if (args.User == args.Item)
+        //     return;
 
-        Transform(uid).AttachToGridOrMap();
+        // Transform(uid).AttachToGridOrMap();
+        // WWDP EDIT END
         args.Cancel();
     }
 
     private void OnDropAttempt(EntityUid uid, PseudoItemComponent component, DropAttemptEvent args)
     {
-        if (component.Active)
+        // WWDP EDIT START
+        // if (component.Active)
+        //     args.Cancel();
+        if (!component.Active)
+            return;
+        var parent = Transform(uid).ParentUid;
+        if (!TryComp<StorageComponent>(parent, out var storage))
+        {
             args.Cancel();
+            return;
+        }
+        if (!TryComp<HandsComponent>(uid, out var hands) || hands.ActiveHandEntity is not { } held)
+        {
+            args.Cancel();
+            return;
+        }
+        if (!_storage.CanInsert(parent, held, out _, storage))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("popup-pseudo-item-no-space"), uid);
+            args.Cancel();
+        }
+        // WWDP EDIT END
     }
 
     private void OnInsertAttempt(EntityUid uid, PseudoItemComponent component,
@@ -135,8 +158,10 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
     {
         if (!component.Active)
             return;
-        // This hopefully shouldn't trigger, but this is a failsafe just in case so we dont bluespace them cats
-        args.Cancel();
+        // WWDP EDIT START
+        // // This hopefully shouldn't trigger, but this is a failsafe just in case so we dont bluespace them cats
+        // args.Cancel();
+        // WWDP EDIT END
     }
 
     // Prevents moving within the bag :)
