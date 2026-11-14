@@ -4,7 +4,7 @@ steal-target-groups-handheld-crew-monitor = портативный монито�
 steal-target-groups-clothing-outer-hardsuit-rd = скафандр мистагога
 steal-target-groups-hand-teleporter = ручной телепорт
 steal-target-groups-clothing-shoes-boots-mag-adv = продвинутые магнитные сапоги
-steal-target-groups-box-folder-qm-clipboard = requisition digi-board
+steal-target-groups-box-folder-qm-clipboard = { ent-BoxFolderQmClipboard }
 steal-target-groups-food-meat-corgi = первосортное мясо корги
 steal-target-groups-captain-id-card = ID карта капитана
 steal-target-groups-jetpack-captain-filled = джетпак капитана
@@ -28,7 +28,7 @@ steal-target-groups-lamps = ЛАМПЫ
 # Thief single item
 # Thief single item
 steal-target-groups-forensic-scanner = криминалистический сканер
-steal-target-groups-flippo-engraved-lighter = гравированная зажигалка «Флиппо»
+steal-target-groups-flippo-engraved-lighter = гравированная зажигалка "Флиппо"
 steal-target-groups-ammo-tech-fab-circuitboard = печатная плата техфаба патронов
 steal-target-groups-clothing-head-hat-warden = фуражка смотрителя
 steal-target-groups-clothing-outer-hardsuit-void-paramed = пустотный скафандр парамедика
@@ -45,7 +45,7 @@ steal-target-groups-clothing-neck-goldmedal = золотая медаль мас
 steal-target-groups-clothing-neck-clownmedal = медаль клоуна
 
 # Thief structures
-steal-target-groups-wanted-list-cartridge = wanted list cartridge
+steal-target-groups-wanted-list-cartridge = { ent-WantedListCartridge }
 
 # Thief structures
 steal-target-groups-teg = часть ТЭГа

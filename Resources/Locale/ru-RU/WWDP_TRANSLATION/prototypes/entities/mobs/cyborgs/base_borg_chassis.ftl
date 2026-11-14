@@ -1,6 +1,6 @@
 ent-BaseBorgChassis = киборг
     .desc = Человеко-машинный гибрид, помогающий в работе станции. Они обожают, когда их просят снова и снова зачитывать свои законы.
-    .suffix = { "" }
+    .suffix = { ent-BaseMob.suffix }
 
 
 ent-BaseBorgChassisNT = { ent-BaseBorgChassis }
