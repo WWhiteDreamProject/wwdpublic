@@ -7,8 +7,8 @@
   components:
   - type: BasicEntityAmmoProvider
     proto: ProjectileIcestunsharp
-    capacity: 15
-    count: 15
+    capacity: 16
+    count: 16
   - type: Gun
     projectileSpeed: 35
     fireRate: 0.8
@@ -16,7 +16,7 @@
     availableModes:
     - FullAuto
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 10
+    rechargeCooldown: 15
   - type: AmmoCounter
 
 - type: entity
@@ -28,8 +28,8 @@
   components:
   - type: BasicEntityAmmoProvider
     proto: ProjectileIceSuperstunsharp
-    capacity: 10
-    count: 10
+    capacity: 4
+    count: 4
   - type: Gun
     projectileSpeed: 20
     fireRate: 0.4
@@ -43,14 +43,14 @@
 - type: entity
   name: d6 wand
   parent: WeaponWandPresent
-  id: WeaponWandd6FXX
+  id: WeaponWanddice6FXX
   suffix: FXX
   description: d6 spammer
   components:
   - type: BasicEntityAmmoProvider
-    proto: Projectiled6
-    capacity: 777
-    count: 777
+    proto: Projectiledice6
+    capacity: 333
+    count: 33
   - type: Gun
     minAngle: 4
     maxAngle: 25
@@ -64,9 +64,10 @@
     soundGunshot:
       collection: Dice
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 3
-    RechargeSound: None
-  - type: AmmoCounter
+    rechargeCooldown: 3.5
+    RechargeSound: ""
+    rechargeSound:
+      collection: Dice
 
 - type: entity
   name: present wand
@@ -77,20 +78,20 @@
   components:
   - type: BasicEntityAmmoProvider
     proto: PresentRandom
-    capacity: 20
-    count: 20
+    capacity: 1
+    count: 1
   - type: Gun
     projectileSpeed: 10
     fireRate: 1.5
     selectedMode: FullAuto
     availableModes:
     - FullAuto
-  - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 5
-    showExamineText: true
-    rechargeSound:
-      path: None
   - type: AmmoCounter
+  - type: RechargeBasicEntityAmmo
+    rechargeSound:
+      collection: Dice
+    rechargeCooldown: 300
+    showExamineText: true
 
 - type: entity
   name: present wand (coal)
@@ -122,8 +123,8 @@
   components:
   - type: BasicEntityAmmoProvider
     proto: PresentRandomCash
-    capacity: 20
-    count: 20
+    capacity: 5
+    count: 5
   - type: Gun
     projectileSpeed: 10
     fireRate: 1.5
@@ -131,6 +132,6 @@
     availableModes:
     - FullAuto
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 5
+    rechargeCooldown: 240
   - type: AmmoCounter
 

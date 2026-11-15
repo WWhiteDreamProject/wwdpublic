@@ -62,12 +62,9 @@
         Cold: 20
         Structural: 50
   - type: StunOnCollide
-    stunAmount: 5
-    drop: true
-    knockdownAmount: 10
-    slowdownAmount: 20
-    walkSpeedModifier: 0.5
-    sprintSpeedModifier: 0.5
+    slowdownAmount: 5s
+    walkSpeedMultiplier: 0.5
+    runSpeedMultiplier: 0.5
 
 - type: entity
   id: ProjectileIceSuperstunsharp
@@ -86,15 +83,14 @@
         Cold: 35
         Structural: "150"
   - type: StunOnCollide
-    stunAmount: 10
-    drop: true
-    knockdownAmount: 10
-    slowdownAmount: 25s
-    walkSpeedModifier: 0.3
-    sprintSpeedModifier: 0.2
+    stunAmount: 10s
+    knockdownAmount: 5s
+    slowdownAmount: 15s
+    walkSpeedMultiplier: 0.3
+    runSpeedMultiplier: 0.4
 
 - type: entity
-  id: Projectiled6
+  id: Projectiledice6
   parent: BaseBullet
   name: mini-d6
   description: d6

@@ -105,7 +105,5 @@
     sprite: _White/Clothing/Head/Hats/randomwizardhat.rsi
   - type: Tag
     tags:
-    - PetWearable
-    - CorgiWearable
     - ClothMade
     - WhitelistChameleon

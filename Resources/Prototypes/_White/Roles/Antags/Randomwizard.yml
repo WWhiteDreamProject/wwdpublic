@@ -1,0 +1,29 @@
+- type: startingGear
+  id: RandomWizardGear
+  subGear:
+  - BoxSurvival
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGreen
+    head: ClothingHeadHatwizardrandom
+    back: ClothingBackpack
+    outerClothing: ClothingOuterWizardRandom
+    shoes: ClothingShoesWizard
+    id: WizardPDA
+    ears: ClothingHeadsetAltCommand
+    belt: ClothingBeltWand
+    pocket1: WizardTeleportScroll
+    pocket2: WizardsGrimoire
+  inhand:
+  - RandomShield
+  storage:
+    belt:
+    - WeaponWandIceFXX
+    - WeaponWandPresentFXXCash
+    - WeaponWandPresentCoal
+    - WeaponWandPresent
+    - WeaponWanddice6FXX
+    - WeaponWandSuperIceFXX
+    back:
+    - MedkitCombatFilled
+    - DiceBag
+    - MagicDiceBag
