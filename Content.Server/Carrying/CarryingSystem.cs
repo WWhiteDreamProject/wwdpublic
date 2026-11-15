@@ -97,7 +97,7 @@ namespace Content.Server.Carrying
         {
             // If the person is carrying someone, and the carried person is a pseudo-item, and the target entity is a storage,
             // then add an action to insert the carried entity into the target
-            var toInsert = args.Using;
+            EntityUid? toInsert = component.Carried; // WWDP EDIT
             if (toInsert is not { Valid: true } || !args.CanAccess
                 || !TryComp<PseudoItemComponent>(toInsert, out var pseudoItem)
                 || !TryComp<StorageComponent>(args.Target, out var storageComp)
