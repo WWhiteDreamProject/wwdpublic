@@ -9,6 +9,7 @@ using Content.Shared.DoAfter;
 using Robust.Shared.Network;
 using Robust.Shared.GameStates;
 using System.Linq;
+using Content.Shared.Implants;
 
 namespace Content.Shared.Equipment.Systems;
 
@@ -168,8 +169,6 @@ public sealed class AutoEquipmentSystem : EntitySystem
                     _inventory.TryUnequip(user, slot, silent: true, force: true, inventory: inventory);
                     _inventory.TryEquip(user, newItem, slot, silent: true, force: true, inventory: inventory);
                 }
-                else
-                { }
             }
             else
             {
@@ -181,6 +180,15 @@ public sealed class AutoEquipmentSystem : EntitySystem
                 {
                     _inventory.TryEquip(user, newItem, slot, silent: true, force: false, inventory: inventory);
                 }
+            }
+        }
+
+        if (component.Implants.Count > 0)
+        {
+            var implantSystem = EntitySystem.Get<SharedSubdermalImplantSystem>();
+            foreach (var implantId in component.Implants)
+            {
+                implantSystem.AddImplant(user, implantId);
             }
         }
     }

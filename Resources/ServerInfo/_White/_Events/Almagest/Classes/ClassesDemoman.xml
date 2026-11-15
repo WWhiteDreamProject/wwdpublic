@@ -1,0 +1,39 @@
+<Document>
+  # Подрывник (Demoman)
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestAutoEquipmentRedDemoman" Caption=""/>
+  </Box>
+
+  Эксперт по взрывчатке и диверсионным операциям. Способен уничтожать укрепления и наносить критический урон кораблям противника.
+
+  ## Снаряжение
+  <Box>
+    <GuideEntityEmbed Entity="ClothingNeckMantleRD"/>
+    <GuideEntityEmbed Entity="ClothingEyesEyepatchHudBeer"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGrenadeDemoman"/>
+    <GuideEntityEmbed Entity="ClothingBeltMilitaryWebbingAlmagestEquip" Caption="РПС Альмагеста"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="SyndicateBombFlatpack"/>
+    <GuideEntityEmbed Entity="DrinkPremiumWhiskeyBottleFull"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="RemoteSignaller"/>
+    <GuideEntityEmbed Entity="Multitool"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="GrenadeShrapnel" Caption="2 осколочные гранаты"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="GrenadeIncendiary" Caption="упакованная зажигательная граната"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="C4" Caption="4 С4"/>
+  </Box>
+
+  ## Роль
+
+  Подрыв вражеских конструкций, создание ловушек и проведение диверсий.
+</Document>

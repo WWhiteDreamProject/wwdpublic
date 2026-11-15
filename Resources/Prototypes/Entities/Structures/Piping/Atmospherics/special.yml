@@ -11,6 +11,7 @@
   - type: Physics
     bodyType: Static
   - type: Sprite
+    drawdepth: HighFloorObjects # WD EDIT
     sprite: Structures/Piping/Atmospherics/tinyfan.rsi
     state: icon
     noRot: True # WD EDIT

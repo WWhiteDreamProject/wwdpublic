@@ -1,0 +1,24 @@
+- type: constructionGraph
+  id: AlmagestTurretRepair
+  start: start
+  graph:
+  - node: start
+
+  - node: broken
+    entity: WeaponTurretShipAlmagestBroken
+    edges:
+    - to: repaired
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 1
+      - tool: Welding
+        doAfter: 5
+      - material: Cable
+        amount: 3
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 2
+
+  - node: repaired
+    entity: WeaponTurretShipAlmagest

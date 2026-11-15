@@ -22,9 +22,9 @@ public sealed partial class SeparatedChatGameScreen : InGameScreen
         SetAnchorAndMarginPreset(TopLeftContainer, LayoutPreset.TopLeft, margin: 10);
         SetAnchorAndMarginPreset(Ghost, LayoutPreset.BottomWide, margin: 80);
         SetAnchorAndMarginPreset(Hotbar, LayoutPreset.BottomWide, margin: 5);
-        SetAnchorAndMarginPreset(Alerts, LayoutPreset.CenterRight, margin: 10);
         // WD EDIT START
         SetAnchorAndMarginPreset(BottomRight, LayoutPreset.BottomRight, margin: 5);
+        SetAnchorAndMarginPreset(TopRightContainer, LayoutPreset.TopRight, margin: 10);
         SetAnchorPreset(AdminObserverHands, LayoutPreset.TopRight);
         SetMarginLeft(AdminObserverHands, -74);
         SetMarginRight(AdminObserverHands, -10);

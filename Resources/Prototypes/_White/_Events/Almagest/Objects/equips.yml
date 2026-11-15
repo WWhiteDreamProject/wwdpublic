@@ -2,14 +2,44 @@
 - type: entity
   parent: ClothingOuterHardsuitERTSecurity
   id: ClothingOuterHardsuitAlmagestRed
+  name: red hardsuit
   components:
   - type: Unremoveable
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitAlmagestRed
+  - type: ClothingGrantComponent
+    component:
+    - type: SurgeryIgnoreClothing
+  - type: GiftIgnore
 
 - type: entity
   parent: ClothingOuterHardsuitERTLeader
   id: ClothingOuterHardsuitAlmagestBlue
+  name: blue hardsuit
   components:
   - type: Unremoveable
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitAlmagestBlue
+  - type: ClothingGrantComponent
+    component:
+    - type: SurgeryIgnoreClothing
+  - type: GiftIgnore
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitERTSecurity
+  id: ClothingHeadHelmetHardsuitAlmagestRed
+  name: blue hardsuit helmet
+  components:
+  - type: ShowJobIcons
+  - type: GiftIgnore
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitERTLeader
+  id: ClothingHeadHelmetHardsuitAlmagestBlue
+  name: blue hardsuit helmet
+  components:
+  - type: ShowJobIcons
+  - type: GiftIgnore
 
 # Starting Gear Base
 
@@ -17,7 +47,7 @@
   id: AlmagestRedBaseGear
   equipment:
     outerClothing: ClothingOuterHardsuitAlmagestRed
-    id: ERTLeaderPDA
+    id: AlmagestPDARed
     mask: ClothingMaskBreath
     belt: ClothingBeltMilitaryWebbingAlmagestEquip
     shoes: ClothingShoesBootsCombatFilled
@@ -27,7 +57,7 @@
   id: AlmagestBlueBaseGear
   equipment:
     outerClothing: ClothingOuterHardsuitAlmagestBlue
-    id: ERTLeaderPDA
+    id: AlmagestPDABlue
     mask: ClothingMaskBreath
     belt: ClothingBeltMilitaryWebbingAlmagestEquip
     shoes: ClothingShoesBootsCombatFilled
@@ -139,6 +169,15 @@
 
 # Equip Red
 - type: entity
+  abstract: true
+  parent: BaseItem
+  id: AlmagestAutoEquipmentBase
+  components:
+  - type: Item
+    size: Ginormous
+  - type: GiftIgnore
+
+- type: entity
   name: red equipment
   parent: BaseItem
   id: AlmagestEquipmentBaseRed
@@ -162,15 +201,14 @@
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
     inHandsOnly: true
+  - type: GiftIgnore
 
 - type: entity
   name: red captain equipment
-  parent: BaseItem
+  parent: AlmagestAutoEquipmentBase
   id: AlmagestAutoEquipmentRedCaptain
   description: "red captain equipment"
   components:
-  - type: Item
-    size: Ginormous
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertsec.rsi
     state: icon
@@ -183,15 +221,16 @@
     - AlmagestRedBaseGear
     - AlmagestCaptainGear
     - AlmagestCaptainGearRed
+    implants:
+    - AlmagestDeathRattleImplantCaptainRed
+    - AlmagestDeathRattleImplantCaptainRedToTeam
 
 - type: entity
   name: red marine equipment
-  parent: BaseItem
+  parent: AlmagestAutoEquipmentBase
   id: AlmagestAutoEquipmentRedMarine
   description: "red marine equipment"
   components:
-  - type: Item
-    size: Ginormous
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertsec.rsi
     state: icon
@@ -207,12 +246,10 @@
 
 - type: entity
   name: red engineer equipment
-  parent: BaseItem
+  parent: AlmagestAutoEquipmentBase
   id: AlmagestAutoEquipmentRedEngineer
   description: "red engineer equipment"
   components:
-  - type: Item
-    size: Ginormous
   - type: Sprite
     sprite: Clothing/Back/Backpacks/erteng.rsi
     state: icon
@@ -227,12 +264,10 @@
 
 - type: entity
   name: red demoman equipment
-  parent: BaseItem
+  parent: AlmagestAutoEquipmentBase
   id: AlmagestAutoEquipmentRedDemoman
   description: "red demoman equipment"
   components:
-  - type: Item
-    size: Ginormous
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertjanitor.rsi
     state: icon
@@ -248,12 +283,10 @@
 
 - type: entity
   name: red medic equipment
-  parent: BaseItem
+  parent: AlmagestAutoEquipmentBase
   id: AlmagestAutoEquipmentRedMedic
   description: "red medic equipment"
   components:
-  - type: Item
-    size: Ginormous
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertmed.rsi
     state: icon
@@ -266,6 +299,8 @@
     - AlmagestRedBaseGear
     - AlmagestMedicGear
     - AlmagestMedicGearRed
+    implants:
+    - AlmagestImplantMedic
 
 # Equip Blue
 - type: entity
@@ -292,15 +327,14 @@
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
     inHandsOnly: true
+  - type: GiftIgnore
 
 - type: entity
   name: blue captain equipment
-  parent: BaseItem
+  parent: AlmagestAutoEquipmentBase
   id: AlmagestAutoEquipmentBlueCaptain
   description: "blue captain equipment"
   components:
-  - type: Item
-    size: Ginormous
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertleader.rsi
     state: icon
@@ -313,15 +347,16 @@
     - AlmagestBlueBaseGear
     - AlmagestCaptainGear
     - AlmagestCaptainGearBlue
+    implants:
+    - AlmagestDeathRattleImplantCaptainBlue
+    - AlmagestDeathRattleImplantCaptainBlueToTeam
 
 - type: entity
   name: blue marine equipment
-  parent: BaseItem
+  parent: AlmagestAutoEquipmentBase
   id: AlmagestAutoEquipmentBlueMarine
   description: "blue marine equipment"
   components:
-  - type: Item
-    size: Ginormous
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertsec.rsi
     state: icon
@@ -397,3 +432,5 @@
     - AlmagestBlueBaseGear
     - AlmagestMedicGear
     - AlmagestMedicGearBlue
+    implants:
+    - AlmagestImplantMedic

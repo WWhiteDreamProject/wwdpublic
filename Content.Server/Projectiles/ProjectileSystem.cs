@@ -67,11 +67,10 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             damageRequired = FixedPoint2.Max(damageRequired, FixedPoint2.Zero);
         }
         var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, damageable: damageableComponent, origin: component.Shooter);
-        var deleted = Deleted(target);
 
         if (modifiedDamage is not null && EntityManager.EntityExists(component.Shooter))
         {
-            if (modifiedDamage.AnyPositive() && !deleted)
+            if (modifiedDamage.AnyPositive() && !Deleted(target))
                 _color.RaiseEffect(Color.Red, [ target, ], Filter.Pvs(target, entityManager: EntityManager));
 
             _adminLogger.Add(
@@ -117,18 +116,20 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         }
         else
         {
-            // Goobstation start - Enhanced penetration with limits
+            // WD EDIT START
+            // WD EDIT START
             if (component.Penetrate
-                && component.IgnoredEntities.Count < component.MaxPenetrations
+                && (component.MaxPenetrations == -1 || component.IgnoredEntities.Count < component.MaxPenetrations)
                 && (component.PenetrationChance >= 1.0f
                     || _random.Prob(component.PenetrationChance)))
                 component.IgnoredEntities.Add(target);
-else
+            else
                 component.ProjectileSpent = true;
-            // Goobstation end
+            // WD EDIT END
+            // WD EDIT END
         }
 
-        if (!deleted)
+        if (!Deleted(target))
         {
             _guns.PlayImpactSound(target, modifiedDamage, component.SoundHit, component.ForceSound);
 

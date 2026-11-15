@@ -10,6 +10,8 @@
     - id: ClothingMaskGas
     - id: BoxCaptureCartridgeWhite
     - id: ClothingHeadsetCargo
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 - type: entity
   parent: ClothingBackpackERTEngineer
@@ -22,6 +24,8 @@
     - id: ClothingMaskGas
     - id: BoxCaptureCartridgeYellow
     - id: ClothingHeadsetEngineering
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 - type: entity
   parent: ClothingBackpackERTSecurity
@@ -34,6 +38,14 @@
     - id: ClothingMaskGas
     - id: BoxCaptureCartridgeRed
     - id: ClothingHeadsetPrison
+  - type: EntityGenerator
+    prototypeId: AlmagestFlareSelectRed
+    rechargeDuration: 100
+    maxCharges: 2
+    charges: 2
+    onlyFullRecharge: true
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 - type: entity
   parent: ClothingBackpackERTLeader
@@ -46,6 +58,14 @@
     - id: ClothingMaskGas
     - id: BoxCaptureCartridgeBlue
     - id: ClothingHeadsetMedical
+  - type: EntityGenerator
+    prototypeId: AlmagestFlareSelectBlue
+    rechargeDuration: 100
+    maxCharges: 2
+    charges: 2
+    onlyFullRecharge: true
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 - type: entity
   parent: ClothingBackpackERTClown
@@ -58,6 +78,8 @@
     - id: ClothingMaskGas
     - id: BoxCaptureCartridgeGreen
     - id: ClothingHeadsetService
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 - type: entity
   parent: ClothingBackpackERTJanitor
@@ -70,6 +92,8 @@
     - id: ClothingMaskGas
     - id: BoxCaptureCartridgePurple
     - id: ClothingHeadsetScience
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 # Amalga v3
 - type: entity
@@ -84,6 +108,8 @@
     - id: HandheldGPSBasic
     - id: WeaponGrapplingGun
     - id: BeaconTeleporter
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 - type: entity
   parent: ClothingBeltChiefEngineerFilled
@@ -109,6 +135,8 @@
     - id: GasAnalyzer
     - id: trayScanner
     - id: BeaconTeleporter
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 # Backpacks
 # Red
@@ -122,6 +150,8 @@
     - id: AlmagestEquipmentWeaponBaseSelect
     - id: WeaponAntiqueLaser
     - id: SciFlash
+    - id: WeaponTurretShipAlmagestFlatpack
+      amount: 3
 
 - type: entity
   parent: ClothingBackpackAlmagestRed
@@ -150,6 +180,7 @@
     - id: WallAlmagestStructuralResistantFlatpack15
     - id: WallAlmagestLaserResistantFlatpack15
     - id: WallAlmagestPiercingResistantFlatpack15
+    - id: WallAlmagestUniversalResistantFlatpack15
 
 - type: entity
   parent: ClothingBackpackAlmagestRed
@@ -159,8 +190,7 @@
   - type: StorageFill
     contents:
     - id: AlmagestEquipmentWeaponBaseSelect
-    - id: DrinkBeerBottleFull
-      amount: 2
+    - id: DrinkPremiumWhiskeyBottleFull
     - id: GrenadeShrapnel
       amount: 2
     - id: GrenadeIncendiary
@@ -179,16 +209,15 @@
     contents:
     - id: AlmagestEquipmentWeaponBaseSelect
     - id: BodyBagBluespaceFolded
-    - id: OmnizineChemistryBottle
-      amount: 2
-    - id: EpinephrineChemistryBottle
-      amount: 2
+    - id: OmnizineCryostasisBeaker
+    - id: EpinephrineCryostasisBeaker
     - id: Hypospray
     - id: Crowbar
     - id: HandHeldMassScanner
     - id: HandheldGPSBasic
     - id: WeaponGrapplingGun
     - id: BeaconTeleporter
+    - id: DefibrillatorCompact
 
 # Blue
 - type: entity
@@ -201,6 +230,8 @@
     - id: AlmagestEquipmentWeaponBaseSelect
     - id: WeaponAntiqueLaser
     - id: SciFlash
+    - id: WeaponTurretShipAlmagestFlatpack
+      amount: 3
 
 - type: entity
   parent: ClothingBackpackAlmagestBlue
@@ -229,6 +260,7 @@
     - id: WallAlmagestStructuralResistantFlatpack15
     - id: WallAlmagestLaserResistantFlatpack15
     - id: WallAlmagestPiercingResistantFlatpack15
+    - id: WallAlmagestUniversalResistantFlatpack15
 
 - type: entity
   parent: ClothingBackpackAlmagestBlue
@@ -238,8 +270,7 @@
   - type: StorageFill
     contents:
     - id: AlmagestEquipmentWeaponBaseSelect
-    - id: DrinkBeerBottleFull
-      amount: 2
+    - id: DrinkPremiumWhiskeyBottleFull
     - id: GrenadeShrapnel
       amount: 2
     - id: GrenadeIncendiary
@@ -258,13 +289,12 @@
     contents:
     - id: AlmagestEquipmentWeaponBaseSelect
     - id: BodyBagBluespaceFolded
-    - id: OmnizineChemistryBottle
-      amount: 2
-    - id: EpinephrineChemistryBottle
-      amount: 2
+    - id: OmnizineCryostasisBeaker
+    - id: EpinephrineCryostasisBeaker
     - id: Hypospray
     - id: Crowbar
     - id: HandHeldMassScanner
     - id: HandheldGPSBasic
     - id: WeaponGrapplingGun
     - id: BeaconTeleporter
+    - id: DefibrillatorCompact

@@ -1,0 +1,111 @@
+- type: guideEntry
+  id: Events
+  name: guide-entry-events
+  priority: 31
+  text: "/ServerInfo/_White/_Events/Events.xml"
+  children:
+  - Almagest
+
+# Almagest
+- type: guideEntry
+  id: Almagest
+  name: guide-entry-almagest
+  text: "/ServerInfo/_White/_Events/Almagest/Almagest.xml"
+  children:
+  - AlmagestRuleset
+  - AlmagestClasses
+  - AlmagestEquipment
+  - AlmagestWeapon
+  - AlmagestStructures
+
+# T1
+- type: guideEntry
+  id: AlmagestRuleset
+  name: guide-entry-almagest-rules
+  text: "/ServerInfo/_White/_Events/Almagest/Rules.xml"
+
+- type: guideEntry
+  id: AlmagestClasses
+  name: guide-entry-almagest-classes
+  text: "/ServerInfo/_White/_Events/Almagest/Classes.xml"
+  children:
+  - AlmagestClassesCaptain
+  - AlmagestClassesMarine
+  - AlmagestClassesEngineer
+  - AlmagestClassesMedic
+  - AlmagestClassesDemoman
+
+- type: guideEntry
+  id: AlmagestEquipment
+  name: guide-entry-almagest-eqipment
+  text: "/ServerInfo/_White/_Events/Almagest/Equipment.xml"
+
+- type: guideEntry
+  id: AlmagestWeapon
+  name: guide-entry-almagest-weapon
+  text: "/ServerInfo/_White/_Events/Almagest/Weapon.xml"
+  children:
+  - AlmagestWeaponAnnihilator
+  - AlmagestWeaponIRLaser
+  - AlmagestWeaponHMG
+  - AlmagestWeaponRam
+
+- type: guideEntry
+  id: AlmagestStructures
+  name: guide-entry-almagest-structures
+  text: "/ServerInfo/_White/_Events/Almagest/Structures.xml"
+  children:
+  - AlmagestStructuresWalls
+
+# T2 Classes
+- type: guideEntry
+  id: AlmagestClassesCaptain
+  name: guide-entry-almagest-classes-captain
+  text: "/ServerInfo/_White/_Events/Almagest/Classes/ClassesCaptain.xml"
+
+- type: guideEntry
+  id: AlmagestClassesMarine
+  name: guide-entry-almagest-classes-marine
+  text: "/ServerInfo/_White/_Events/Almagest/Classes/ClassesMarine.xml"
+
+- type: guideEntry
+  id: AlmagestClassesEngineer
+  name: guide-entry-almagest-classes-engineer
+  text: "/ServerInfo/_White/_Events/Almagest/Classes/ClassesEngineer.xml"
+
+- type: guideEntry
+  id: AlmagestClassesMedic
+  name: guide-entry-almagest-classes-medic
+  text: "/ServerInfo/_White/_Events/Almagest/Classes/ClassesMedic.xml"
+
+- type: guideEntry
+  id: AlmagestClassesDemoman
+  name: guide-entry-almagest-classes-demoman
+  text: "/ServerInfo/_White/_Events/Almagest/Classes/ClassesDemoman.xml"
+
+# T2 Weapon
+- type: guideEntry
+  id: AlmagestWeaponAnnihilator
+  name: guide-entry-almagest-weapon-annihilator
+  text: "/ServerInfo/_White/_Events/Almagest/Weapon/WeaponAnnihilator.xml"
+
+- type: guideEntry
+  id: AlmagestWeaponIRLaser
+  name: guide-entry-almagest-weapon-irlaser
+  text: "/ServerInfo/_White/_Events/Almagest/Weapon/WeaponIRLaser.xml"
+
+- type: guideEntry
+  id: AlmagestWeaponHMG
+  name: guide-entry-almagest-weapon-hmg
+  text: "/ServerInfo/_White/_Events/Almagest/Weapon/WeaponHMG.xml"
+
+- type: guideEntry
+  id: AlmagestWeaponRam
+  name: guide-entry-almagest-weapon-ram
+  text: "/ServerInfo/_White/_Events/Almagest/Weapon/WeaponRam.xml"
+
+# T2 Structures
+- type: guideEntry
+  id: AlmagestStructuresWalls
+  name: guide-entry-almagest-structures-walls
+  text: "/ServerInfo/_White/_Events/Almagest/Structures/StructuresWalls.xml"

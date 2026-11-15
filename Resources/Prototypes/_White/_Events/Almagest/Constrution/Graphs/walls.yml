@@ -48,6 +48,17 @@
         amount: 1
         doAfter: 2
 
+    - to: wallAlmagestUniversal
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      conditions:
+      - !type:EntityAnchored { }
+      steps:
+      - material: ReinforcedGlass
+        amount: 1
+        doAfter: 2
+
     - to: start
       completed:
       - !type:SpawnPrototype
@@ -103,6 +114,24 @@
         southRotation: true
       - !type:SpawnPrototype
         prototype: SheetSteel1
+        amount: 1
+      steps:
+      - tool: Welding
+        doAfter: 15
+      - tool: Screwing
+        doAfter: 3
+      - tool: Prying
+        doAfter: 1
+
+  - node: wallAlmagestUniversal
+    entity: WallAlmagestUniversalResistant
+    edges:
+    - to: almagestGirder
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      - !type:SpawnPrototype
+        prototype: SheetRGlass1
         amount: 1
       steps:
       - tool: Welding

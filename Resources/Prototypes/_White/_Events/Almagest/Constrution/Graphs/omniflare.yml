@@ -1,0 +1,19 @@
+- type: constructionGraph
+  id: OmniFlareGraph
+  start: flare
+  graph:
+  - node: flare
+    edges:
+    - to: unfinished
+      steps:
+      - tag: AlmagestFlare
+        doAfter: 3
+  - node: unfinished
+    entity: AlmagestFlareOmniUnfinished
+    edges:
+    - to: omni
+      steps:
+      - tool: Prying
+        doAfter: 5
+  - node: omni
+    entity: AlmagestFlareOmni
