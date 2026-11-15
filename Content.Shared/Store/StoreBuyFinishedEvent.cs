@@ -12,3 +12,14 @@ public readonly record struct StoreBuyFinishedEvent(
     EntityUid StoreUid,
     ListingDataWithCostModifiers PurchasedItem
 );
+
+// WD EDIT START - expose successful aggregate refunds to White purchase history.
+/// <summary>
+/// Raised after a store successfully refunds all purchases tracked in its current refund window.
+/// </summary>
+[ByRefEvent]
+public readonly record struct StoreRefundFinishedEvent(
+    EntityUid Buyer,
+    EntityUid StoreUid
+);
+// WD EDIT END
