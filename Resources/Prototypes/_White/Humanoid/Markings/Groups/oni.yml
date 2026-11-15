@@ -18,7 +18,7 @@
       limit: 1
     Horns:
       required: true
-      defaultMarkings: [ OniHornDoubleCurved ]
+      default: [ HornsOniDoubleCurved ]
       limit: 1
     Legs:
       limit: 2

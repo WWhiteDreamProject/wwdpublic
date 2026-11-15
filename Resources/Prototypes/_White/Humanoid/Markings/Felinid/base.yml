@@ -1,0 +1,4 @@
+﻿- type: marking
+  id: BaseFelinid
+  abstract: true
+  groups: [Felinid]

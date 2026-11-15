@@ -24,6 +24,14 @@
       "directions": 4
     },
     {
+      "name": "deathhead_classic-chest",
+      "directions": 4
+    },
+    {
+      "name": "deathhead_classic-groin",
+      "directions": 4
+    },
+    {
       "name": "fan-chest",
       "directions": 4
     },
@@ -40,11 +48,27 @@
       "directions": 4
     },
     {
+      "name": "firewatch_classic-chest",
+      "directions": 4
+    },
+    {
+      "name": "firewatch_classic-groin",
+      "directions": 4
+    },
+    {
       "name": "gothic-chest",
       "directions": 4
     },
     {
       "name": "gothic-groin",
+      "directions": 4
+    },
+    {
+      "name": "gothic_classic-chest",
+      "directions": 4
+    },
+    {
+      "name": "gothic_classic-groin",
       "directions": 4
     },
     {
@@ -56,11 +80,35 @@
       "directions": 4
     },
     {
+      "name": "jungle_classic-chest",
+      "directions": 4
+    },
+    {
+      "name": "jungle_classic-groin",
+      "directions": 4
+    },
+    {
+      "name": "lovers_classic-chest",
+      "directions": 4
+    },
+    {
+      "name": "lovers_classic-groin",
+      "directions": 4
+    },
+    {
       "name": "moonfly-chest",
       "directions": 4
     },
     {
       "name": "moonfly-groin",
+      "directions": 4
+    },
+    {
+      "name": "moonfly_classic-chest",
+      "directions": 4
+    },
+    {
+      "name": "moonfly_classic-groin",
       "directions": 4
     },
     {
@@ -72,11 +120,27 @@
       "directions": 4
     },
     {
+      "name": "oakworm_classic-chest",
+      "directions": 4
+    },
+    {
+      "name": "oakworm_classic-groin",
+      "directions": 4
+    },
+    {
       "name": "pointy-chest",
       "directions": 4
     },
     {
       "name": "pointy-groin",
+      "directions": 4
+    },
+    {
+      "name": "poison_classic-chest",
+      "directions": 4
+    },
+    {
+      "name": "poison_classic-groin",
       "directions": 4
     },
     {
@@ -88,11 +152,35 @@
       "directions": 4
     },
     {
+      "name": "ragged_classic-chest",
+      "directions": 4
+    },
+    {
+      "name": "ragged_classic-groin",
+      "directions": 4
+    },
+    {
+      "name": "reddish_classic-chest",
+      "directions": 4
+    },
+    {
+      "name": "reddish_classic-groin",
+      "directions": 4
+    },
+    {
       "name": "royal-chest",
       "directions": 4
     },
     {
       "name": "royal-groin",
+      "directions": 4
+    },
+    {
+      "name": "royal_classic-chest",
+      "directions": 4
+    },
+    {
+      "name": "royal_classic-groin",
       "directions": 4
     },
     {
@@ -104,11 +192,27 @@
       "directions": 4
     },
     {
+      "name": "whitefly_classic-chest",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_classic-groin",
+      "directions": 4
+    },
+    {
       "name": "witchwing-chest",
       "directions": 4
     },
     {
       "name": "witchwing-groin",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_classic-chest",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_classic-groin",
       "directions": 4
     }
   ]

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commits https://github.com/tgstation/tgstation/commit/b30e2934e7585bad901dd12a35d0635f1fc292c1 and https://github.com/tgstation/tgstation/commit/6b0af0febe578f47ae280781682ea7a3d77f508a, modified by https://github.com/MilenVolf. The division of the torso into chest and groin was done by Sparison",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/b30e2934e7585bad901dd12a35d0635f1fc292c1 and https://github.com/tgstation/tgstation/commit/6b0af0febe578f47ae280781682ea7a3d77f508a. Modified by MilenVolf(github).",
   "size": {
     "x": 32,
     "y": 32
@@ -20,6 +20,14 @@
       "directions": 4
     },
     {
+      "name": "deathhead_classic-foot",
+      "directions": 4
+    },
+    {
+      "name": "deathhead_classic-leg",
+      "directions": 4
+    },
+    {
       "name": "fan",
       "directions": 4
     },
@@ -28,7 +36,23 @@
       "directions": 4
     },
     {
+      "name": "firewatch_classic-foot",
+      "directions": 4
+    },
+    {
+      "name": "firewatch_classic-leg",
+      "directions": 4
+    },
+    {
       "name": "gothic",
+      "directions": 4
+    },
+    {
+      "name": "gothic_classic-foot",
+      "directions": 4
+    },
+    {
+      "name": "gothic_classic-leg",
       "directions": 4
     },
     {
@@ -40,11 +64,35 @@
       "directions": 4
     },
     {
+      "name": "jungle_classic-foot",
+      "directions": 4
+    },
+    {
+      "name": "jungle_classic-leg",
+      "directions": 4
+    },
+    {
+      "name": "lovers_classic-foot",
+      "directions": 4
+    },
+    {
+      "name": "lovers_classic-leg",
+      "directions": 4
+    },
+    {
       "name": "moonfly-foot",
       "directions": 4
     },
     {
       "name": "moonfly-leg",
+      "directions": 4
+    },
+    {
+      "name": "moonfly_classic-foot",
+      "directions": 4
+    },
+    {
+      "name": "moonfly_classic-leg",
       "directions": 4
     },
     {
@@ -56,11 +104,39 @@
       "directions": 4
     },
     {
+      "name": "oakworm_classic-foot",
+      "directions": 4
+    },
+    {
+      "name": "oakworm_classic-leg",
+      "directions": 4
+    },
+    {
       "name": "pointy",
       "directions": 4
     },
     {
+      "name": "poison_classic-foot",
+      "directions": 4
+    },
+    {
+      "name": "poison_classic-leg",
+      "directions": 4
+    },
+    {
       "name": "ragged",
+      "directions": 4
+    },
+    {
+      "name": "ragged_classic",
+      "directions": 4
+    },
+    {
+      "name": "reddish_classic-foot",
+      "directions": 4
+    },
+    {
+      "name": "reddish_classic-leg",
       "directions": 4
     },
     {
@@ -72,7 +148,23 @@
       "directions": 4
     },
     {
+      "name": "royal_classic-foot",
+      "directions": 4
+    },
+    {
+      "name": "royal_classic-leg",
+      "directions": 4
+    },
+    {
       "name": "whitefly",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_classic-foot",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_classic-leg",
       "directions": 4
     },
     {
@@ -81,6 +173,14 @@
     },
     {
       "name": "witchwing-leg",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_classic-foot",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_classic-leg",
       "directions": 4
     }
   ]

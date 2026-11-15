@@ -1,0 +1,139 @@
+﻿- type: marking
+  id: BaseEarsFelinid
+  parent: [BaseEars, BaseFelinid]
+  abstract: true
+  coloring:
+    default:
+      type: !type:SimpleColoring
+    indexes:
+      outer:
+        type: !type:CategoryColoring
+          category: Hair
+        fallbackTypes:
+        - !type:BodyColorGroupColoring
+          group: Skin
+
+- type: marking
+  id: EarsFelinidCurled
+  parent: BaseEarsFelinid
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: curled-inner
+    index: inner
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: curled-outer
+    index: outer
+
+- type: marking
+  id: EarsFelinidDefault
+  parent: BaseEarsFelinid
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: default-inner
+    index: inner
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: default-outer
+    index: outer
+
+- type: marking
+  id: EarsFelinidDroopy
+  parent: BaseEarsFelinid
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: droopy-inner
+    index: inner
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: droopy-outer
+    index: outer
+
+- type: marking
+  id: EarsFelinidFuzzy
+  parent: BaseEarsFelinid
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: fuzzy-inner
+    index: inner
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: default-outer
+    index: outer
+
+- type: marking
+  id: EarsFelinidStubby
+  parent: BaseEarsFelinid
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: stubby-inner
+    index: inner
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: stubby-outer
+    index: outer
+
+- type: marking
+  id: EarsFelinidTall
+  parent: BaseEarsFelinid
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: tall-fuzz
+    index: fuzz
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: tall-inner
+    index: inner
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: tall-outer
+    index: outer
+
+- type: marking
+  id: EarsFelinidTorn
+  parent: BaseEarsFelinid
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: torn-inner
+    index: inner
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: torn-outer
+    index: outer
+
+- type: marking
+  id: EarsFelinidWide
+  parent: BaseEarsFelinid
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: wide-inner
+    index: inner
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/ears.rsi
+      state: wide-outer
+    index: outer

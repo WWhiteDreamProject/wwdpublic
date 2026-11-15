@@ -1,12 +1,24 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/b30e2934e7585bad901dd12a35d0635f1fc292c1 and https://github.com/tgstation/tgstation/commit/6b0af0febe578f47ae280781682ea7a3d77f508a. Modified by PixelTheKermit(github) and MilenVolf(github). Underwing made by Ubaser(github).",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/b30e2934e7585bad901dd12a35d0635f1fc292c1 and https://github.com/tgstation/tgstation/commit/6b0af0febe578f47ae280781682ea7a3d77f508a. Modified by PixelTheKermit(github) and MilenVolf(github). Underwing made by Ubaser(github). A taken from https://github.com/fulpstation/fulpstation/commit/b21af07f57c2c4fb1cdcdb4162ca222da97ed54c. Mint made by Floofers(github).",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    {
+      "name": "aspen_classic",
+      "directions": 4
+    },
+    {
+      "name": "atlas_classic",
+      "directions": 4
+    },
+    {
+      "name": "brown_classic",
+      "directions": 4
+    },
     {
       "name": "bushy-primary",
       "directions": 4
@@ -28,6 +40,10 @@
       "directions": 4
     },
     {
+      "name": "deathhead_classic",
+      "directions": 4
+    },
+    {
       "name": "fan_huescale",
       "directions": 4
     },
@@ -40,6 +56,10 @@
       "directions": 4
     },
     {
+      "name": "feathery_classic",
+      "directions": 4
+    },
+    {
       "name": "firewatch-primary",
       "directions": 4
     },
@@ -48,7 +68,15 @@
       "directions": 4
     },
     {
+      "name": "firewatch_classic",
+      "directions": 4
+    },
+    {
       "name": "gothic",
+      "directions": 4
+    },
+    {
+      "name": "gothic_classic",
       "directions": 4
     },
     {
@@ -56,11 +84,27 @@
       "directions": 4
     },
     {
+      "name": "jungle_classic",
+      "directions": 4
+    },
+    {
       "name": "ladybug",
       "directions": 4
     },
     {
+      "name": "lovers_classic",
+      "directions": 4
+    },
+    {
+      "name": "luna_classic",
+      "directions": 4
+    },
+    {
       "name": "maple",
+      "directions": 4
+    },
+    {
+      "name": "mint_classic",
       "directions": 4
     },
     {
@@ -72,7 +116,27 @@
       "directions": 4
     },
     {
+      "name": "moffra_classic",
+      "directions": 4
+    },
+    {
+      "name": "monarch_classic",
+      "directions": 4
+    },
+    {
+      "name": "moonfly_classic",
+      "directions": 4
+    },
+    {
       "name": "oakworm",
+      "directions": 4
+    },
+    {
+      "name": "oakworm_classic",
+      "directions": 4
+    },
+    {
+      "name": "plain_classic",
       "directions": 4
     },
     {
@@ -84,7 +148,27 @@
       "directions": 4
     },
     {
+      "name": "plasmafire_classic",
+      "directions": 4
+    },
+    {
       "name": "pointy",
+      "directions": 4
+    },
+    {
+      "name": "poison_classic",
+      "directions": 4
+    },
+    {
+      "name": "ragged_classic",
+      "directions": 4
+    },
+    {
+      "name": "reddish_classic",
+      "directions": 4
+    },
+    {
+      "name": "rosy_classic",
       "directions": 4
     },
     {
@@ -93,6 +177,14 @@
     },
     {
       "name": "royal-secondary",
+      "directions": 4
+    },
+    {
+      "name": "royal_classic",
+      "directions": 4
+    },
+    {
+      "name": "snow_classic",
       "directions": 4
     },
     {
@@ -120,7 +212,15 @@
       "directions": 4
     },
     {
+      "name": "whitefly_classic",
+      "directions": 4
+    },
+    {
       "name": "witchwing",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_classic",
       "directions": 4
     }
   ]

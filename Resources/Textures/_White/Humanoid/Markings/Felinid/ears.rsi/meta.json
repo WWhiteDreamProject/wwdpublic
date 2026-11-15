@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by Vordenburg(discord).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "curled-inner",
+      "directions": 4
+    },
+    {
+      "name": "curled-outer",
+      "directions": 4
+    },
+    {
+      "name": "default-inner",
+      "directions": 4
+    },
+    {
+      "name": "default-outer",
+      "directions": 4
+    },
+    {
+      "name": "droopy-inner",
+      "directions": 4
+    },
+    {
+      "name": "droopy-outer",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy-inner",
+      "directions": 4
+    },
+    {
+      "name": "stubby-inner",
+      "directions": 4
+    },
+    {
+      "name": "stubby-outer",
+      "directions": 4
+    },
+    {
+      "name": "tall-fuzz",
+      "directions": 4
+    },
+    {
+      "name": "tall-inner",
+      "directions": 4
+    },
+    {
+      "name": "tall-outer",
+      "directions": 4
+    },
+    {
+      "name": "torn-inner",
+      "directions": 4
+    },
+    {
+      "name": "torn-outer",
+      "directions": 4
+    },
+    {
+      "name": "wide-inner",
+      "directions": 4
+    },
+    {
+      "name": "wide-outer",
+      "directions": 4
+    }
+  ]
+}

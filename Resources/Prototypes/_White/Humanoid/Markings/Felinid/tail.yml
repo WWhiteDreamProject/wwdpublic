@@ -1,0 +1,105 @@
+﻿- type: marking
+  id: BaseTailFelinid
+  parent: [BaseTail, BaseFelinid]
+  abstract: true
+  appearance: true
+
+- type: marking
+  id: TailFelinidDefault
+  parent: BaseTailFelinid
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail-stripes_odd
+    index: stripes_odd
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail-stripes_even
+    index: stripes_even
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail-tip
+    index: tip
+
+- type: marking
+  id: TailFelinidDefaultWithBell
+  parent: BaseTailFelinid
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/tail.rsi
+      state: default-bell
+    index: bell
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail-stripes_odd
+    index: stripes_odd
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail-stripes_even
+    index: stripes_even
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail-tip
+    index: tip
+
+- type: marking
+  id: TailFelinidDefaultWithBow
+  parent: BaseTailFelinid
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/tail.rsi
+      state: default-bow
+    index: bow
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail-stripes_odd
+    index: stripes_odd
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail-stripes_even
+    index: stripes_even
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail-tip
+    index: tip
+
+- type: marking
+  id: TailFelinidDefaultWithBowAndBell
+  parent: BaseTailFelinid
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/tail.rsi
+      state: default-bell
+    index: bell
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/tail.rsi
+      state: default-bow
+    index: bow
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail-stripes_odd
+    index: stripes_odd
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail-stripes_even
+    index: stripes_even
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail-tip
+    index: tip

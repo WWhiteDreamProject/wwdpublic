@@ -4,6 +4,16 @@
   abstract: true
 
 - type: marking
+  id: BaseHeadMothClassic
+  parent: BaseHeadMoth
+  abstract: true
+  forcedColoring: true
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#FFFFFF"
+
+- type: marking
   id: HeadMothCharred
   parent: BaseHeadMoth
   definitions:
@@ -20,6 +30,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/head.rsi
       state: deathhead
+
+- type: marking
+  id: HeadMothDeathheadClassic
+  parent: BaseHeadMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: deathhead_classic
 
 - type: marking
   id: HeadMothFan
@@ -40,6 +59,15 @@
       state: firewatch
 
 - type: marking
+  id: HeadMothFirewatchClassic
+  parent: BaseHeadMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: firewatch_classic
+
+- type: marking
   id: HeadMothGothic
   parent: BaseHeadMoth
   definitions:
@@ -47,6 +75,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/head.rsi
       state: gothic
+
+- type: marking
+  id: HeadMothGothicClassic
+  parent: BaseHeadMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: gothic_classic
 
 - type: marking
   id: HeadMothJungle
@@ -58,6 +95,24 @@
       state: jungle
 
 - type: marking
+  id: HeadMothJungleClassic
+  parent: BaseHeadMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: jungle_classic
+
+- type: marking
+  id: HeadMothLoversClassic
+  parent: BaseHeadMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: lovers_classic
+
+- type: marking
   id: HeadMothMoonfly
   parent: BaseHeadMoth
   definitions:
@@ -65,6 +120,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/head.rsi
       state: moonfly
+
+- type: marking
+  id: HeadMothMoonflyClassic
+  parent: BaseHeadMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: moonfly_classic
 
 - type: marking
   id: HeadMothOakworm
@@ -76,6 +140,15 @@
       state: oakworm
 
 - type: marking
+  id: HeadMothOakwormClassic
+  parent: BaseHeadMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: oakworm_classic
+
+- type: marking
   id: HeadMothPointy
   parent: BaseHeadMoth
   definitions:
@@ -83,6 +156,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/head.rsi
       state: pointy
+
+- type: marking
+  id: HeadMothPoisonClassic
+  parent: BaseHeadMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: poison_classic
 
 - type: marking
   id: HeadMothRagged
@@ -94,6 +176,24 @@
       state: ragged
 
 - type: marking
+  id: HeadMothRaggedClassic
+  parent: BaseHeadMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: ragged_classic
+
+- type: marking
+  id: HeadMothReddishClassic
+  parent: BaseHeadMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: reddish_classic
+
+- type: marking
   id: HeadMothRoyal
   parent: BaseHeadMoth
   definitions:
@@ -101,6 +201,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/head.rsi
       state: royal
+
+- type: marking
+  id: HeadMothRoyalClassic
+  parent: BaseHeadMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: royal_classic
 
 - type: marking
   id: HeadMothWhitefly
@@ -112,6 +221,15 @@
       state: whitefly
 
 - type: marking
+  id: HeadMothWhiteflyClassic
+  parent: BaseHeadMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: whitefly_classic
+
+- type: marking
   id: HeadMothWitchwing
   parent: BaseHeadMoth
   definitions:
@@ -119,3 +237,12 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/head.rsi
       state: witchwing
+
+- type: marking
+  id: HeadMothWitchwingClassic
+  parent: BaseHeadMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: witchwing_classic

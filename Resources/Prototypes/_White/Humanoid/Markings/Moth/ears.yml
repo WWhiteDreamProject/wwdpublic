@@ -4,6 +4,34 @@
   abstract: true
 
 - type: marking
+  id: BaseEarsMothClassic
+  parent: BaseEarsMoth
+  abstract: true
+  forcedColoring: true
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#FFFFFF"
+
+- type: marking
+  id: EarsMothAspenClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: aspen_classic
+
+- type: marking
+  id: EarsMothBrownClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: brown_classic
+
+- type: marking
   id: EarsMothBushy
   parent: BaseEarsMoth
   definitions:
@@ -29,6 +57,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/ears.rsi
       state: curvy
+
+- type: marking
+  id: EarsMothDeathheadClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: deathhead_classic
 
 - type: marking
   id: EarsMothDefault
@@ -58,6 +95,15 @@
       state: feathery
 
 - type: marking
+  id: EarsMothFeatheryClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: feathery_classic
+
+- type: marking
   id: EarsMothFirewatch
   parent: BaseEarsMoth
   definitions:
@@ -65,6 +111,24 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/ears.rsi
       state: firewatch
+
+- type: marking
+  id: EarsMothFirewatchClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: firewatch_classic
+
+- type: marking
+  id: EarsMothGothicClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: gothic_classic
 
 - type: marking
   id: EarsMothGray
@@ -85,6 +149,24 @@
       state: jungle
 
 - type: marking
+  id: EarsMothJungleClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: jungle_classic
+
+- type: marking
+  id: EarsMothLoversClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: lovers_classic
+
+- type: marking
   id: EarsMothMaple
   parent: BaseEarsMoth
   definitions:
@@ -92,6 +174,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/ears.rsi
       state: maple
+
+- type: marking
+  id: EarsMothMintClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: mint_classic
 
 - type: marking
   id: EarsMothMoffra
@@ -103,6 +194,24 @@
       state: moffra
 
 - type: marking
+  id: EarsMothMoffraClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: moffra_classic
+
+- type: marking
+  id: EarsMothMoonflyClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: moonfly_classic
+
+- type: marking
   id: EarsMothOakworm
   parent: BaseEarsMoth
   definitions:
@@ -110,6 +219,24 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/ears.rsi
       state: oakworm
+
+- type: marking
+  id: EarsMothOakwormClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: oakworm_classic
+
+- type: marking
+  id: EarsMothPlainClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: plain_classic
 
 - type: marking
   id: EarsMothPlasmafire
@@ -121,6 +248,15 @@
       state: plasmafire
 
 - type: marking
+  id: EarsMothPlasmafireClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: plasmafire_classic
+
+- type: marking
   id: EarsMothPointy
   parent: BaseEarsMoth
   definitions:
@@ -130,6 +266,42 @@
       state: pointy
 
 - type: marking
+  id: EarsMothPoisonClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: poison_classic
+
+- type: marking
+  id: EarsMothReddishClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: reddish_classic
+
+- type: marking
+  id: EarsMothRegalClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: regal_classic
+
+- type: marking
+  id: EarsMothRosyClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: rosy_classic
+
+- type: marking
   id: EarsMothRoyal
   parent: BaseEarsMoth
   definitions:
@@ -137,6 +309,24 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/ears.rsi
       state: royal
+
+- type: marking
+  id: EarsMothRoyalClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: royal_classic
+
+- type: marking
+  id: EarsMothSnowClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: snow_classic
 
 - type: marking
   id: EarsMothStriped
@@ -172,6 +362,15 @@
       state: whitefly
 
 - type: marking
+  id: EarsMothWhiteflyClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: whitefly_classic
+
+- type: marking
   id: EarsMothWitchwing
   parent: BaseEarsMoth
   definitions:
@@ -179,3 +378,12 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/ears.rsi
       state: witchwing
+
+- type: marking
+  id: EarsMothWitchwingClassic
+  parent: BaseEarsMothClassic
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: witchwing_classic

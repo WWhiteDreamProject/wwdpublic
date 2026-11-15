@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commits https://github.com/tgstation/tgstation/commit/b30e2934e7585bad901dd12a35d0635f1fc292c1 and https://github.com/tgstation/tgstation/commit/6b0af0febe578f47ae280781682ea7a3d77f508a, modified by https://github.com/MilenVolf. The division of the torso into chest and groin was done by Sparison",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/b30e2934e7585bad901dd12a35d0635f1fc292c1 and https://github.com/tgstation/tgstation/commit/6b0af0febe578f47ae280781682ea7a3d77f508a. Modified by MilenVolf(github).",
   "size": {
     "x": 32,
     "y": 32
@@ -24,6 +24,14 @@
       "directions": 4
     },
     {
+      "name": "deathhead_classic-arm",
+      "directions": 4
+    },
+    {
+      "name": "deathhead_classic-hand",
+      "directions": 4
+    },
+    {
       "name": "fan-arm",
       "directions": 4
     },
@@ -40,11 +48,27 @@
       "directions": 4
     },
     {
+      "name": "firewatch_classic-arm",
+      "directions": 4
+    },
+    {
+      "name": "firewatch_classic-hand",
+      "directions": 4
+    },
+    {
       "name": "gothic-arm",
       "directions": 4
     },
     {
       "name": "gothic-hand",
+      "directions": 4
+    },
+    {
+      "name": "gothic_classic-arm",
+      "directions": 4
+    },
+    {
+      "name": "gothic_classic-hand",
       "directions": 4
     },
     {
@@ -56,11 +80,35 @@
       "directions": 4
     },
     {
+      "name": "jungle_classic-arm",
+      "directions": 4
+    },
+    {
+      "name": "jungle_classic-hand",
+      "directions": 4
+    },
+    {
+      "name": "lovers_classic-arm",
+      "directions": 4
+    },
+    {
+      "name": "lovers_classic-hand",
+      "directions": 4
+    },
+    {
       "name": "moonfly-arm",
       "directions": 4
     },
     {
       "name": "moonfly-hand",
+      "directions": 4
+    },
+    {
+      "name": "moonfly_classic-arm",
+      "directions": 4
+    },
+    {
+      "name": "moonfly_classic-hand",
       "directions": 4
     },
     {
@@ -72,11 +120,27 @@
       "directions": 4
     },
     {
+      "name": "oakworm_classic-arm",
+      "directions": 4
+    },
+    {
+      "name": "oakworm_classic-hand",
+      "directions": 4
+    },
+    {
       "name": "pointy-arm",
       "directions": 4
     },
     {
       "name": "pointy-hand",
+      "directions": 4
+    },
+    {
+      "name": "poison_classic-arm",
+      "directions": 4
+    },
+    {
+      "name": "poison_classic-hand",
       "directions": 4
     },
     {
@@ -88,11 +152,35 @@
       "directions": 4
     },
     {
+      "name": "ragged_classic-arm",
+      "directions": 4
+    },
+    {
+      "name": "ragged_classic-hand",
+      "directions": 4
+    },
+    {
+      "name": "reddish_classic-arm",
+      "directions": 4
+    },
+    {
+      "name": "reddish_classic-hand",
+      "directions": 4
+    },
+    {
       "name": "royal-arm",
       "directions": 4
     },
     {
       "name": "royal-hand",
+      "directions": 4
+    },
+    {
+      "name": "royal_classic-arm",
+      "directions": 4
+    },
+    {
+      "name": "royal_classic-hand",
       "directions": 4
     },
     {
@@ -104,11 +192,27 @@
       "directions": 4
     },
     {
+      "name": "whitefly_classic-arm",
+      "directions": 4
+    },
+    {
+      "name": "whitefly_classic-hand",
+      "directions": 4
+    },
+    {
       "name": "witchwing-arm",
       "directions": 4
     },
     {
       "name": "witchwing-hand",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_classic-arm",
+      "directions": 4
+    },
+    {
+      "name": "witchwing_classic-hand",
       "directions": 4
     }
   ]

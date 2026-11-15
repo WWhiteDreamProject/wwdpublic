@@ -132,10 +132,28 @@
   id: BodyProviderTailFelinid
   parent: [BaseBodyProviderTail, BaseBodyProviderTailOrganic, BaseBodyProviderPartFelinid, BaseBodyProviderTailAppearance]
   components:
+  - type: AnimatableProvider
   - type: BodyAppearanceProvider
     entries:
     - group: Skin
       path: _White/Bodies/Parts/Humanoids/felinid.rsi
-      state: tail
+      state: tail-stripes_even
+      index: stripes_even
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail-stripes_odd
+      index: stripes_odd
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail-tip
+      index: tip
   - type: Sprite
     sprite: _White/Bodies/Parts/Humanoids/felinid.rsi
+    layers:
+    - map: [ "stripes_even" ]
+      state: tail-stripes_even
+    - map: [ "stripes_odd" ]
+      state: tail-stripes_odd
+    - map: [ "tip" ]
+      state: tail-tip
+    - map: [ "enum.BodyProviderType.Tail" ]

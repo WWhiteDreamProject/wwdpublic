@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by angelofallars(github). Crowned made by dootythefrooty(github). Double_curved and Double_curved_outwards made by Rane(github), modified by angelofallars(github). Bullish made by kilath(discord).",
+  "copyright": "Made by angelofallars(github). Crowned made by dootythefrooty(github). Double_curved and Double_curved_outwards made by Rane(github), modified by angelofallars(github). Bullish made by kilath(discord). Double_curved_left_broke, double_curved_right_broke, single_curved, single_curved_left and single_curved_right made by Rane(github).",
   "size": {
     "x": 32,
     "y": 32
@@ -52,6 +52,22 @@
       "directions": 4
     },
     {
+      "name": "double_curved-primary",
+      "directions": 4
+    },
+    {
+      "name": "double_curved-secondary",
+      "directions": 4
+    },
+    {
+      "name": "double_curved-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "double_curved_left_broke",
+      "directions": 4
+    },
+    {
       "name": "double_curved_outwards-primary",
       "directions": 4
     },
@@ -64,15 +80,7 @@
       "directions": 4
     },
     {
-      "name": "double_curved-primary",
-      "directions": 4
-    },
-    {
-      "name": "double_curved-secondary",
-      "directions": 4
-    },
-    {
-      "name": "double_curved-tertiary",
+      "name": "double_curved_right_broke",
       "directions": 4
     },
     {
@@ -209,6 +217,18 @@
     },
     {
       "name": "serket_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "single_curved",
+      "directions": 4
+    },
+    {
+      "name": "single_curved_left",
+      "directions": 4
+    },
+    {
+      "name": "single_curved_right",
       "directions": 4
     },
     {

@@ -4,6 +4,16 @@
   abstract: true
 
 - type: marking
+  id: BaseArmRightMothClassic
+  parent: BaseArmRightMoth
+  abstract: true
+  forcedColoring: true
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#FFFFFF"
+
+- type: marking
   id: ArmRightMothCharred
   parent: BaseArmRightMoth
   definitions:
@@ -28,6 +38,19 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
       state: deathhead-hand
+
+- type: marking
+  id: ArmRightMothDeathheadClassic
+  parent: BaseArmRightMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: deathhead_classic-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: deathhead_classic-hand
 
 - type: marking
   id: ArmRightMothFan
@@ -56,6 +79,19 @@
       state: firewatch-hand
 
 - type: marking
+  id: ArmRightMothFirewatchClassic
+  parent: BaseArmRightMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: firewatch_classic-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: firewatch_classic-hand
+
+- type: marking
   id: ArmRightMothGothic
   parent: BaseArmRightMoth
   definitions:
@@ -67,6 +103,19 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
       state: gothic-hand
+
+- type: marking
+  id: ArmRightMothGothicClassic
+  parent: BaseArmRightMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: gothic_classic-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: gothic_classic-hand
 
 - type: marking
   id: ArmRightMothJungle
@@ -82,6 +131,32 @@
       state: jungle-hand
 
 - type: marking
+  id: ArmRightMothJungleClassic
+  parent: BaseArmRightMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: jungle_classic-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: jungle_classic-hand
+
+- type: marking
+  id: ArmRightMothLoversClassic
+  parent: BaseArmRightMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: lovers_classic-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: lovers_classic-hand
+
+- type: marking
   id: ArmRightMothMoonfly
   parent: BaseArmRightMoth
   definitions:
@@ -93,6 +168,19 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
       state: moonfly-hand
+
+- type: marking
+  id: ArmRightMothMoonflyClassic
+  parent: BaseArmRightMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: moonfly_classic-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: moonfly_classic-hand
 
 - type: marking
   id: ArmRightMothOakworm
@@ -108,6 +196,19 @@
       state: oakworm-hand
 
 - type: marking
+  id: ArmRightMothOakwormClassic
+  parent: BaseArmRightMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: oakworm_classic-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: oakworm_classic-hand
+
+- type: marking
   id: ArmRightMothPointy
   parent: BaseArmRightMoth
   definitions:
@@ -119,6 +220,19 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
       state: pointy-hand
+
+- type: marking
+  id: ArmRightMothPoisonClassic
+  parent: BaseArmRightMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: poison_classic-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: poison_classic-hand
 
 - type: marking
   id: ArmRightMothRagged
@@ -134,6 +248,32 @@
       state: ragged-hand
 
 - type: marking
+  id: ArmRightMothRaggedClassic
+  parent: BaseArmRightMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: ragged_classic-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: ragged_classic-hand
+
+- type: marking
+  id: ArmRightMothReddishClassic
+  parent: BaseArmRightMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: reddish_classic-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: reddish_classic-hand
+
+- type: marking
   id: ArmRightMothRoyal
   parent: BaseArmRightMoth
   definitions:
@@ -145,6 +285,19 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
       state: royal-hand
+
+- type: marking
+  id: ArmRightMothRoyalClassic
+  parent: BaseArmRightMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: royal_classic-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: royal_classic-hand
 
 - type: marking
   id: ArmRightMothWhitefly
@@ -160,6 +313,19 @@
       state: whitefly-hand
 
 - type: marking
+  id: ArmRightMothWhiteflyClassic
+  parent: BaseArmRightMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: whitefly_classic-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: whitefly_classic-hand
+
+- type: marking
   id: ArmRightMothWitchwing
   parent: BaseArmRightMoth
   definitions:
@@ -171,3 +337,16 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
       state: witchwing-hand
+
+- type: marking
+  id: ArmRightMothWitchwingClassic
+  parent: BaseArmRightMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: witchwing_classic-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: witchwing_classic-hand

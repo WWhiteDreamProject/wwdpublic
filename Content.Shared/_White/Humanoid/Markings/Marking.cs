@@ -52,7 +52,7 @@ public partial record struct Marking
     /// The shader applied to this marking.
     /// </summary>
     [DataField]
-    public string? Shader { get; private set; }
+    public string? Shader { get; private set; } = null;
 
     /// <summary>
     /// If true, this marking bypasses standard marking point limits and cannot be removed by the player.

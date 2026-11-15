@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by Vordenburg(discord). Modified by Myaflic(github) for WWDP.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "default-bell",
+      "directions": 4
+    },
+    {
+      "name": "default-bell-animated",
+      "directions": 4
+    },
+    {
+      "name": "default-bow",
+      "directions": 4
+    },
+    {
+      "name": "default-bow-animated",
+      "directions": 4
+    }
+  ]
+}

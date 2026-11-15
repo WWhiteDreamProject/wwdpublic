@@ -4,7 +4,7 @@
   data:
     Ears:
       required: true
-      defaultMarkings: [ FelinidEarsBasic ]
+      default: [ EarsFelinidDefault ]
       limit: 1
     Earrings:
       limit: 2
@@ -20,6 +20,10 @@
       limit: 1
     Scars:
       limit: 4
+    Tail:
+      required: true
+      default: [ TailFelinidDefault ]
+      limit: 1
     Tattoos:
       limit: 4
     Wristwear:

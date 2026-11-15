@@ -106,6 +106,15 @@
     index: tertiary
 
 - type: marking
+  id: HornsOniDoubleCurvedLeftBroke
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: double_curved_left_broke
+
+- type: marking
   id: HornsOniDoubleCurvedOutwards
   parent: BaseHornsOni
   definitions:
@@ -124,6 +133,15 @@
       sprite: _White/Humanoid/Markings/Oni/horns.rsi
       state: double_curved_outwards-tertiary
     index: tertiary
+
+- type: marking
+  id: HornsOniDoubleCurvedRightBroke
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: double_curved_right_broke
 
 - type: marking
   id: HornsOniDoubleThick
@@ -416,6 +434,33 @@
       sprite: _White/Humanoid/Markings/Oni/horns.rsi
       state: serket_3-tertiary
     index: tertiary
+
+- type: marking
+  id: HornsOniSingleCurved
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: single_curved
+
+- type: marking
+  id: HornsOniSingleCurvedLeft
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: single_curved_left
+
+- type: marking
+  id: HornsOniSingleCurvedRight
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: single_curved_right
 
 - type: marking
   id: HornsOniTallBull
