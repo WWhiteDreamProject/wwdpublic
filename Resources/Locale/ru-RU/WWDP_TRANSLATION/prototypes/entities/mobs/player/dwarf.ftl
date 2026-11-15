@@ -1,3 +1,3 @@
-ent-MobDwarf = Урист МакХэндс Дварф
+ent-MobDwarf = Урист МакДварф
     .desc = Жалкая кучка тайн.
     .suffix = { "" }

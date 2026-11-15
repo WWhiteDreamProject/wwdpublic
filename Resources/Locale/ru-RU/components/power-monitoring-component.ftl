@@ -5,7 +5,7 @@ power-monitoring-window-label-substation = Подстанции
 power-monitoring-window-label-apc = АПЦ
 power-monitoring-window-label-misc = Разное
 
-power-monitoring-window-object-array = Массив «{$name}» [{$count}]
+power-monitoring-window-object-array = Массив "{$name}" [{$count}]
 
 power-monitoring-window-station-name = [color=white][font size=14]{$stationName}[/font][/color]
 power-monitoring-window-unknown-location = Неизвестная локация
@@ -22,5 +22,5 @@ power-monitoring-window-show-lv-cable = Низковольтные
 
 power-monitoring-window-flavor-left = [user@nanotrasen] $run power_net_query
 power-monitoring-window-flavor-right = v1.3
-power-monitoring-window-rogue-power-consumer = [color=white][font size=14][bold]! ПРЕДУПРЕЖДЕНИЕ — ОБНАРУЖЕНО ПОСТОРОННЕЕ ЭНЕРГОПОТРЕБЛЯЮЩЕЕ УСТРОЙСТВО ![/bold][/font][/color]
-power-monitoring-window-power-net-abnormalities = [color=white][font size=14][bold]ВНИМАНИЕ — АНОМАЛЬНАЯ АКТИВНОСТЬ В СЕТИ ЭЛЕКТРОПИТАНИЯ[/bold][/font][/color]
+power-monitoring-window-rogue-power-consumer = [color=white][font size=14][bold]! ПРЕДУПРЕЖДЕНИЕ: ОБНАРУЖЕНО ПОСТОРОННЕЕ ЭНЕРГОПОТРЕБЛЯЮЩЕЕ УСТРОЙСТВО ![/bold][/font][/color]
+power-monitoring-window-power-net-abnormalities = [color=white][font size=14][bold]ВНИМАНИЕ: АНОМАЛЬНАЯ АКТИВНОСТЬ В СЕТИ ЭЛЕКТРОПИТАНИЯ[/bold][/font][/color]

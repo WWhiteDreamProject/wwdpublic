@@ -1,6 +1,6 @@
 ## Nyano
 flavor-base-acidic = кислый
-flavor-complex-nuggie = как «цыпленок»
+flavor-complex-nuggie = как "цыпленок"
 flavor-complex-enthralling = завораживающий
 flavor-complex-sublime = возвышенный
 flavor-base-seeds = как семена
