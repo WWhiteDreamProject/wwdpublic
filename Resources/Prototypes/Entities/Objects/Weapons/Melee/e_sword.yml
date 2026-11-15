@@ -403,7 +403,7 @@
         types:
             Slash: 15 # WD EDIT: 12 -> 15
             Heat: 15
-            Structural: 30
+            Structural: 45 # WD EDIT: 30 -> 45
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg

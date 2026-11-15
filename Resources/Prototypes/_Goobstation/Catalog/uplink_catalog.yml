@@ -338,7 +338,7 @@
   discountDownTo:
     Telecrystal: 1
   cost:
-    Telecrystal: 5
+    Telecrystal: 3 #EDIT: 5 > 3
   # WD EDIT END
   categories:
   - UplinkAmmo
