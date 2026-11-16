@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation/blob/05ec94e46349c35e29ca91e5e97d0c88ae26ad44/icons/mob/species/human/human_face.dmi, resprited by Alekshhh(github). Modified by potato1234x(github). Tailed and uneven made by Ubaser(github). Bun_double_long made by Emisse(github). Bob_4, long_bundled and pulato made by DreamlyJack(github). ",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/blob/05ec94e46349c35e29ca91e5e97d0c88ae26ad44/icons/mob/species/human/human_face.dmi, resprited by Alekshhh(github). Modified by potato1234x(github). Tailed and uneven made by Ubaser(github). Bun_double_long made by Emisse(github). Bob_4, long_bundled and pulato made by DreamlyJack(github). Bedhead_short, bob_classic, crew_cut_classic, gentle_classic, fade_low_classic, fade_med_classic, long_classic, messy_classic, no_fade_classic and ombre_classic modified by Adrian16199(github).",
   "size": {
     "x": 32,
     "y": 32
@@ -72,6 +72,10 @@
       "directions": 4
     },
     {
+      "name": "bedhead_short",
+      "directions": 4
+    },
+    {
       "name": "beehive",
       "directions": 4
     },
@@ -93,6 +97,10 @@
     },
     {
       "name": "bob_4",
+      "directions": 4
+    },
+    {
+      "name": "bob_classic",
       "directions": 4
     },
     {
@@ -240,6 +248,10 @@
       "directions": 4
     },
     {
+      "name": "crew_cut_classic",
+      "directions": 4
+    },
+    {
       "name": "curls",
       "directions": 4
     },
@@ -280,7 +292,15 @@
       "directions": 4
     },
     {
+      "name": "fade_low_classic",
+      "directions": 4
+    },
+    {
       "name": "fade_med",
+      "directions": 4
+    },
+    {
+      "name": "fade_med_classic",
       "directions": 4
     },
     {
@@ -317,6 +337,10 @@
     },
     {
       "name": "gentle",
+      "directions": 4
+    },
+    {
+      "name": "gentle_classic",
       "directions": 4
     },
     {
@@ -408,6 +432,10 @@
       "directions": 4
     },
     {
+      "name": "long_classic",
+      "directions": 4
+    },
+    {
       "name": "long_over_eye",
       "directions": 4
     },
@@ -429,6 +457,10 @@
     },
     {
       "name": "messy",
+      "directions": 4
+    },
+    {
+      "name": "messy_classic",
       "directions": 4
     },
     {
@@ -460,11 +492,19 @@
       "directions": 4
     },
     {
+      "name": "no_fade_classic",
+      "directions": 4
+    },
+    {
       "name": "odango",
       "directions": 4
     },
     {
       "name": "ombre",
+      "directions": 4
+    },
+    {
+      "name": "ombre_classic",
       "directions": 4
     },
     {

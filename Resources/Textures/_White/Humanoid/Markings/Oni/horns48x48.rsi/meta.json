@@ -8,6 +8,22 @@
   },
   "states": [
     {
+      "name": "bull_tall",
+      "directions": 4
+    },
+    {
+      "name": "bull_tall_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "bull_tall_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "bull_tall_3-tertiary",
+      "directions": 4
+    },
+    {
       "name": "makara",
       "directions": 4
     },
@@ -29,22 +45,6 @@
     },
     {
       "name": "makara_3-tertiary",
-      "directions": 4
-    },
-    {
-      "name": "tall_bull",
-      "directions": 4
-    },
-    {
-      "name": "tall_bull_3-primary",
-      "directions": 4
-    },
-    {
-      "name": "tall_bull_3-secondary",
-      "directions": 4
-    },
-    {
-      "name": "tall_bull_3-tertiary",
       "directions": 4
     },
     {

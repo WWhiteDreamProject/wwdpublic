@@ -402,6 +402,35 @@
       state: royal_classic
 
 - type: marking
+  id: WingsMothSelene
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: selene-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: selene-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: selene-tertiary
+    index: tertiary
+
+- type: marking
+  id: WingsMothSeleneClassic
+  parent: BaseWingsMothClassic
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: selene_classic
+
+- type: marking
   id: WingsMothSnowClassic
   parent: BaseWingsMothClassic
   definitions:

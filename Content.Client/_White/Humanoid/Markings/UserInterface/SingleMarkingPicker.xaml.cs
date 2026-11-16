@@ -65,7 +65,14 @@ public sealed partial class SingleMarkingPicker : BoxContainer
     {
         base.Resized();
 
-        Items.Columns = (int)(Width / ColumnWidth);
+        var columns = (int) (Width / ColumnWidth);
+        if (columns <= 0)
+        {
+            Items.Columns = 1;
+            return;
+        }
+
+        Items.Columns = columns;
     }
 
     private void MarkingsChanged(ProtoId<MarkingCategoryPrototype> category)

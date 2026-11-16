@@ -68,6 +68,15 @@
     index: tertiary
 
 - type: marking
+  id: HornsOniBull
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: bull
+
+- type: marking
   id: HornsOniBullish
   parent: BaseHornsOni
   definitions:
@@ -75,6 +84,35 @@
     sprite:
       sprite: _White/Humanoid/Markings/Oni/horns.rsi
       state: bullish
+
+- type: marking
+  id: HornsOniBullTall
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: bull_tall
+
+- type: marking
+  id: HornsOniBullTall3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: bull_tall_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: bull_tall_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: bull_tall_3-tertiary
+    index: tertiary
 
 - type: marking
   id: HornsOniCrowned
@@ -436,6 +474,15 @@
     index: tertiary
 
 - type: marking
+  id: HornsOniShaved
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: shaved
+
+- type: marking
   id: HornsOniSingleCurved
   parent: BaseHornsOni
   definitions:
@@ -461,35 +508,6 @@
     sprite:
       sprite: _White/Humanoid/Markings/Oni/horns.rsi
       state: single_curved_right
-
-- type: marking
-  id: HornsOniTallBull
-  parent: BaseHornsOni
-  definitions:
-  - layer: enum.MarkingVisualLayers.HeadTop
-    sprite:
-      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
-      state: tall_bull
-
-- type: marking
-  id: HornsOniTallBull3
-  parent: BaseHornsOni
-  definitions:
-  - layer: enum.MarkingVisualLayers.HeadTop
-    sprite:
-      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
-      state: tall_bull_3-primary
-    index: primary
-  - layer: enum.MarkingVisualLayers.HeadTop
-    sprite:
-      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
-      state: tall_bull_3-secondary
-    index: secondary
-  - layer: enum.MarkingVisualLayers.HeadTop
-    sprite:
-      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
-      state: tall_bull_3-tertiary
-    index: tertiary
 
 - type: marking
   id: HornsOniTallCurved

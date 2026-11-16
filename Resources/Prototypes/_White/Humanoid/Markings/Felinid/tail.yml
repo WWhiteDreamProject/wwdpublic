@@ -103,3 +103,56 @@
       sprite: _White/Bodies/Parts/Humanoids/felinid.rsi
       state: tail-tip
     index: tip
+
+- type: marking
+  id: TailFelinidFluffy
+  parent: BaseTailFelinid
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/tail.rsi
+      state: fluffy
+
+- type: marking
+  id: TailFelinidFluffyRings
+  parent: BaseTailFelinid
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/tail.rsi
+      state: fluffy
+    index: default
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/tail.rsi
+      state: fluffy_rings
+    index: rings
+
+- type: marking
+  id: TailFelinidTiger
+  parent: BaseTailFelinid
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/tail.rsi
+      state: tiger-primary
+    index: primary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/tail.rsi
+      state: tiger-secondary
+    index: primary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/tail.rsi
+      state: tiger-tertiary
+    index: tertiary
+
+- type: marking
+  id: TailFelinidWagging
+  parent: BaseTailFelinid
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Felinid/tail.rsi
+      state: wagging
