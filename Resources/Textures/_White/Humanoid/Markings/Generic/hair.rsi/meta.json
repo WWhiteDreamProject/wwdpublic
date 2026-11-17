@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation/blob/05ec94e46349c35e29ca91e5e97d0c88ae26ad44/icons/mob/species/human/human_face.dmi, resprited by Alekshhh(github). Modified by potato1234x(github). Tailed and uneven made by Ubaser(github). Bun_double_long made by Emisse(github). Bob_4, long_bundled and pulato made by DreamlyJack(github). Bedhead_short, bob_classic, crew_cut_classic, gentle_classic, fade_low_classic, fade_med_classic, long_classic, messy_classic, no_fade_classic and ombre_classic modified by Adrian16199(github).",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/blob/05ec94e46349c35e29ca91e5e97d0c88ae26ad44/icons/mob/species/human/human_face.dmi, resprited by Alekshhh(github). Modified by potato1234x(github). Tailed and uneven made by Ubaser(github). Bun_double_long made by Emisse(github). Bob_4, long_bundles and pulato made by DreamlyJack(github). Bedhead_short, bob_classic, crew_cut_classic, gentle_classic, fade_low_classic, fade_med_classic, long_classic, messy_classic, no_fade_classic and ombre_classic modified by Adrian16199(github). Afro_puff_double, afro_puff_left, afro_puff_right, amazon, astolfo, baum, beach_wave, blunt_bangs, blunt_bangs_alt, bob_cut_alt, braid_medium, bunhead_2, combed, combed_bob, cotton, curls_quad, curly, dave, diagonal_bangs, emo_short, finger_wave, fluffy_short, fortuneteller, fortuneteller_alt, froofy_long, geisha, gentle2, glam_metal, gloomy_long, gloomy_medium, grande, half_shave, half_shave_glamorous, half_shave_long, half_shave_snout, hyenamane, jessica, long_4, long_over_eye_2, long_side_part_straight, long_tails, longer, loose_slicked, messy_half_shave, messy_half_shave_long, messy_slightly, new_you, ponytail_8, ponytail_9, ponytail_simple, poofy_2, sabitsuki, scully, short_4, shy, sleaze, slime_droplet, slime_droplet_2, slime_spikes, slime_tendrils, slime_tendrils_2, spicy, twintail_floor, very_short_over_eye_2, victory, viper, wife and ziegler taken from https://github.com/Skyrat-SS13/Skyrat-tg/commit/ad654e76b4c5dd3972cd2a07eb2d4f9658965807.",
   "size": {
     "x": 32,
     "y": 32
@@ -28,7 +28,27 @@
       "directions": 4
     },
     {
+      "name": "afro_puff_double",
+      "directions": 4
+    },
+    {
+      "name": "afro_puff_left",
+      "directions": 4
+    },
+    {
+      "name": "afro_puff_right",
+      "directions": 4
+    },
+    {
+      "name": "amazon",
+      "directions": 4
+    },
+    {
       "name": "antenna",
+      "directions": 4
+    },
+    {
+      "name": "astolfo",
       "directions": 4
     },
     {
@@ -49,6 +69,14 @@
     },
     {
       "name": "bangs_short",
+      "directions": 4
+    },
+    {
+      "name": "baum",
+      "directions": 4
+    },
+    {
+      "name": "beach_wave",
       "directions": 4
     },
     {
@@ -84,6 +112,14 @@
       "directions": 4
     },
     {
+      "name": "blunt_bangs",
+      "directions": 4
+    },
+    {
+      "name": "blunt_bangs_alt",
+      "directions": 4
+    },
+    {
       "name": "bob",
       "directions": 4
     },
@@ -112,6 +148,10 @@
       "directions": 4
     },
     {
+      "name": "bob_cut_alt",
+      "directions": 4
+    },
+    {
       "name": "bod_dicker",
       "directions": 4
     },
@@ -137,6 +177,10 @@
     },
     {
       "name": "braid_h",
+      "directions": 4
+    },
+    {
+      "name": "braid_medium",
       "directions": 4
     },
     {
@@ -180,6 +224,10 @@
       "directions": 4
     },
     {
+      "name": "bunhead_2",
+      "directions": 4
+    },
+    {
       "name": "business",
       "directions": 4
     },
@@ -212,6 +260,14 @@
       "directions": 4
     },
     {
+      "name": "combed",
+      "directions": 4
+    },
+    {
+      "name": "combed_bob",
+      "directions": 4
+    },
+    {
       "name": "combover",
       "directions": 4
     },
@@ -236,6 +292,10 @@
       "directions": 4
     },
     {
+      "name": "cotton",
+      "directions": 4
+    },
+    {
       "name": "country",
       "directions": 4
     },
@@ -256,7 +316,23 @@
       "directions": 4
     },
     {
+      "name": "curls_quad",
+      "directions": 4
+    },
+    {
+      "name": "curly",
+      "directions": 4
+    },
+    {
+      "name": "dave",
+      "directions": 4
+    },
+    {
       "name": "devilock",
+      "directions": 4
+    },
+    {
+      "name": "diagonal_bangs",
       "directions": 4
     },
     {
@@ -281,6 +357,10 @@
     },
     {
       "name": "emo_long",
+      "directions": 4
+    },
+    {
+      "name": "emo_short",
       "directions": 4
     },
     {
@@ -312,6 +392,10 @@
       "directions": 4
     },
     {
+      "name": "finger_wave",
+      "directions": 4
+    },
+    {
       "name": "flair",
       "directions": 4
     },
@@ -324,11 +408,31 @@
       "directions": 4
     },
     {
+      "name": "fluffy_short",
+      "directions": 4
+    },
+    {
+      "name": "fortuneteller",
+      "directions": 4
+    },
+    {
+      "name": "fortuneteller_alt",
+      "directions": 4
+    },
+    {
       "name": "fringe",
       "directions": 4
     },
     {
       "name": "fringe_tail",
+      "directions": 4
+    },
+    {
+      "name": "froofy_long",
+      "directions": 4
+    },
+    {
+      "name": "geisha",
       "directions": 4
     },
     {
@@ -340,7 +444,27 @@
       "directions": 4
     },
     {
+      "name": "gentle2",
+      "directions": 4
+    },
+    {
       "name": "gentle_classic",
+      "directions": 4
+    },
+    {
+      "name": "glam_metal",
+      "directions": 4
+    },
+    {
+      "name": "gloomy_long",
+      "directions": 4
+    },
+    {
+      "name": "gloomy_medium",
+      "directions": 4
+    },
+    {
+      "name": "grande",
       "directions": 4
     },
     {
@@ -349,6 +473,22 @@
     },
     {
       "name": "half_bang_2",
+      "directions": 4
+    },
+    {
+      "name": "half_shave",
+      "directions": 4
+    },
+    {
+      "name": "half_shave_glamorous",
+      "directions": 4
+    },
+    {
+      "name": "half_shave_long",
+      "directions": 4
+    },
+    {
+      "name": "half_shave_snout",
       "directions": 4
     },
     {
@@ -380,11 +520,19 @@
       "directions": 4
     },
     {
+      "name": "hyenamane",
+      "directions": 4
+    },
+    {
       "name": "jade",
       "directions": 4
     },
     {
       "name": "jensen",
+      "directions": 4
+    },
+    {
+      "name": "jessica",
       "directions": 4
     },
     {
@@ -424,11 +572,15 @@
       "directions": 4
     },
     {
+      "name": "long_4",
+      "directions": 4
+    },
+    {
       "name": "long_bow",
       "directions": 4
     },
     {
-      "name": "long_bundled",
+      "name": "long_bundles",
       "directions": 4
     },
     {
@@ -440,11 +592,27 @@
       "directions": 4
     },
     {
+      "name": "long_over_eye_2",
+      "directions": 4
+    },
+    {
       "name": "long_side_part",
       "directions": 4
     },
     {
+      "name": "long_side_part_straight",
+      "directions": 4
+    },
+    {
       "name": "long_spooky",
+      "directions": 4
+    },
+    {
+      "name": "long_tails",
+      "directions": 4
+    },
+    {
+      "name": "longer",
       "directions": 4
     },
     {
@@ -456,11 +624,27 @@
       "directions": 4
     },
     {
+      "name": "loose_slicked",
+      "directions": 4
+    },
+    {
       "name": "messy",
       "directions": 4
     },
     {
       "name": "messy_classic",
+      "directions": 4
+    },
+    {
+      "name": "messy_half_shave",
+      "directions": 4
+    },
+    {
+      "name": "messy_half_shave_long",
+      "directions": 4
+    },
+    {
+      "name": "messy_slightly",
       "directions": 4
     },
     {
@@ -481,6 +665,10 @@
     },
     {
       "name": "mulder",
+      "directions": 4
+    },
+    {
+      "name": "new_you",
       "directions": 4
     },
     {
@@ -580,7 +768,19 @@
       "directions": 4
     },
     {
+      "name": "ponytail_8",
+      "directions": 4
+    },
+    {
+      "name": "ponytail_9",
+      "directions": 4
+    },
+    {
       "name": "ponytail_high",
+      "directions": 4
+    },
+    {
+      "name": "ponytail_simple",
       "directions": 4
     },
     {
@@ -593,6 +793,10 @@
     },
     {
       "name": "poofy",
+      "directions": 4
+    },
+    {
+      "name": "poofy_2",
       "directions": 4
     },
     {
@@ -616,7 +820,15 @@
       "directions": 4
     },
     {
+      "name": "sabitsuki",
+      "directions": 4
+    },
+    {
       "name": "sargeant",
+      "directions": 4
+    },
+    {
+      "name": "scully",
       "directions": 4
     },
     {
@@ -640,6 +852,10 @@
       "directions": 4
     },
     {
+      "name": "short_4",
+      "directions": 4
+    },
+    {
       "name": "short_braid",
       "directions": 4
     },
@@ -649,6 +865,14 @@
     },
     {
       "name": "shoulder_length_over_eye",
+      "directions": 4
+    },
+    {
+      "name": "shy",
+      "directions": 4
+    },
+    {
+      "name": "side_cut",
       "directions": 4
     },
     {
@@ -668,11 +892,35 @@
       "directions": 4
     },
     {
-      "name": "sidecut",
+      "name": "skinhead",
       "directions": 4
     },
     {
-      "name": "skinhead",
+      "name": "sleaze",
+      "directions": 4
+    },
+    {
+      "name": "slime_droplet",
+      "directions": 4
+    },
+    {
+      "name": "slime_droplet_2",
+      "directions": 4
+    },
+    {
+      "name": "slime_spikes",
+      "directions": 4
+    },
+    {
+      "name": "slime_tendrils",
+      "directions": 4
+    },
+    {
+      "name": "slime_tendrils_2",
+      "directions": 4
+    },
+    {
+      "name": "spicy",
       "directions": 4
     },
     {
@@ -736,6 +984,10 @@
       "directions": 4
     },
     {
+      "name": "twintail_floor",
+      "directions": 4
+    },
+    {
       "name": "two_strands",
       "directions": 4
     },
@@ -776,11 +1028,31 @@
       "directions": 4
     },
     {
+      "name": "very_short_over_eye_2",
+      "directions": 4
+    },
+    {
+      "name": "victory",
+      "directions": 4
+    },
+    {
+      "name": "viper",
+      "directions": 4
+    },
+    {
       "name": "volaju",
       "directions": 4
     },
     {
+      "name": "wife",
+      "directions": 4
+    },
+    {
       "name": "wisp",
+      "directions": 4
+    },
+    {
+      "name": "ziegler",
       "directions": 4
     }
   ]

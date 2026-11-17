@@ -20,6 +20,8 @@
       required: true
       default: [ SnoutReptilianRound ]
       limit: 1
+    Spines:
+      limit: 1
     Tail:
       required: true
       default: [ TailReptilianDefault ]

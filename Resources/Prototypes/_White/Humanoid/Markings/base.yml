@@ -185,6 +185,11 @@
   category: Scars
 
 - type: marking
+  id: BaseScreen
+  abstract: true
+  category: Screen
+
+- type: marking
   id: BaseSnout
   abstract: true
   category: Snout
@@ -194,9 +199,13 @@
         group: Skin
 
 - type: marking
-  id: BaseScreen
+  id: BaseSpines
   abstract: true
-  category: Screen
+  category: Spines
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
 
 - type: marking
   id: BaseTail

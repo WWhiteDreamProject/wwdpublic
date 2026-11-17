@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/tree/e9cc620e9f908e18949031c6e1b5811e3fc5af4e/icons/mob/species/lizard.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "aquatic-chest",
+      "directions": 4
+    },
+    {
+      "name": "aquatic-groin",
+      "directions": 4
+    },
+    {
+      "name": "aquatic-head",
+      "directions": 4
+    },
+    {
+      "name": "aquatic-tail",
+      "directions": 4
+    },
+    {
+      "name": "long-chest",
+      "directions": 4
+    },
+    {
+      "name": "long-groin",
+      "directions": 4
+    },
+    {
+      "name": "long-tail",
+      "directions": 4
+    },
+    {
+      "name": "long_membrane-chest",
+      "directions": 4
+    },
+    {
+      "name": "long_membrane-groin",
+      "directions": 4
+    },
+    {
+      "name": "long_membrane-tail",
+      "directions": 4
+    },
+    {
+      "name": "short-chest",
+      "directions": 4
+    },
+    {
+      "name": "short-groin",
+      "directions": 4
+    },
+    {
+      "name": "short-tail",
+      "directions": 4
+    },
+    {
+      "name": "short_membrane-chest",
+      "directions": 4
+    },
+    {
+      "name": "short_membrane-groin",
+      "directions": 4
+    },
+    {
+      "name": "short_membrane-tail",
+      "directions": 4
+    }
+  ]
+}
+

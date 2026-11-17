@@ -106,6 +106,23 @@
   - enum.MarkingVisualLayers.Snout
 
 - type: markingCategory
+  id: Spines
+  layers:
+  - enum.BodyProviderType.Chest
+  - enum.BodyProviderType.Groin
+  - enum.BodyProviderType.Head
+  - enum.BodyProviderType.LeftArm
+  - enum.BodyProviderType.LeftFoot
+  - enum.BodyProviderType.LeftHand
+  - enum.BodyProviderType.LeftLeg
+  - enum.BodyProviderType.RightArm
+  - enum.BodyProviderType.RightFoot
+  - enum.BodyProviderType.RightHand
+  - enum.BodyProviderType.RightLeg
+  - enum.BodyProviderType.Tail
+  - enum.BodyProviderType.Wings
+
+- type: markingCategory
   id: Tail
   layers:
   - enum.BodyProviderType.Tail
