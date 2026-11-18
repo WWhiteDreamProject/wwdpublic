@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation/blob/05ec94e46349c35e29ca91e5e97d0c88ae26ad44/icons/mob/species/human/human_face.dmi, resprited by Alekshhh(github). Modified by potato1234x(github). Tailed and uneven made by Ubaser(github). Bun_double_long made by Emisse(github). Bob_4, long_bundles and pulato made by DreamlyJack(github). Bedhead_short, bob_classic, crew_cut_classic, gentle_classic, fade_low_classic, fade_med_classic, long_classic, messy_classic, no_fade_classic and ombre_classic modified by Adrian16199(github). Afro_puff_double, afro_puff_left, afro_puff_right, amazon, astolfo, baum, beach_wave, blunt_bangs, blunt_bangs_alt, bob_cut_alt, braid_medium, bunhead_2, combed, combed_bob, cotton, curls_quad, curly, dave, diagonal_bangs, emo_short, finger_wave, fluffy_short, fortuneteller, fortuneteller_alt, froofy_long, geisha, gentle2, glam_metal, gloomy_long, gloomy_medium, grande, half_shave, half_shave_glamorous, half_shave_long, half_shave_snout, hyenamane, jessica, long_4, long_over_eye_2, long_side_part_straight, long_tails, longer, loose_slicked, messy_half_shave, messy_half_shave_long, messy_slightly, new_you, ponytail_8, ponytail_9, ponytail_simple, poofy_2, sabitsuki, scully, short_4, shy, sleaze, slime_droplet, slime_droplet_2, slime_spikes, slime_tendrils, slime_tendrils_2, spicy, twintail_floor, very_short_over_eye_2, victory, viper, wife and ziegler taken from https://github.com/Skyrat-SS13/Skyrat-tg/commit/ad654e76b4c5dd3972cd2a07eb2d4f9658965807.",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/blob/05ec94e46349c35e29ca91e5e97d0c88ae26ad44/icons/mob/species/human/human_face.dmi, resprited by Alekshhh(github). Modified by potato1234x(github). Tailed and uneven made by Ubaser(github). Bun_double_long made by Emisse(github). Bob_4, long_bundles and pulato made by DreamlyJack(github). Bedhead_short, bob_classic, crew_cut_classic, gentle_classic, fade_low_classic, fade_med_classic, long_classic, messy_classic, no_fade_classic and ombre_classic modified by Adrian16199(github). Afro_puff_double, afro_puff_left, afro_puff_right, amazon, astolfo, baum, beach_wave, blunt_bangs, blunt_bangs_alt, bob_cut_alt, braid_medium, bunhead_2, combed, combed_bob, cotton, curls_quad, curly, dave, diagonal_bangs, emo_short, finger_wave, fluffy_short, fortuneteller, fortuneteller_alt, froofy_long, geisha, gentle2, glam_metal, gloomy_long, gloomy_medium, grande, half_shave, half_shave_glamorous, half_shave_long, half_shave_snout, hyenamane, jessica, long_4, long_over_eye_2, long_side_part_straight, long_tails, longer, loose_slicked, messy_half_shave, messy_half_shave_long, messy_slightly, new_you, ponytail_8, ponytail_9, ponytail_simple, poofy_2, sabitsuki, scully, short_4, shy, sleaze, slime_droplet, slime_droplet_2, slime_spikes, slime_tendrils, slime_tendrils_2, spicy, twintail_floor, very_short_over_eye_2, victory, viper, wife and ziegler taken from https://github.com/Skyrat-SS13/Skyrat-tg/commit/ad654e76b4c5dd3972cd2a07eb2d4f9658965807. Faded, front_spikes, half_shaved_braids, halfsies, johnny, lone_tail, long_spike, manageable_mess, matted_spikes, matted_spikes_mini, messy_ponytail, messy_short, monk, natural_mess_long, natural_mess_short, nerfish, over_shoulder, over_shoulder_braids, plant_poofs, political, poofed, porcupine, radical, ratty_royalty, spike_hawk, spike_quad, spike_short, standard_asymmetry, tunnel_snake and zeta_basic_braids modified by Adrian16199(github) and Zeta_Null(github).",
   "size": {
     "x": 32,
     "y": 32
@@ -384,6 +384,10 @@
       "directions": 4
     },
     {
+      "name": "faded",
+      "directions": 4
+    },
+    {
       "name": "father",
       "directions": 4
     },
@@ -425,6 +429,10 @@
     },
     {
       "name": "fringe_tail",
+      "directions": 4
+    },
+    {
+      "name": "front_spikes",
       "directions": 4
     },
     {
@@ -496,6 +504,14 @@
       "directions": 4
     },
     {
+      "name": "half_shaved_braids",
+      "directions": 4
+    },
+    {
+      "name": "halfsies",
+      "directions": 4
+    },
+    {
       "name": "hedgehog",
       "directions": 4
     },
@@ -540,6 +556,10 @@
       "directions": 4
     },
     {
+      "name": "johnny",
+      "directions": 4
+    },
+    {
       "name": "kagami",
       "directions": 4
     },
@@ -549,6 +569,10 @@
     },
     {
       "name": "kusanagi",
+      "directions": 4
+    },
+    {
+      "name": "lone_tail",
       "directions": 4
     },
     {
@@ -604,6 +628,10 @@
       "directions": 4
     },
     {
+      "name": "long_spike",
+      "directions": 4
+    },
+    {
       "name": "long_spooky",
       "directions": 4
     },
@@ -628,6 +656,18 @@
       "directions": 4
     },
     {
+      "name": "manageable_mess",
+      "directions": 4
+    },
+    {
+      "name": "matted_spikes",
+      "directions": 4
+    },
+    {
+      "name": "matted_spikes_mini",
+      "directions": 4
+    },
+    {
       "name": "messy",
       "directions": 4
     },
@@ -641,6 +681,14 @@
     },
     {
       "name": "messy_half_shave_long",
+      "directions": 4
+    },
+    {
+      "name": "messy_ponytail",
+      "directions": 4
+    },
+    {
+      "name": "messy_short",
       "directions": 4
     },
     {
@@ -664,7 +712,23 @@
       "directions": 4
     },
     {
+      "name": "monk",
+      "directions": 4
+    },
+    {
       "name": "mulder",
+      "directions": 4
+    },
+    {
+      "name": "natural_mess_long",
+      "directions": 4
+    },
+    {
+      "name": "natural_mess_short",
+      "directions": 4
+    },
+    {
+      "name": "nerfish",
       "directions": 4
     },
     {
@@ -700,6 +764,14 @@
       "directions": 4
     },
     {
+      "name": "over_shoulder",
+      "directions": 4
+    },
+    {
+      "name": "over_shoulder_braids",
+      "directions": 4
+    },
+    {
       "name": "oxton",
       "directions": 4
     },
@@ -725,6 +797,14 @@
     },
     {
       "name": "pixie",
+      "directions": 4
+    },
+    {
+      "name": "plant_poofs",
+      "directions": 4
+    },
+    {
+      "name": "political",
       "directions": 4
     },
     {
@@ -792,11 +872,19 @@
       "directions": 4
     },
     {
+      "name": "poofed",
+      "directions": 4
+    },
+    {
       "name": "poofy",
       "directions": 4
     },
     {
       "name": "poofy_2",
+      "directions": 4
+    },
+    {
+      "name": "porcupine",
       "directions": 4
     },
     {
@@ -809,6 +897,14 @@
     },
     {
       "name": "quiff",
+      "directions": 4
+    },
+    {
+      "name": "radical",
+      "directions": 4
+    },
+    {
+      "name": "ratty_royalty",
       "directions": 4
     },
     {
@@ -924,6 +1020,18 @@
       "directions": 4
     },
     {
+      "name": "spike_hawk",
+      "directions": 4
+    },
+    {
+      "name": "spike_quad",
+      "directions": 4
+    },
+    {
+      "name": "spike_short",
+      "directions": 4
+    },
+    {
       "name": "spikey",
       "directions": 4
     },
@@ -937,6 +1045,10 @@
     },
     {
       "name": "stail",
+      "directions": 4
+    },
+    {
+      "name": "standard_asymmetry",
       "directions": 4
     },
     {
@@ -977,6 +1089,10 @@
     },
     {
       "name": "trimmed",
+      "directions": 4
+    },
+    {
+      "name": "tunnel_snake",
       "directions": 4
     },
     {
@@ -1049,6 +1165,10 @@
     },
     {
       "name": "wisp",
+      "directions": 4
+    },
+    {
+      "name": "zeta_basic_braids",
       "directions": 4
     },
     {

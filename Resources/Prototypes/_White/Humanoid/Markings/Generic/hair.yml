@@ -845,6 +845,15 @@
       state: fade_med_classic
 
 - type: marking
+  id: HairFaded
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: faded
+
+- type: marking
   id: HairFather
   parent: BaseHair
   definitions:
@@ -942,6 +951,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/hair.rsi
       state: fringe_tail
+
+- type: marking
+  id: HairFrontSpikes
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: front_spikes
 
 - type: marking
   id: HairFroofyLong
@@ -1097,6 +1115,24 @@
       state: half_shaved
 
 - type: marking
+  id: HairHalfShavedBraids
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: half_shaved_braids
+
+- type: marking
+  id: HairHalfsies
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: halfsies
+
+- type: marking
   id: HairHedgehog
   parent: BaseHair
   definitions:
@@ -1196,6 +1232,15 @@
       state: joe_star
 
 - type: marking
+  id: HairJohnny
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: johnny
+
+- type: marking
   id: HairKagami
   parent: BaseHair
   definitions:
@@ -1221,6 +1266,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/hair.rsi
       state: kusanagi
+
+- type: marking
+  id: HairLoneTail
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: lone_tail
 
 - type: marking
   id: HairLong
@@ -1340,6 +1394,15 @@
       state: long_side_part_straight
 
 - type: marking
+  id: HairLongSpike
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: long_spike
+
+- type: marking
   id: HairLongSpooky
   parent: BaseHair
   definitions:
@@ -1394,6 +1457,33 @@
       state: loose_slicked
 
 - type: marking
+  id: HairManageableMess
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: manageable_mess
+
+- type: marking
+  id: HairMattedSpikes
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: matted_spikes
+
+- type: marking
+  id: HairMattedSpikesMini
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: matted_spikes_mini
+
+- type: marking
   id: HairMessy
   parent: BaseHair
   definitions:
@@ -1428,6 +1518,24 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/hair.rsi
       state: messy_half_shave_long
+
+- type: marking
+  id: HairMessyPonytail
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: messy_ponytail
+
+- type: marking
+  id: HairMessyShort
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: messy_short
 
 - type: marking
   id: HairMessySlightly
@@ -1475,6 +1583,15 @@
       state: mohawk_unshaven
 
 - type: marking
+  id: HairMonk
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: monk
+
+- type: marking
   id: HairMulder
   parent: BaseHair
   definitions:
@@ -1482,6 +1599,33 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/hair.rsi
       state: mulder
+
+- type: marking
+  id: HairNaturalMessLong
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: natural_mess_long
+
+- type: marking
+  id: HairNaturalMessShort
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: natural_mess_short
+
+- type: marking
+  id: HairNerfish
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: nerfish
 
 - type: marking
   id: HairNewYou
@@ -1556,6 +1700,24 @@
       state: one_shoulder
 
 - type: marking
+  id: HairOverShoulder
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: over_shoulder
+
+- type: marking
+  id: HairOverShoulderBraids
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: over_shoulder_braids
+
+- type: marking
   id: HairOxton
   parent: BaseHair
   definitions:
@@ -1617,6 +1779,24 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/hair.rsi
       state: pixie
+
+- type: marking
+  id: HairPlantPoofs
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: plant_poofs
+
+- type: marking
+  id: HairPolitical
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: political
 
 - type: marking
   id: HairPompadour
@@ -1763,6 +1943,15 @@
       state: ponytail_straight_long
 
 - type: marking
+  id: HairPoofed
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: poofed
+
+- type: marking
   id: HairPoofy
   parent: BaseHair
   definitions:
@@ -1779,6 +1968,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/hair.rsi
       state: poofy_2
+
+- type: marking
+  id: HairPorcupine
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: porcupine
 
 - type: marking
   id: HairProtagonist
@@ -1806,6 +2004,24 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/hair.rsi
       state: quiff
+
+- type: marking
+  id: HairRadical
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: radical
+
+- type: marking
+  id: HairRattyRoyalty
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: ratty_royalty
 
 - type: marking
   id: HairRonin
@@ -2060,6 +2276,33 @@
       state: spicy
 
 - type: marking
+  id: HairSpikeHawk
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: spike_hawk
+
+- type: marking
+  id: HairSpikeQuad
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: spike_quad
+
+- type: marking
+  id: HairSpikeShort
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: spike_short
+
+- type: marking
   id: HairSpikey
   parent: BaseHair
   definitions:
@@ -2094,6 +2337,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/hair.rsi
       state: stail
+
+- type: marking
+  id: HairStandardAsymmetry
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: standard_asymmetry
 
 - type: marking
   id: HairSwept
@@ -2184,6 +2436,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/hair.rsi
       state: trimmed
+
+- type: marking
+  id: HairTunnelSnake
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: tunnel_snake
 
 - type: marking
   id: HairTwintail
@@ -2346,6 +2607,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/hair.rsi
       state: wisp
+
+- type: marking
+  id: HairZetaBasicBraids
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: zeta_basic_braids
 
 - type: marking
   id: HairZiegler
