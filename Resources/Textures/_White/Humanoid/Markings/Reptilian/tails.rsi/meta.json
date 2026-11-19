@@ -1,12 +1,20 @@
-﻿{
+{
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297. Large made by Ubaser(discord). Animated made by SonicDC(github).",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297. Large made by Ubaser(discord). Animated made by SonicDC(github). Gecko and snail_lizard made by Carousel(github) for Impstation.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    {
+      "name": "gecko-primary",
+      "directions": 4
+    },
+    {
+      "name": "gecko-secondary",
+      "directions": 4
+    },
     {
       "name": "large",
       "directions": 4
@@ -88,6 +96,18 @@
           0.1
         ]
       ]
+    },
+    {
+      "name": "snail_lizard-primary",
+      "directions": 4
+    },
+    {
+      "name": "snail_lizard-secondary",
+      "directions": 4
+    },
+    {
+      "name": "snail_lizard-tertiary",
+      "directions": 4
     },
     {
       "name": "spikes",

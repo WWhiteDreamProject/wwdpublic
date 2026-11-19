@@ -107,6 +107,15 @@
     index: right
 
 - type: marking
+  id: HornsReptilianNubby
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: nubby
+
+- type: marking
   id: HornsReptilianRam
   parent: BaseHornsReptilian
   definitions:

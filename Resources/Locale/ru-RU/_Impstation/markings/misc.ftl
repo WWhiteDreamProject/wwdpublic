@@ -13,7 +13,6 @@ marking-SpiderEyesMulti-spidereyesmulti2 = Верхняя середина
 marking-SpiderEyesMulti-spidereyesmulti3 = Нижняя середина
 marking-SpiderEyesMulti-spidereyesmulti4 = Нижний ряд
 
-
 # diona
 # diona
 marking-DionaLivingNymph = Живые нимфы
@@ -34,7 +33,6 @@ marking-DionaFirefly-dionafirefly = Светлячки
 marking-DionaPollenDust = Облако пыльцы
 marking-DionaPollenDust-dionapollendust = Облако пыльцы
 
-
 # humans
 # humans
 marking-VitiligoHeadL = Витилиго (левый глаз)
@@ -48,7 +46,6 @@ marking-VitiligoArmL = Витилиго (левая рука)
 marking-VitiligoLegL = Витилиго (левая нога)
 marking-VitiligoChestF = Витилиго (распространённое)
 marking-VitiligoChestSpots = Витилиго (пятна)
-
 
 # moths
 # moths
@@ -99,7 +96,6 @@ marking-MothRhinoBeetle-rhinobeetle1 = Контур
 marking-MothRhinoBeetle-rhinobeetle2 = Блеск
 marking-MothRhinoBeetle-rhinobeetle3 = Крылья
 
-
 # slimes
 # slimes
 marking-fizz = Пена
@@ -117,7 +113,6 @@ marking-FadingStars-fadingstars1 = Самые яркие
 marking-FadingStars-fadingstars2 = Средние
 marking-FadingStars-fadingstars3 = Тусклые
 
-
 # vox
 # vox
 marking-VoxCocktail = Пёстрый хвост
@@ -128,12 +123,6 @@ marking-VoxCocktail-voxcocktail4 = Хвост
 
 marking-VoxTailStripes = Полосы на хвосте
 marking-VoxTailStripes-voxtailstripes = Полосы на хвосте
-
-marking-VoxLArmProsthetic = Протез (левая рука)
-marking-VoxLArmProsthetic-voxarmprostheticl = Протез (левая рука)
-
-marking-VoxRArmProsthetic = Протез (правая рука)
-marking-VoxRArmProsthetic-voxarmprostheticr = Протез (правая рука)
 
 marking-VoxBeakColor = Окрашиваемый клюв
 marking-VoxBeakColor-voxbeakcolor = Окрашиваемый клюв

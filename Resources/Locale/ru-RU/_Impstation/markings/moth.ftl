@@ -19,14 +19,8 @@ marking-MothSlashRight-moth_slash_r = Царапины (правая сторо�
 marking-ChimeraArmLeftMoth = Химера (левая рука)
 marking-ChimeraArmLeftMoth-arm_l_chimera_moth = Химера (левая рука)
 
-marking-ProstheticArmLeftMoth = Протез (левая рука)
-marking-ProstheticArmLeftMoth-arm_l_prosthetic_moth = Протез (левая рука)
-
 marking-TwistingArmLeftMoth = Скрученный шрам (левая рука)
 marking-TwistingArmLeftMoth-arm_l_twisting_moth = Скрученный шрам (левая рука)
-
-marking-ProstheticArmRightMoth = Протез (правая рука)
-marking-ProstheticArmRightMoth-arm_r_prosthetic_moth = Протез (правая рука)
 
 marking-TwistingArmRightMoth = Скрученный шрам (правая рука)
 marking-TwistingArmRightMoth-arm_r_twisting_moth = Скрученный шрам (правая рука)
@@ -61,23 +55,11 @@ marking-HeterochromiaMoth-eyes_heterochromia_moth = Гетерофобия
 marking-FootChimeraLeftMoth = Химера (левая ступня)
 marking-FootChimeraLeftMoth-foot_l_chimera_moth = Химера (левая ступня)
 
-marking-FootProstheticLeftMoth = Протез (левая ступня)
-marking-FootProstheticLeftMoth-foot_l_prosthetic_moth = Протез (левая ступня)
-
-marking-FootProstheticRightMoth = Протез (правая ступня)
-marking-FootProstheticRightMoth-foot_r_prosthetic_moth = Протез (правая ступня)
-
 marking-HandChimeraLeftMoth = Химера (левая кисть)
 marking-HandChimeraLeftMoth-hand_l_chimera_moth = Химера (левая кисть)
 
-marking-HandProstheticLeftMoth = Протез (левая кисть)
-marking-HandProstheticLeftMoth-hand_l_prosthetic_moth = Протез (левая кисть)
-
 marking-HandTwistingLeftMoth = Скрученный шрам (левая кисть)
 marking-HandTwistingLeftMoth-hand_l_twisting_moth = Скрученный шрам (левая кисть)
-
-marking-HandProstheticRightMoth = Протез (правая кисть)
-marking-HandProstheticRightMoth-hand_r_prosthetic_moth = Протез (правая кисть)
 
 marking-HandTwistingRightMoth = Скрученный шрам (правая кисть)
 marking-HandTwistingRightMoth-hand_r_twisting_moth = Скрученный шрам (правая кисть)
@@ -97,18 +79,11 @@ marking-HeadTwistingMoth-head_twisting_moth = Скрученный шрам (г�
 marking-LegChimeraLeftMoth = Химера (левая нога)
 marking-LegChimeraLeftMoth-leg_l_chimera_moth = Химера (левая нога)
 
-marking-LegProstheticLeftMoth = Протез (левая нога)
-marking-LegProstheticLeftMoth-leg_l_prosthetic_moth = Протез (левая нога)
-
 marking-LegTwistingLeftMoth = Скрученный шрам (левая нога)
 marking-LegTwistingLeftMoth-leg_l_twisting_moth = Скрученный шрам (левая нога)
-
-marking-LegProstheticRightMoth = Протез (правая нога)
-marking-LegProstheticRightMoth-leg_r_prosthetic_moth = Протез (правая нога)
 
 marking-LegTwistingRightMoth = Скрученный шрам (правая нога)
 marking-LegTwistingRightMoth-leg_r_twisting_moth = Скрученный шрам (правая нога)
 
 marking-TorsoIncisionMoth = Хирургический разрез (торс)
 marking-TorsoIncisionMoth-torso_incision_moth = Хирургический разрез (торс)
-

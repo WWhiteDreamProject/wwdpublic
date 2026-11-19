@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/Aurorastation/Aurora.3/commit/639227c952a8012a88288257140166ca7419385d, edited by angelofallars(github). Eyebrows_thick and eyebrows_ultra made by Carousel(github) for Impstation.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "eye_arrows-left",
+      "directions": 4
+    },
+    {
+      "name": "eye_arrows-right",
+      "directions": 4
+    },
+    {
+      "name": "eyebrows-left",
+      "directions": 4
+    },
+    {
+      "name": "eyebrows-right",
+      "directions": 4
+    },
+    {
+      "name": "eyebrows_thick",
+      "directions": 4
+    },
+    {
+      "name": "eyebrows_ultra",
+      "directions": 4
+    },
+    {
+      "name": "unibrow",
+      "directions": 4
+    }
+  ]
+}

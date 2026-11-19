@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297. Eastern_dragon and guilmon taken from https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/02617f9b08d7767e2feb137a8c96650342bd3c0a and edited, resprited and reshaded by PuroSlavKing(github)",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297. Eastern_dragon and guilmon taken from https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/02617f9b08d7767e2feb137a8c96650342bd3c0a and edited, resprited and reshaded by PuroSlavKing(github) Tall by rainyatrium taken from Impstation.",
   "size": {
     "x": 32,
     "y": 32
@@ -37,6 +37,10 @@
     },
     {
       "name": "splotch-secondary",
+      "directions": 4
+    },
+    {
+      "name": "tall",
       "directions": 4
     }
   ]

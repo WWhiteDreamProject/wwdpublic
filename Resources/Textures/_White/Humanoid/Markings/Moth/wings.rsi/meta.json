@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/b30e2934e7585bad901dd12a35d0635f1fc292c1 and https://github.com/tgstation/tgstation/commit/6b0af0febe578f47ae280781682ea7a3d77f508a. Modified by PixelTheKermit(github) and MilenVolf(github). Underwing made by Ubaser(github). A taken from https://github.com/fulpstation/fulpstation/commit/b21af07f57c2c4fb1cdcdb4162ca222da97ed54c. Mint made by Floofers(github). Selene made by bogus_0451(discord).",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/b30e2934e7585bad901dd12a35d0635f1fc292c1 and https://github.com/tgstation/tgstation/commit/6b0af0febe578f47ae280781682ea7a3d77f508a. Modified by PixelTheKermit(github) and MilenVolf(github). Underwing made by Ubaser(github). A taken from https://github.com/fulpstation/fulpstation/commit/b21af07f57c2c4fb1cdcdb4162ca222da97ed54c. Mint made by Floofers(github). Selene made by bogus_0451(discord). Bee, beetle, firefly, glasswing, luna, rhino_beetle, snoth and true_butterfly made by Carousel(github) for Impstation.",
   "size": {
     "x": 32,
     "y": 32
@@ -13,6 +13,30 @@
     },
     {
       "name": "atlas_classic",
+      "directions": 4
+    },
+    {
+      "name": "bee-primary",
+      "directions": 4
+    },
+    {
+      "name": "bee-secondary",
+      "directions": 4
+    },
+    {
+      "name": "bee-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "beetle-primary",
+      "directions": 4
+    },
+    {
+      "name": "beetle-secondary",
+      "directions": 4
+    },
+    {
+      "name": "beetle-tertiary",
       "directions": 4
     },
     {
@@ -60,6 +84,10 @@
       "directions": 4
     },
     {
+      "name": "firefly",
+      "directions": 4
+    },
+    {
       "name": "firewatch-primary",
       "directions": 4
     },
@@ -69,6 +97,18 @@
     },
     {
       "name": "firewatch_classic",
+      "directions": 4
+    },
+    {
+      "name": "glasswing-primary",
+      "directions": 4
+    },
+    {
+      "name": "glasswing-secondary",
+      "directions": 4
+    },
+    {
+      "name": "glasswing-tertiary",
       "directions": 4
     },
     {
@@ -93,6 +133,14 @@
     },
     {
       "name": "lovers_classic",
+      "directions": 4
+    },
+    {
+      "name": "luna-primary",
+      "directions": 4
+    },
+    {
+      "name": "luna-secondary",
       "directions": 4
     },
     {
@@ -168,6 +216,18 @@
       "directions": 4
     },
     {
+      "name": "rhino_beetle-primary",
+      "directions": 4
+    },
+    {
+      "name": "rhino_beetle-secondary",
+      "directions": 4
+    },
+    {
+      "name": "rhino_beetle-tertiary",
+      "directions": 4
+    },
+    {
       "name": "rosy_classic",
       "directions": 4
     },
@@ -200,6 +260,14 @@
       "directions": 4
     },
     {
+      "name": "snoth-primary",
+      "directions": 4
+    },
+    {
+      "name": "snoth-secondary",
+      "directions": 4
+    },
+    {
       "name": "snow_classic",
       "directions": 4
     },
@@ -213,6 +281,18 @@
     },
     {
       "name": "swirly",
+      "directions": 4
+    },
+    {
+      "name": "true_butterfly-primary",
+      "directions": 4
+    },
+    {
+      "name": "true_butterfly-secondary",
+      "directions": 4
+    },
+    {
+      "name": "true_butterfly-tertiary",
       "directions": 4
     },
     {

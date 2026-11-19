@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/TauCetiStation/TauCetiClassic/blob/a8c097fd0e749dcd6f66f05cf5325e51f6b081dd/icons/mob/human_face.dmi. Flowers and thorns from https://github.com/Citadel-Station-13/Citadel-Station-13-RP/commit/38051f45d3b26bd31f6e292239f43adb36ff01fe, modified by EmoGarbage.",
+  "copyright": "Taken from https://github.com/TauCetiStation/TauCetiClassic/blob/a8c097fd0e749dcd6f66f05cf5325e51f6b081dd/icons/mob/human_face.dmi. Flowers and thorns from https://github.com/Citadel-Station-13/Citadel-Station-13-RP/commit/38051f45d3b26bd31f6e292239f43adb36ff01fe, modified by EmoGarbage(github). Moon_bloom made by Carousel(github) for Impstation.",
   "size": {
     "x": 32,
     "y": 32
@@ -12,7 +12,19 @@
       "directions": 4
     },
     {
+      "name": "bloom_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "bloom_colorable-secondary",
+      "directions": 4
+    },
+    {
       "name": "bracket",
+      "directions": 4
+    },
+    {
+      "name": "bracket_colorable",
       "directions": 4
     },
     {
@@ -20,7 +32,23 @@
       "directions": 4
     },
     {
+      "name": "brush_colorable",
+      "directions": 4
+    },
+    {
       "name": "cornflower",
+      "directions": 4
+    },
+    {
+      "name": "cornflower_colorable-flowers",
+      "directions": 4
+    },
+    {
+      "name": "cornflower_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "cornflower_colorable-secondary",
       "directions": 4
     },
     {
@@ -28,7 +56,19 @@
       "directions": 4
     },
     {
+      "name": "ficus_colorable",
+      "directions": 4
+    },
+    {
       "name": "flowers",
+      "directions": 4
+    },
+    {
+      "name": "flowers_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "flowers_colorable-secondary",
       "directions": 4
     },
     {
@@ -36,7 +76,35 @@
       "directions": 4
     },
     {
+      "name": "garland_colorable-flowers1",
+      "directions": 4
+    },
+    {
+      "name": "garland_colorable-flowers2",
+      "directions": 4
+    },
+    {
+      "name": "garland_colorable-flowers3",
+      "directions": 4
+    },
+    {
+      "name": "garland_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "garland_colorable-secondary",
+      "directions": 4
+    },
+    {
       "name": "king",
+      "directions": 4
+    },
+    {
+      "name": "king_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "king_colorable-secondary",
       "directions": 4
     },
     {
@@ -44,7 +112,15 @@
       "directions": 4
     },
     {
+      "name": "laurel_colorable",
+      "directions": 4
+    },
+    {
       "name": "leafy",
+      "directions": 4
+    },
+    {
+      "name": "leafy_colorable",
       "directions": 4
     },
     {
@@ -52,7 +128,23 @@
       "directions": 4
     },
     {
+      "name": "lotus_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "lotus_colorable-secondary",
+      "directions": 4
+    },
+    {
       "name": "meadow",
+      "directions": 4
+    },
+    {
+      "name": "meadow_colorable",
+      "directions": 4
+    },
+    {
+      "name": "moon_bloom",
       "directions": 4
     },
     {
@@ -60,7 +152,15 @@
       "directions": 4
     },
     {
+      "name": "oak_colorable",
+      "directions": 4
+    },
+    {
       "name": "palm",
+      "directions": 4
+    },
+    {
+      "name": "palm_colorable",
       "directions": 4
     },
     {
@@ -68,7 +168,19 @@
       "directions": 4
     },
     {
+      "name": "root_colorable",
+      "directions": 4
+    },
+    {
       "name": "rose",
+      "directions": 4
+    },
+    {
+      "name": "rose_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "rose_colorable-secondary",
       "directions": 4
     },
     {
@@ -76,7 +188,23 @@
       "directions": 4
     },
     {
+      "name": "rosey_colorable-flowers",
+      "directions": 4
+    },
+    {
+      "name": "rosey_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "rosey_colorable-secondary",
+      "directions": 4
+    },
+    {
       "name": "shrub",
+      "directions": 4
+    },
+    {
+      "name": "shrub_colorable",
       "directions": 4
     },
     {
@@ -84,7 +212,23 @@
       "directions": 4
     },
     {
+      "name": "spinner_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "spinner_colorable-secondary",
+      "directions": 4
+    },
+    {
       "name": "sprout",
+      "directions": 4
+    },
+    {
+      "name": "sprout_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "sprout_colorable-secondary",
       "directions": 4
     },
     {
@@ -92,7 +236,19 @@
       "directions": 4
     },
     {
+      "name": "thorns_colorable",
+      "directions": 4
+    },
+    {
       "name": "vine",
+      "directions": 4
+    },
+    {
+      "name": "vine_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "vine_colorable-secondary",
       "directions": 4
     },
     {
@@ -100,11 +256,51 @@
       "directions": 4
     },
     {
+      "name": "vine_long_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "vine_long_colorable-secondary",
+      "directions": 4
+    },
+    {
       "name": "vines",
       "directions": 4
     },
     {
+      "name": "vines_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "vines_colorable-secondary",
+      "directions": 4
+    },
+    {
       "name": "wildflower",
+      "directions": 4
+    },
+    {
+      "name": "wildflower_colorable-flowers1",
+      "directions": 4
+    },
+    {
+      "name": "wildflower_colorable-flowers2",
+      "directions": 4
+    },
+    {
+      "name": "wildflower_colorable-flowers3",
+      "directions": 4
+    },
+    {
+      "name": "wildflower_colorable-flowers4",
+      "directions": 4
+    },
+    {
+      "name": "wildflower_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "wildflower_colorable-secondary",
       "directions": 4
     }
   ]

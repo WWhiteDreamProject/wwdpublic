@@ -1,0 +1,17 @@
+﻿- type: marking
+  id: BaseTusksReptilian
+  parent: [BaseTusks, BaseReptilian]
+  abstract: true
+
+- type: marking
+  id: TusksReptilianFangs
+  parent: BaseTusksReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.Snout
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tusks.rsi
+      state: fangs
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#FFFFFF"

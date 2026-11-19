@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Snavian(github) and Carousel(github) for Impstation.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "backstabbed",
+      "directions": 4
+    },
+    {
+      "name": "burn_left_head",
+      "directions": 4
+    },
+    {
+      "name": "burn_right_head",
+      "directions": 4
+    },
+    {
+      "name": "claw_head",
+      "directions": 4
+    },
+    {
+      "name": "claw_torso",
+      "directions": 4
+    },
+    {
+      "name": "incision",
+      "directions": 4
+    },
+    {
+      "name": "slash_left_head",
+      "directions": 4
+    },
+    {
+      "name": "slash_right_head",
+      "directions": 4
+    },
+    {
+      "name": "star",
+      "directions": 4
+    },
+    {
+      "name": "twisting_arm_left",
+      "directions": 4
+    },
+    {
+      "name": "twisting_arm_right",
+      "directions": 4
+    },
+    {
+      "name": "twisting_chest_left_female",
+      "directions": 4
+    },
+    {
+      "name": "twisting_chest_left_male",
+      "directions": 4
+    },
+    {
+      "name": "twisting_chest_right_female",
+      "directions": 4
+    },
+    {
+      "name": "twisting_chest_right_male",
+      "directions": 4
+    },
+    {
+      "name": "twisting_hand_left",
+      "directions": 4
+    },
+    {
+      "name": "twisting_hand_right",
+      "directions": 4
+    },
+    {
+      "name": "twisting_head",
+      "directions": 4
+    },
+    {
+      "name": "twisting_leg_left",
+      "directions": 4
+    },
+    {
+      "name": "twisting_leg_right",
+      "directions": 4
+    }
+  ]
+}

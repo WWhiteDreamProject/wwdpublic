@@ -55,23 +55,6 @@
       state: long-groin
 
 - type: marking
-  id: SpinesReptilianLongWithTail
-  parent: BaseSpinesReptilian
-  definitions:
-  - layer: enum.BodyProviderType.Chest
-    sprite:
-      sprite: _White/Humanoid/Markings/Reptilian/spines.rsi
-      state: long-chest
-  - layer: enum.BodyProviderType.Groin
-    sprite:
-      sprite: _White/Humanoid/Markings/Reptilian/spines.rsi
-      state: long-groin
-  - layer: enum.BodyProviderType.Tail
-    sprite:
-      sprite: _White/Humanoid/Markings/Reptilian/spines.rsi
-      state: long-tail
-
-- type: marking
   id: SpinesReptilianLongMembrane
   parent: BaseSpinesReptilian
   definitions:
@@ -102,6 +85,23 @@
       state: long_membrane-tail
 
 - type: marking
+  id: SpinesReptilianLongWithTail
+  parent: BaseSpinesReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/spines.rsi
+      state: long-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/spines.rsi
+      state: long-groin
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/spines.rsi
+      state: long-tail
+
+- type: marking
   id: SpinesReptilianShort
   parent: BaseSpinesReptilian
   definitions:
@@ -113,23 +113,6 @@
     sprite:
       sprite: _White/Humanoid/Markings/Reptilian/spines.rsi
       state: short-groin
-
-- type: marking
-  id: SpinesReptilianShortWithTail
-  parent: BaseSpinesReptilian
-  definitions:
-  - layer: enum.BodyProviderType.Chest
-    sprite:
-      sprite: _White/Humanoid/Markings/Reptilian/spines.rsi
-      state: short-chest
-  - layer: enum.BodyProviderType.Groin
-    sprite:
-      sprite: _White/Humanoid/Markings/Reptilian/spines.rsi
-      state: short-groin
-  - layer: enum.BodyProviderType.Tail
-    sprite:
-      sprite: _White/Humanoid/Markings/Reptilian/spines.rsi
-      state: short-tail
 
 - type: marking
   id: SpinesReptilianShortMembrane
@@ -160,3 +143,20 @@
     sprite:
       sprite: _White/Humanoid/Markings/Reptilian/spines.rsi
       state: short_membrane-tail
+
+- type: marking
+  id: SpinesReptilianShortWithTail
+  parent: BaseSpinesReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/spines.rsi
+      state: short-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/spines.rsi
+      state: short-groin
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/spines.rsi
+      state: short-tail

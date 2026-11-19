@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Carousel(github) for Impstation.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "earhole",
+      "directions": 4
+    },
+    {
+      "name": "neckband",
+      "directions": 4
+    }
+  ]
+}

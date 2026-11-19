@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297/modular_skyrat/master_files/icons/mob/body_markings/tattoo_markings.dmi. The division of the torso into chest and groin was done by Spatison(github).",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297/modular_skyrat/master_files/icons/mob/body_markings/tattoo_markings.dmi. Cut_here and doll_joints made by Sha-Seng(github) for Impstation. The division of the torso into chest and groin was done by Spatison(github).",
   "size": {
     "x": 32,
     "y": 32
@@ -21,6 +21,42 @@
     },
     {
       "name": "campbell_right_leg",
+      "directions": 4
+    },
+    {
+      "name": "cut_here",
+      "directions": 4
+    },
+    {
+      "name": "doll_joints_left_arm",
+      "directions": 4
+    },
+    {
+      "name": "doll_joints_left_foot",
+      "directions": 4
+    },
+    {
+      "name": "doll_joints_left_hand",
+      "directions": 4
+    },
+    {
+      "name": "doll_joints_left_leg",
+      "directions": 4
+    },
+    {
+      "name": "doll_joints_right_arm",
+      "directions": 4
+    },
+    {
+      "name": "doll_joints_right_foot",
+      "directions": 4
+    },
+    {
+      "name": "doll_joints_right_hand",
+      "directions": 4
+    },
+    {
+      "name": "doll_joints_right_leg",
       "directions": 4
     },
     {

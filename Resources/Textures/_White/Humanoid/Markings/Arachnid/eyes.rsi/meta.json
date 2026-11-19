@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Carousel(github) for Impstation.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "glow",
+      "directions": 4
+    },
+    {
+      "name": "multi-primary",
+      "directions": 4
+    },
+    {
+      "name": "multi-quaternary",
+      "directions": 4
+    },
+    {
+      "name": "multi-secondary",
+      "directions": 4
+    },
+    {
+      "name": "multi-tertiary",
+      "directions": 4
+    }
+  ]
+}

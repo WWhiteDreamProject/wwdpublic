@@ -1,0 +1,13 @@
+﻿- type: marking
+  id: BaseHeadReptilian
+  parent: [BaseHead, BaseReptilian]
+  abstract: true
+
+- type: marking
+  id: HeadReptilianFlat
+  parent: BaseHeadReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/head.rsi
+      state: flat

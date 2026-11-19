@@ -4,6 +4,12 @@
   - enum.MarkingVisualLayers.HeadSide
 
 - type: markingCategory
+  id: Piercings
+  layers:
+  - enum.MarkingVisualLayers.Face
+  - enum.MarkingVisualLayers.Snout
+
+- type: markingCategory
   id: Wristwear
   layers:
   - enum.BodyProviderType.LeftArm

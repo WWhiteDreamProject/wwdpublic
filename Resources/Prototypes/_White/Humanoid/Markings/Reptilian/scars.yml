@@ -1,0 +1,22 @@
+﻿- type: marking
+  id: BaseScarsReptilian
+  parent: [BaseScars, BaseReptilian]
+  abstract: true
+
+- type: marking
+  id: ScarsReptilianSlash
+  parent: BaseScarsReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/scars.rsi
+      state: slash
+
+- type: marking
+  id: ScarsReptilianTalons
+  parent: BaseScarsReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/scars.rsi
+      state: talons

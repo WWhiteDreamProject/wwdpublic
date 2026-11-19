@@ -1,0 +1,188 @@
+﻿- type: marking
+  id: BaseInternalsSlime
+  parent: [BaseInternals, BaseSlime]
+  abstract: true
+
+- type: marking
+  id: InternalsSlimeBrain
+  parent: BaseInternalsSlime
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: brain
+
+- type: marking
+  id: InternalsSlimeBubble
+  parent: BaseInternalsSlime
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: bubble-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: bubble-groin
+
+- type: marking
+  id: InternalsSlimeCore
+  parent: BaseInternalsSlime
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: core
+
+- type: marking
+  id: InternalsSlimeFadingStars
+  parent: BaseInternalsSlime
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fading_stars-primary
+    index: primary
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fading_stars-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fading_stars-tertiary
+    index: tertiary
+    shader: unshaded
+
+- type: marking
+  id: InternalsSlimeFishbowl
+  parent: BaseInternalsSlime
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fishbowl-chest-primary
+    index: primary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fishbowl-groin-primary
+    index: primary
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fishbowl-chest-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fishbowl-groin-secondary
+    index: secondary
+
+- type: marking
+  id: InternalsSlimeFizz
+  parent: BaseInternalsSlime
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fizz-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fizz-groin
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fizz-head
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fizz-left_arm
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fizz-left_foot
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fizz-left_hand
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fizz-left_leg
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fizz-right_arm
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fizz-right_foot
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fizz-right_hand
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: fizz-right_leg
+
+- type: marking
+  id: InternalsSlimeLungs
+  parent: BaseInternalsSlime
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: lungs
+
+- type: marking
+  id: InternalsSlimeSkeleton
+  parent: BaseInternalsSlime
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: skeleton-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: skeleton-groin
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: skeleton-head
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: skeleton-left_arm
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: skeleton-left_foot
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: skeleton-left_hand
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: skeleton-left_leg
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: skeleton-right_arm
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: skeleton-right_foot
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: skeleton-right_hand
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/internals.rsi
+      state: skeleton-right_leg

@@ -33,6 +33,46 @@
       state: atlas_classic
 
 - type: marking
+  id: WingsMothBee
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: bee-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: bee-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: bee-tertiary
+    index: tertiary
+
+- type: marking
+  id: WingsMothBeetle
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: beetle-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: beetle-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: beetle-tertiary
+    index: tertiary
+
+- type: marking
   id: WingsMothBrownClassic
   parent: BaseWingsMothClassic
   definitions:
@@ -135,6 +175,15 @@
       state: feathery_classic
 
 - type: marking
+  id: WingsMothFirefly
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: firefly
+
+- type: marking
   id: WingsMothFirewatch
   parent: BaseWingsMoth
   definitions:
@@ -157,6 +206,26 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/wings.rsi
       state: firewatch_classic
+
+- type: marking
+  id: WingsMothGlasswing
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: glasswing-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: glasswing-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: glasswing-tertiary
+    index: tertiary
 
 - type: marking
   id: WingsMothGothic
@@ -211,6 +280,21 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/wings.rsi
       state: lovers_classic
+
+- type: marking
+  id: WingsMothLuna
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: luna-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: luna-secondary
+    index: secondary
 
 - type: marking
   id: WingsMothLunaClassic
@@ -369,6 +453,26 @@
       state: reddish_classic
 
 - type: marking
+  id: WingsMothRhinoBeetle
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: rhino_beetle-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: rhino_beetle-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: rhino_beetle-tertiary
+    index: tertiary
+
+- type: marking
   id: WingsMothRosyClassic
   parent: BaseWingsMothClassic
   definitions:
@@ -431,6 +535,21 @@
       state: selene_classic
 
 - type: marking
+  id: WingsMothSnoth
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: snoth-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: snoth-secondary
+    index: secondary
+
+- type: marking
   id: WingsMothSnowClassic
   parent: BaseWingsMothClassic
   definitions:
@@ -465,6 +584,26 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/wings.rsi
       state: swirly
+
+- type: marking
+  id: WingsMothTrueButterfly
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: true_butterfly-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: true_butterfly-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: true_butterfly-tertiary
+    index: tertiary
 
 - type: marking
   id: WingsMothUnderwing

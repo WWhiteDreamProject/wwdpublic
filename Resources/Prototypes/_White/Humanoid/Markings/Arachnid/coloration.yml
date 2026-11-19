@@ -86,6 +86,21 @@
       state: hourglass-groin
 
 - type: marking
+  id: ColorationArachnidMirror
+  parent: BaseColorationArachnid
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: mirror-chest
+    shader: unshaded
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: mirror-groin
+    shader: unshaded
+
+- type: marking
   id: ColorationArachnidNailAndHammer
   parent: BaseColorationArachnid
   definitions:

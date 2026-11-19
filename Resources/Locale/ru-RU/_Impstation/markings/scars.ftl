@@ -39,28 +39,3 @@ marking-LegTwistingRight-leg_r_twisting = Скрученный шрам (пра�
 
 marking-TorsoIncision = Хирургический надрез (торс)
 marking-TorsoIncision-torso_incision = Хирургический надрез (торс)
-
-marking-ArmProstheticLeft = Протез (левая рука)
-marking-ArmProstheticLeft-arm_r_prosthetic = Протез (левая рука)
-
-marking-ArmProstheticRight = Протез (правая рука)
-marking-ArmProstheticRight-arm_r_prosthetic = Протез (правая рука)
-
-marking-FootProstheticLeft = Протез (левая ступня)
-marking-FootProstheticLeft-foot_l_prosthetic = Протез (левая ступня)
-
-marking-FootProstheticRight = Протез (правая ступня)
-marking-FootProstheticRight-foot_r_prosthetic = Протез (правая ступня)
-
-marking-HandProstheticLeft = Протез (левая кисть)
-marking-HandProstheticLeft-hand_l_prosthetic = Протез (левая кисть)
-
-marking-HandProstheticRight = Протез (правая кисть)
-marking-HandProstheticRight-hand_r_prosthetic = Протез (правая кисть)
-
-marking-LegProstheticLeft = Протез (левая нога)
-marking-LegProstheticLeft-leg_l_prosthetic = Протез (левая нога)
-
-marking-LegProstheticRight = Протез (правая нога)
-marking-LegProstheticRight-leg_r_prosthetic = Протез (правая нога)
-

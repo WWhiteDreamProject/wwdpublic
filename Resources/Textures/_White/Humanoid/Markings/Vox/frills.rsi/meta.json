@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Carousel(github) for Impstation.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "side_quills-primary",
+      "directions": 4
+    },
+    {
+      "name": "side_quills-secondary",
+      "directions": 4
+    },
+    {
+      "name": "side_quills-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "streamers-primary",
+      "directions": 4
+    },
+    {
+      "name": "streamers-secondary",
+      "directions": 4
+    },
+    {
+      "name": "streamers-tertiary",
+      "directions": 4
+    }
+  ]
+}

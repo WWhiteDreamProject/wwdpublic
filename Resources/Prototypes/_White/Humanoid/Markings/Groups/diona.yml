@@ -3,17 +3,17 @@
   parent: Undergarments
   whitelisted: true
   data:
-    Hair:
-      limit: 3
     Earrings:
       whitelisted: false
       limit: 2
+    Hair:
+      limit: 3
     Overlay:
       required: true
       default: [ OverlayDionaVine ]
       limit: 1
     Vegetation:
-      limit: 2
+      limit: 4
     Wristwear:
       whitelisted: false
       limit: 2

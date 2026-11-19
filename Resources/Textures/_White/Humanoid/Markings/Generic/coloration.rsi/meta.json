@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Carousel(github) for Impstation.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "abs-chest",
+      "directions": 4
+    },
+    {
+      "name": "abs-groin",
+      "directions": 4
+    },
+    {
+      "name": "vitiligo_arm_left",
+      "directions": 4
+    },
+    {
+      "name": "vitiligo_arm_right",
+      "directions": 4
+    },
+    {
+      "name": "vitiligo_chest",
+      "directions": 4
+    },
+    {
+      "name": "vitiligo_chest_spots",
+      "directions": 4
+    },
+    {
+      "name": "vitiligo_groin",
+      "directions": 4
+    },
+    {
+      "name": "vitiligo_groin_spots",
+      "directions": 4
+    },
+    {
+      "name": "vitiligo_hand_left",
+      "directions": 4
+    },
+    {
+      "name": "vitiligo_hand_right",
+      "directions": 4
+    },
+    {
+      "name": "vitiligo_head_jaw",
+      "directions": 4
+    },
+    {
+      "name": "vitiligo_head_left",
+      "directions": 4
+    },
+    {
+      "name": "vitiligo_head_right",
+      "directions": 4
+    },
+    {
+      "name": "vitiligo_leg_left",
+      "directions": 4
+    },
+    {
+      "name": "vitiligo_leg_right",
+      "directions": 4
+    }
+  ]
+}

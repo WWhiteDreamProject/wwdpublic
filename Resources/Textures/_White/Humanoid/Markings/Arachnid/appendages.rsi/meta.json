@@ -1,12 +1,36 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by PixelTheKermit(github) for SS14. The division of the torso into chest and groin was done by Spatison(github).",
+  "copyright": "Made by PixelTheKermit(github) for SS14. The division of the torso into chest and groin was done by Spatison(github). Abdomen_basic, abdomen_widow and creepy_arms made by Carousel(github) for Impstation.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    {
+      "name": "abdomen_basic-chest-primary",
+      "directions": 4
+    },
+    {
+      "name": "abdomen_basic-groin-primary",
+      "directions": 4
+    },
+    {
+      "name": "abdomen_basic-groin-secondary",
+      "directions": 4
+    },
+    {
+      "name": "abdomen_widow-chest-primary",
+      "directions": 4
+    },
+    {
+      "name": "abdomen_widow-groin-primary",
+      "directions": 4
+    },
+    {
+      "name": "abdomen_widow-groin-secondary",
+      "directions": 4
+    },
     {
       "name": "chipped-chest-primary",
       "directions": 4
@@ -21,6 +45,10 @@
     },
     {
       "name": "chipped-groin-secondary",
+      "directions": 4
+    },
+    {
+      "name": "creepy_arms",
       "directions": 4
     },
     {

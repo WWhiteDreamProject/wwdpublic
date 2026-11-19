@@ -1,0 +1,14 @@
+﻿- type: marking
+  id: BaseEyesSlime
+  parent: [BaseEyes, BaseSlime]
+  abstract: true
+
+- type: marking
+  id: EyesSlimeGlow
+  parent: BaseEyesSlime
+  definitions:
+  - layer: enum.BodyProviderType.Eyes
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/eyes.rsi
+      state: glow
+    shader: unshaded

@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by LandsharkRAWR(github) for Impstation. Blasted_head, incision_torso, mangled_torso and spinal_torso made by Carousel(github) for Impstation.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bigslash_left_head",
+      "directions": 4
+    },
+    {
+      "name": "bigslash_right_head",
+      "directions": 4
+    },
+    {
+      "name": "blasted_head",
+      "directions": 4
+    },
+    {
+      "name": "claw_torso",
+      "directions": 4
+    },
+    {
+      "name": "incision_torso-chest",
+      "directions": 4
+    },
+    {
+      "name": "incision_torso-groin",
+      "directions": 4
+    },
+    {
+      "name": "mangled_torso-chest",
+      "directions": 4
+    },
+    {
+      "name": "mangled_torso-groin",
+      "directions": 4
+    },
+    {
+      "name": "roadrash_left_head",
+      "directions": 4
+    },
+    {
+      "name": "roadrash_right_head",
+      "directions": 4
+    },
+    {
+      "name": "slash_left_head",
+      "directions": 4
+    },
+    {
+      "name": "slash_right_head",
+      "directions": 4
+    },
+    {
+      "name": "spinal_torso-chest",
+      "directions": 4
+    },
+    {
+      "name": "spinal_torso-groin",
+      "directions": 4
+    }
+  ]
+}

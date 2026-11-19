@@ -1,0 +1,99 @@
+﻿- type: marking
+  id: BaseColorationMoth
+  parent: [BaseColoration, BaseMoth]
+  abstract: true
+
+- type: marking
+  id: ColorationMothChimeraArmLeft
+  parent: BaseColorationMoth
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/coloration.rsi
+      state: chimera_arm_left
+
+- type: marking
+  id: ColorationMothChimeraChestFemale
+  parent: BaseColorationMoth
+  sexRestriction: Female
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/coloration.rsi
+      state: chimera_chest_female
+
+- type: marking
+  id: ColorationMothChimeraChestMale
+  parent: BaseColorationMoth
+  sexRestriction: Male
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/coloration.rsi
+      state: chimera_chest_male
+
+- type: marking
+  id: ColorationMothChimeraFootLeft
+  parent: BaseColorationMoth
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/coloration.rsi
+      state: chimera_foot_left
+
+- type: marking
+  id: ColorationMothChimeraGroinFemale
+  parent: BaseColorationMoth
+  sexRestriction: Female
+  definitions:
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/coloration.rsi
+      state: chimera_groin_female
+
+- type: marking
+  id: ColorationMothChimeraGroinMale
+  parent: BaseColorationMoth
+  sexRestriction: Male
+  definitions:
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/coloration.rsi
+      state: chimera_groin_male
+
+- type: marking
+  id: ColorationMothChimeraHandLeft
+  parent: BaseColorationMoth
+  definitions:
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/coloration.rsi
+      state: chimera_hand_left
+
+- type: marking
+  id: ColorationMothChimeraHead
+  parent: BaseColorationMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/coloration.rsi
+      state: chimera_head
+
+- type: marking
+  id: ColorationMothChimeraLegLeft
+  parent: BaseColorationMoth
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/coloration.rsi
+      state: chimera_leg_left
+
+- type: marking
+  id: ColorationMothFirefly
+  parent: BaseColorationMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/coloration.rsi
+      state: firefly
+    shader: unshaded

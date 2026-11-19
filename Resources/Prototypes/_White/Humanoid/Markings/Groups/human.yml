@@ -4,10 +4,12 @@
   data:
     Bandages:
       limit: 4
-    Ears:
-      limit: 1
+    Coloration:
+      limit: 8
     Earrings:
       limit: 2
+    Ears:
+      limit: 1
     Face:
       limit: 4
     FacialHair:

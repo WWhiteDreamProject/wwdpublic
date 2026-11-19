@@ -4,6 +4,15 @@
   abstract: true
 
 - type: marking
+  id: FaceMothBadMolt
+  parent: BaseFaceMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/face.rsi
+      state: bad_molt
+
+- type: marking
   id: FaceMothBlush
   parent: BaseFaceMoth
   definitions:
@@ -21,6 +30,15 @@
     default:
       type: !type:SimpleColoring
         color: "#E07E7E"
+
+- type: marking
+  id: FaceMothEyebags
+  parent: BaseFaceMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/face.rsi
+      state: eyebags
 
 - type: marking
   id: FaceMothLips

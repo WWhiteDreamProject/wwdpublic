@@ -23,6 +23,26 @@
       state: aspen_classic
 
 - type: marking
+  id: EarsMothBeetleHorn
+  parent: BaseEarsMoth
+  forcedColoring: true
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: beetle_horn
+
+- type: marking
+  id: EarsMothBeetleHorn2
+  parent: BaseEarsMoth
+  forcedColoring: true
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: beetle_horn_2
+
+- type: marking
   id: EarsMothBrownClassic
   parent: BaseEarsMothClassic
   definitions:
@@ -120,6 +140,16 @@
     sprite:
       sprite: _White/Humanoid/Markings/Moth/ears.rsi
       state: firewatch_classic
+
+- type: marking
+  id: EarsMothGlow
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: glow
+    shader: unshaded
 
 - type: marking
   id: EarsMothGothicClassic

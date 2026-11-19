@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by PixelTheKermit(github) for SS14. Arrows, core, fiddleback, skull, stripes and target made by Nairodian(github) for SS14. The division of the torso into chest and groin was done by Spatison(github).",
+  "copyright": "Made by PixelTheKermit(github) for SS14. Arrows, core, fiddleback, skull, stripes and target made by Nairodian(github) for SS14. Mirror made by Carousel(github) for Impstation.",
   "size": {
     "x": 32,
     "y": 32
@@ -54,6 +54,98 @@
     {
       "name": "hourglass-groin",
       "directions": 4
+    },
+    {
+      "name": "mirror-chest",
+      "directions": 4,
+      "delays": [
+        [
+          5,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          5,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          5,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          5,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "mirror-groin",
+      "directions": 4,
+      "delays": [
+        [
+          5,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          5,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          5,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          5,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
     },
     {
       "name": "nail_and_hammer-chest",

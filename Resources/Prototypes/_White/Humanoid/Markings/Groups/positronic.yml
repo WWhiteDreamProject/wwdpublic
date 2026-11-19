@@ -26,6 +26,8 @@
       limit: 1
     Screen:
       limit: 1
+    Tattoos:
+      limit: 4
     Torso:
       required: true
       default: [ TorsoPositronicDefault ]

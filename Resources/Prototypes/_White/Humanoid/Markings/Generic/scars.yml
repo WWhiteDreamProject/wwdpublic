@@ -1,4 +1,18 @@
 ﻿- type: marking
+  id: ScarsBackstabbed
+  parent: BaseScars
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: backstabbed-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: backstabbed-groin
+
+- type: marking
   id: ScarsEyeLeft
   parent: BaseScars
   groups: [Felinid, Human, Harpy, Oni, Reptilian]
@@ -19,7 +33,45 @@
       state: eye_right
 
 - type: marking
-  id: ScarsEyeSurgeryTopLong
+  id: ScarsIncision
+  parent: BaseScars
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: incision-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: incision-groin
+
+- type: marking
+  id: ScarsSmile
+  parent: BaseScars
+  groups: [Felinid, Human, Oni, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: smile
+
+- type: marking
+  id: ScarsStar
+  parent: BaseScars
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: star-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: star-groin
+
+- type: marking
+  id: ScarsSurgeryTopLong
   parent: BaseScars
   groups: [Arachnid, Felinid, Human, Harpy, Moth, Oni, Reptilian]
   definitions:
@@ -29,7 +81,7 @@
       state: surgery_top_long
 
 - type: marking
-  id: ScarsEyeSurgeryTopShort
+  id: ScarsSurgeryTopShort
   parent: BaseScars
   groups: [Arachnid, Felinid, Human, Harpy, Moth, Oni, Reptilian]
   definitions:
@@ -51,3 +103,103 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/scars.rsi
       state: torso-groin
+
+- type: marking
+  id: ScarsTwistingArmLeft
+  parent: BaseScars
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: twisting_arm_left
+
+- type: marking
+  id: ScarsTwistingArmRight
+  parent: BaseScars
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: twisting_arm_right
+
+- type: marking
+  id: ScarsTwistingChestLeft
+  parent: BaseScars
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: twisting_chest_left
+
+- type: marking
+  id: ScarsTwistingChestRight
+  parent: BaseScars
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: twisting_chest_right
+
+- type: marking
+  id: ScarsTwistingHandLeft
+  parent: BaseScars
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: twisting_hand_left
+
+- type: marking
+  id: ScarsTwistingHandRight
+  parent: BaseScars
+  groups: [Arachnid, Felinid, Human, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: twisting_hand_right
+
+- type: marking
+  id: ScarsTwistingHead
+  parent: BaseScars
+  groups: [Felinid, Human, Oni, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: twisting_head
+
+- type: marking
+  id: ScarsTwistingHeadFlipped
+  parent: BaseScars
+  groups: [Felinid, Human, Oni, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: twisting_head_flipped
+
+- type: marking
+  id: ScarsTwistingLegLeft
+  parent: BaseScars
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: twisting_leg_left
+
+- type: marking
+  id: ScarsTwistingLegRight
+  parent: BaseScars
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: twisting_leg_right

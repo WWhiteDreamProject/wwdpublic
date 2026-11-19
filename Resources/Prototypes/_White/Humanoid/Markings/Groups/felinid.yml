@@ -2,12 +2,14 @@
   id: Felinid
   parent: Undergarments
   data:
+    Coloration:
+      limit: 4
+    Earrings:
+      limit: 2
     Ears:
       required: true
       default: [ EarsFelinidDefault ]
       limit: 1
-    Earrings:
-      limit: 2
     Face:
       limit: 4
     FacialHair:

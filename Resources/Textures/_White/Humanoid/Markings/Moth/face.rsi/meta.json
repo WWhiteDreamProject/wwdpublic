@@ -1,18 +1,26 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by angelofallars(github).",
+  "copyright": "Made by angelofallars(github). Bad_molt and eyebags made by Snavian(github) and Carousel(github) for Impstation.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
+      "name": "bad_molt",
+      "directions": 4
+    },
+    {
       "name": "blush-left",
       "directions": 4
     },
     {
       "name": "blush-right",
+      "directions": 4
+    },
+    {
+      "name": "eyebags",
       "directions": 4
     },
     {

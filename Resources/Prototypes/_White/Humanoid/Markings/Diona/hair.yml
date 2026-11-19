@@ -5,6 +5,16 @@
   forcedColoring: true
 
 - type: marking
+  id: BaseHairDionaColorable
+  parent: BaseHairDiona
+  abstract: true
+  forcedColoring: false
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
   id: HairDionaBloom
   parent: BaseHairDiona
   definitions:
@@ -12,6 +22,21 @@
     sprite:
       sprite: _White/Humanoid/Markings/Diona/hair.rsi
       state: bloom
+
+- type: marking
+  id: HairDionaBloomColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: bloom_colorable-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: bloom_colorable-secondary
+    index: secondary
 
 - type: marking
   id: HairDionaBracket
@@ -23,6 +48,19 @@
       state: bracket
 
 - type: marking
+  id: HairDionaBracketColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: bracket_colorable
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Eyes
+
+- type: marking
   id: HairDionaBrush
   parent: BaseHairDiona
   definitions:
@@ -30,6 +68,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Diona/hair.rsi
       state: brush
+
+- type: marking
+  id: HairDionaBrushColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: brush_colorable
 
 - type: marking
   id: HairDionaCornflower
@@ -41,6 +88,26 @@
       state: cornflower
 
 - type: marking
+  id: HairDionaCornflowerColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: cornflower_colorable-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: cornflower_colorable-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: cornflower_colorable-flowers
+    index: flowers
+
+- type: marking
   id: HairDionaFicus
   parent: BaseHairDiona
   definitions:
@@ -48,6 +115,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Diona/hair.rsi
       state: ficus
+
+- type: marking
+  id: HairDionaFicusColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: ficus_colorable
 
 - type: marking
   id: HairDionaFlowers
@@ -59,6 +135,21 @@
       state: flowers
 
 - type: marking
+  id: HairDionaFlowersColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: flowers_colorable-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: flowers_colorable-secondary
+    index: secondary
+
+- type: marking
   id: HairDionaGarland
   parent: BaseHairDiona
   definitions:
@@ -66,6 +157,36 @@
     sprite:
       sprite: _White/Humanoid/Markings/Diona/hair.rsi
       state: garland
+
+- type: marking
+  id: HairDionaGarlandColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: garland_colorable-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: garland_colorable-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: garland_colorable-flowers1
+    index: flowers1
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: garland_colorable-flowers2
+    index: flowers2
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: garland_colorable-flowers3
+    index: flowers3
 
 - type: marking
   id: HairDionaKing
@@ -77,6 +198,21 @@
       state: king
 
 - type: marking
+  id: HairDionaKingColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: king_colorable-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: king_colorable-secondary
+    index: secondary
+
+- type: marking
   id: HairDionaLaurel
   parent: BaseHairDiona
   definitions:
@@ -84,6 +220,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Diona/hair.rsi
       state: laurel
+
+- type: marking
+  id: HairDionaLaurelColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: laurel_colorable
 
 - type: marking
   id: HairDionaLeafy
@@ -95,6 +240,15 @@
       state: leafy
 
 - type: marking
+  id: HairDionaLeafyColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: leafy_colorable
+
+- type: marking
   id: HairDionaLotus
   parent: BaseHairDiona
   definitions:
@@ -102,6 +256,21 @@
     sprite:
       sprite: _White/Humanoid/Markings/Diona/hair.rsi
       state: lotus
+
+- type: marking
+  id: HairDionaLotusColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: lotus_colorable-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: lotus_colorable-secondary
+    index: secondary
 
 - type: marking
   id: HairDionaMeadow
@@ -113,6 +282,25 @@
       state: meadow
 
 - type: marking
+  id: HairDionaMeadowColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: meadow_colorable
+
+- type: marking
+  id: HairDionaMoonBloom
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: moon_bloom
+    shader: unshaded
+
+- type: marking
   id: HairDionaOak
   parent: BaseHairDiona
   definitions:
@@ -120,6 +308,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Diona/hair.rsi
       state: oak
+
+- type: marking
+  id: HairDionaOakColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: oak_colorable
 
 - type: marking
   id: HairDionaPalm
@@ -131,6 +328,15 @@
       state: palm
 
 - type: marking
+  id: HairDionaPalmColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: palm_colorable
+
+- type: marking
   id: HairDionaRoot
   parent: BaseHairDiona
   definitions:
@@ -138,6 +344,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Diona/hair.rsi
       state: root
+
+- type: marking
+  id: HairDionaRootColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: root_colorable
 
 - type: marking
   id: HairDionaRose
@@ -149,6 +364,21 @@
       state: rose
 
 - type: marking
+  id: HairDionaRoseColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: rose_colorable-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: rose_colorable-secondary
+    index: secondary
+
+- type: marking
   id: HairDionaRosey
   parent: BaseHairDiona
   definitions:
@@ -156,6 +386,26 @@
     sprite:
       sprite: _White/Humanoid/Markings/Diona/hair.rsi
       state: rosey
+
+- type: marking
+  id: HairDionaRoseyColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: rosey_colorable-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: rosey_colorable-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: rosey_colorable-flowers
+    index: flowers
 
 - type: marking
   id: HairDionaShrub
@@ -167,6 +417,15 @@
       state: shrub
 
 - type: marking
+  id: HairDionaShrubColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: shrub_colorable
+
+- type: marking
   id: HairDionaSpinner
   parent: BaseHairDiona
   definitions:
@@ -176,6 +435,21 @@
       state: spinner
 
 - type: marking
+  id: HairDionaSpinnerColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: spinner_colorable-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: spinner_colorable-secondary
+    index: secondary
+
+- type: marking
   id: HairDionaSprout
   parent: BaseHairDiona
   definitions:
@@ -183,6 +457,21 @@
     sprite:
       sprite: _White/Humanoid/Markings/Diona/hair.rsi
       state: sprout
+
+- type: marking
+  id: HairDionaSproutColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: sprout_colorable-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: sprout_colorable-secondary
+    index: secondary
 
 - type: marking
   id: HairDionaThorns
@@ -195,6 +484,15 @@
       state: thorns
 
 - type: marking
+  id: HairDionaThornsColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: thorns_colorable
+
+- type: marking
   id: HairDionaVine
   parent: BaseHairDiona
   definitions:
@@ -202,6 +500,21 @@
     sprite:
       sprite: _White/Humanoid/Markings/Diona/hair.rsi
       state: vine
+
+- type: marking
+  id: HairDionaVineColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: vine_colorable-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: vine_colorable-secondary
+    index: secondary
 
 - type: marking
   id: HairDionaVineLong
@@ -213,6 +526,21 @@
       state: vine_long
 
 - type: marking
+  id: HairDionaVineLongColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: vine_long_colorable-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: vine_long_colorable-secondary
+    index: secondary
+
+- type: marking
   id: HairDionaVines
   parent: BaseHairDiona
   definitions:
@@ -222,6 +550,21 @@
       state: vines
 
 - type: marking
+  id: HairDionaVinesColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: vines_colorable-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: vines_colorable-secondary
+    index: secondary
+
+- type: marking
   id: HairDionaWildflower
   parent: BaseHairDiona
   definitions:
@@ -229,3 +572,38 @@
     sprite:
       sprite: _White/Humanoid/Markings/Diona/hair.rsi
       state: wildflower
+
+- type: marking
+  id: HairDionaWildflowerColorable
+  parent: BaseHairDionaColorable
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: wildflower_colorable-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: wildflower_colorable-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: wildflower_colorable-flowers1
+    index: flowers1
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: wildflower_colorable-flowers2
+    index: flowers2
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: wildflower_colorable-flowers3
+    index: flowers3
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: wildflower_colorable-flowers4
+    index: flowers4

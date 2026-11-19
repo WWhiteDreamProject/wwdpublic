@@ -1,0 +1,442 @@
+﻿- type: marking
+  id: BaseColorationVox
+  parent: [BaseColoration, BaseVox]
+  abstract: true
+
+- type: marking
+  id: ColorationVoxArmStripesLeft
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: arm_stripes_left
+
+- type: marking
+  id: ColorationVoxArmStripesRight
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: arm_stripes_right
+
+- type: marking
+  id: ColorationVoxBelly
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: belly-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: belly-groin
+
+- type: marking
+  id: ColorationVoxChains
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: chains
+
+- type: marking
+  id: ColorationVoxCheeks
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: cheeks
+
+- type: marking
+  id: ColorationVoxChestPlumage
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: chest_plumage-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: chest_plumage-groin
+
+- type: marking
+  id: ColorationVoxCocktail
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: cocktail-primary
+    index: primary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: cocktail-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: cocktail-tertiary
+    index: tertiary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: cocktail-quaternary
+    index: quaternary
+
+- type: marking
+  id: ColorationVoxFeatheredLeftLeg
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: feathered_left_leg
+
+- type: marking
+  id: ColorationVoxFeatheredRightLeg
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: feathered_right_leg
+
+- type: marking
+  id: ColorationVoxFootGradientLeft
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: foot_gradient_left
+
+- type: marking
+  id: ColorationVoxFootGradientRight
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: foot_gradient_right
+
+- type: marking
+  id: ColorationVoxFootSpines
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: foot_spines-left_leg
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: foot_spines-right_leg
+
+- type: marking
+  id: ColorationVoxFriendsOfAFeather
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: friends_of_a_feather-primary
+    index: primary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: friends_of_a_feather-secondary
+    index: secondary
+
+- type: marking
+  id: ColorationVoxHandGradientLeft
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: hand_gradient_left-primary
+    index: primary
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: hand_gradient_left-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: hand_gradient_left-tertiary
+    index: tertiary
+
+- type: marking
+  id: ColorationVoxHandGradientRight
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: hand_gradient_right-primary
+    index: primary
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: hand_gradient_right-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: hand_gradient_right-tertiary
+    index: tertiary
+
+- type: marking
+  id: ColorationVoxHeadGradient
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: head_gradient-primary
+    index: primary
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: head_gradient-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: head_gradient-tertiary
+    index: tertiary
+
+- type: marking
+  id: ColorationVoxLegGradientLeft
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: leg_gradient_left
+
+- type: marking
+  id: ColorationVoxLegGradientRight
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: leg_gradient_right
+
+- type: marking
+  id: ColorationVoxLegStripesLeft
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: leg_stripes_left
+
+- type: marking
+  id: ColorationVoxLegStripesRight
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: leg_stripes_right
+
+- type: marking
+  id: ColorationVoxSpotsChest
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: spots_chest-chest-primary
+    index: primary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: spots_chest-groin-primary
+    index: primary
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: spots_chest-chest-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: spots_chest-groin-secondary
+    index: secondary
+
+- type: marking
+  id: ColorationVoxSpotsLeftArm
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: spots_left_arm
+
+- type: marking
+  id: ColorationVoxSpotsRightArm
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: spots_right_arm
+
+- type: marking
+  id: ColorationVoxSpotsTail
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: spots_tail
+
+- type: marking
+  id: ColorationVoxSunAndMoon
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: sun_and_moon
+
+- type: marking
+  id: ColorationVoxTailBack
+  parent: BaseColorationVox
+  forcedColoring: true
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: tail_back
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
+  id: ColorationVoxTailBell
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: tail_bell-primary
+    index: primary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: tail_bell-secondary
+    index: secondary
+
+- type: marking
+  id: ColorationVoxTailBloom
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: tail_bloom-primary
+    index: primary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: tail_bloom-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: tail_bloom-tertiary
+    index: tertiary
+
+- type: marking
+  id: ColorationVoxTailLantern
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: tail_lantern
+    shader: unshaded
+
+- type: marking
+  id: ColorationVoxTailSingleStripe
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: tail_single_stripe
+
+- type: marking
+  id: ColorationVoxTailSmallPlume
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: tail_small_plume
+
+- type: marking
+  id: ColorationVoxTailSpines
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: tail_spines
+
+- type: marking
+  id: ColorationVoxTailStripes
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: tail_stripes
+
+- type: marking
+  id: ColorationVoxVChest
+  parent: BaseColorationVox
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: v_chest-chest-primary
+    index: primary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: v_chest-groin-primary
+    index: primary
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: v_chest-chest-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: v_chest-groin-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: v_chest-chest-tertiary
+    index: tertiary
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/coloration.rsi
+      state: v_chest-groin-tertiary
+    index: tertiary

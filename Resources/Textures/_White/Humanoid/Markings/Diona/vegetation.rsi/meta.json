@@ -1,18 +1,156 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/TauCetiStation/TauCetiClassic/blob/a8c097fd0e749dcd6f66f05cf5325e51f6b081dd/icons/mob/human_face.dmi. The division was done by Spatison (github).",
+  "copyright": "Taken from https://github.com/TauCetiStation/TauCetiClassic/blob/a8c097fd0e749dcd6f66f05cf5325e51f6b081dd/icons/mob/human_face.dmi, modified by Doop(github). Flowers_body, flowers_head, leaf_cover, thorns_body, thorns_head taken from https://github.com/Citadel-Station-13/Citadel-Station-13-RP/commit/38051f45d3b26bd31f6e292239f43adb36ff01fe, modified by EmoGarbage(github). Big_firefly, firefly, living_nymph, moss and pollen_dust made by Carousel(github) for Impstation.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
+      "name": "big_firefly",
+      "directions": 4,
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "firefly-chest",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "firefly-groin",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
       "name": "flowers-chest",
       "directions": 4
     },
     {
       "name": "flowers-groin",
+      "directions": 4
+    },
+    {
+      "name": "flowers_colorable-chest-primary",
+      "directions": 4
+    },
+    {
+      "name": "flowers_colorable-chest-secondary",
+      "directions": 4
+    },
+    {
+      "name": "flowers_colorable-groin-primary",
+      "directions": 4
+    },
+    {
+      "name": "flowers_colorable-groin-secondary",
       "directions": 4
     },
     {
@@ -24,11 +162,397 @@
       "directions": 4
     },
     {
+      "name": "leaf_cover_colorable-chest",
+      "directions": 4
+    },
+    {
+      "name": "leaf_cover_colorable-groin",
+      "directions": 4
+    },
+    {
+      "name": "living_nymph-chest",
+      "directions": 4,
+      "delays": [
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2,
+          0.4,
+          0.3
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2,
+          0.4,
+          0.3
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2,
+          0.4,
+          0.3
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2,
+          0.4,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "living_nymph-groin",
+      "directions": 4,
+      "delays": [
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2,
+          0.4,
+          0.3
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2,
+          0.4,
+          0.3
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2,
+          0.4,
+          0.3
+        ],
+        [
+          0.6,
+          0.2,
+          0.2,
+          0.2,
+          0.4,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "moss-chest",
+      "directions": 4
+    },
+    {
+      "name": "moss-groin",
+      "directions": 4
+    },
+    {
+      "name": "pollen_dust-chest",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pollen_dust-groin",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pollen_dust-head",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pollen_dust-left_arm",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pollen_dust-left_foot",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pollen_dust-left_hand",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pollen_dust-left_leg",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pollen_dust-right_arm",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pollen_dust-right_foot",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pollen_dust-right_hand",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pollen_dust-right_leg",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
       "name": "thorns-chest",
       "directions": 4
     },
     {
       "name": "thorns-groin",
+      "directions": 4
+    },
+    {
+      "name": "thorns_colorable-chest",
+      "directions": 4
+    },
+    {
+      "name": "thorns_colorable-groin",
       "directions": 4
     }
   ]

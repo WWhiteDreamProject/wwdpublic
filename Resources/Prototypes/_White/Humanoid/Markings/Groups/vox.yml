@@ -14,26 +14,30 @@
       required: true
       default: [ BaseBeakDefault ]
       limit: 1
+    Coloration:
+      limit: 8
     Earrings:
       whitelisted: false
       limit: 2
-    Face:
-      whitelisted: false
-      limit: 4
     FacialHair:
       limit: 1
+    Frills:
+      limit: 2
     Hair:
       limit: 1
+    Head:
+      limit: 2
     Legs:
       required: true
       default: [ LegsVoxScales ]
       limit: 1
-    PeriocularHair:
-      whitelisted: false
-      limit: 1
     Scars:
       whitelisted: false
       limit: 4
+    Tail:
+      required: true
+      default: [ TailVoxDefault ]
+      limit: 1
     Tattoos:
       limit: 4
     Wristwear:

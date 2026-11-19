@@ -96,6 +96,16 @@
         color: "#7E2727"
 
 - type: marking
+  id: FaceEyebags
+  parent: BaseFace
+  groups: [Felinid, Harpy, Human, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/face.rsi
+      state: eyebags
+
+- type: marking
   id: FaceLips
   parent: BaseFace
   definitions:

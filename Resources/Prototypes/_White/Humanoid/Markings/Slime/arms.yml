@@ -24,7 +24,7 @@
     sprite:
       sprite: _White/Humanoid/Markings/Slime/arms.rsi
       state: gradient_right-arm
-  - layer: enum.BodyProviderType.RightLeg
+  - layer: enum.BodyProviderType.RightHand
     sprite:
       sprite: _White/Humanoid/Markings/Slime/arms.rsi
       state: gradient_right-hand

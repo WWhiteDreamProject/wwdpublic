@@ -1,12 +1,32 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297.",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297. Bad_molt made by Carousel(github) for Impstation.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    {
+      "name": "bad_molt_arm_left",
+      "directions": 4
+    },
+    {
+      "name": "bad_molt_arm_right",
+      "directions": 4
+    },
+    {
+      "name": "bad_molt_head",
+      "directions": 4
+    },
+    {
+      "name": "bad_molt_torso-chest",
+      "directions": 4
+    },
+    {
+      "name": "bad_molt_torso-groin",
+      "directions": 4
+    },
     {
       "name": "tiger-chest",
       "directions": 4
@@ -28,11 +48,11 @@
       "directions": 4
     },
     {
-      "name": "tiger-leg_right",
+      "name": "tiger-right_arm",
       "directions": 4
     },
     {
-      "name": "tiger-right_arm",
+      "name": "tiger-right_leg",
       "directions": 4
     }
   ]

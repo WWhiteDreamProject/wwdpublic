@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Snavian(github) and Carousel(github) for Impstation. Bigger drawn by Carousel(github) for Impstation.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bigger",
+      "directions": 4
+    },
+    {
+      "name": "heterochromia",
+      "directions": 4
+    }
+  ]
+}

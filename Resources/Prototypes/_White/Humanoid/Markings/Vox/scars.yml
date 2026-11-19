@@ -1,0 +1,115 @@
+﻿- type: marking
+  id: BaseScarsVox
+  parent: [BaseScars, BaseVox]
+  abstract: true
+
+- type: marking
+  id: ScarsVoxBigslashLeftHead
+  parent: BaseScarsVox
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/scars.rsi
+      state: bigslash_left_head
+
+- type: marking
+  id: ScarsVoxBigslashRightHead
+  parent: BaseScarsVox
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/scars.rsi
+      state: bigslash_right_head
+
+- type: marking
+  id: ScarsVoxBlastedHead
+  parent: BaseScarsVox
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/scars.rsi
+      state: blasted_head
+
+- type: marking
+  id: ScarsVoxClawTorso
+  parent: BaseScarsVox
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/scars.rsi
+      state: claw_torso
+
+- type: marking
+  id: ScarsVoxIncisionTorso
+  parent: BaseScarsVox
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/scars.rsi
+      state: incision_torso-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/scars.rsi
+      state: incision_torso-groin
+
+- type: marking
+  id: ScarsVoxMangledTorso
+  parent: BaseScarsVox
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/scars.rsi
+      state: mangled_torso-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/scars.rsi
+      state: mangled_torso-groin
+
+- type: marking
+  id: ScarsVoxRoadrashLeftHead
+  parent: BaseScarsVox
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/scars.rsi
+      state: roadrash_left_head
+
+- type: marking
+  id: ScarsVoxRoadrashRightHead
+  parent: BaseScarsVox
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/scars.rsi
+      state: roadrash_right_head
+
+- type: marking
+  id: ScarsVoxSlashLeftHead
+  parent: BaseScarsVox
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/scars.rsi
+      state: slash_left_head
+
+- type: marking
+  id: ScarsVoxSlashRightHead
+  parent: BaseScarsVox
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/scars.rsi
+      state: slash_right_head
+
+- type: marking
+  id: ScarsVoxSpinalTorso
+  parent: BaseScarsVox
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/scars.rsi
+      state: spinal_torso-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/scars.rsi
+      state: spinal_torso-groin

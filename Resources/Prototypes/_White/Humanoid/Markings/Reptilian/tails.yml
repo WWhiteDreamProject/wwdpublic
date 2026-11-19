@@ -20,6 +20,21 @@
     index: secondary
 
 - type: marking
+  id: TailReptilianGecko
+  parent: BaseTailReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: gecko-primary
+    index: primary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: gecko-secondary
+    index: secondary
+
+- type: marking
   id: TailReptilianLarge
   parent: BaseTailReptilian
   definitions:
@@ -27,6 +42,26 @@
     sprite:
       sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
       state: large
+
+- type: marking
+  id: TailReptilianSnailLizard
+  parent: BaseTailReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: snail_lizard-primary
+    index: primary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: snail_lizard-secondary
+    index: secondary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: snail_lizard-tertiary
+    index: tertiary
 
 - type: marking
   id: TailReptilianSnakeLarge

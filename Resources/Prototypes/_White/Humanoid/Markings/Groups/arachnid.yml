@@ -18,6 +18,8 @@
     Earrings:
       whitelisted: false
       limit: 2
+    Eyes:
+      limit: 1
     Overlay:
       limit: 1
     Scars:

@@ -20,3 +20,26 @@
     sprite:
       sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
       state: kobold_floppy
+
+- type: marking
+  id: EarsReptilianKoboldPierced
+  parent: BaseEarsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: kobold_pierced-ears
+    index: ears
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: kobold_pierced-piercings
+    index: piercings
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+    indexes:
+      piercings:
+        type: !type:SimpleColoring
+          color: "#FFFFFF"

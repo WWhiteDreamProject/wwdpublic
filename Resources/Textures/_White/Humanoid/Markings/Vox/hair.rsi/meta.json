@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise/blob/dcd1f5d88a8c5ba9634fc3fce67a76ada45f71dc/icons/mob/sprite_accessories/vox/vox_hair.dmi and greyscaled.",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise/blob/dcd1f5d88a8c5ba9634fc3fce67a76ada45f71dc/icons/mob/sprite_accessories/vox/vox_hair.dmi and greyscaled. Balding, emover, large_comb, padovana, polish and windswept made by Carousel(github) for Impstation.",
   "size": {
     "x": 32,
     "y": 32
@@ -12,7 +12,15 @@
       "directions": 4
     },
     {
+      "name": "balding",
+      "directions": 4
+    },
+    {
       "name": "braid",
+      "directions": 4
+    },
+    {
+      "name": "braid_long",
       "directions": 4
     },
     {
@@ -20,7 +28,7 @@
       "directions": 4
     },
     {
-      "name": "braid_long",
+      "name": "emover",
       "directions": 4
     },
     {
@@ -40,6 +48,10 @@
       "directions": 4
     },
     {
+      "name": "large_comb",
+      "directions": 4
+    },
+    {
       "name": "mange",
       "directions": 4
     },
@@ -49,6 +61,14 @@
     },
     {
       "name": "nights",
+      "directions": 4
+    },
+    {
+      "name": "padovana",
+      "directions": 4
+    },
+    {
+      "name": "polish",
       "directions": 4
     },
     {
@@ -89,6 +109,10 @@
     },
     {
       "name": "surf",
+      "directions": 4
+    },
+    {
+      "name": "windswept",
       "directions": 4
     },
     {

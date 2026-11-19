@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Carousel(github) for Impstation.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "arm_stripes_left",
+      "directions": 4
+    },
+    {
+      "name": "arm_stripes_right",
+      "directions": 4
+    },
+    {
+      "name": "belly-chest",
+      "directions": 4
+    },
+    {
+      "name": "belly-groin",
+      "directions": 4
+    },
+    {
+      "name": "chains",
+      "directions": 4
+    },
+    {
+      "name": "cheeks",
+      "directions": 4
+    },
+    {
+      "name": "chest_plumage-chest",
+      "directions": 4
+    },
+    {
+      "name": "chest_plumage-groin",
+      "directions": 4
+    },
+    {
+      "name": "cocktail-primary",
+      "directions": 4
+    },
+    {
+      "name": "cocktail-quaternary",
+      "directions": 4
+    },
+    {
+      "name": "cocktail-secondary",
+      "directions": 4
+    },
+    {
+      "name": "cocktail-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "feathered_left_leg",
+      "directions": 4
+    },
+    {
+      "name": "feathered_right_leg",
+      "directions": 4
+    },
+    {
+      "name": "foot_gradient_left",
+      "directions": 4
+    },
+    {
+      "name": "foot_gradient_right",
+      "directions": 4
+    },
+    {
+      "name": "foot_spines-left_leg",
+      "directions": 4
+    },
+    {
+      "name": "foot_spines-right_leg",
+      "directions": 4
+    },
+    {
+      "name": "friends_of_a_feather-primary",
+      "directions": 4
+    },
+    {
+      "name": "friends_of_a_feather-secondary",
+      "directions": 4
+    },
+    {
+      "name": "hand_gradient_left-primary",
+      "directions": 4
+    },
+    {
+      "name": "hand_gradient_left-secondary",
+      "directions": 4
+    },
+    {
+      "name": "hand_gradient_left-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "hand_gradient_right-primary",
+      "directions": 4
+    },
+    {
+      "name": "hand_gradient_right-secondary",
+      "directions": 4
+    },
+    {
+      "name": "hand_gradient_right-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "head_gradient-primary",
+      "directions": 4
+    },
+    {
+      "name": "head_gradient-secondary",
+      "directions": 4
+    },
+    {
+      "name": "head_gradient-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "leg_gradient_left",
+      "directions": 4
+    },
+    {
+      "name": "leg_gradient_right",
+      "directions": 4
+    },
+    {
+      "name": "leg_stripes_left",
+      "directions": 4
+    },
+    {
+      "name": "leg_stripes_right",
+      "directions": 4
+    },
+    {
+      "name": "spots_chest-chest-primary",
+      "directions": 4
+    },
+    {
+      "name": "spots_chest-chest-secondary",
+      "directions": 4
+    },
+    {
+      "name": "spots_chest-groin-primary",
+      "directions": 4
+    },
+    {
+      "name": "spots_chest-groin-secondary",
+      "directions": 4
+    },
+    {
+      "name": "spots_left_arm",
+      "directions": 4
+    },
+    {
+      "name": "spots_right_arm",
+      "directions": 4
+    },
+    {
+      "name": "spots_tail",
+      "directions": 4
+    },
+    {
+      "name": "sun_and_moon",
+      "directions": 4
+    },
+    {
+      "name": "tail_back",
+      "directions": 4
+    },
+    {
+      "name": "tail_bell-primary",
+      "directions": 4
+    },
+    {
+      "name": "tail_bell-secondary",
+      "directions": 4
+    },
+    {
+      "name": "tail_bloom-primary",
+      "directions": 4
+    },
+    {
+      "name": "tail_bloom-secondary",
+      "directions": 4
+    },
+    {
+      "name": "tail_bloom-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "tail_lantern",
+      "directions": 4
+    },
+    {
+      "name": "tail_single_stripe",
+      "directions": 4
+    },
+    {
+      "name": "tail_small_plume",
+      "directions": 4
+    },
+    {
+      "name": "tail_spines",
+      "directions": 4
+    },
+    {
+      "name": "tail_stripes",
+      "directions": 4
+    },
+    {
+      "name": "v_chest-chest-primary",
+      "directions": 4
+    },
+    {
+      "name": "v_chest-chest-secondary",
+      "directions": 4
+    },
+    {
+      "name": "v_chest-chest-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "v_chest-groin-primary",
+      "directions": 4
+    },
+    {
+      "name": "v_chest-groin-secondary",
+      "directions": 4
+    },
+    {
+      "name": "v_chest-groin-tertiary",
+      "directions": 4
+    }
+  ]
+}

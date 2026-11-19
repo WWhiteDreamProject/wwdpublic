@@ -4,12 +4,12 @@
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
-      sprite: _White/Humanoid/Markings/Generic/eyes.rsi
+      sprite: _White/Humanoid/Markings/Generic/periocular_hair.rsi
       state: eye_arrows-left
     index: left
   - layer: enum.MarkingVisualLayers.Face
     sprite:
-      sprite: _White/Humanoid/Markings/Generic/eyes.rsi
+      sprite: _White/Humanoid/Markings/Generic/periocular_hair.rsi
       state: eye_arrows-right
     index: right
   coloring:
@@ -23,14 +23,40 @@
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
-      sprite: _White/Humanoid/Markings/Generic/eyes.rsi
+      sprite: _White/Humanoid/Markings/Generic/periocular_hair.rsi
       state: eyebrows-left
     index: left
   - layer: enum.MarkingVisualLayers.Face
     sprite:
-      sprite: _White/Humanoid/Markings/Generic/eyes.rsi
+      sprite: _White/Humanoid/Markings/Generic/periocular_hair.rsi
       state: eyebrows-right
     index: right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#242424"
+
+- type: marking
+  id: PeriocularHairEyebrowsThick
+  parent: BasePeriocularHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/periocular_hair.rsi
+      state: eyebrows_thick
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#242424"
+
+- type: marking
+  id: PeriocularHairEyebrowsUltra
+  parent: BasePeriocularHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/periocular_hair.rsi
+      state: eyebrows_ultra
   coloring:
     default:
       type: !type:SimpleColoring
@@ -42,7 +68,7 @@
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
-      sprite: _White/Humanoid/Markings/Generic/eyes.rsi
+      sprite: _White/Humanoid/Markings/Generic/periocular_hair.rsi
       state: unibrow
   coloring:
     default:

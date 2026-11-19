@@ -9,13 +9,17 @@
       limit: 1
     Bandages:
       limit: 4
+    Coloration:
+      limit: 4
+    Earrings:
+      whitelisted: false
+      limit: 2
     Ears:
       required: true
       default: [ EarsMothDefault ]
       limit: 1
-    Earrings:
-      whitelisted: false
-      limit: 2
+    Eyes:
+      limit: 1
     Face:
       limit: 2
     Head:

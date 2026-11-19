@@ -1,0 +1,188 @@
+﻿- type: marking
+  id: BaseScarsMoth
+  parent: [BaseScars, BaseMoth]
+  abstract: true
+
+- type: marking
+  id: ScarsMothBackstabbed
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: backstabbed
+
+- type: marking
+  id: ScarsMothBurnLeftHead
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: burn_left_head
+
+- type: marking
+  id: ScarsMothBurnRightHead
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: burn_right_head
+
+- type: marking
+  id: ScarsMothClawHead
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: claw_head
+
+- type: marking
+  id: ScarsMothClawTorso
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: claw_torso
+
+- type: marking
+  id: ScarsMothIncision
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: incision
+
+- type: marking
+  id: ScarsMothSlashLeftHead
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: slash_left_head
+
+- type: marking
+  id: ScarsMothSlashRightHead
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: slash_right_head
+
+- type: marking
+  id: ScarsMothStar
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: star
+
+- type: marking
+  id: ScarsMothTwistingArmLeft
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: twisting_arm_left
+
+- type: marking
+  id: ScarsMothTwistingArmRight
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: twisting_arm_right
+
+- type: marking
+  id: ScarsMothTwistingChestLeftFemale
+  parent: BaseScarsMoth
+  sexRestriction: Female
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: twisting_chest_left_female
+
+- type: marking
+  id: ScarsMothTwistingChestLeftMale
+  parent: BaseScarsMoth
+  sexRestriction: Male
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: twisting_chest_left_male
+
+- type: marking
+  id: ScarsMothTwistingChestRightFemale
+  parent: BaseScarsMoth
+  sexRestriction: Female
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: twisting_chest_right_female
+
+- type: marking
+  id: ScarsMothTwistingChestRightMale
+  parent: BaseScarsMoth
+  sexRestriction: Male
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: twisting_chest_right_male
+
+- type: marking
+  id: ScarsMothTwistingHandLeft
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: twisting_hand_left
+
+- type: marking
+  id: ScarsMothTwistingHandRight
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: twisting_hand_right
+
+- type: marking
+  id: ScarsMothTwistingHead
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: twisting_head
+
+- type: marking
+  id: ScarsMothTwistingLegLeft
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: twisting_leg_left
+
+- type: marking
+  id: ScarsMothTwistingLegRight
+  parent: BaseScarsMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/scars.rsi
+      state: twisting_leg_right

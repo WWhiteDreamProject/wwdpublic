@@ -31,6 +31,15 @@
       state: fu
 
 - type: marking
+  id: FacialHairVoxLargeWattle
+  parent: BaseFacialHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/facial_hair.rsi
+      state: large_wattle
+
+- type: marking
   id: FacialHairVoxMane
   parent: BaseFacialHairVox
   definitions:
@@ -47,3 +56,21 @@
     sprite:
       sprite: _White/Humanoid/Markings/Vox/facial_hair.rsi
       state: neck
+
+- type: marking
+  id: FacialHairVoxPadovana
+  parent: BaseFacialHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/facial_hair.rsi
+      state: padovana
+
+- type: marking
+  id: FacialHairVoxSmallWattle
+  parent: BaseFacialHairVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/facial_hair.rsi
+      state: small_wattle

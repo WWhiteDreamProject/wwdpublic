@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise/blob/0f9ef5962f4422836c0a42f289fb24d018918cbc/icons/mob/sprite_accessories/vox/vox_facial_hair.dmi and greyscaled.",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise/blob/0f9ef5962f4422836c0a42f289fb24d018918cbc/icons/mob/sprite_accessories/vox/vox_facial_hair.dmi and greyscaled. Large_wattle, padovana and small_wattle made by Carousel(github) for Impstation.",
   "size": {
     "x": 32,
     "y": 32
@@ -20,11 +20,23 @@
       "directions": 4
     },
     {
+      "name": "large_wattle",
+      "directions": 4
+    },
+    {
       "name": "mane",
       "directions": 4
     },
     {
       "name": "neck",
+      "directions": 4
+    },
+    {
+      "name": "padovana",
+      "directions": 4
+    },
+    {
+      "name": "small_wattle",
       "directions": 4
     }
   ]

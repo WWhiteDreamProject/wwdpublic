@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297. Argali, ayrshire, bighorn and myrsore made by Ubaser(github). Edited, resprited and reshaded by PuroSlavKing(github)",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297. Argali, ayrshire, bighorn and myrsore made by Ubaser(github). Edited, resprited and reshaded by PuroSlavKing(github) Nubby by pinkbat5 taken from Impstation.",
   "size": {
     "x": 32,
     "y": 32
@@ -57,6 +57,10 @@
     },
     {
       "name": "myrsore-right",
+      "directions": 4
+    },
+    {
+      "name": "nubby",
       "directions": 4
     },
     {

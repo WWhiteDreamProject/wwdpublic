@@ -5,14 +5,22 @@
   data:
     Bandages:
       limit: 4
-    Ears:
-      limit: 1
+    Coloration:
+      limit: 4
     Earrings:
       whitelisted: false
       limit: 2
+    Ears:
+      limit: 1
+    FacialHair:
+      limit: 1
     Frills:
       limit: 1
+    Head:
+      limit: 1
     Horns:
+      limit: 1
+    Piercings:
       limit: 1
     Scars:
       limit: 4
@@ -29,6 +37,8 @@
     Tattoos:
       limit: 4
     Torso:
+      limit: 1
+    Tusks:
       limit: 1
     Wristwear:
       whitelisted: false

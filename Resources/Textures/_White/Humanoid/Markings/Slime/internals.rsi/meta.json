@@ -1,0 +1,651 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Sha-Seng(github) for Impstation. Bubble, fading_stars, fishbowl and fizz made by Carousel(github) for Impstation.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "brain",
+      "directions": 4
+    },
+    {
+      "name": "bubble-chest",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "bubble-groin",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "core",
+      "directions": 4
+    },
+    {
+      "name": "fading_stars-primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.3,
+          0.1,
+          1.2,
+          0.3
+        ],
+        [
+          0.2,
+          0.3,
+          0.1,
+          1.2,
+          0.3
+        ],
+        [
+          0.2,
+          0.3,
+          0.1,
+          1.2,
+          0.3
+        ],
+        [
+          0.2,
+          0.3,
+          0.1,
+          1.2,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "fading_stars-secondary",
+      "directions": 4,
+      "delays": [
+        [
+          1,
+          0.2,
+          0.1,
+          0.6,
+          0.2
+        ],
+        [
+          1,
+          0.2,
+          0.1,
+          0.6,
+          0.2
+        ],
+        [
+          1,
+          0.2,
+          0.1,
+          0.6,
+          0.2
+        ],
+        [
+          1,
+          0.2,
+          0.1,
+          0.6,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fading_stars-tertiary",
+      "directions": 4,
+      "delays": [
+        [
+          1.8,
+          0.3,
+          0.1,
+          0.8,
+          0.4
+        ],
+        [
+          1.8,
+          0.3,
+          0.1,
+          0.8,
+          0.4
+        ],
+        [
+          1.8,
+          0.3,
+          0.1,
+          0.8,
+          0.4
+        ],
+        [
+          1.8,
+          0.3,
+          0.1,
+          0.8,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "fishbowl-chest-primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ],
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ],
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ],
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "fishbowl-chest-secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ],
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ],
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ],
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "fishbowl-groin-primary",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ],
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ],
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ],
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "fishbowl-groin-secondary",
+      "directions": 4,
+      "delays": [
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ],
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ],
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ],
+        [
+          0.4,
+          0.3,
+          0.2,
+          0.3,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "fizz-chest",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fizz-groin",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fizz-head",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fizz-left_arm",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fizz-left_foot",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fizz-left_hand",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fizz-left_leg",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fizz-right_arm",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fizz-right_foot",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fizz-right_hand",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fizz-right_leg",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "lungs",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-chest",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-groin",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-head",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-left_foot",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-left_hand",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-left_leg",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-right_foot",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-right_hand",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-right_leg",
+      "directions": 4
+    }
+  ]
+}

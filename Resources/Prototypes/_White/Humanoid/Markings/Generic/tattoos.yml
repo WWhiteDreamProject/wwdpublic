@@ -39,6 +39,96 @@
       state: campbell_right_leg
 
 - type: marking
+  id: TattoosCutHere
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Positronic, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: cut_here
+
+- type: marking
+  id: TattoosDollJointsLeftArm
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Positronic, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: doll_joints_left_arm
+
+- type: marking
+  id: TattoosDollJointsLeftFoot
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Positronic, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: doll_joints_left_foot
+
+- type: marking
+  id: TattoosDollJointsLeftHand
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Positronic, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: doll_joints_left_hand
+
+- type: marking
+  id: TattoosDollJointsLeftLeg
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Positronic, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: doll_joints_left_leg
+
+- type: marking
+  id: TattoosDollJointsRightArm
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Positronic, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: doll_joints_right_arm
+
+- type: marking
+  id: TattoosDollJointsRightFoot
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Positronic, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: doll_joints_right_foot
+
+- type: marking
+  id: TattoosDollJointsRightHand
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Positronic, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: doll_joints_right_hand
+
+- type: marking
+  id: TattoosDollJointsRightLeg
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Positronic, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: doll_joints_right_leg
+
+- type: marking
   id: TattoosEyeLeft
   parent: BaseTattoos
   groups: [Felinid, Human, Harpy, Oni, Reptilian]

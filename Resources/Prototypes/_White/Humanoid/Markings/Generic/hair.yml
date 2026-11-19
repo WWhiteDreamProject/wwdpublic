@@ -368,6 +368,15 @@
       state: braid_2
 
 - type: marking
+  id: HairBraidFrench
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: braid_french
+
+- type: marking
   id: HairBraidFront
   parent: BaseHair
   definitions:
@@ -971,6 +980,15 @@
       state: froofy_long
 
 - type: marking
+  id: HairGatheredLow
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: gathered_low
+
+- type: marking
   id: HairGeisha
   parent: BaseHair
   definitions:
@@ -1529,6 +1547,15 @@
       state: messy_ponytail
 
 - type: marking
+  id: HairMessyPonytail2
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: messy_ponytail_2
+
+- type: marking
   id: HairMessyShort
   parent: BaseHair
   definitions:
@@ -1770,6 +1797,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/hair.rsi
       state: pigtails_2
+
+- type: marking
+  id: HairPigtailsLow
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: pigtails_low
 
 - type: marking
   id: HairPixie

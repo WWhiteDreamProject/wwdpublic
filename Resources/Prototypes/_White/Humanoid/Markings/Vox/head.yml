@@ -1,0 +1,22 @@
+﻿- type: marking
+  id: BaseHeadVox
+  parent: [BaseHead, BaseVox]
+  abstract: true
+
+- type: marking
+  id: HeadVoxEarhole
+  parent: BaseHeadVox
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/head.rsi
+      state: earhole
+
+- type: marking
+  id: HeadVoxNeckband
+  parent: BaseHeadVox
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/head.rsi
+      state: neckband

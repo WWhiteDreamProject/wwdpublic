@@ -4,6 +4,46 @@
   abstract: true
 
 - type: marking
+  id: AppendagesArachnidAbdomenBasic
+  parent: BaseAppendagesArachnid
+  definitions:
+  - layer: enum.MarkingVisualLayers.ChestBack
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
+      state: abdomen_basic-chest-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.GroinBack
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
+      state: abdomen_basic-groin-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.GroinBack
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
+      state: abdomen_basic-groin-secondary
+    index: secondary
+
+- type: marking
+  id: AppendagesArachnidAbdomenWidow
+  parent: BaseAppendagesArachnid
+  definitions:
+  - layer: enum.MarkingVisualLayers.ChestBack
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
+      state: abdomen_widow-chest-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.GroinBack
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
+      state: abdomen_widow-groin-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.GroinBack
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
+      state: abdomen_widow-groin-secondary
+    index: secondary
+
+- type: marking
   id: AppendagesArachnidChipped
   parent: BaseAppendagesArachnid
   definitions:
@@ -27,6 +67,15 @@
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
       state: chipped-groin-secondary
     index: secondary
+
+- type: marking
+  id: AppendagesArachnidCreepyArms
+  parent: BaseAppendagesArachnid
+  definitions:
+  - layer: enum.MarkingVisualLayers.ChestBack
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
+      state: creepy_arms
 
 - type: marking
   id: AppendagesArachnidCurled

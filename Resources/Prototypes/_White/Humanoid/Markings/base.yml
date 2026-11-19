@@ -68,6 +68,11 @@
   category: Coloration
 
 - type: marking
+  id: BaseEarrings
+  abstract: true
+  category: Earrings
+
+- type: marking
   id: BaseEars
   abstract: true
   category: Ears
@@ -75,11 +80,6 @@
     default:
       type: !type:BodyColorGroupColoring
         group: Skin
-
-- type: marking
-  id: BaseEarrings
-  abstract: true
-  category: Earrings
 
 - type: marking
   id: BaseEyes
@@ -133,6 +133,11 @@
   category: Horns
 
 - type: marking
+  id: BaseInternals
+  abstract: true
+  category: Internals
+
+- type: marking
   id: BaseLegLeft
   abstract: true
   category: LegLeft
@@ -178,6 +183,11 @@
   id: BasePeriocularHair
   abstract: true
   category: PeriocularHair
+
+- type: marking
+  id: BasePiercings
+  abstract: true
+  category: Piercings
 
 - type: marking
   id: BaseScars

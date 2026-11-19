@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Aurorastation at commit https://github.com/Aurorastation/Aurora.3/commit/639227c952a8012a88288257140166ca7419385d, edited by angelofallars(github). Lips made by angelofallars(github). Iron_jaw made by nope_ingeneer(github).",
+  "copyright": "Taken from Aurorastation at commit https://github.com/Aurorastation/Aurora.3/commit/639227c952a8012a88288257140166ca7419385d, edited by angelofallars(github). Lips made by angelofallars(github). Iron_jaw made by nope_ingeneer(github). Eyebags made by Carousel(github) for Impstation.",
   "size": {
     "x": 32,
     "y": 32
@@ -37,6 +37,10 @@
     },
     {
       "name": "cheshire_grin",
+      "directions": 4
+    },
+    {
+      "name": "eyebags",
       "directions": 4
     },
     {

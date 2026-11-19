@@ -63,7 +63,7 @@
   - layer: enum.MarkingVisualLayers.Snout
     sprite:
       sprite: _White/Humanoid/Markings/Reptilian/snout.rsi
-      state: round
+      state: sharp
 
 - type: marking
   id: SnoutReptilianSplotch
@@ -79,3 +79,13 @@
       sprite: _White/Humanoid/Markings/Reptilian/snout.rsi
       state: splotch-secondary
     index: secondary
+
+- type: marking
+  id: SnoutReptilianTall
+  parent: BaseSnoutReptilian
+  forcedColoring: true
+  definitions:
+  - layer: enum.MarkingVisualLayers.Snout
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/snout.rsi
+      state: tall

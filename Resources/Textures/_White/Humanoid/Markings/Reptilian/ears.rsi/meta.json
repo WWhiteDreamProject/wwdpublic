@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Pigeonpeas(github).",
+  "copyright": "Made by Pigeonpeas(github). Kobold_pierced-ears, kobold_pierced-piercings by starlighthowls taken from Impstation.",
   "size": {
     "x": 32,
     "y": 32
@@ -13,6 +13,14 @@
     },
     {
       "name": "kobold_floppy",
+      "directions": 4
+    },
+    {
+      "name": "kobold_pierced-ears",
+      "directions": 4
+    },
+    {
+      "name": "kobold_pierced-piercings",
       "directions": 4
     }
   ]
