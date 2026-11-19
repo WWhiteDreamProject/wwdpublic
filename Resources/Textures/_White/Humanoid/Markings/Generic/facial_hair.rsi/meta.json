@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation/blob/05ec94e46349c35e29ca91e5e97d0c88ae26ad44/icons/mob/species/human/human_face.dmi.",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/blob/05ec94e46349c35e29ca91e5e97d0c88ae26ad44/icons/mob/species/human/human_face.dmi. Bristle, chin_2, moustache_with_stubble, short, super_long, thick, thick_bristle and viking created by prazat911(discord). Handlebar and handlebar_2 taken from https://github.com/Skyrat-SS13/Skyrat-tg/commit/ad654e76b4c5dd3972cd2a07eb2d4f9658965807. Em_whiskers, on_the_chin, spider_whiskers, twirlable, voluminous, walrus_2, wizardous and workin_man edited by Zeta_Null(github).",
   "size": {
     "x": 32,
     "y": 32
@@ -32,6 +32,10 @@
       "directions": 4
     },
     {
+      "name": "bristle",
+      "directions": 4
+    },
+    {
       "name": "broken_man",
       "directions": 4
     },
@@ -41,6 +45,10 @@
     },
     {
       "name": "chin",
+      "directions": 4
+    },
+    {
+      "name": "chin_2",
       "directions": 4
     },
     {
@@ -60,6 +68,24 @@
       "directions": 4
     },
     {
+      "name": "em_whiskers",
+      "directions": 4,
+      "delays": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    {
       "name": "fu_manchu",
       "directions": 4
     },
@@ -69,6 +95,14 @@
     },
     {
       "name": "gt",
+      "directions": 4
+    },
+    {
+      "name": "handlebar",
+      "directions": 4
+    },
+    {
+      "name": "handlebar_2",
       "directions": 4
     },
     {
@@ -100,6 +134,10 @@
       "directions": 4
     },
     {
+      "name": "moustache_with_stubble",
+      "directions": 4
+    },
+    {
       "name": "mutton",
       "directions": 4
     },
@@ -112,11 +150,33 @@
       "directions": 4
     },
     {
+      "name": "on_the_chin",
+      "directions": 4,
+      "delays": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    {
       "name": "pencil_stache",
       "directions": 4
     },
     {
       "name": "selleck",
+      "directions": 4
+    },
+    {
+      "name": "short",
       "directions": 4
     },
     {
@@ -128,7 +188,59 @@
       "directions": 4
     },
     {
+      "name": "spider_whiskers",
+      "directions": 4,
+      "delays": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "super_long",
+      "directions": 4
+    },
+    {
+      "name": "thick",
+      "directions": 4
+    },
+    {
+      "name": "thick_bristle",
+      "directions": 4
+    },
+    {
+      "name": "twirlable",
+      "directions": 4,
+      "delays": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    {
       "name": "van_dyke",
+      "directions": 4
+    },
+    {
+      "name": "viking",
       "directions": 4
     },
     {
@@ -136,8 +248,44 @@
       "directions": 4
     },
     {
+      "name": "voluminous",
+      "directions": 4,
+      "delays": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    {
       "name": "walrus",
       "directions": 4
+    },
+    {
+      "name": "walrus_2",
+      "directions": 4,
+      "delays": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
     },
     {
       "name": "watson",
@@ -146,6 +294,42 @@
     {
       "name": "wise",
       "directions": 4
+    },
+    {
+      "name": "wizardous",
+      "directions": 4,
+      "delays": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "workin_man",
+      "directions": 4,
+      "delays": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
     }
   ]
 }

@@ -1,12 +1,32 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by stillxicarus(discord). Clasic taken from https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/285f6f86ac41a6246f250993486effeab8581c2c, edired by raistlin_jag(discord). Bat made by kilath(discord).",
+  "copyright": "Made by stillxicarus(discord). Clasic taken from https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/285f6f86ac41a6246f250993486effeab8581c2c, edired by raistlin_jag(discord). Bat made by kilath(discord). Asymagical, asymagical_colorable, colorless, downward, dragobat, dragobat_colorable, lime, macaw, monocolor_parrot, quintet, small and tricolor_parrot made by Zeta_Null(github) for Einstein Engines.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    {
+      "name": "asymagical-left",
+      "directions": 4
+    },
+    {
+      "name": "asymagical-right",
+      "directions": 4
+    },
+    {
+      "name": "asymagical_colorable-left-primary",
+      "directions": 4
+    },
+    {
+      "name": "asymagical_colorable-left-secondary",
+      "directions": 4
+    },
+    {
+      "name": "asymagical_colorable-right-primary",
+      "directions": 4
+    },
     {
       "name": "bat-left-primary",
       "directions": 4
@@ -37,6 +57,14 @@
     },
     {
       "name": "bionic-right-secondary",
+      "directions": 4
+    },
+    {
+      "name": "classic-left",
+      "directions": 4
+    },
+    {
+      "name": "classic-right",
       "directions": 4
     },
     {
@@ -77,14 +105,6 @@
     },
     {
       "name": "classic_3-right-tertiary",
-      "directions": 4
-    },
-    {
-      "name": "classic-left",
-      "directions": 4
-    },
-    {
-      "name": "classic-right",
       "directions": 4
     },
     {
@@ -136,11 +156,51 @@
       "directions": 4
     },
     {
+      "name": "colorless-left",
+      "directions": 4
+    },
+    {
+      "name": "colorless-right",
+      "directions": 4
+    },
+    {
       "name": "default_whitescale-left",
       "directions": 4
     },
     {
       "name": "default_whitescale-right",
+      "directions": 4
+    },
+    {
+      "name": "downward-left",
+      "directions": 4
+    },
+    {
+      "name": "downward-right",
+      "directions": 4
+    },
+    {
+      "name": "dragobat-left",
+      "directions": 4
+    },
+    {
+      "name": "dragobat-right",
+      "directions": 4
+    },
+    {
+      "name": "dragobat_colorable-left-primary",
+      "directions": 4
+    },
+    {
+      "name": "dragobat_colorable-left-secondary",
+      "directions": 4
+    },
+    {
+      "name": "dragobat_colorable-right-primary",
+      "directions": 4
+    },
+    {
+      "name": "dragobat_colorable-right-secondary",
       "directions": 4
     },
     {
@@ -160,6 +220,30 @@
       "directions": 4
     },
     {
+      "name": "lime-left",
+      "directions": 4
+    },
+    {
+      "name": "lime-right",
+      "directions": 4
+    },
+    {
+      "name": "macaw-left",
+      "directions": 4
+    },
+    {
+      "name": "macaw-right",
+      "directions": 4
+    },
+    {
+      "name": "monocolor_parrot-left",
+      "directions": 4
+    },
+    {
+      "name": "monocolor_parrot-right",
+      "directions": 4
+    },
+    {
       "name": "owl_huescale-left",
       "directions": 4
     },
@@ -173,6 +257,46 @@
     },
     {
       "name": "owl_whitescale-right",
+      "directions": 4
+    },
+    {
+      "name": "quintet-left",
+      "directions": 4
+    },
+    {
+      "name": "quintet-right",
+      "directions": 4
+    },
+    {
+      "name": "small-left",
+      "directions": 4
+    },
+    {
+      "name": "small-right",
+      "directions": 4
+    },
+    {
+      "name": "tricolor_parrot-left-primary",
+      "directions": 4
+    },
+    {
+      "name": "tricolor_parrot-left-secondary",
+      "directions": 4
+    },
+    {
+      "name": "tricolor_parrot-left-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "tricolor_parrot-right-primary",
+      "directions": 4
+    },
+    {
+      "name": "tricolor_parrot-right-secondary",
+      "directions": 4
+    },
+    {
+      "name": "tricolor_parrot-right-tertiary",
       "directions": 4
     }
   ]
