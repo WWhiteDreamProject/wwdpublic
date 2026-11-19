@@ -16,6 +16,8 @@
       limit: 1
     Hair:
       limit: 1
+    Head:
+      limit: 1
     Nose:
       limit: 1
     PeriocularHair:

@@ -1,12 +1,52 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297. Large made by Ubaser(discord). Animated made by SonicDC(github). Gecko and snail_lizard made by Carousel(github) for Impstation.",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297. Large made by Ubaser(discord). Animated made by SonicDC(github). Gecko and snail_lizard made by Carousel(github) for Impstation. Axolotl, datashark, eastern_dragon, fish, maw, shark and snake taken from https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/96703f76bccd8fe6a96b78524efb97a9af661767.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    {
+      "name": "axolotl",
+      "directions": 4
+    },
+    {
+      "name": "datashark-ears",
+      "directions": 4
+    },
+    {
+      "name": "datashark-ears_inner",
+      "directions": 4
+    },
+    {
+      "name": "datashark-fin",
+      "directions": 4
+    },
+    {
+      "name": "datashark-tail",
+      "directions": 4
+    },
+    {
+      "name": "datashark-tail_data",
+      "directions": 4
+    },
+    {
+      "name": "eastern_dragon-primary",
+      "directions": 4
+    },
+    {
+      "name": "eastern_dragon-secondary",
+      "directions": 4
+    },
+    {
+      "name": "fish-primary",
+      "directions": 4
+    },
+    {
+      "name": "fish-secondary",
+      "directions": 4
+    },
     {
       "name": "gecko-primary",
       "directions": 4
@@ -98,6 +138,18 @@
       ]
     },
     {
+      "name": "maw",
+      "directions": 4
+    },
+    {
+      "name": "shark-fin",
+      "directions": 4
+    },
+    {
+      "name": "shark-tail",
+      "directions": 4
+    },
+    {
       "name": "snail_lizard-primary",
       "directions": 4
     },
@@ -107,6 +159,10 @@
     },
     {
       "name": "snail_lizard-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "snake",
       "directions": 4
     },
     {

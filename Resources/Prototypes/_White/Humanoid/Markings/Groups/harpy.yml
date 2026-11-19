@@ -18,6 +18,8 @@
       limit: 1
     Hair:
       limit: 1
+    Head:
+      limit: 1
     Legs:
       required: true
       default: [ LegsHarpyDefault ]

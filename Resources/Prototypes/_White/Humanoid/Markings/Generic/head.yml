@@ -1,0 +1,27 @@
+﻿- type: marking
+  id: HeadBeholder
+  parent: BaseHead
+  groups: [Felinid, Harpy, Human, Oni, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/head.rsi
+      state: beholder
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#FFFFFF"
+
+- type: marking
+  id: HeadMalstrem
+  parent: BaseHead
+  groups: [Felinid, Harpy, Human, Oni, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/head.rsi
+      state: malstrem
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#FFFFFF"

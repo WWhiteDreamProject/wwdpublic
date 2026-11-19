@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297. Argali, ayrshire, bighorn and myrsore made by Ubaser(github). Edited, resprited and reshaded by PuroSlavKing(github) Nubby by pinkbat5 taken from Impstation.",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297. Argali, ayrshire, bighorn and myrsore made by Ubaser(github). Edited, resprited and reshaded by PuroSlavKing(github) Nubby by pinkbat5 taken from Impstation. Baran, bullhorns, crown, five, highback, jackson_chameleon, long, stag_beetle, super_long and twoago created by cherreshnia(discord) and prazat911(discord).",
   "size": {
     "x": 32,
     "y": 32
@@ -28,11 +28,23 @@
       "directions": 4
     },
     {
+      "name": "baran",
+      "directions": 4
+    },
+    {
       "name": "bighorn-left",
       "directions": 4
     },
     {
       "name": "bighorn-right",
+      "directions": 4
+    },
+    {
+      "name": "bullhorns",
+      "directions": 4
+    },
+    {
+      "name": "crown",
       "directions": 4
     },
     {
@@ -49,6 +61,22 @@
     },
     {
       "name": "double-right",
+      "directions": 4
+    },
+    {
+      "name": "five",
+      "directions": 4
+    },
+    {
+      "name": "highback",
+      "directions": 4
+    },
+    {
+      "name": "jackson_chameleon",
+      "directions": 4
+    },
+    {
+      "name": "long",
       "directions": 4
     },
     {
@@ -85,6 +113,18 @@
     },
     {
       "name": "simple-right",
+      "directions": 4
+    },
+    {
+      "name": "stag_beetle",
+      "directions": 4
+    },
+    {
+      "name": "super_long",
+      "directions": 4
+    },
+    {
+      "name": "twoago",
       "directions": 4
     }
   ]

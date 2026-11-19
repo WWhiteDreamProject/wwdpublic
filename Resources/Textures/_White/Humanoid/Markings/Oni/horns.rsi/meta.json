@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by angelofallars(github). Crowned made by dootythefrooty(github). Double_curved and Double_curved_outwards made by Rane(github), modified by angelofallars(github). Bullish made by kilath(discord). Double_curved_left_broke, double_curved_right_broke, single_curved, single_curved_left and single_curved_right made by Rane(github). Bull and shaved made by PS3MOIRA(github).",
+  "copyright": "Made by angelofallars(github). Crowned made by dootythefrooty(github). Double_curved and Double_curved_outwards made by Rane(github), modified by angelofallars(github). Bullish made by kilath(discord). Double_curved_left_broke, double_curved_right_broke, single_curved, single_curved_left and single_curved_right made by Rane(github). Bull and shaved made by PS3MOIRA(github). Buffalo, capricorn, cow, deer, devil, devil_2, devil_3, devil_4, ram, small and unicorn_2 created by lunalita(discord).",
   "size": {
     "x": 32,
     "y": 32
@@ -44,6 +44,10 @@
       "directions": 4
     },
     {
+      "name": "buffalo",
+      "directions": 4
+    },
+    {
       "name": "bull",
       "directions": 4
     },
@@ -52,7 +56,35 @@
       "directions": 4
     },
     {
+      "name": "capricorn",
+      "directions": 4
+    },
+    {
+      "name": "cow",
+      "directions": 4
+    },
+    {
       "name": "crowned",
+      "directions": 4
+    },
+    {
+      "name": "deer",
+      "directions": 4
+    },
+    {
+      "name": "devil",
+      "directions": 4
+    },
+    {
+      "name": "devil_2",
+      "directions": 4
+    },
+    {
+      "name": "devil_3",
+      "directions": 4
+    },
+    {
+      "name": "devil_4",
       "directions": 4
     },
     {
@@ -192,6 +224,10 @@
       "directions": 4
     },
     {
+      "name": "ram",
+      "directions": 4
+    },
+    {
       "name": "sagittarius",
       "directions": 4
     },
@@ -216,15 +252,15 @@
       "directions": 4
     },
     {
-      "name": "shaved",
-      "directions": 4
-    },
-    {
       "name": "serket_3-secondary",
       "directions": 4
     },
     {
       "name": "serket_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "shaved",
       "directions": 4
     },
     {
@@ -237,6 +273,10 @@
     },
     {
       "name": "single_curved_right",
+      "directions": 4
+    },
+    {
+      "name": "small",
       "directions": 4
     },
     {
@@ -281,6 +321,10 @@
     },
     {
       "name": "unicorn",
+      "directions": 4
+    },
+    {
+      "name": "unicorn_2",
       "directions": 4
     },
     {

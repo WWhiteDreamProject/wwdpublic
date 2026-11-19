@@ -5,6 +5,45 @@
   appearance: true
 
 - type: marking
+  id: TailReptilianAxolotl
+  parent: BaseTailReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: axolotl
+
+- type: marking
+  id: TailReptilianDatashark
+  parent: BaseTailReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: datashark-ears_inner
+    index: ears_inner
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: datashark-ears
+    index: ears
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: datashark-fin
+    index: fin
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: datashark-tail
+    index: tail
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: datashark-tail_data
+    index: tail_data
+
+- type: marking
   id: TailReptilianDefault
   parent: BaseTailReptilian
   definitions:
@@ -17,6 +56,36 @@
     sprite:
       sprite: _White/Bodies/Parts/Humanoids/reptilian.rsi
       state: tail-secondary
+    index: secondary
+
+- type: marking
+  id: TailReptilianEasternDragon
+  parent: BaseTailReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: eastern_dragon-primary
+    index: primary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: eastern_dragon-secondary
+    index: secondary
+
+- type: marking
+  id: TailReptilianFish
+  parent: BaseTailReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: fish-primary
+    index: primary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: fish-secondary
     index: secondary
 
 - type: marking
@@ -44,6 +113,30 @@
       state: large
 
 - type: marking
+  id: TailReptilianMaw
+  parent: BaseTailReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: maw
+
+- type: marking
+  id: TailReptilianShark
+  parent: BaseTailReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: shark-fin
+    index: fin
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: shark-tail
+    index: tail
+
+- type: marking
   id: TailReptilianSnailLizard
   parent: BaseTailReptilian
   definitions:
@@ -62,6 +155,15 @@
       sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
       state: snail_lizard-tertiary
     index: tertiary
+
+- type: marking
+  id: TailReptilianSnake
+  parent: BaseTailReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tails.rsi
+      state: snake
 
 - type: marking
   id: TailReptilianSnakeLarge

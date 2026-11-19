@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297/modular_skyrat/master_files/icons/mob/body_markings/tattoo_markings.dmi. Cut_here and doll_joints made by Sha-Seng(github) for Impstation. The division of the torso into chest and groin was done by Spatison(github).",
+  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/tree/40e3cdbb15b8bc0d5ef2fb46133adf805bda5297/modular_skyrat/master_files/icons/mob/body_markings/tattoo_markings.dmi. Cut_here and doll_joints made by Sha-Seng(github) for Impstation. Church_domes, elysium_patriotism, i_heart_mom_left_arm, i_heart_mom_right_arm, karabel, krenel_mercenary, laza_left_arm, laza_right_arm, line_left_arm, line_right_arm, narsi, rose, serpent_temptation, skeleton_body, skeleton_full, skeleton_left_arm, skeleton_left_foot, skeleton_left_leg, skeleton_right_arm, skeleton_right_foot, skeleton_right_leg, skull, skull_face and symbol_elysium created by prazat911(discord).",
   "size": {
     "x": 32,
     "y": 32
@@ -21,6 +21,14 @@
     },
     {
       "name": "campbell_right_leg",
+      "directions": 4
+    },
+    {
+      "name": "church_domes-chest",
+      "directions": 4
+    },
+    {
+      "name": "church_domes-groin",
       "directions": 4
     },
     {
@@ -60,6 +68,14 @@
       "directions": 4
     },
     {
+      "name": "elysium_patriotism-chest",
+      "directions": 4
+    },
+    {
+      "name": "elysium_patriotism-groin",
+      "directions": 4
+    },
+    {
       "name": "eye_left",
       "directions": 4
     },
@@ -76,11 +92,67 @@
       "directions": 4
     },
     {
+      "name": "i_heart_mom_left_arm",
+      "directions": 4
+    },
+    {
+      "name": "i_heart_mom_right_arm",
+      "directions": 4
+    },
+    {
+      "name": "karabel-chest",
+      "directions": 4
+    },
+    {
+      "name": "karabel-groin",
+      "directions": 4
+    },
+    {
+      "name": "krenel_mercenary-chest",
+      "directions": 4
+    },
+    {
+      "name": "krenel_mercenary-groin",
+      "directions": 4
+    },
+    {
+      "name": "krenel_mercenary-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "krenel_mercenary-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "laza_left_arm",
+      "directions": 4
+    },
+    {
+      "name": "laza_right_arm",
+      "directions": 4
+    },
+    {
+      "name": "line_left_arm",
+      "directions": 4
+    },
+    {
+      "name": "line_right_arm",
+      "directions": 4
+    },
+    {
       "name": "nanotrasen-chest",
       "directions": 4
     },
     {
       "name": "nanotrasen-groin",
+      "directions": 4
+    },
+    {
+      "name": "narsi-chest",
+      "directions": 4
+    },
+    {
+      "name": "narsi-groin",
       "directions": 4
     },
     {
@@ -92,11 +164,111 @@
       "directions": 4
     },
     {
+      "name": "rose-chest",
+      "directions": 4
+    },
+    {
+      "name": "rose-groin",
+      "directions": 4
+    },
+    {
+      "name": "serpent_temptation-chest",
+      "directions": 4
+    },
+    {
+      "name": "serpent_temptation-groin",
+      "directions": 4
+    },
+    {
       "name": "silverburgh_left_leg",
       "directions": 4
     },
     {
       "name": "silverburgh_right_leg",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_body-chest",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_body-groin",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_full-chest",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_full-groin",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_full-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_full-left_foot",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_full-left_leg",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_full-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_full-right_foot",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_full-right_leg",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_left_arm",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_left_foot",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_left_leg",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_right_arm",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_right_foot",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_right_leg",
+      "directions": 4
+    },
+    {
+      "name": "skull-chest",
+      "directions": 4
+    },
+    {
+      "name": "skull-groin",
+      "directions": 4
+    },
+    {
+      "name": "skull_face",
+      "directions": 4
+    },
+    {
+      "name": "symbol_elysium-chest",
+      "directions": 4
+    },
+    {
+      "name": "symbol_elysium-groin",
       "directions": 4
     }
   ]

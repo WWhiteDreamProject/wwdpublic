@@ -1,0 +1,134 @@
+﻿- type: marking
+  id: BaseTattoosReptilian
+  parent: [BaseTattoos, BaseReptilian]
+  abstract: true
+
+- type: marking
+  id: TattoosReptilianKhar
+  parent: BaseTattoosReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: khar-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: khar-groin
+
+- type: marking
+  id: TattoosReptilianLineEyes
+  parent: BaseTattoosReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: line_eyes
+
+- type: marking
+  id: TattoosReptilianSkeleton
+  parent: BaseTattoosReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: skeleton-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: skeleton-groin
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: skeleton-left_arm
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: skeleton-left_leg
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: skeleton-right_arm
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: skeleton-right_leg
+
+- type: marking
+  id: TattoosReptilianSkeletonBody
+  parent: BaseTattoosReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: skeleton_body-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: skeleton_body-groin
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: skeleton_body-left_leg
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: skeleton_body-right_leg
+
+- type: marking
+  id: TattoosReptilianSkeletonLeftArm
+  parent: BaseTattoosReptilian
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: skeleton_left_arm
+
+- type: marking
+  id: TattoosReptilianSkeletonLeftLeg
+  parent: BaseTattoosReptilian
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: skeleton_left_leg
+
+- type: marking
+  id: TattoosReptilianSkeletonRightArm
+  parent: BaseTattoosReptilian
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: skeleton_right_arm
+
+- type: marking
+  id: TattoosReptilianSkeletonRightLeg
+  parent: BaseTattoosReptilian
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: skeleton_right_leg
+
+- type: marking
+  id: TattoosReptilianSun
+  parent: BaseTattoosReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: sun-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: sun-groin
+
+- type: marking
+  id: TattoosReptilianWarpaint
+  parent: BaseTattoosReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/tattoos.rsi
+      state: warpaint

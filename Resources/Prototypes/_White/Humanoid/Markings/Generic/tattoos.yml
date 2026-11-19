@@ -39,6 +39,20 @@
       state: campbell_right_leg
 
 - type: marking
+  id: TattoosChurchDomes
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: church_domes-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: church_domes-groin
+
+- type: marking
   id: TattoosCutHere
   parent: BaseTattoos
   groups: [Arachnid, Felinid, Human, Moth, Oni, Positronic, Reptilian, Slime]
@@ -129,6 +143,20 @@
       state: doll_joints_right_leg
 
 - type: marking
+  id: TattoosElysiumPatriotism
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: elysium_patriotism-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: elysium_patriotism-groin
+
+- type: marking
   id: TattoosEyeLeft
   parent: BaseTattoos
   groups: [Felinid, Human, Harpy, Oni, Reptilian]
@@ -163,6 +191,102 @@
       state: hive-groin
 
 - type: marking
+  id: TattoosIHeartMomLeftArm
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: i_heart_mom_left_arm
+
+- type: marking
+  id: TattoosIHeartMomRightArm
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: i_heart_mom_right_arm
+
+- type: marking
+  id: TattoosKarabel
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: karabel-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: karabel-groin
+
+- type: marking
+  id: TattoosKrenelMercenary
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: krenel_mercenary-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: krenel_mercenary-groin
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: krenel_mercenary-left_arm
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: krenel_mercenary-right_arm
+
+- type: marking
+  id: TattoosLazaLeftArm
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: laza_left_arm
+
+- type: marking
+  id: TattoosLazaRightArm
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: laza_right_arm
+
+- type: marking
+  id: TattoosLineLeftArm
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: line_left_arm
+
+- type: marking
+  id: TattoosLineRightArm
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: line_right_arm
+
+- type: marking
   id: TattoosNanotrasen
   parent: BaseTattoos
   groups: [Arachnid, Felinid, Human, Harpy, Moth, Oni, Reptilian]
@@ -177,6 +301,20 @@
       state: nanotrasen-groin
 
 - type: marking
+  id: TattoosNarsi
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: narsi-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: narsi-groin
+
+- type: marking
   id: TattoosNightling
   parent: BaseTattoos
   groups: [Arachnid, Felinid, Human, Harpy, Moth, Oni, Reptilian]
@@ -189,6 +327,34 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
       state: nightling-groin
+
+- type: marking
+  id: TattoosRose
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: rose-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: rose-groin
+
+- type: marking
+  id: TattoosSerpentTemptation
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: serpent_temptation-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: serpent_temptation-groin
 
 - type: marking
   id: TattoosSilverburghLeftLeg
@@ -209,3 +375,153 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
       state: silverburgh_right_leg
+
+- type: marking
+  id: TattoosSkeletonBody
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_body-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_body-groin
+
+- type: marking
+  id: TattoosSkeletonFull
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_full-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_full-groin
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_full-left_arm
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_full-left_foot
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_full-left_leg
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_full-right_arm
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_full-right_foot
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_full-right_leg
+
+- type: marking
+  id: TattoosSkeletonLeftArm
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_left_arm
+
+- type: marking
+  id: TattoosSkeletonLeftFoot
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_left_foot
+
+- type: marking
+  id: TattoosSkeletonLeftLeg
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_left_leg
+
+- type: marking
+  id: TattoosSkeletonRightArm
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_right_arm
+
+- type: marking
+  id: TattoosSkeletonRightFoot
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_right_foot
+
+- type: marking
+  id: TattoosSkeletonRightLeg
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skeleton_right_leg
+
+- type: marking
+  id: TattoosSkull
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Oni, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skull-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skull-groin
+
+- type: marking
+  id: TattoosSkullFace
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Oni, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: skull_face
+
+- type: marking
+  id: TattoosSymbolElysium
+  parent: BaseTattoos
+  groups: [Arachnid, Felinid, Human, Moth, Oni, Reptilian, Slime]
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: symbol_elysium-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: symbol_elysium-groin

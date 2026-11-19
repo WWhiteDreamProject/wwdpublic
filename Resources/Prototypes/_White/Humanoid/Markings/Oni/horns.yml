@@ -68,6 +68,15 @@
     index: tertiary
 
 - type: marking
+  id: HornsOniBuffalo
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: buffalo
+
+- type: marking
   id: HornsOniBull
   parent: BaseHornsOni
   definitions:
@@ -75,15 +84,6 @@
     sprite:
       sprite: _White/Humanoid/Markings/Oni/horns.rsi
       state: bull
-
-- type: marking
-  id: HornsOniBullish
-  parent: BaseHornsOni
-  definitions:
-  - layer: enum.MarkingVisualLayers.HeadTop
-    sprite:
-      sprite: _White/Humanoid/Markings/Oni/horns.rsi
-      state: bullish
 
 - type: marking
   id: HornsOniBullTall
@@ -115,6 +115,33 @@
     index: tertiary
 
 - type: marking
+  id: HornsOniBullish
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: bullish
+
+- type: marking
+  id: HornsOniCapricorn
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: capricorn
+
+- type: marking
+  id: HornsOniCow
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: cow
+
+- type: marking
   id: HornsOniCrowned
   parent: BaseHornsOni
   definitions:
@@ -122,6 +149,51 @@
     sprite:
       sprite: _White/Humanoid/Markings/Oni/horns.rsi
       state: crowned
+
+- type: marking
+  id: HornsOniDeer
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: deer
+
+- type: marking
+  id: HornsOniDevil
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: devil
+
+- type: marking
+  id: HornsOniDevil2
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: devil_2
+
+- type: marking
+  id: HornsOniDevil3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: devil_3
+
+- type: marking
+  id: HornsOniDevil4
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: devil_4
 
 - type: marking
   id: HornsOniDoubleCurved
@@ -416,6 +488,15 @@
     index: tertiary
 
 - type: marking
+  id: HornsOniRam
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: ram
+
+- type: marking
   id: HornsOniSagittarius
   parent: BaseHornsOni
   definitions:
@@ -508,6 +589,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Oni/horns.rsi
       state: single_curved_right
+
+- type: marking
+  id: HornsOniSmall
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: small
 
 - type: marking
   id: HornsOniTallCurved
@@ -619,6 +709,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Oni/horns.rsi
       state: unicorn
+
+- type: marking
+  id: HornsOniUnicorn2
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: unicorn_2
 
 - type: marking
   id: HornsOniVantas

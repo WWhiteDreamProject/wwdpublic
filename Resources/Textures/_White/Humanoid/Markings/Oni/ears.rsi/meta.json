@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by lunalita(discord).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cow",
+      "directions": 4
+    },
+    {
+      "name": "demon",
+      "directions": 4
+    },
+    {
+      "name": "elf",
+      "directions": 4
+    }
+  ]
+}

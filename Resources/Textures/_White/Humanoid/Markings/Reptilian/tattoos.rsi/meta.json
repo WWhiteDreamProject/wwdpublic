@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by cherreshnia(discord) and prazat911(discord).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "khar-chest",
+      "directions": 4
+    },
+    {
+      "name": "khar-groin",
+      "directions": 4
+    },
+    {
+      "name": "line_eyes",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-chest",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-groin",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-left_leg",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "skeleton-right_leg",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_body-chest",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_body-groin",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_body-left_leg",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_body-right_leg",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_left_arm",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_left_leg",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_right_arm",
+      "directions": 4
+    },
+    {
+      "name": "skeleton_right_leg",
+      "directions": 4
+    },
+    {
+      "name": "sun-chest",
+      "directions": 4
+    },
+    {
+      "name": "sun-groin",
+      "directions": 4
+    },
+    {
+      "name": "warpaint",
+      "directions": 4
+    }
+  ]
+}

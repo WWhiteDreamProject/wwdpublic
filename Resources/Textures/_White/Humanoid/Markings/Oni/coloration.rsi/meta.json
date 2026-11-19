@@ -1,0 +1,231 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by lunalita(discord).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cow_spots-chest",
+      "directions": 4
+    },
+    {
+      "name": "cow_spots-groin",
+      "directions": 4
+    },
+    {
+      "name": "cow_spots-head",
+      "directions": 4
+    },
+    {
+      "name": "cow_spots-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "cow_spots-left_foot",
+      "directions": 4
+    },
+    {
+      "name": "cow_spots-left_hand",
+      "directions": 4
+    },
+    {
+      "name": "cow_spots-left_leg",
+      "directions": 4
+    },
+    {
+      "name": "cow_spots-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "cow_spots-right_leg",
+      "directions": 4
+    },
+    {
+      "name": "guard_stripes-chest",
+      "directions": 4
+    },
+    {
+      "name": "guard_stripes-groin",
+      "directions": 4
+    },
+    {
+      "name": "guard_stripes-head",
+      "directions": 4
+    },
+    {
+      "name": "guard_stripes-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "guard_stripes-left_foot",
+      "directions": 4
+    },
+    {
+      "name": "guard_stripes-left_hand",
+      "directions": 4
+    },
+    {
+      "name": "guard_stripes-left_leg",
+      "directions": 4
+    },
+    {
+      "name": "guard_stripes-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "guard_stripes-right_foot",
+      "directions": 4
+    },
+    {
+      "name": "guard_stripes-right_hand",
+      "directions": 4
+    },
+    {
+      "name": "guard_stripes-right_leg",
+      "directions": 4
+    },
+    {
+      "name": "lines_emperos-chest",
+      "directions": 4
+    },
+    {
+      "name": "lines_emperos-groin",
+      "directions": 4
+    },
+    {
+      "name": "lines_emperos-head",
+      "directions": 4
+    },
+    {
+      "name": "lines_emperos-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "lines_emperos-left_foot",
+      "directions": 4
+    },
+    {
+      "name": "lines_emperos-left_hand",
+      "directions": 4
+    },
+    {
+      "name": "lines_emperos-left_leg",
+      "directions": 4
+    },
+    {
+      "name": "lines_emperos-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "lines_emperos-right_hand",
+      "directions": 4
+    },
+    {
+      "name": "lines_emperos-right_leg",
+      "directions": 4
+    },
+    {
+      "name": "queen_lines-chest",
+      "directions": 4
+    },
+    {
+      "name": "queen_lines-head",
+      "directions": 4
+    },
+    {
+      "name": "queen_lines-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "queen_lines-left_hand",
+      "directions": 4
+    },
+    {
+      "name": "queen_lines-left_leg",
+      "directions": 4
+    },
+    {
+      "name": "queen_lines-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "queen_lines-right_hand",
+      "directions": 4
+    },
+    {
+      "name": "queen_lines-right_leg",
+      "directions": 4
+    },
+    {
+      "name": "tree_lines-chest",
+      "directions": 4
+    },
+    {
+      "name": "tree_lines-groin",
+      "directions": 4
+    },
+    {
+      "name": "tree_lines-head",
+      "directions": 4
+    },
+    {
+      "name": "tree_lines-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "tree_lines-left_foot",
+      "directions": 4
+    },
+    {
+      "name": "tree_lines-left_hand",
+      "directions": 4
+    },
+    {
+      "name": "tree_lines-left_leg",
+      "directions": 4
+    },
+    {
+      "name": "tree_lines-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "tree_lines-right_foot",
+      "directions": 4
+    },
+    {
+      "name": "tree_lines-right_hand",
+      "directions": 4
+    },
+    {
+      "name": "tree_lines-right_leg",
+      "directions": 4
+    },
+    {
+      "name": "trinity_spots-chest",
+      "directions": 4
+    },
+    {
+      "name": "trinity_spots-groin",
+      "directions": 4
+    },
+    {
+      "name": "trinity_spots-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "trinity_spots-left_leg",
+      "directions": 4
+    },
+    {
+      "name": "trinity_spots-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "trinity_spots-right_leg",
+      "directions": 4
+    }
+  ]
+}

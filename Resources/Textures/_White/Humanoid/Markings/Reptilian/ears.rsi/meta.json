@@ -1,12 +1,32 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Pigeonpeas(github). Kobold_pierced-ears, kobold_pierced-piercings by starlighthowls taken from Impstation.",
+  "copyright": "Made by Pigeonpeas(github). Kobold_pierced-ears, kobold_pierced-piercings by starlighthowls taken from Impstation. Chemlight, dragon_long, eastern_dragon, magus, resomi and sylveon taken from https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/8b4abffbe538fbded19b44b989ebc6808748f31f.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    {
+      "name": "chemlight-inner",
+      "directions": 4
+    },
+    {
+      "name": "chemlight-outer",
+      "directions": 4
+    },
+    {
+      "name": "dragon_long",
+      "directions": 4
+    },
+    {
+      "name": "eastern_dragon-ears",
+      "directions": 4
+    },
+    {
+      "name": "eastern_dragon-horns",
+      "directions": 4
+    },
     {
       "name": "kobold",
       "directions": 4
@@ -21,6 +41,34 @@
     },
     {
       "name": "kobold_pierced-piercings",
+      "directions": 4
+    },
+    {
+      "name": "magus-ears",
+      "directions": 4
+    },
+    {
+      "name": "magus-neck",
+      "directions": 4
+    },
+    {
+      "name": "resomi-inner",
+      "directions": 4
+    },
+    {
+      "name": "resomi-outer",
+      "directions": 4
+    },
+    {
+      "name": "sylveon-primary",
+      "directions": 4
+    },
+    {
+      "name": "sylveon-secondary",
+      "directions": 4
+    },
+    {
+      "name": "sylveon-tertiary",
       "directions": 4
     }
   ]

@@ -10,13 +10,15 @@
       limit: 2
     Ears:
       required: true
-      defaultMarkings: [ PointyEarsUpwards ]
+      default: [ PointyEarsUpwards ]
       limit: 1
     Face:
       limit: 4
     FacialHair:
       limit: 1
     Hair:
+      limit: 1
+    Head:
       limit: 1
     Horns:
       required: true

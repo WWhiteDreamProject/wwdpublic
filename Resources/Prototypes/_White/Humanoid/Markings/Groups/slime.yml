@@ -24,6 +24,8 @@
       coloring:
         type: !type:BodyColorGroupColoring
           group: Skin
+    Head:
+      limit: 1
     Internals:
       limit: 4
     Legs:

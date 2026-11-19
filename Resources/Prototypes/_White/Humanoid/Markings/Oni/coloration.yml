@@ -1,0 +1,254 @@
+﻿- type: marking
+  id: BaseColorationOni
+  parent: [BaseColoration, BaseOni]
+  abstract: true
+
+- type: marking
+  id: ColorationOniCowSpots
+  parent: BaseColorationOni
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: cow_spots-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: cow_spots-groin
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: cow_spots-head
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: cow_spots-left_arm
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: cow_spots-left_foot
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: cow_spots-left_hand
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: cow_spots-left_leg
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: cow_spots-right_arm
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: cow_spots-right_leg
+
+- type: marking
+  id: ColorationOniGuardStripes
+  parent: BaseColorationOni
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: guard_stripes-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: guard_stripes-groin
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: guard_stripes-head
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: guard_stripes-left_arm
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: guard_stripes-left_foot
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: guard_stripes-left_hand
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: guard_stripes-left_leg
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: guard_stripes-right_arm
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: guard_stripes-right_foot
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: guard_stripes-right_hand
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: guard_stripes-right_leg
+
+- type: marking
+  id: ColorationOniLinesEmperos
+  parent: BaseColorationOni
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: lines_emperos-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: lines_emperos-groin
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: lines_emperos-head
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: lines_emperos-left_arm
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: lines_emperos-left_foot
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: lines_emperos-left_hand
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: lines_emperos-left_leg
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: lines_emperos-right_arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: lines_emperos-right_hand
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: lines_emperos-right_leg
+
+- type: marking
+  id: ColorationOniQueenLines
+  parent: BaseColorationOni
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: queen_lines-chest
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: queen_lines-head
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: queen_lines-left_arm
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: queen_lines-left_hand
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: queen_lines-left_leg
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: queen_lines-right_arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: queen_lines-right_hand
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: queen_lines-right_leg
+
+- type: marking
+  id: ColorationOniTreeLines
+  parent: BaseColorationOni
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: tree_lines-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: tree_lines-groin
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: tree_lines-head
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: tree_lines-left_arm
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: tree_lines-left_foot
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: tree_lines-left_hand
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: tree_lines-left_leg
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: tree_lines-right_arm
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: tree_lines-right_foot
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: tree_lines-right_hand
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: tree_lines-right_leg
+
+- type: marking
+  id: ColorationOniTrinitySpots
+  parent: BaseColorationOni
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: trinity_spots-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: trinity_spots-groin
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: trinity_spots-left_arm
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: trinity_spots-left_leg
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: trinity_spots-right_arm
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/coloration.rsi
+      state: trinity_spots-right_leg

@@ -1,0 +1,31 @@
+﻿- type: marking
+  id: BaseEarsOni
+  parent: [BaseEars, BaseOni]
+  abstract: true
+
+- type: marking
+  id: EarsOniCow
+  parent: BaseEarsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/ears.rsi
+      state: cow
+
+- type: marking
+  id: EarsOniDemon
+  parent: BaseEarsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/ears.rsi
+      state: demon
+
+- type: marking
+  id: EarsOniElf
+  parent: BaseEarsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/ears.rsi
+      state: elf

@@ -47,6 +47,15 @@
     index: right
 
 - type: marking
+  id: HornsReptilianBaran
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: baran
+
+- type: marking
   id: HornsReptilianBighorn
   parent: BaseHornsReptilian
   definitions:
@@ -60,6 +69,24 @@
       sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
       state: bighorn-right
     index: right
+
+- type: marking
+  id: HornsReptilianBullhorns
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: bullhorns
+
+- type: marking
+  id: HornsReptilianCrown
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: crown
 
 - type: marking
   id: HornsReptilianCurled
@@ -90,6 +117,42 @@
       sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
       state: double-right
     index: right
+
+- type: marking
+  id: HornsReptilianFive
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: five
+
+- type: marking
+  id: HornsReptilianHighback
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: highback
+
+- type: marking
+  id: HornsReptilianJacksonChameleon
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: jackson_chameleon
+
+- type: marking
+  id: HornsReptilianLong
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: long
 
 - type: marking
   id: HornsReptilianMyrsore
@@ -159,3 +222,30 @@
       sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
       state: simple-right
     index: right
+
+- type: marking
+  id: HornsReptilianStagBeetle
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: stag_beetle
+
+- type: marking
+  id: HornsReptilianSuperLong
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: super_long
+
+- type: marking
+  id: HornsReptilianTwoago
+  parent: BaseHornsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/horns.rsi
+      state: twoago

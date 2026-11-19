@@ -1448,6 +1448,15 @@
       state: hime_up
 
 - type: marking
+  id: HairHonor
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: honor
+
+- type: marking
   id: HairHyenamane
   parent: BaseHair
   definitions:
@@ -2499,6 +2508,15 @@
     sprite:
       sprite: _White/Humanoid/Markings/Generic/hair.rsi
       state: shaved
+
+- type: marking
+  id: HairShavedFemale
+  parent: BaseHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/hair.rsi
+      state: shaved_female
 
 - type: marking
   id: HairShavedSide

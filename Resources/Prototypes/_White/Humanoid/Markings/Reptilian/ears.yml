@@ -4,6 +4,45 @@
   abstract: true
 
 - type: marking
+  id: EarsReptilianChemlight
+  parent: BaseEarsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: chemlight-outer
+    index: outer
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: chemlight-inner
+    index: inner
+
+- type: marking
+  id: EarsReptilianDragonLong
+  parent: BaseEarsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: dragon_long
+
+- type: marking
+  id: EarsReptilianEasternDragon
+  parent: BaseEarsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: eastern_dragon-ears
+    index: ears
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: eastern_dragon-horns
+    index: horns
+
+- type: marking
   id: EarsReptilianKobold
   parent: BaseEarsReptilian
   definitions:
@@ -43,3 +82,53 @@
       piercings:
         type: !type:SimpleColoring
           color: "#FFFFFF"
+
+- type: marking
+  id: EarsReptilianMagus
+  parent: BaseEarsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: magus-ears
+    index: ears
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: magus-neck
+    index: neck
+
+- type: marking
+  id: EarsReptilianResomi
+  parent: BaseEarsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: resomi-inner
+    index: inner
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: resomi-outer
+    index: outer
+
+- type: marking
+  id: EarsReptilianSylveon
+  parent: BaseEarsReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: sylveon-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: sylveon-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/ears.rsi
+      state: sylveon-tertiary
+    index: tertiary
