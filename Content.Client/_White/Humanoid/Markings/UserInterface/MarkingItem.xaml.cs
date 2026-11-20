@@ -97,14 +97,14 @@ public sealed partial class MarkingItem : BoxContainer, ISearchableControl
             var container = new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
-                HorizontalExpand = true,
+                HorizontalExpand = true
             };
 
             ColorsContainer.AddChild(container);
 
             var selector = new ColorSelectorSliders();
 
-            container.AddChild(new Label { Text = $"marking-{_marking.ID}-{marking.Index}" });
+            container.AddChild(new Label { Text = Loc.GetString($"marking-{_marking.ID}-{marking.Index}") });
             container.AddChild(selector);
 
             selector.Color = marking.Color;

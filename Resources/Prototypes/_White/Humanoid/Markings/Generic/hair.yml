@@ -2996,7 +2996,7 @@
       state: undercut_left
 
 - type: marking
-  id: HairUndercut_right
+  id: HairUndercutRight
   parent: BaseHair
   definitions:
   - layer: enum.MarkingVisualLayers.Hair

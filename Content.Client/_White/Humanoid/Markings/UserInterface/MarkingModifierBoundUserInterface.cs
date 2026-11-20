@@ -9,7 +9,7 @@ public sealed class MarkingModifierBoundUserInterface(EntityUid owner, Enum uiKe
 {
     [Dependency] private readonly IClientAdminManager _admin = default!;
 
-    private MarkingModifierWindow? _window;
+    private MarkingsModifierWindow? _window;
 
     private readonly MarkingsViewModel _model = new();
 
@@ -17,9 +17,9 @@ public sealed class MarkingModifierBoundUserInterface(EntityUid owner, Enum uiKe
     {
         base.Open();
 
-        _window = this.CreateWindowCenteredLeft<MarkingModifierWindow>();
+        _window = this.CreateWindowCenteredLeft<MarkingsModifierWindow>();
 
-        _window.MarkingPicker.SetModel(_model);
+        _window.MarkingsPicker.SetModel(_model);
 
         _window.RespectLimits.OnPressed += args => _model.EnforceLimits = args.Button.Pressed;
         _window.RespectGroupSex.OnPressed += args => _model.EnforceGroupAndSexRestrictions = args.Button.Pressed;

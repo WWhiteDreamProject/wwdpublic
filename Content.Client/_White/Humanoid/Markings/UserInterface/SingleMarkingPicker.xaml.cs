@@ -112,6 +112,6 @@ public sealed partial class SingleMarkingPicker : BoxContainer
     private void UpdateStatus()
     {
         _model.GetMarkingStatus(_category, out var isRequired, out var count, out var selected);
-        MarkingsStatus.Text = Loc.GetString("markings-limits", ("required", isRequired), ("count", count), ("selectable", count - selected));
+        MarkingsStatus.Text = Loc.GetString("humanoid-markings-limits", ("required", isRequired), ("count", count), ("selectable", count - selected));
     }
 }

@@ -73,13 +73,14 @@ public abstract partial class SharedMarkingsSystem : EntitySystem
         args.Verbs.Add(
             new Verb
             {
-                Text = Loc.GetString("markings-verb"),
-                Category = VerbCategory.Tricks,
-                Icon = new SpriteSpecifier.Texture(new("/Textures/_White/Interface/palette.svg.png")),
                 Act = () =>
                 {
                     _userInterface.OpenUi(ent.Owner, MarkingModifierKey.Key, user);
                 },
+                Category = VerbCategory.Tricks,
+                Icon = new SpriteSpecifier.Texture(new("/Textures/_White/Interface/palette.svg.png")),
+                Message = Loc.GetString("humanoid-markings-verb"),
+                Text = Loc.GetString("humanoid-markings-verb")
             });
     }
 

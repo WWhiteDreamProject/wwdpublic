@@ -482,13 +482,10 @@ public sealed class MarkingsViewModel
                 continue;
 
             isRequired &= data.Required;
-            count = int.Min(count, data.Limit);
+            count = int.Max(count, data.Limit);
         }
 
-        if (!_markings.TryGetValue(categoryId, out var markings))
-            return;
-
-        selected = markings.Count;
+        selected = GetMarkingCategoryCount(categoryId);
     }
 
     /// <summary>

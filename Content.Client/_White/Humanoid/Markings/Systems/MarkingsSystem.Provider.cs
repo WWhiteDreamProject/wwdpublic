@@ -88,8 +88,8 @@ public sealed partial class MarkingsSystem
 
             _sprite.LayerSetColor((target, spriteComp), layerIndex, marking.Color);
 
-            if (!string.IsNullOrEmpty(marking.Shader))
-                spriteComp.LayerSetShader(layerIndex, marking.Shader); // Why its stil not in SpriteSystem?
+            if (!string.IsNullOrEmpty(marking.Shader) && marking.Shader != "null")
+                spriteComp.LayerSetShader(layerIndex, marking.Shader!); // Why it's still not in SpriteSystem?
 
             if (!prototype.CanBeDisplaced || displacement == null)
                 continue;

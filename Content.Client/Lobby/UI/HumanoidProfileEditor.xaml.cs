@@ -1181,7 +1181,7 @@ namespace Content.Client.Lobby.UI
                     Margin = new(0, 4, 0, 4),
                     HorizontalExpand = true,
                     Orientation = LayoutOrientation.Vertical,
-                    Text = Loc.GetString($"humanoid-profile-editor-{group.Id.ToLower()}-color-label"),
+                    Text = $"{Loc.GetString($"bodyColorGroup-{group.Id}")}:",
                 };
 
                 var strategy = _prototypeManager.Index(strategyId).Strategy;

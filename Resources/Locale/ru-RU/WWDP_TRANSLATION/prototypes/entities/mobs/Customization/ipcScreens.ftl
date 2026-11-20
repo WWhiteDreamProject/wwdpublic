@@ -1,1 +1,0 @@
-marking-ScreenCRT = ЭЛТ

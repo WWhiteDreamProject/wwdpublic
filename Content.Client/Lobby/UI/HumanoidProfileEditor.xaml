@@ -1,6 +1,5 @@
 <BoxContainer xmlns="https://spacestation14.io"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:humanoid="clr-namespace:Content.Client.Humanoid"
     xmlns:prefUi="clr-namespace:Content.Client.Lobby.UI"
     xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:controls="clr-namespace:Content.Client._White.UserInterface.Controls"
@@ -160,7 +159,7 @@
                                 <BoxContainer HorizontalExpand="True" Orientation="Vertical">
                                     <Label Text="{Loc 'humanoid-profile-editor-markings-tab'}" />
                                     <Control Margin="5"/>
-                                    <markings:MarkingPicker Name="Markings" HorizontalExpand="True" HorizontalAlignment="Stretch" Access="Public"/>
+                                    <markings:MarkingsPicker Name="Markings" HorizontalExpand="True" HorizontalAlignment="Stretch" Access="Public"/>
                                 </BoxContainer>
                                 <BoxContainer HorizontalExpand="True" Orientation="Vertical">
                                     <Label Text="{Loc 'humanoid-profile-editor-loadouts-tab'}" />
