@@ -185,7 +185,7 @@ public readonly record struct ApplyMarkingsEvent(List<Marking> Markings) : IBody
     /// <summary>
     /// The body provider to which we apply markings.
     /// </summary>
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 }
 
 /// <summary>
@@ -197,7 +197,7 @@ public readonly record struct GetMarkingsDataEvent() : IBodyRelayEvent
     /// <summary>
     /// The body provider whose markings data we wont get.
     /// </summary>
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 
     /// <summary>
     /// A result contained the markings.

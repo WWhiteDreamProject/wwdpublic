@@ -13,7 +13,7 @@ public sealed partial class WoundableSystem
     private void InitializeAccumulator()
     {
         SubscribeLocalEvent<WoundableAccumulatorComponent, BeforeHandleDamageChangeEvent>(OnBeforeHandleDamageChange);
-        SubscribeLocalEvent<WoundableAccumulatorComponent, BodyRelayedEvent<GetWoundableDamageEvent>>(OnGetWoundableDamage);
+        SubscribeLocalEvent<WoundableAccumulatorComponent, BodyRelayedEvent<RelayWoundableDamageEvent>>(OnGetWoundableDamage);
     }
 
     #region Event Handling
@@ -28,7 +28,7 @@ public sealed partial class WoundableSystem
         args.Result = result;
     }
 
-    private void OnGetWoundableDamage(Entity<WoundableAccumulatorComponent> ent, ref BodyRelayedEvent<GetWoundableDamageEvent> args)
+    private void OnGetWoundableDamage(Entity<WoundableAccumulatorComponent> ent, ref BodyRelayedEvent<RelayWoundableDamageEvent> args)
     {
         ChangeDamage((ent, ent.Comp, null), args.Args.Damage, args.Args.IgnoreResistances, origin: args.Args.Origin);
     }
@@ -129,7 +129,7 @@ public sealed partial class WoundableSystem
 
         UpdateSeverity((ent, ent.Comp1));
 
-        RelayPositiveDamage(ent, ent.Comp1.Heir, ignoreResistances, result, origin);
+        RelayDamageToHeirs(ent, ent.Comp1.Heir, ignoreResistances, result, origin);
 
         return result;
     }

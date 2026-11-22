@@ -76,7 +76,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         SpillAllSolutions(ent.AsNullable());
     }
 
-    private void OnMapInit(Entity<BloodstreamComponent> ent, ref MapInitEvent args)
+    protected virtual void OnMapInit(Entity<BloodstreamComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.NextUpdate = _gameTiming.CurTime + ent.Comp.CurrentUpdateInterval;
         DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.NextUpdate));
@@ -397,7 +397,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             BloodType.A => donor is BloodType.A or BloodType.O,
             BloodType.B => donor is BloodType.B or BloodType.O,
             BloodType.AB => true,
-            _ => false,
+            _ => false
         };
     }
 
@@ -555,14 +555,14 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         {
             new BloodReagentData
             {
-                Group = ent.Comp.Group,
+                Group = ent.Comp.Group
             },
             new DnaData
             {
                 DNA = TryComp<DnaComponent>(ent, out var dnaComponent)
                     ? dnaComponent.DNA
-                    : Loc.GetString("forensics-dna-unknown"),
-            },
+                    : Loc.GetString("forensics-dna-unknown")
+            }
         };
 
         ent.Comp.Data = reagentData;
@@ -592,7 +592,7 @@ public record struct BleedingLevelChangedEvent(BleedingLevel Level, BodyProvider
 /// <param name="Level">The current blood level.</param>
 public record struct BloodAmountChangedEvent(FixedPoint2 Amount, float Level) : IBodyRelayEvent
 {
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 }
 
 /// <summary>
@@ -608,9 +608,10 @@ public record struct BleedModifierEvent(FixedPoint2 Bleeding, FixedPoint2 BleedR
 /// Event raised on an entity to request the total of bleeding from all relevant sources.
 /// </summary>
 [ByRefEvent]
-public record struct GetBleedingEvent(FixedPoint2 Bleeding) : IWoundRelayEvent
+public record struct GetBleedingEvent(FixedPoint2 Bleeding) : IBodyRelayEvent, IWoundRelayEvent
 {
-    public ProtoId<DamageTypePrototype>? DamageType { get; } = null;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
+    ProtoId<DamageTypePrototype>? IWoundRelayEvent.Type => null;
 }
 
 /// <summary>

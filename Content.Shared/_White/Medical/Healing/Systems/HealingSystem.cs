@@ -221,7 +221,7 @@ public sealed class GetHealingTargetEvent(BodyProviderType type, Entity<HealingC
     /// <summary>
     /// Contains the body provider being treated.
     /// </summary>
-    public BodyProviderType ProviderType { get; } = type;
+    BodyProviderType IBodyRelayEvent.Type => type;
 
     /// <summary>
     /// Contains the healing target if any was responsible.

@@ -43,7 +43,9 @@
   abstract: true
   components:
   - type: AmputatableProvider
+    wound: WoundScarAmputation
   - type: GibbableProvider
+    wound: WoundScarAmputation
 
 - type: entity
   id: BaseBodyProviderPartOrganic
@@ -81,6 +83,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: AllParts
   - type: PainfulProvider
     location: AllParts
 
@@ -142,6 +146,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: LeftArm
   - type: PainfulProvider
     location: LeftArm
 
@@ -177,6 +183,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: MiddleArm
   - type: PainfulProvider
     location: MiddleArm
 
@@ -214,6 +222,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: RightArm
   - type: PainfulProvider
     location: RightArm
 
@@ -286,6 +296,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: Chest
   - type: PainfulProvider
     location: Chest
 
@@ -343,6 +355,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: LeftFoot
   - type: PainfulProvider
     location: LeftFoot
 
@@ -377,6 +391,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: MiddleFoot
   - type: PainfulProvider
     location: MiddleFoot
 
@@ -411,6 +427,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: RightFoot
   - type: PainfulProvider
     location: RightFoot
 
@@ -461,6 +479,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: Groin
   - type: PainfulProvider
     location: Groin
 
@@ -522,6 +542,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: LeftHand
   - type: PainfulProvider
     location: LeftHand
 
@@ -559,6 +581,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: MiddleHand
   - type: PainfulProvider
     location: MiddleHand
 
@@ -596,6 +620,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: RightHand
   - type: PainfulProvider
     location: RightHand
 
@@ -648,6 +674,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: Head
   - type: PainfulProvider
     location: Head
 
@@ -707,6 +735,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: LeftLeg
   - type: PainfulProvider
     location: LeftLeg
 
@@ -742,6 +772,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: MiddleLeg
   - type: PainfulProvider
     location: MiddleLeg
 
@@ -777,6 +809,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: RightLeg
   - type: PainfulProvider
     location: RightLeg
 
@@ -812,6 +846,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: Tail
   - type: PainfulProvider
     location: Tail
 
@@ -856,6 +892,8 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: Torso
   - type: PainfulProvider
     location: Torso
 
@@ -891,5 +929,7 @@
   parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
+  - type: BloodstreamProvider
+    location: Wings
   - type: PainfulProvider
     location: Wings

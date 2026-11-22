@@ -10,8 +10,8 @@
     providerType: Bone
   - type: Damageable
     container: BodyProviderBone
+  - type: SkeletonProvider
   - type: WoundableAccumulator
-  - type: WoundableResist
 
 # Wings Bones / Alis
 - type: entity
@@ -22,6 +22,14 @@
   components:
   - type: BodyProvider
     providerType: Alis
+  - type: SkeletonProvider
+    strength: 5
+    thresholds:
+      Healthy: 5
+      Minor: 3.75
+      Moderate: 2.5
+      Severe: 1.25
+      Critical: 0
   - type: Sprite
     state: left_antebrachium # TODO: Replace with a unique sprite.
   - type: WoundableAccumulator
@@ -33,14 +41,6 @@
       18: Moderate
       12: Severe
       6: Critical
-  - type: WoundableResist
-    resistance: 5
-    thresholds:
-      Healthy: 5
-      Minor: 3.75
-      Moderate: 2.5
-      Severe: 1.25
-      Critical: 0
 
 # Arm Bone / Antebrachium
 - type: entity
@@ -51,6 +51,14 @@
   components:
   - type: BodyProvider
     providerType: Antebrachium
+  - type: SkeletonProvider
+    strength: 10
+    thresholds:
+      Healthy: 10
+      Minor: 7.5
+      Moderate: 5
+      Severe: 2.5
+      Critical: 0
   - type: Sprite
     state: antebrachium
   - type: WoundableAccumulator
@@ -62,14 +70,6 @@
       27: Moderate
       18: Severe
       9: Critical
-  - type: WoundableResist
-    resistance: 10
-    thresholds:
-      Healthy: 10
-      Minor: 7.5
-      Moderate: 5
-      Severe: 2.5
-      Critical: 0
 
 - type: entity
   id: BaseBodyProviderLeftAntebrachium
@@ -113,6 +113,14 @@
   components:
   - type: BodyProvider
     providerType: Cauda
+  - type: SkeletonProvider
+    strength: 10
+    thresholds:
+      Healthy: 10
+      Minor: 7.5
+      Moderate: 5
+      Severe: 2.5
+      Critical: 0
   - type: Sprite
     state: left_antebrachium # TODO: Replace with a unique sprite.
   - type: WoundableAccumulator
@@ -124,14 +132,6 @@
       27: Moderate
       18: Severe
       9: Critical
-  - type: WoundableResist
-    resistance: 10
-    thresholds:
-      Healthy: 10
-      Minor: 7.5
-      Moderate: 5
-      Severe: 2.5
-      Critical: 0
 
 # Pelvis / Coxae
 - type: entity
@@ -143,6 +143,14 @@
   - type: BloodstreamAccumulator
   - type: BodyProvider
     providerType: Coxae
+  - type: SkeletonProvider
+    strength: 15
+    thresholds:
+      Healthy: 15
+      Minor: 11.25
+      Moderate: 7.5
+      Severe: 3.75
+      Critical: 0
   - type: Sprite
     state: coxae
   - type: WoundableAccumulator
@@ -154,14 +162,6 @@
       36: Moderate
       24: Severe
       12: Critical
-  - type: WoundableResist
-    resistance: 15
-    thresholds:
-      Healthy: 15
-      Minor: 11.25
-      Moderate: 7.5
-      Severe: 3.75
-      Critical: 0
 
 # Skull / Cranium
 - type: entity
@@ -172,6 +172,14 @@
   components:
   - type: BodyProvider
     providerType: Cranium
+  - type: SkeletonProvider
+    strength: 10
+    thresholds:
+      Healthy: 10
+      Minor: 7.5
+      Moderate: 5
+      Severe: 2.5
+      Critical: 0
   - type: Sprite
     state: cranium
   - type: WoundableAccumulator
@@ -183,14 +191,6 @@
       75: Moderate
       50: Severe
       25: Critical
-  - type: WoundableResist
-    resistance: 10
-    thresholds:
-      Healthy: 10
-      Minor: 7.5
-      Moderate: 5
-      Severe: 2.5
-      Critical: 0
 
 # Leg Bone / Crus
 - type: entity
@@ -202,6 +202,14 @@
   - type: BloodstreamAccumulator
   - type: BodyProvider
     providerType: Crus
+  - type: SkeletonProvider
+    strength: 10
+    thresholds:
+      Healthy: 10
+      Minor: 7.5
+      Moderate: 5
+      Severe: 2.5
+      Critical: 0
   - type: Sprite
     state: crus
   - type: WoundableAccumulator
@@ -213,14 +221,6 @@
       27: Moderate
       18: Severe
       9: Critical
-  - type: WoundableResist
-    resistance: 10
-    thresholds:
-      Healthy: 10
-      Minor: 7.5
-      Moderate: 5
-      Severe: 2.5
-      Critical: 0
 
 - type: entity
   id: BaseBodyProviderLeftCrus
@@ -264,6 +264,14 @@
   components:
   - type: BodyProvider
     providerType: Manus
+  - type: SkeletonProvider
+    strength: 5
+    thresholds:
+      Healthy: 5
+      Minor: 3.75
+      Moderate: 2.5
+      Severe: 1.25
+      Critical: 0
   - type: Sprite
     state: manus
   - type: WoundableAccumulator
@@ -275,14 +283,6 @@
       18: Moderate
       12: Severe
       6: Critical
-  - type: WoundableResist
-    resistance: 5
-    thresholds:
-      Healthy: 5
-      Minor: 3.75
-      Moderate: 2.5
-      Severe: 1.25
-      Critical: 0
 
 - type: entity
   id: BaseBodyProviderLeftManus
@@ -326,6 +326,14 @@
   components:
   - type: BodyProvider
     providerType: Pedis
+  - type: SkeletonProvider
+    strength: 5
+    thresholds:
+      Healthy: 5
+      Minor: 3.75
+      Moderate: 2.5
+      Severe: 1.25
+      Critical: 0
   - type: Sprite
     state: pedis
   - type: WoundableAccumulator
@@ -337,14 +345,6 @@
       18: Moderate
       12: Severe
       6: Critical
-  - type: WoundableResist
-    resistance: 5
-    thresholds:
-      Healthy: 5
-      Minor: 3.75
-      Moderate: 2.5
-      Severe: 1.25
-      Critical: 0
 
 - type: entity
   id: BaseBodyProviderLeftPedis
@@ -388,6 +388,14 @@
   components:
   - type: BodyProvider
     providerType: Thorax
+  - type: SkeletonProvider
+    strength: 15
+    thresholds:
+      Healthy: 15
+      Minor: 11.25
+      Moderate: 7.5
+      Severe: 3.75
+      Critical: 0
   - type: Sprite
     state: thorax
   - type: WoundableAccumulator
@@ -399,11 +407,3 @@
       42: Moderate
       28: Severe
       14: Critical
-  - type: WoundableResist
-    resistance: 15
-    thresholds:
-      Healthy: 15
-      Minor: 11.25
-      Moderate: 7.5
-      Severe: 3.75
-      Critical: 0

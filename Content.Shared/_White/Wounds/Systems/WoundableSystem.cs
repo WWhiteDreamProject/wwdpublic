@@ -6,6 +6,7 @@ using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Wounds.Components;
+using Content.Shared.FixedPoint;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -19,6 +20,7 @@ public sealed partial class WoundableSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
     private ISawmill _sawmill = default!;
@@ -46,7 +48,6 @@ public sealed partial class WoundableSystem : EntitySystem
         InitializeAccumulator();
         InitializeProvider();
         InitializeRelay();
-        InitializeResist();
         InitializeWound();
 
         _damageableQuery = GetEntityQuery<DamageableComponent>();
@@ -62,15 +63,35 @@ public sealed partial class WoundableSystem : EntitySystem
     {
         args.Handled = true;
 
-        var ev = new GetWoundableDamageEvent(args.ProviderType, args.IgnoreResistances, args.Damage, args.Origin);
-        RaiseLocalEvent(ent, ref ev);
-
-        if (ev.Result.Empty)
+        if (args.Damage.Empty)
             return;
 
-        _damageable.ApplyDamage((ent, args.Damageable), ev.Result, args.InterruptsDoAfters, args.Origin);
+        var result = new DamageSpecifier();
+        var parts = CountWoundableProviders(ent, args.ProviderType);
 
-        args.Result = ev.Result;
+        var positive = DamageSpecifier.GetPositive(args.Damage);
+        if (!positive.Empty && parts > 0)
+        {
+            var ev = new RelayWoundableDamageEvent(args.ProviderType, args.IgnoreResistances, positive / parts, args.Origin);
+            RaiseLocalEvent(ent, ref ev);
+
+            result += ev.Result;
+        }
+
+        var negative = DamageSpecifier.GetNegative(args.Damage);
+        if (!negative.Empty && parts > 0)
+        {
+            var ev = new RelayWoundableDamageEvent(args.ProviderType, args.IgnoreResistances, negative, args.Origin, true);
+            RaiseLocalEvent(ent, ref ev);
+
+            result += ev.Result;
+        }
+
+        result.TrimZeros();
+        if (result.Empty)
+            return;
+
+        args.Result = _damageable.ApplyDamage((ent, args.Damageable), result, args.InterruptsDoAfters, args.Origin);
     }
 
     private void OnRejuvenate(Entity<WoundableComponent> ent, ref RejuvenateEvent args)
@@ -301,15 +322,38 @@ public sealed partial class WoundableSystem : EntitySystem
 
     #region Private API
 
-    private void RelayPositiveDamage(EntityUid uid, BodyProviderType providerType, bool ignoreResistances, DamageSpecifier damage, EntityUid? origin)
+    private int CountWoundableProviders(EntityUid body, BodyProviderType providerType)
     {
-        var positiveDamage = new DamageSpecifier(damage);
-        positiveDamage.RemoveNegative();
+        var count = 0;
+        foreach (var provider in _body.GetProviders(body, providerType))
+        {
+            if (!_providerQuery.HasComp(provider))
+                continue;
 
-        if (positiveDamage.Empty)
+            count++;
+        }
+
+        return count;
+    }
+
+    /// <summary>
+    /// Passes the positive part of the damage to the inner providers.
+    /// </summary>
+    private void RelayDamageToHeirs(EntityUid uid, BodyProviderType heir, bool ignoreResistances, DamageSpecifier damage, EntityUid? origin)
+    {
+        var positive = DamageSpecifier.GetPositive(damage);
+        if (positive.Empty)
             return;
 
-        var ev = new GetWoundableDamageEvent(providerType, ignoreResistances, positiveDamage, origin);
+        var beforeEv = new BeforeRelayWoundableDamageEvent(positive, ignoreResistances, origin);
+        RaiseLocalEvent(uid, ref beforeEv);
+
+        positive = DamageSpecifier.GetPositive(beforeEv.Damage);
+        positive.TrimZeros();
+        if (positive.Empty)
+            return;
+
+        var ev = new RelayWoundableDamageEvent(heir, ignoreResistances, positive, origin);
         RaiseLocalEvent(uid, ref ev);
     }
 
@@ -317,19 +361,31 @@ public sealed partial class WoundableSystem : EntitySystem
 }
 
 /// <summary>
-/// Event raised on an entity to get the damage change on its woundable provider.
+/// Event raised on a woundable provider or accumulator before its damage is passed to the inner providers.
+/// Handlers may change <see cref="Damage"/>, e.g. a bone shielding the organs.
+/// </summary>
+/// <param name="Damage">The damage to be passed to the inner providers.</param>
+/// <param name="IgnoreResistances">Determines whether the damage change should ignore resistances.</param>
+/// <param name="Origin">The entity which caused the change in damage, if any.</param>
+[ByRefEvent]
+public record struct BeforeRelayWoundableDamageEvent(DamageSpecifier Damage, bool IgnoreResistances, EntityUid? Origin);
+
+/// <summary>
+/// Event raised on an entity to relay the damage change on its woundable providers.
 /// </summary>
 /// <param name="ProviderType">The body provider that should take damage.</param>
 /// <param name="IgnoreResistances">Determines whether the damage change should ignore resistances.</param>
 /// <param name="Damage">The amount by which the damage must be changed.</param>
 /// <param name="Origin">The entity which caused the change in damage, if any.</param>
+/// <param name="Pool"> If true, <see cref="Damage"/> is a shared pool: each provider subtracts the damage it actually took, so the following providers receive only the remainder. Used for healing.
+/// </param>
 [ByRefEvent]
-public record struct GetWoundableDamageEvent(BodyProviderType ProviderType, bool IgnoreResistances, DamageSpecifier Damage, EntityUid? Origin) : IBodyRelayEvent
+public record struct RelayWoundableDamageEvent(BodyProviderType ProviderType, bool IgnoreResistances, DamageSpecifier Damage, EntityUid? Origin, bool Pool = false) : IBodyRelayEvent
 {
     /// <summary>
     /// The body provider that is supposed to cause damage.
     /// </summary>
-    public BodyProviderType ProviderType { get; } = ProviderType;
+    BodyProviderType IBodyRelayEvent.Type => ProviderType;
 
     /// <summary>
     /// The amount by which the damage has changed.

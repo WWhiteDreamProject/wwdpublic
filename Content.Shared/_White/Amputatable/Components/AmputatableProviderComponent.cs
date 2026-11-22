@@ -39,7 +39,7 @@ public sealed partial class AmputatableProviderComponent : Component
     /// If null, no specific wound is created upon amputating.
     /// </summary>
     [DataField]
-    public EntProtoId? Wound = "WoundScarAmputation";
+    public EntProtoId? Wound;
 
     /// <summary>
     /// A set of damage thresholds and their corresponding amputating chances.

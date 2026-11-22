@@ -398,7 +398,7 @@ public record struct TryIngestEvent(Entity<IngestibleComponent> Ingestible, Enti
     /// <summary>
     /// The type of body provider to relay this event to.
     /// </summary>
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 
     /// <summary>
     /// Indicates whether this ingestion event has been successfully handled.

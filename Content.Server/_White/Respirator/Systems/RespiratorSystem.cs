@@ -143,7 +143,7 @@ public sealed partial class RespiratorSystem : EntitySystem
         var oldLevel = ent.Comp.Level;
         ent.Comp.Level = Math.Clamp(ent.Comp.Level + amount, 0, 1);
 
-        var ev = new SaturationLevelChangedEvent(ent.Comp.Level - oldLevel);
+        var ev = new SaturationLevelChangedEvent(ent.Comp.Level, ent.Comp.Level - oldLevel);
         RaiseLocalEvent(ent, ev);
     }
 
@@ -291,7 +291,7 @@ public sealed partial class RespiratorSystem : EntitySystem
 [ByRefEvent]
 public record struct CanMetabolizeGasEvent(GasMixture Gas, bool Toxic = false, float Saturation = 0f) : IBodyRelayEvent
 {
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 }
 
 /// <summary>
@@ -301,7 +301,7 @@ public record struct CanMetabolizeGasEvent(GasMixture Gas, bool Toxic = false, f
 [ByRefEvent]
 public record struct ExhaleEvent(GasMixture Gas) : IBodyRelayEvent
 {
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 }
 
 /// <summary>
@@ -311,7 +311,7 @@ public record struct ExhaleEvent(GasMixture Gas) : IBodyRelayEvent
 [ByRefEvent]
 public record struct GetBreathVolumeEvent(float Volume = 0f) : IBodyRelayEvent
 {
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 }
 
 /// <summary>
@@ -336,7 +336,7 @@ public record struct GetInhaleLocationEvent(RespiratorComponent Respirator, GasM
 [ByRefEvent]
 public record struct GetSaturationConsumption(float Consumption = 0f) : IBodyRelayEvent
 {
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 }
 
 /// <summary>
@@ -347,15 +347,17 @@ public record struct GetSaturationConsumption(float Consumption = 0f) : IBodyRel
 [ByRefEvent]
 public record struct InhaleEvent(GasMixture Gas, bool Succeeded = false) : IBodyRelayEvent
 {
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 }
 
 /// <summary>
 /// Event raised after an entity's oxidant saturation level has changed.
 /// </summary>
-public record struct SaturationLevelChangedEvent(float Level) : IBodyRelayEvent
+/// <param name="Level">The new saturation level (0..1).</param>
+/// <param name="Delta">How much the level has changed.</param>
+public record struct SaturationLevelChangedEvent(float Level, float Delta) : IBodyRelayEvent
 {
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 }
 
 /// <summary>
@@ -363,5 +365,5 @@ public record struct SaturationLevelChangedEvent(float Level) : IBodyRelayEvent
 /// </summary>
 public record struct SuffocationChangedEvent(int Suffocation) : IBodyRelayEvent
 {
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 }

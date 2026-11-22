@@ -21,7 +21,7 @@ public sealed partial class WoundableSystem
         SubscribeLocalEvent<WoundableProviderComponent, BodyProviderGotInsertedEvent>(OnGotInserted);
         SubscribeLocalEvent<WoundableProviderComponent, BodyProviderGotRemovedEvent>(OnGotRemoved);
         SubscribeLocalEvent<WoundableProviderComponent, BodyRelayedEvent<GetHealingTargetEvent>>(OnGetHealingTarget);
-        SubscribeLocalEvent<WoundableProviderComponent, BodyRelayedEvent<GetWoundableDamageEvent>>(OnGetWoundableDamage);
+        SubscribeLocalEvent<WoundableProviderComponent, BodyRelayedEvent<RelayWoundableDamageEvent>>(OnGetWoundableDamage);
         SubscribeLocalEvent<WoundableProviderComponent, ComponentInit>(OnInit);
     }
 
@@ -101,9 +101,15 @@ public sealed partial class WoundableSystem
         args.Args.Target = (ent, damageableComp);
     }
 
-    private void OnGetWoundableDamage(Entity<WoundableProviderComponent> ent, ref BodyRelayedEvent<GetWoundableDamageEvent> args)
+    private void OnGetWoundableDamage(Entity<WoundableProviderComponent> ent, ref BodyRelayedEvent<RelayWoundableDamageEvent> args)
     {
-        if (!TryChangeDamage((ent, ent.Comp, null), args.Args.Damage, out var result, args.Args.IgnoreResistances, origin: args.Args.Origin))
+        if (!_damageableQuery.TryComp(ent, out var damageableComp))
+            return;
+
+        if (args.Args.Damage.Empty)
+            return;
+
+        if (!TryChangeDamage((ent, ent.Comp, damageableComp), args.Args.Damage, out var result, args.Args.IgnoreResistances, origin: args.Args.Origin))
             return;
 
         foreach (var (type, damage) in result)
@@ -113,6 +119,11 @@ public sealed partial class WoundableSystem
 
             args.Args.Result[type] += damage;
         }
+
+        if (!args.Args.Pool)
+            return;
+
+        args.Args = args.Args with { Damage = DamageSpecifier.GetNegative(args.Args.Damage - result) };
     }
 
     private void OnInit(Entity<WoundableProviderComponent> ent, ref ComponentInit args)
@@ -272,7 +283,7 @@ public sealed partial class WoundableSystem
 
         UpdateSeverity((ent, ent.Comp1, ent.Comp2));
 
-        RelayPositiveDamage(ent, ent.Comp1.Heir, ignoreResistances, result, origin);
+        RelayDamageToHeirs(ent, ent.Comp1.Heir, ignoreResistances, result, origin);
 
         return result;
     }

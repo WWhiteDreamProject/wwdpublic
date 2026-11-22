@@ -18,7 +18,7 @@ public sealed partial class WoundableSystem
     {
         var ev = new WoundRelayedEvent<T>(args);
 
-        foreach (var wound in GetWounds(ent.AsNullable(), args.DamageType))
+        foreach (var wound in GetWounds(ent.AsNullable(), args.Type))
         {
             ev.Wound = wound.Comp;
             RaiseLocalEvent(wound, ref ev);
@@ -31,7 +31,7 @@ public sealed partial class WoundableSystem
     {
         var ev = new WoundRelayedEvent<T>(args);
 
-        foreach (var wound in GetWounds(ent.AsNullable(), args.DamageType))
+        foreach (var wound in GetWounds(ent.AsNullable(), args.Type))
         {
             ev.Wound = wound.Comp;
             RaiseLocalEvent(wound, ref ev);
@@ -61,6 +61,6 @@ public interface IWoundRelayEvent
     /// <summary>
     /// What wound should this event be relayed to?
     /// </summary>
-    public ProtoId<DamageTypePrototype>? DamageType { get; }
+    ProtoId<DamageTypePrototype>? Type { get; }
 }
 

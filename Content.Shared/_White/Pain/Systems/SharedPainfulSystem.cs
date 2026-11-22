@@ -184,8 +184,8 @@ public abstract partial class SharedPainfulSystem : EntitySystem
 [ByRefEvent]
 public record struct GetPainEvent(FixedPoint2 Pain) : IBodyRelayEvent, IWoundRelayEvent
 {
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
-    public ProtoId<DamageTypePrototype>? DamageType { get; } = null;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
+    ProtoId<DamageTypePrototype>? IWoundRelayEvent.Type => null;
 }
 
 /// <summary>
@@ -196,7 +196,7 @@ public record struct GetPainEvent(FixedPoint2 Pain) : IBodyRelayEvent, IWoundRel
 [ByRefEvent]
 public record struct PainChangedEvent(Entity<PainfulComponent> Painful, FixedPoint2 Pain) : IBodyRelayEvent
 {
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 }
 
 /// <summary>

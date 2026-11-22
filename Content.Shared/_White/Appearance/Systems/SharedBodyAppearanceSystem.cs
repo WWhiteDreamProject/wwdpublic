@@ -95,7 +95,7 @@ public readonly record struct ApplyBodyAppearanceDataEvent(BodyAppearanceData? D
     /// <summary>
     /// The body provider to which we apply appearance data.
     /// </summary>
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 }
 
 /// <summary>
@@ -107,7 +107,7 @@ public readonly record struct GetBodyAppearanceDataEvent() : IBodyRelayEvent
     /// <summary>
     /// The body provider whose appearance data we wont get.
     /// </summary>
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 
     /// <summary>
     /// A result contained the appearance data.

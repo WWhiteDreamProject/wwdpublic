@@ -29,7 +29,7 @@ public abstract class SharedMetabolizerSystem : EntitySystem
         var getRateEv = new GetMetabolicRateEvent();
         RaiseLocalEvent(ent, ref getRateEv);
 
-        var getMultiplierEv = new GetMetabolicMultiplierEvent();
+        var getMultiplierEv = new GetMetabolicMultiplierEvent(1f);
         RaiseLocalEvent(ent, ref getMultiplierEv);
 
         var rate = getRateEv.Rate * getMultiplierEv.Multiplier;
@@ -63,7 +63,7 @@ public record struct GetMetabolicMultiplierEvent(float Multiplier = 1f);
 [ByRefEvent]
 public record struct GetMetabolicRateEvent(float Rate = 0f) : IBodyRelayEvent
 {
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 }
 
 /// <summary>
@@ -74,5 +74,5 @@ public record struct GetMetabolicRateEvent(float Rate = 0f) : IBodyRelayEvent
 [ByRefEvent]
 public readonly record struct MetabolicRateChangedEvent(float Rate) : IBodyRelayEvent
 {
-    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 }

@@ -33,7 +33,6 @@ public sealed partial class BloodstreamSystem : SharedBloodstreamSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BloodstreamComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<BloodstreamComponent, GenerateDnaEvent>(OnDnaGenerated);
         SubscribeLocalEvent<BloodstreamComponent, HeightAdjustedEvent>(OnHeightAdjusted);
         SubscribeLocalEvent<BloodstreamComponent, ReactionAttemptEvent>(OnReactionAttempt);
@@ -45,22 +44,6 @@ public sealed partial class BloodstreamSystem : SharedBloodstreamSystem
     }
 
     #region Event Handling
-
-    private void OnInit(Entity<BloodstreamComponent> ent, ref ComponentInit args)
-    {
-        if (!SolutionContainer.EnsureSolution(ent.Owner, ent.Comp.SolutionName, out var solution))
-            return;
-
-        if (!SolutionContainer.EnsureSolution(ent.Owner, ent.Comp.TemporarySolutionName, out var tempSolution))
-            return;
-
-        TryUpdateHeightAdjust(ent);
-
-        solution.MaxVolume = ent.Comp.CurrentMaxVolume + ent.Comp.ChemicalMaxVolume;
-        tempSolution.MaxVolume = ent.Comp.BleedPuddleThreshold * 4;
-
-        TryModifyBloodLevel(ent.AsNullable(), ent.Comp.CurrentMaxVolume - solution.Volume);
-    }
 
     private void OnDnaGenerated(Entity<BloodstreamComponent> ent, ref GenerateDnaEvent args)
     {
@@ -92,6 +75,24 @@ public sealed partial class BloodstreamSystem : SharedBloodstreamSystem
 
         solution.MaxVolume = ent.Comp.CurrentMaxVolume + ent.Comp.ChemicalMaxVolume;
         TryModifyBloodLevel(ent.AsNullable(), ent.Comp.Amount * ent.Comp.MassAdjustMultiplier - ent.Comp.Amount);
+    }
+
+    protected override void OnMapInit(Entity<BloodstreamComponent> ent, ref MapInitEvent args)
+    {
+        base.OnMapInit(ent, ref args);
+
+        if (!SolutionContainer.EnsureSolution(ent.Owner, ent.Comp.SolutionName, out var solution))
+            return;
+
+        if (!SolutionContainer.EnsureSolution(ent.Owner, ent.Comp.TemporarySolutionName, out var tempSolution))
+            return;
+
+        TryUpdateHeightAdjust(ent);
+
+        solution.MaxVolume = ent.Comp.CurrentMaxVolume + ent.Comp.ChemicalMaxVolume;
+        tempSolution.MaxVolume = ent.Comp.BleedPuddleThreshold * 4;
+
+        TryModifyBloodLevel(ent.AsNullable(), ent.Comp.CurrentMaxVolume - solution.Volume);
     }
 
     private void OnReactionAttempt(Entity<BloodstreamComponent> ent, ref ReactionAttemptEvent args)
