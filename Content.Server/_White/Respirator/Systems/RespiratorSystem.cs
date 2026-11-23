@@ -3,6 +3,7 @@ using Content.Server._White.Respirator.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
+using Content.Shared._White.Bloodstream.Components;
 using Content.Shared._White.Bloodstream.Prototypes;
 using Content.Shared._White.Bloodstream.Systems;
 using Content.Shared._White.Body;
@@ -30,12 +31,14 @@ public sealed partial class RespiratorSystem : EntitySystem
 
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MetabolizerSystem _metabolizer = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
+    private EntityQuery<BloodstreamComponent> _bloodstreamQuery;
     private EntityQuery<RespiratorComponent> _respiratorQuery;
 
     private static readonly ProtoId<MetabolismStagePrototype> RespirationId = new("Respiration");
@@ -50,6 +53,7 @@ public sealed partial class RespiratorSystem : EntitySystem
         InitializeConsumer();
         InitializeProvider();
 
+        _bloodstreamQuery = GetEntityQuery<BloodstreamComponent>();
         _respiratorQuery = GetEntityQuery<RespiratorComponent>();
     }
 
@@ -121,13 +125,15 @@ public sealed partial class RespiratorSystem : EntitySystem
         if (!_respiratorQuery.Resolve(ent, ref ent.Comp))
             return false;
 
-        var ev = new CanMetabolizeGasEvent(gas);
+        var breath = new GasMixture(gas).RemoveVolume(ent.Comp.Volume);
+        var ev = new CanMetabolizeGasEvent(breath);
         RaiseLocalEvent(ent, ref ev);
 
         if (ev.Toxic)
             return false;
 
-        return ev.Saturation > ent.Comp.Consumption;
+        // A breath (inhale and exhale) takes two updates, each of them consuming saturation.
+        return ev.Saturation > ent.Comp.Consumption * 2;
     }
 
     /// <summary>
@@ -144,7 +150,7 @@ public sealed partial class RespiratorSystem : EntitySystem
         ent.Comp.Level = Math.Clamp(ent.Comp.Level + amount, 0, 1);
 
         var ev = new SaturationLevelChangedEvent(ent.Comp.Level, ent.Comp.Level - oldLevel);
-        RaiseLocalEvent(ent, ev);
+        RaiseLocalEvent(ent, ref ev);
     }
 
     /// <summary>
@@ -211,19 +217,17 @@ public sealed partial class RespiratorSystem : EntitySystem
 
         var gas = getInhaleLocationEv.Gas.RemoveVolume(ent.Comp.Volume);
 
-        var inhaleEv = new InhaleEvent(gas);
+        var inhaleEv = new InhaleEvent(gas, ent.Comp.Volume);
         RaiseLocalEvent(ent, ref inhaleEv);
 
-        if (inhaleEv.Succeeded)
-            return;
-
-        // If nothing could inhale, the gasses give it back.
         _atmosphere.Merge(getInhaleLocationEv.Gas, gas);
     }
 
     private void UpdateRespirator(Entity<RespiratorComponent> ent)
     {
-        ent.Comp.NextUpdate += ent.Comp.CurrentUpdateInterval;
+        var curTime = _gameTiming.CurTime;
+
+        ent.Comp.NextUpdate = curTime + ent.Comp.CurrentUpdateInterval;
 
         if (_mobState.IsDead(ent))
             return;
@@ -245,37 +249,42 @@ public sealed partial class RespiratorSystem : EntitySystem
             }
         }
 
-        if (ent.Comp.Level < ent.Comp.SuffocationThreshold)
+        if (ent.Comp.Level < ent.Comp.Threshold)
         {
-            if (_gameTiming.CurTime >= ent.Comp.LastGaspTime + ent.Comp.GaspCooldown)
+            if (curTime >= ent.Comp.LastGaspTime + ent.Comp.GaspCooldown)
             {
-                ent.Comp.LastGaspTime = _gameTiming.CurTime;
+                ent.Comp.LastGaspTime = curTime;
                 _chat.TryEmoteWithChat(ent, ent.Comp.Gasp, ChatTransmitRange.HideChat, ignoreActionBlocker: true);
             }
 
-            if (ent.Comp.Suffocation == 2)
-                _adminLogger.Add(LogType.Asphyxiation, $"{ToPrettyString(ent):entity} started suffocating");
-
-            if (ent.Comp.Suffocation < ent.Comp.SuffocationThreshold)
+            // Count consecutive updates without enough air; suffocation starts once there are enough of them.
+            if (ent.Comp.Suffocation >= ent.Comp.SuffocationThreshold)
                 return;
 
             ent.Comp.Suffocation += 1;
-            RaiseLocalEvent(ent, new SuffocationChangedEvent(ent.Comp.Suffocation));
+            if (ent.Comp.Suffocation < ent.Comp.SuffocationThreshold)
+                return;
 
+            _adminLogger.Add(LogType.Asphyxiation, $"{ToPrettyString(ent):entity} started suffocating");
+
+            var suffocationEv = new SuffocationChangedEvent(ent.Comp.Suffocation);
+            RaiseLocalEvent(ent, ref suffocationEv);
             return;
         }
 
         if (ent.Comp.Suffocation == 0)
             return;
 
-        if (ent.Comp.Suffocation == 2)
-            _adminLogger.Add(LogType.Asphyxiation, $"{ToPrettyString(ent):entity} started suffocating");
+        var wasSuffocating = ent.Comp.Suffocation >= ent.Comp.SuffocationThreshold;
+        ent.Comp.Suffocation = 0;
 
-        if (ent.Comp.Suffocation < ent.Comp.SuffocationThreshold)
+        if (!wasSuffocating)
             return;
 
-        ent.Comp.Suffocation = 0;
-        RaiseLocalEvent(ent, new SuffocationChangedEvent(ent.Comp.Suffocation));
+        _adminLogger.Add(LogType.Asphyxiation, $"{ToPrettyString(ent):entity} stopped suffocating");
+
+        var stropSuffocationEv = new SuffocationChangedEvent(ent.Comp.Suffocation);
+        RaiseLocalEvent(ent, ref stropSuffocationEv);
     }
 
     #endregion
@@ -342,10 +351,11 @@ public record struct GetSaturationConsumption(float Consumption = 0f) : IBodyRel
 /// <summary>
 /// Event raised when an entity successfully inhales a gas, attempts to find a place to put the gas.
 /// </summary>
-/// <param name="Gas">The gas we're inhaling.</param>
+/// <param name="Gas">The gas we're inhaling. Providers remove their share from it.</param>
+/// <param name="RemainingVolume">The breath volume not yet taken by providers.</param>
 /// <param name="Succeeded">Whether we successfully managed to inhale the gas</param>
 [ByRefEvent]
-public record struct InhaleEvent(GasMixture Gas, bool Succeeded = false) : IBodyRelayEvent
+public record struct InhaleEvent(GasMixture Gas, float RemainingVolume, bool Succeeded = false) : IBodyRelayEvent
 {
     BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
 }
@@ -355,6 +365,7 @@ public record struct InhaleEvent(GasMixture Gas, bool Succeeded = false) : IBody
 /// </summary>
 /// <param name="Level">The new saturation level (0..1).</param>
 /// <param name="Delta">How much the level has changed.</param>
+[ByRefEvent]
 public record struct SaturationLevelChangedEvent(float Level, float Delta) : IBodyRelayEvent
 {
     BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
@@ -363,6 +374,7 @@ public record struct SaturationLevelChangedEvent(float Level, float Delta) : IBo
 /// <summary>
 /// Event raised after an entity's suffocation has changed.
 /// </summary>
+[ByRefEvent]
 public record struct SuffocationChangedEvent(int Suffocation) : IBodyRelayEvent
 {
     BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;

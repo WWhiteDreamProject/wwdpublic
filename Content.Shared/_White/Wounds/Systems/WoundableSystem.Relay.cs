@@ -12,13 +12,19 @@ public sealed partial class WoundableSystem
     {
         SubscribeLocalEvent<WoundableProviderComponent, GetBleedingEvent>(RelayEvent);
         SubscribeLocalEvent<WoundableProviderComponent, GetPainEvent>(RelayEvent);
+
+        SubscribeLocalEvent<WoundableComponent, ModifyBleedingEvent>(RelayEvent);
     }
 
     private void RelayEvent<T>(Entity<WoundableComponent> ent, ref T args) where T : IWoundRelayEvent
     {
-        var ev = new WoundRelayedEvent<T>(args);
+        var wounds = GetWounds(ent.AsNullable(), args.Type);
+        var ev = new WoundRelayedEvent<T>(args)
+        {
+            Count = wounds.Count
+        };
 
-        foreach (var wound in GetWounds(ent.AsNullable(), args.Type))
+        foreach (var wound in wounds)
         {
             ev.Wound = wound.Comp;
             RaiseLocalEvent(wound, ref ev);
@@ -29,9 +35,13 @@ public sealed partial class WoundableSystem
 
     private void RelayEvent<T>(Entity<WoundableProviderComponent> ent, ref T args) where T : IWoundRelayEvent
     {
-        var ev = new WoundRelayedEvent<T>(args);
+        var wounds = GetWounds(ent.AsNullable(), args.Type);
+        var ev = new WoundRelayedEvent<T>(args)
+        {
+            Count = wounds.Count
+        };
 
-        foreach (var wound in GetWounds(ent.AsNullable(), args.Type))
+        foreach (var wound in wounds)
         {
             ev.Wound = wound.Comp;
             RaiseLocalEvent(wound, ref ev);
@@ -47,6 +57,16 @@ public sealed partial class WoundableSystem
 [ByRefEvent]
 public record struct WoundRelayedEvent<TEvent>(TEvent Args)
 {
+    /// <summary>
+    /// The number of wounds to which the event was relayed
+    /// </summary>
+    public int Count = 0;
+
+    /// <summary>
+    /// The relayed event.
+    /// </summary>
+    public TEvent Args = Args;
+
     /// <summary>
     /// This is the component to which the event was relayed.
     /// </summary>

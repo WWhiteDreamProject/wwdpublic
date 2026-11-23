@@ -55,7 +55,7 @@ public sealed partial class BloodSplatterWoundComponent : Component
     /// A coefficient that determines the possible difference in the emission range of splatters.
     /// </summary>
     [DataField]
-    public float EmissionSpreadDistance = 2.5f;
+    public float EmissionSpreadDistance = 1f;
 
     /// <summary>
     /// A coefficient that determines the possible difference in the total volume of emitted splatters.
@@ -92,5 +92,5 @@ public sealed partial class BloodSplatterWoundComponent : Component
 public enum SplatterType : byte
 {
     Random,
-    Line,
+    Line
 }

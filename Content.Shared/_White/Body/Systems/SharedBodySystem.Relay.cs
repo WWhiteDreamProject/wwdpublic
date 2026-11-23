@@ -14,8 +14,10 @@ public abstract partial class SharedBodySystem
     {
         SubscribeLocalEvent<BodyComponent, ApplyBodyAppearanceDataEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, ApplyMarkingsEvent>(RelayEvent);
+        SubscribeLocalEvent<BodyComponent, BeforeRelayWoundableDamageEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, BloodAmountChangedEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, GetBleedingEvent>(RelayEvent);
+        SubscribeLocalEvent<BodyComponent, GetBloodReductionEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, GetBodyAppearanceDataEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, GetMarkingsDataEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, GetMetabolicRateEvent>(RelayEvent);
@@ -64,6 +66,11 @@ public abstract partial class SharedBodySystem
 [ByRefEvent]
 public record struct BodyRelayedEvent<TEvent>(TEvent Args)
 {
+    /// <summary>
+    /// The relayed event.
+    /// </summary>
+    public TEvent Args = Args;
+
     /// <summary>
     /// This is the component to which the event was relayed.
     /// </summary>

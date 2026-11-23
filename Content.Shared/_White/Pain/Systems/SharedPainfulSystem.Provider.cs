@@ -23,6 +23,8 @@ public abstract partial class SharedPainfulSystem
 
         var ev = new PainLevelChangedEvent(ent.Comp.Level, ent.Comp.Location);
         RaiseLocalEvent(args.Body, ref ev);
+
+        UpdatePain(args.Body.Owner);
     }
 
     private void OnGotRemoved(Entity<PainfulProviderComponent> ent, ref BodyProviderGotRemovedEvent args)
@@ -32,6 +34,8 @@ public abstract partial class SharedPainfulSystem
 
         var ev = new PainLevelChangedEvent(PainLevel.None, ent.Comp.Location);
         RaiseLocalEvent(args.Body, ref ev);
+
+        UpdatePain(args.Body.Owner);
     }
 
     private void OnGetPain(Entity<PainfulProviderComponent> ent, ref BodyRelayedEvent<GetPainEvent> args)
@@ -41,7 +45,7 @@ public abstract partial class SharedPainfulSystem
 
         SetPain(ent.AsNullable(), ev.Pain);
 
-        args.Args = new(args.Args.Pain + ent.Comp.Pain);
+        args.Args = args.Args.Add(ev);
     }
 
     #endregion

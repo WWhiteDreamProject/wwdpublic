@@ -8,7 +8,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.Pain.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
 [Access(typeof(SharedPainfulSystem))]
 public sealed partial class PainThresholdsComponent : Component
 {
@@ -32,6 +32,12 @@ public sealed partial class PainThresholdsComponent : Component
     /// </summary>
     [DataField(serverOnly: true)] // TODO: Remove serverOnly when we move EntityEffect to shared
     public Dictionary<PainLevel, List<EntityEffect>> PainEffects = new();
+
+    /// <summary>
+    /// The relative random variation of <see cref="PainEffectsInterval"/>, so pain effects of different entities don't sync up.
+    /// </summary>
+    [DataField]
+    public float PainEffectsIntervalVariation = 0.3f;
 
     /// <summary>
     /// The <see cref="AlertCategoryPrototype"/> ID used for grouping health-related alerts.
@@ -67,6 +73,13 @@ public sealed partial class PainThresholdsComponent : Component
     };
 
     /// <summary>
+    /// How often the <see cref="PainEffects"/> of the current pain level are repeated while the entity stays at it.
+    /// The actual interval is randomized by <see cref="PainEffectsIntervalVariation"/>.
+    /// </summary>
+    [DataField]
+    public TimeSpan PainEffectsInterval = TimeSpan.FromSeconds(15);
+
+    /// <summary>
     /// Normalized progress (0.0 to 1.0) from the current mob state threshold to the next state threshold.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
@@ -85,5 +98,11 @@ public sealed partial class PainThresholdsComponent : Component
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public PainLevel Level = PainLevel.Zero;
+
+    /// <summary>
+    /// When the <see cref="PainEffects"/> of the current pain level should be applied next. Null if there are none to apply.
+    /// </summary>
+    [ViewVariables, AutoPausedField]
+    public TimeSpan? NextPainEffects;
 }
 

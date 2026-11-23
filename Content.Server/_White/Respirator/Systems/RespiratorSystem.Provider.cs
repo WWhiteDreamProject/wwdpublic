@@ -65,18 +65,18 @@ public sealed partial class RespiratorSystem
                 if (effect is HealthChange healthChange)
                     toxic |= healthChange.Damage.AnyPositive();
 
-                if (effect is Oxygenate oxygenate)
-                    saturation += oxygenate.Factor * quantity.Float();
+                if (effect is not Oxygenate oxygenate)
+                    continue;
+
+                saturation += oxygenate.Factor * quantity.Float() * 0.01f;
             }
         }
 
-        if (toxic)
+        args.Args = args.Args with
         {
-            args.Args = args.Args with { Toxic = true, };
-            return;
-        }
-
-        args.Args = args.Args with { Saturation = saturation, };
+            Toxic = args.Args.Toxic || toxic,
+            Saturation = args.Args.Saturation + saturation
+        };
     }
 
     private void OnExhale(Entity<RespiratorProviderComponent> ent, ref BodyRelayedEvent<ExhaleEvent> args)
@@ -99,14 +99,15 @@ public sealed partial class RespiratorSystem
 
     private void OnInhale(Entity<RespiratorProviderComponent> ent, ref BodyRelayedEvent<InhaleEvent> args)
     {
-        if (ent.Comp.Volume == 0)
+        if (ent.Comp.Volume <= 0 || args.Args.RemainingVolume <= 0)
             return;
 
-        _atmosphere.Merge(ent.Comp.Air, args.Args.Gas);
+        var share = args.Args.Gas.RemoveRatio(ent.Comp.Volume / args.Args.RemainingVolume);
+        args.Args = args.Args with { RemainingVolume = args.Args.RemainingVolume - ent.Comp.Volume, Succeeded = true, };
+
+        _atmosphere.Merge(ent.Comp.Air, share);
         GasToReagent(ent);
         _metabolizer.Metabolize(ent.Owner);
-
-        args.Args = args.Args with { Succeeded = true, };
     }
 
     private void OnSuffocationChanged(Entity<RespiratorProviderComponent> ent, ref BodyRelayedEvent<SuffocationChangedEvent> args)
@@ -138,6 +139,11 @@ public sealed partial class RespiratorSystem
             return;
 
         ent.Comp.Volume = volume;
+
+        if (ent.Comp.Body is not { } body)
+            return;
+
+        UpdateVolume(body);
     }
 
     #endregion

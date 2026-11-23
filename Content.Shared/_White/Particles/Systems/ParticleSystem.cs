@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared._White.Particles.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Fluids;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Systems;
@@ -17,6 +18,7 @@ public sealed partial class ParticleSystem : EntitySystem
 
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
@@ -24,6 +26,7 @@ public sealed partial class ParticleSystem : EntitySystem
     private EntityQuery<ParticleComponent> _particleQuery;
 
     private readonly HashSet<Entity<ParticleComponent>> _particles = new();
+    private readonly List<Entity<ParticleComponent>> _landed = new();
 
     public override void Initialize()
     {
@@ -56,28 +59,45 @@ public sealed partial class ParticleSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        var curTime = _gameTiming.CurTime;
         foreach (var ent in _particles)
         {
-            if (_gameTiming.CurTime < ent.Comp.FlyTimeEnd)
+            if (curTime < ent.Comp.FlyTimeEnd)
                 continue;
 
-            var coordinates = _transform.GetMoverCoordinates(ent);
-            _audio.PlayPvs(ent.Comp.SoundOnLand, coordinates);
-
-            if (!ent.Comp.SpawnOnLand.HasValue)
-            {
-                QueueDel(ent);
-                continue;
-            }
-
-            var landedParticle = Spawn(ent.Comp.SpawnOnLand.Value, coordinates);
-            _transform.SetWorldRotation(landedParticle, _transform.GetWorldRotation(ent));
-
-            var ev = new AfterParticleLandedEvent(landedParticle);
-            RaiseLocalEvent(ent, ev);
-
-            QueueDel(ent);
+            _landed.Add(ent);
         }
+
+        foreach (var ent in _landed)
+        {
+            _particles.Remove(ent);
+            Land(ent);
+        }
+
+        _landed.Clear();
+    }
+
+    private void Land(Entity<ParticleComponent> ent)
+    {
+        if (TerminatingOrDeleted(ent))
+            return;
+
+        var coordinates = _transform.GetMoverCoordinates(ent);
+        _audio.PlayPvs(ent.Comp.SoundOnLand, coordinates);
+
+        if (!ent.Comp.SpawnOnLand.HasValue)
+        {
+            QueueDel(ent);
+            return;
+        }
+
+        var landedParticle = Spawn(ent.Comp.SpawnOnLand.Value, coordinates);
+        _transform.SetWorldRotation(landedParticle, _transform.GetWorldRotation(ent));
+
+        var ev = new AfterParticleLandedEvent(landedParticle);
+        RaiseLocalEvent(ent, ref ev);
+
+        QueueDel(ent);
     }
 
     public Entity<ParticleComponent>? SpawnParticle(
@@ -96,11 +116,12 @@ public sealed partial class ParticleSystem : EntitySystem
             return null;
         }
 
-        var impulse = direction * (distance / (float) particleComponent.FlyTime.TotalSeconds);
-        _physics.ApplyLinearImpulse(particleUid, impulse);
+        var velocity = direction * (distance / (float) particleComponent.FlyTime.TotalSeconds);
+        _physics.SetLinearVelocity(particleUid, velocity);
 
         return (particleUid, particleComponent);
     }
 }
 
+[ByRefEvent]
 public record struct AfterParticleLandedEvent(EntityUid LandedParticle);

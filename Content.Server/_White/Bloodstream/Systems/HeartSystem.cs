@@ -119,6 +119,11 @@ public sealed class HeartSystem : EntitySystem
             if (heartComp.Body is null || curTime < heartComp.NextUpdate)
                 continue;
 
+            var smoothing = heartComp.LastUpdate == TimeSpan.Zero ? (float) heartComp.UpdateInterval.TotalSeconds : (float) (curTime - heartComp.LastUpdate).TotalSeconds;
+            var tau = heartComp.TargetRate > heartComp.BaseRate ? heartComp.RiseTime : heartComp.FallTime;
+            var alpha = tau <= 0f ? 1f : 1f - MathF.Exp(-smoothing / tau);
+            heartComp.BaseRate += (heartComp.TargetRate - heartComp.BaseRate) * alpha;
+
             heartComp.LastUpdate = curTime;
             heartComp.NextUpdate = curTime + heartComp.UpdateInterval;
 
@@ -132,11 +137,6 @@ public sealed class HeartSystem : EntitySystem
                 heartComp.Beating = true;
                 heartComp.BaseRate = heartComp.ArrestRate;
             }
-
-            var smoothing = heartComp.LastUpdate == TimeSpan.Zero ? (float) heartComp.UpdateInterval.TotalSeconds : (float) (curTime - heartComp.LastUpdate).TotalSeconds;
-            var tau = heartComp.TargetRate > heartComp.BaseRate ? heartComp.RiseTime : heartComp.FallTime;
-            var alpha = tau <= 0f ? 1f : 1f - MathF.Exp(-smoothing / tau);
-            heartComp.BaseRate += (heartComp.TargetRate - heartComp.BaseRate) * alpha;
 
             if (heartComp.TargetRate < heartComp.ArrestRate && heartComp.BaseRate < heartComp.ArrestRate)
             {

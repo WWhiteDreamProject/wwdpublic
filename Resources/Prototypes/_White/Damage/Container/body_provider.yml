@@ -19,6 +19,7 @@
 - type: damageContainer
   id: BodyProviderOrgan
   types:
+  - Asphyxiation
   - Blunt
   - Piercing
   - Poison

@@ -10,6 +10,9 @@
   - type: Physics
     bodyType: Dynamic
     fixedRotation: false
+    linearDamping: 0
+  - type: TileFrictionModifier
+    modifier: 0
   - type: Fixtures
     fixtures:
       fix1:

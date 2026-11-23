@@ -22,16 +22,18 @@ public sealed partial class PainfulSystem
         var formatted = new FormattedMessage();
         formatted.AddMarkupOrThrow(Loc.GetString("pain-status-alert-check"));
 
+        var anyPain = false;
         foreach (var (location, level) in ent.Comp.PainStatus)
         {
             if (level is PainLevel.None or PainLevel.Zero)
                 continue;
 
+            anyPain = true;
             formatted.PushNewline();
             formatted.AddMarkupOrThrow(Loc.GetString($"pain-status-alert-check-{location}-{level}".ToLower()));
         }
 
-        if (formatted.Count == 1)
+        if (!anyPain)
             formatted.AddMarkupOrThrow(Loc.GetString("pain-status-alert-check-empty"));
 
         var message = formatted.ToMarkup();

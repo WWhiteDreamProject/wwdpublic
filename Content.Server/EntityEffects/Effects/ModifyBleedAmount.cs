@@ -29,7 +29,7 @@ public sealed partial class ModifyBleedAmount : EntityEffect
                 amt *= reagentArgs.Scale.Float();
             }
 
-            /*sys.TryModifyBleedAmount((args.TargetEntity, blood), amt); TODO// WD EDIT*/
+            sys.TryModifyBleeding((args.TargetEntity, blood), amt); // WD EDIT
         }
     }
 }

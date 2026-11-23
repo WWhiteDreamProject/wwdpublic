@@ -9,7 +9,7 @@ namespace Content.Shared._White.Bloodstream.Components;
 /// <summary>
 /// Handles metabolizing various reagents with given effects.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class MetabolizerComponent : Component
 {
     /// <summary>
@@ -57,7 +57,7 @@ public sealed partial class MetabolizerComponent : Component
     public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
 
     /// <summary>
-    /// The body entity containing this lung, if any.
+    /// The body entity containing this metabolizer, if any.
     /// </summary>
     [ViewVariables]
     public EntityUid? Body;
@@ -71,7 +71,7 @@ public sealed partial class MetabolizerComponent : Component
     /// <summary>
     /// The scheduled time for the next reagent metabolism update.
     /// </summary>
-    [ViewVariables]
+    [ViewVariables, AutoPausedField]
     public TimeSpan NextUpdate;
 }
 

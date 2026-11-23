@@ -10,5 +10,5 @@ public enum BleedingLevel : byte
     Mild,
     Moderate,
     Severe,
-    Mortal,
+    Mortal
 }

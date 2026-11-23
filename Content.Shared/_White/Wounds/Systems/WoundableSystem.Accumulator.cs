@@ -13,6 +13,7 @@ public sealed partial class WoundableSystem
     private void InitializeAccumulator()
     {
         SubscribeLocalEvent<WoundableAccumulatorComponent, BeforeHandleDamageChangeEvent>(OnBeforeHandleDamageChange);
+        SubscribeLocalEvent<WoundableAccumulatorComponent, BodyRelayedEvent<BeforeRelayWoundableDamageEvent>>(OnBeforeWoundableRelayDamage);
         SubscribeLocalEvent<WoundableAccumulatorComponent, BodyRelayedEvent<RelayWoundableDamageEvent>>(OnGetWoundableDamage);
     }
 
@@ -26,6 +27,11 @@ public sealed partial class WoundableSystem
             return;
 
         args.Result = result;
+    }
+
+    private void OnBeforeWoundableRelayDamage(Entity<WoundableAccumulatorComponent> ent, ref BodyRelayedEvent<BeforeRelayWoundableDamageEvent> args)
+    {
+        args.Args.Increase();
     }
 
     private void OnGetWoundableDamage(Entity<WoundableAccumulatorComponent> ent, ref BodyRelayedEvent<RelayWoundableDamageEvent> args)

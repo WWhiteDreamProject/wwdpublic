@@ -20,6 +20,7 @@ public sealed partial class WoundableSystem
         SubscribeLocalEvent<WoundableProviderComponent, BeforeHandleDamageChangeEvent>(OnBeforeHandleDamageChange);
         SubscribeLocalEvent<WoundableProviderComponent, BodyProviderGotInsertedEvent>(OnGotInserted);
         SubscribeLocalEvent<WoundableProviderComponent, BodyProviderGotRemovedEvent>(OnGotRemoved);
+        SubscribeLocalEvent<WoundableProviderComponent, BodyRelayedEvent<BeforeRelayWoundableDamageEvent>>(OnBeforeWoundableRelayDamage);
         SubscribeLocalEvent<WoundableProviderComponent, BodyRelayedEvent<GetHealingTargetEvent>>(OnGetHealingTarget);
         SubscribeLocalEvent<WoundableProviderComponent, BodyRelayedEvent<RelayWoundableDamageEvent>>(OnGetWoundableDamage);
         SubscribeLocalEvent<WoundableProviderComponent, ComponentInit>(OnInit);
@@ -38,6 +39,11 @@ public sealed partial class WoundableSystem
             _damageable.ApplyDamage(body, result, args.InterruptsDoAfters, args.Origin);
 
         args.Result = result;
+    }
+
+    private void OnBeforeWoundableRelayDamage(Entity<WoundableProviderComponent> ent, ref BodyRelayedEvent<BeforeRelayWoundableDamageEvent> args)
+    {
+        args.Args.Increase();
     }
 
     private void OnGotInserted(Entity<WoundableProviderComponent> ent, ref BodyProviderGotInsertedEvent args)

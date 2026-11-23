@@ -13,7 +13,7 @@ public sealed class HemophiliaSystem : EntitySystem
 
     private void OnBleedModifier(Entity<HemophiliaComponent> ent, ref BleedModifierEvent args)
     {
-        args.BleedReductionAmount *= ent.Comp.BleedReductionMultiplier;
+        args.Reduction *= ent.Comp.BleedReductionMultiplier;
         args.Bleeding *= ent.Comp.BleedAmountMultiplier;
     }
     // WD EDIT END

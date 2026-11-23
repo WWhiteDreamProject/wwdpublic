@@ -27,7 +27,7 @@ public sealed partial class RespiratorProviderComponent : Component
         {WoundSeverity.Minor, 1.5f},
         {WoundSeverity.Moderate, 1f},
         {WoundSeverity.Severe, 0.5f},
-        {WoundSeverity.Critical, 0f},
+        {WoundSeverity.Critical, 0f}
     };
 
     /// <summary>

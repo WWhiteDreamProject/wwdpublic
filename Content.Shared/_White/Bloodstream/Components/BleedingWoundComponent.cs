@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared._White.Bloodstream.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
 [Access(typeof(SharedBloodstreamSystem))]
 public sealed partial class BleedingWoundComponent : Component
 {
@@ -39,8 +39,33 @@ public sealed partial class BleedingWoundComponent : Component
     public float BleedingDurationCoefficient = 1f;
 
     /// <summary>
-    /// The current amount of bleeding.
+    /// The body entity containing this wound, if any.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public EntityUid? Body;
+
+    /// <summary>
+    /// The amount of bleeding at <see cref="BleedingSince"/>.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public FixedPoint2 Bleeding;
+
+    /// <summary>
+    /// Actually, damage to this wound.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public FixedPoint2 Damage;
+
+    /// <summary>
+    /// When the bleeding was last changed.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField, AutoPausedField]
+    public TimeSpan BleedingSince = TimeSpan.Zero;
+
+    /// <summary>
+    /// How long it takes the wound to stop bleeding on its own, counted from <see cref="BleedingSince"/>.
+    /// Null if the wound requires tending and won't stop bleeding by itself.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public TimeSpan? BleedingDuration;
 }

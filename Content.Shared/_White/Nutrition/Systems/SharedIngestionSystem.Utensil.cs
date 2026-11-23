@@ -1,4 +1,5 @@
 using Content.Shared._White.Nutrition.Components;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Tools.EntitySystems;
 
@@ -37,21 +38,16 @@ public abstract partial class SharedIngestionSystem
 
     private bool TryUseUtensil(Entity<UtensilComponent> ent, Entity<IngestibleComponent?> ingestible, EntityUid user)
     {
-        if (!IngestibleQuery.Resolve(ingestible, ref ingestible.Comp))
+        if (!IngestibleQuery.Resolve(ingestible, ref ingestible.Comp, false))
             return false;
 
-        if (!ent.Comp.Types.HasFlag(ingestible.Comp.Utensil))
-        {
-            var message = Loc.GetString(
-                "ingestion-try-use-wrong-utensil",
-                ("verb", Loc.GetString(ingestible.Comp.Verb)),
-                ("food", ingestible),
-                ("utensil", ent));
-            _popup.PopupClient(message, user, user);
-            return false;
-        }
+        if (ent.Comp.Types.HasFlag(ingestible.Comp.Utensil))
+            return TryIngest(ingestible, user, user);
 
-        return TryIngest(ingestible, user, user);
+        var message = Loc.GetString("ingestion-try-use-wrong-utensil", ("verb", Loc.GetString(ingestible.Comp.Verb)), ("food", ingestible), ("utensil", Identity.Entity(ent, EntityManager)));
+        _popup.PopupClient(message, user, user);
+        return false;
+
     }
 
     #endregion

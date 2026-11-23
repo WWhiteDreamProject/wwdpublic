@@ -10,6 +10,7 @@ using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
@@ -212,7 +213,7 @@ public abstract partial class SharedIngestionSystem : EntitySystem
         if (!_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.SolutionName, ref ent.Comp.Solution, out var solution)
             || solution.Volume == FixedPoint2.Zero && !ent.Comp.DeleteOnEmpty)
         {
-            _popup.PopupClient(Loc.GetString("ingestion-try-use-empty", ("entity", ent)), ent, user);
+            _popup.PopupClient(Loc.GetString("ingestion-try-use-empty", ("entity", Identity.Entity(ent, EntityManager))), ent, user);
             return false;
         }
 

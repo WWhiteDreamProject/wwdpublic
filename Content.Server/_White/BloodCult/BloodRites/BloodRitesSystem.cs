@@ -9,8 +9,6 @@ using Content.Shared._White.Damage.Systems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids.Components;
@@ -24,8 +22,6 @@ namespace Content.Server._White.BloodCult.BloodRites;
 
 public sealed class BloodRitesSystem : SharedBloodRitesSystem
 {
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
@@ -181,7 +177,7 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
             bloodCost = user.Comp.StoredBloodAmount;
         }
 
-        /*_bloodstream.TryModifyBleedAmount(target.Owner, -3); TODO*/
+        _bloodstream.TryModifyBleeding(target.Owner, -3);
         _bloodstream.TryModifyBloodLevel(target.Owner, bloodCost / rites.Comp.BloodRegenerationRatio);
 
         user.Comp.StoredBloodAmount -= bloodCost;

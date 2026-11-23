@@ -5,7 +5,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Pain.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
 [Access(typeof(SharedPainfulSystem))]
 public sealed partial class PainfulComponent : Component
 {
@@ -22,22 +22,17 @@ public sealed partial class PainfulComponent : Component
     public float PainMultiplier = 1f;
 
     /// <summary>
-    /// A multiplier applied to the base update interval, affecting how frequently pain is recalculated.
+    /// A multiplier applied to the base update interval, affecting how frequently fading pain is recalculated.
     /// </summary>
     [DataField]
     public float UpdateIntervalMultiplier = 1f;
 
     /// <summary>
-    /// The base interval at which pain recalculations are performed.
+    /// The base interval at which pain is recalculated while it is fading.
+    /// When nothing fades, pain is only recalculated when its sources change.
     /// </summary>
     [DataField]
     public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
-
-    /// <summary>
-    /// Determines whether the painful entity is dead. If true, the pain is not processed.
-    /// </summary>
-    [ViewVariables]
-    public bool Dead;
 
     /// <summary>
     /// The currently effective pain value, calculated by applying the PainMultiplier to the raw Pain.
@@ -52,18 +47,17 @@ public sealed partial class PainfulComponent : Component
     public TimeSpan CurrentUpdateInterval => UpdateInterval * UpdateIntervalMultiplier;
 
     /// <summary>
-    /// The timestamp of the last time the pain was updated.
+    /// When the pain should be recalculated next because some of it is fading. Null if nothing fades.
+    /// Not networked: every side schedules it on its own.
     /// </summary>
-    [ViewVariables]
-    public TimeSpan LastUpdate = TimeSpan.Zero;
+    [ViewVariables, AutoPausedField]
+    public TimeSpan? NextUpdate;
 }
 
 [Serializable, NetSerializable]
 public sealed class PainfulComponentState(PainfulComponent component) : ComponentState
 {
-    public readonly bool Dead = component.Dead;
     public readonly FixedPoint2 Pain = component.Pain;
     public readonly float PainMultiplier = component.PainMultiplier;
     public readonly float UpdateIntervalMultiplier = component.UpdateIntervalMultiplier;
-    public readonly TimeSpan LastUpdate = component.LastUpdate;
 }

@@ -30,8 +30,8 @@ public abstract partial class SharedPainfulSystem
     {
         var pain = GetPain(ent.Owner);
 
-        UpdateBlend(ent, pain);
         UpdateMobState(ent, pain);
+        UpdateBlend(ent, pain);
         UpdatePainLevel(ent, pain);
 
         UpdateAlert(ent);
@@ -52,15 +52,20 @@ public abstract partial class SharedPainfulSystem
 
     protected virtual void OnPainChanged(Entity<PainThresholdsComponent> ent, ref PainChangedEvent args)
     {
-        UpdateBlend(ent, args.Painful.Comp.CurrentPain);
-        UpdateMobState(ent, args.Painful.Comp.CurrentPain);
-        UpdatePainLevel(ent, args.Painful.Comp.CurrentPain);
+        var pain = args.Painful.Comp.CurrentPain;
+
+        UpdateMobState(ent, pain);
+        UpdateBlend(ent, pain);
+        UpdatePainLevel(ent, pain);
 
         UpdateAlert(ent);
     }
 
     private void OnUpdateMobState(Entity<PainThresholdsComponent> ent, ref UpdateMobStateEvent args)
     {
+        if (ent.Comp.MobState <= args.State)
+            return;
+
         args.State = ent.Comp.MobState;
     }
 
@@ -80,18 +85,30 @@ public abstract partial class SharedPainfulSystem
         _alerts.ShowAlert(ent, alert, severity);
     }
 
+    /// <summary>
+    /// Updates the normalized progress of pain from the threshold of the current mob state to the threshold of the next one.
+    /// </summary>
     public void UpdateBlend(Entity<PainThresholdsComponent> ent, FixedPoint2 pain)
     {
-        ent.Comp.Blend = 0f;
+        var blend = 0f;
+
+        if (ent.Comp.MobStateThresholds.TryGetNextValue(ent.Comp.MobState, out var nextState)
+            && ent.Comp.MobStateThresholds.TryGetKey(nextState, out var nextThreshold))
+        {
+            var threshold = ent.Comp.MobStateThresholds.TryGetKey(ent.Comp.MobState, out var currentThreshold)
+                ? currentThreshold
+                : FixedPoint2.Zero;
+
+            var range = nextThreshold - threshold;
+            if (range > FixedPoint2.Zero)
+                blend = FixedPoint2.Clamp((pain - threshold) / range, 0, 1).Float();
+        }
+
+        if (MathHelper.CloseTo(ent.Comp.Blend, blend))
+            return;
+
+        ent.Comp.Blend = blend;
         DirtyField(ent, ent.Comp, nameof(PainThresholdsComponent.Blend));
-
-        if (!ent.Comp.MobStateThresholds.TryGetNextValue(ent.Comp.MobState, out var nextState))
-            return;
-
-        if (!ent.Comp.MobStateThresholds.TryGetKey(nextState, out var threshold))
-            return;
-
-        ent.Comp.Blend = FixedPoint2.Clamp(pain / threshold, 0, 1).Float();
     }
 
     public void UpdateMobState(Entity<PainThresholdsComponent> ent, FixedPoint2 pain)
@@ -112,12 +129,20 @@ public abstract partial class SharedPainfulSystem
         if (ent.Comp.Level == painLevel)
             return;
 
+        var oldLevel = ent.Comp.Level;
         ent.Comp.Level = painLevel;
         DirtyField(ent, ent.Comp, nameof(PainThresholdsComponent.Level));
+
+        OnPainLevelChanged(ent, oldLevel);
 
         var ev = new PainLevelChangedEvent(painLevel);
         RaiseLocalEvent(ent, ref ev);
     }
+
+    /// <summary>
+    /// Called when the overall pain level of the entity changes.
+    /// </summary>
+    protected virtual void OnPainLevelChanged(Entity<PainThresholdsComponent> ent, PainLevel oldLevel) { }
 
     #endregion
 }

@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.Particles.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, EntityCategory("Particles")]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause, EntityCategory("Particles")]
 public sealed partial class ParticleComponent : Component
 {
     /// <summary>
@@ -31,6 +31,6 @@ public sealed partial class ParticleComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan FlyTime = TimeSpan.FromSeconds(0.5f);
 
-    [ViewVariables]
+    [ViewVariables, AutoPausedField]
     public TimeSpan FlyTimeEnd = TimeSpan.Zero;
 }

@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._White.Bloodstream.Components;
 using Content.Shared._White.Bloodstream.Prototypes;
@@ -49,8 +48,12 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
 
     private void OnGotInserted(Entity<MetabolizerComponent> ent, ref BodyProviderGotInsertedEvent args)
     {
+        ent.Comp.Body = args.Body;
+
         if (!BloodstreamQuery.TryComp(args.Body, out var bloodstreamComp))
             return;
+
+        SetUpdateIntervalMultiplier(ent, bloodstreamComp.MetabolicRate);
 
         foreach (var (stage, stageEntry) in ent.Comp.Stages)
         {
@@ -65,14 +68,14 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
 
             stagesEntry.Stages.Add(stageEntry);
         }
-
-        ent.Comp.Body = args.Body;
     }
 
     private void OnGotRemoved(Entity<MetabolizerComponent> ent, ref BodyProviderGotRemovedEvent args)
     {
-        if (!BloodstreamQuery.TryComp(args.Body, out var bloodstreamComp))
-            return;
+        ent.Comp.Body = null;
+        SetUpdateIntervalMultiplier(ent, 1f);
+
+        BloodstreamQuery.TryComp(args.Body, out var bloodstreamComp);
 
         foreach (var (stage, stageEntry) in ent.Comp.Stages)
         {
@@ -82,18 +85,16 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
                 stageEntry.Solution = null;
             }
 
-            if (!bloodstreamComp.Stages.TryGetValue(stage, out var stagesEntry))
+            if (bloodstreamComp == null || !bloodstreamComp.Stages.TryGetValue(stage, out var stagesEntry))
                 continue;
 
             stagesEntry.Stages.Remove(stageEntry);
         }
-
-        ent.Comp.Body = null;
     }
 
     private void OnMetabolicRateChanged(Entity<MetabolizerComponent> ent, ref BodyRelayedEvent<MetabolicRateChangedEvent> args)
     {
-        ent.Comp.UpdateIntervalMultiplier = args.Args.Rate == 0 ? 0 : 1 / args.Args.Rate;
+        SetUpdateIntervalMultiplier(ent, args.Args.Rate);
     }
 
     private void OnMapInit(Entity<MetabolizerComponent> ent, ref MapInitEvent args)
@@ -122,13 +123,15 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
     {
         base.Update(frameTime);
 
+        var curTime = _gameTiming.CurTime;
         var query = EntityQueryEnumerator<MetabolizerComponent>();
         while (query.MoveNext(out var uid, out var metabolizer))
         {
-            if (metabolizer.CurrentUpdateInterval == TimeSpan.Zero || _gameTiming.CurTime < metabolizer.NextUpdate)
+            var interval = metabolizer.CurrentUpdateInterval;
+            if (interval == TimeSpan.Zero || curTime < metabolizer.NextUpdate)
                 continue;
 
-            metabolizer.NextUpdate += metabolizer.CurrentUpdateInterval;
+            metabolizer.NextUpdate = curTime + interval;
             Metabolize((uid, metabolizer));
         }
     }
@@ -156,6 +159,7 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
             owner = ent.Comp.Body.Value;
 
         var isDead = _mobState.IsDead(owner);
+        var processedReagents = 0;
 
         foreach (var (stage, stageEntry) in ent.Comp.Stages)
         {
@@ -165,7 +169,9 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
             if (!_solutionContainer.ResolveSolution(solutionOwner, stageEntry.SolutionName, ref stageEntry.Solution, out var solution))
                 continue;
 
-            TryGetTransferSolution(owner, stage, out var transferSolution);
+            var transferEntity = GetTransferSolution(owner, stage);
+            var transferSolution = transferEntity?.Comp.Solution;
+            var transferred = false;
 
             // Copy the solution do not edit the original solution list
             var reagents = solution.Contents.ToList();
@@ -175,43 +181,62 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
             // randomize the reagent list so we don't have any unique quirks
             _random.Shuffle(reagents);
 
-            var processedReagents = 0;
             foreach (var (reagent, quantity) in reagents)
             {
                 if (!_prototypeManager.TryIndex<ReagentPrototype>(reagent.Prototype, out var proto))
                     continue;
 
-                var mostToTransfer = FixedPoint2.Clamp(stageEntry.TransferRate, 0, quantity);
                 if (proto.Metabolisms is null || !proto.Metabolisms.TryGetValue(stage, out var entry))
                 {
-                    if (transferSolution is not null)
+                    // Reagents this stage can't metabolize move on to the next stage, or are excreted if there is none.
+                    var mostToTransfer = FixedPoint2.Clamp(stageEntry.TransferRate, 0, quantity);
+
+                    if (transferSolution is null)
                     {
                         solution.RemoveReagent(reagent, mostToTransfer);
-                        transferSolution.AddReagent(reagent, mostToTransfer * stageEntry.TransferEfficacy);
+                        continue;
                     }
-                    else
-                        solution.RemoveReagent(reagent, FixedPoint2.New(1));
 
+                    var toAdd = FixedPoint2.Min(mostToTransfer * stageEntry.TransferEfficacy, transferSolution.AvailableVolume);
+                    if (toAdd <= FixedPoint2.Zero)
+                        continue;
+
+                    // If the next stage is almost full, only move what fits there.
+                    var toRemove = stageEntry.TransferEfficacy > FixedPoint2.Zero
+                        ? FixedPoint2.Min(mostToTransfer, toAdd / stageEntry.TransferEfficacy)
+                        : mostToTransfer;
+
+                    solution.RemoveReagent(reagent, toRemove);
+                    transferSolution.AddReagent(reagent, toAdd);
+                    transferred = true;
                     continue;
                 }
 
-                var rate = stageEntry.MetabolizeAll ? quantity : entry.MetabolismRate;
-                var mostToRemove = FixedPoint2.Clamp(rate, 0, quantity);
-
                 if (processedReagents >= ent.Comp.MaxReagentsProcessable)
-                    return;
-
-                var scale = mostToRemove.Float();
-                if (!stageEntry.MetabolizeAll)
-                    scale /= rate.Float();
+                    continue;
 
                 if (isDead && !proto.WorksOnTheDead)
                     continue;
 
+                var rate = stageEntry.MetabolizeAll ? quantity : entry.MetabolismRate;
+                var mostToRemove = FixedPoint2.Clamp(rate, 0, quantity);
+
+                var scale = stageEntry.MetabolizeAll || rate <= FixedPoint2.Zero
+                    ? 1f
+                    : mostToRemove.Float() / rate.Float();
+
                 var ev = new TryMetabolizeReagent(reagent, proto, quantity);
                 RaiseLocalEvent(owner, ref ev);
 
-                var args = new EntityEffectReagentArgs(owner, EntityManager, ent, solution, mostToRemove, proto, null, scale);
+                var args = new EntityEffectReagentArgs(
+                    owner,
+                    EntityManager,
+                    ent,
+                    solution,
+                    mostToRemove * ev.QuantityMultiplier,
+                    proto,
+                    null,
+                    scale * ev.Scale);
 
                 foreach (var effect in entry.Effects)
                 {
@@ -243,10 +268,22 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
                     continue;
 
                 foreach (var (metabolite, ratio) in entry.Metabolites)
-                    transferSolution.AddReagent(metabolite, mostToRemove * ratio);
+                {
+                    var amount = FixedPoint2.Min(mostToRemove * ratio, transferSolution.AvailableVolume);
+                    if (amount <= FixedPoint2.Zero)
+                        continue;
+
+                    transferSolution.AddReagent(metabolite, amount);
+                    transferred = true;
+                }
             }
 
             _solutionContainer.UpdateChemicals(stageEntry.Solution.Value);
+
+            if (!transferred || transferEntity is  not { } transfer)
+                continue;
+
+            _solutionContainer.UpdateChemicals(transfer);
         }
     }
 
@@ -254,27 +291,35 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
 
     #region Private API
 
-    private void TryGetTransferSolution(
+    private static void SetUpdateIntervalMultiplier(Entity<MetabolizerComponent> ent, float rate)
+    {
+        ent.Comp.UpdateIntervalMultiplier = rate == 0 ? 0 : 1 / rate;
+    }
+
+    /// <summary>
+    /// Picks the solution of a random metabolizer of the next metabolism stage, if there is one.
+    /// </summary>
+    private Entity<SolutionComponent>? GetTransferSolution(
         Entity<BloodstreamComponent?> ent,
-        ProtoId<MetabolismStagePrototype> stage,
-        [NotNullWhen(true)] out Solution? transferSolution
+        ProtoId<MetabolismStagePrototype> stage
     )
     {
-        transferSolution = null;
-        if (!BloodstreamQuery.Resolve(ent, ref ent.Comp))
-            return;
+        if (!BloodstreamQuery.Resolve(ent, ref ent.Comp, false))
+            return null;
 
         if (!ent.Comp.Stages.TryGetValue(stage, out var currentStages) || !currentStages.NextStage.HasValue)
-            return;
+            return null;
 
-        if (!ent.Comp.Stages.TryGetValue(currentStages.NextStage.Value, out var nextStages))
-            return;
+        if (!ent.Comp.Stages.TryGetValue(currentStages.NextStage.Value, out var nextStages) || nextStages.Stages.Count == 0)
+            return null;
 
         var nextStage = _random.Pick(nextStages.Stages);
         if (nextStage.SolutionOwner is null)
-            return;
+            return null;
 
-        _solutionContainer.ResolveSolution(nextStage.SolutionOwner.Value, nextStage.SolutionName, ref nextStage.Solution, out transferSolution);
+        return _solutionContainer.ResolveSolution(nextStage.SolutionOwner.Value, nextStage.SolutionName, ref nextStage.Solution)
+            ? nextStage.Solution
+            : null;
     }
 
     #endregion

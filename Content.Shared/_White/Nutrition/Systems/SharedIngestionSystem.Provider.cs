@@ -43,7 +43,7 @@ public abstract partial class SharedIngestionSystem
             BreakOnDamage = true,
             MovementThreshold = 0.01f,
             DistanceThreshold = MaxFeedDistance,
-            NeedHand = forceFeed || _hands.IsHolding(args.Args.User, args.Args.Ingestible),
+            NeedHand = forceFeed || _hands.IsHolding(args.Args.User, args.Args.Ingestible)
         };
 
         if (!_doAfter.TryStartDoAfter(doAfterArgs))
@@ -89,7 +89,7 @@ public abstract partial class SharedIngestionSystem
             if (!forceFeed)
                 return;
 
-            _popup.PopupClient(Loc.GetString("ingestion-cannot-ingest-more-user", ("target", target), ("verb", verb)), target, args.User);
+            _popup.PopupClient(Loc.GetString("ingestion-cannot-ingest-more-user", ("target", Identity.Entity(target, EntityManager)), ("verb", verb)), target, args.User);
             return;
         }
 
@@ -147,7 +147,7 @@ public abstract partial class SharedIngestionSystem
         {
             Donor = target,
             Recipient = ent,
-            CanDnaBeCleaned = false,
+            CanDnaBeCleaned = false
         };
         RaiseLocalEvent(target, ref transferDnaEv);
 

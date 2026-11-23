@@ -24,4 +24,10 @@ public sealed partial class BloodstreamAccumulatorComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public FixedPoint2 Reduction = 0.11f;
+
+    /// <summary>
+    /// The body entity containing this provider, if any.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public EntityUid? Body;
 }

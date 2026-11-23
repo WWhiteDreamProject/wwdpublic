@@ -44,6 +44,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         SubscribeLocalEvent<BloodstreamComponent, GibbedBeforeDeletionEvent>(OnGibbedBeforeDeletion);
         SubscribeLocalEvent<BloodstreamComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BloodstreamComponent, RejuvenateEvent>(OnRejuvenate);
+        SubscribeLocalEvent<BloodstreamComponent, SolutionContainerChangedEvent>(OnSolutionContainerChanged);
 
         InitializeAccumulator();
         InitializeProvider();
@@ -67,8 +68,10 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         if (args.Entity == entity.Comp.Solution?.Owner)
             entity.Comp.Solution = null;
 
-        if (args.Entity == entity.Comp.TemporarySolution?.Owner)
-            entity.Comp.TemporarySolution = null;
+        if (args.Entity != entity.Comp.TemporarySolution?.Owner)
+            return;
+
+        entity.Comp.TemporarySolution = null;
     }
 
     private void OnGibbedBeforeDeletion(Entity<BloodstreamComponent> ent, ref GibbedBeforeDeletionEvent args)
@@ -88,19 +91,34 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             return;
 
         SolutionContainer.RemoveAllSolution(ent.Comp.Solution.Value);
-        TryModifyBloodLevel(ent.AsNullable(), ent.Comp.CurrentMaxVolume - GetBloodAmount(ent.AsNullable()));
+        SyncBloodAmount(ent);
 
-        UpdateBloodstream(ent);
+        TryModifyBloodLevel(ent.AsNullable(), ent.Comp.CurrentMaxVolume - ent.Comp.Amount);
+
+        UpdateBleeding(ent.Owner);
+        UpdateBloodReduction(ent.Owner);
+    }
+
+    private void OnSolutionContainerChanged(Entity<BloodstreamComponent> ent, ref SolutionContainerChangedEvent args)
+    {
+        if (args.SolutionId != ent.Comp.SolutionName)
+            return;
+
+        SyncBloodAmount(ent, args.Solution);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
+        var curTime = _gameTiming.CurTime;
         var query = EntityQueryEnumerator<BloodstreamComponent>();
         while (query.MoveNext(out var uid, out var bloodstream))
         {
-            if (bloodstream.CurrentUpdateInterval == TimeSpan.Zero || _gameTiming.CurTime < bloodstream.NextUpdate)
+            if (bloodstream.NextBleedingUpdate is { } nextBleedingUpdate && curTime >= nextBleedingUpdate)
+                UpdateBleeding((uid, bloodstream));
+
+            if (bloodstream.CurrentUpdateInterval == TimeSpan.Zero || curTime < bloodstream.NextUpdate)
                 continue;
 
             UpdateBloodstream((uid, bloodstream));
@@ -125,19 +143,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         if (!SolutionContainer.TryAddSolution(ent.Comp.Solution.Value, solution))
             return false;
 
-        var amount = FixedPoint2.Zero;
-        foreach (var reagent in solution.Contents)
-        {
-            if (!BloodCompatible(ent.Comp, reagent.Reagent))
-                continue;
-
-            amount += reagent.Quantity;
-        }
-
-        if (amount == FixedPoint2.Zero)
-            return true;
-
-        OnAmountChanged((ent, ent.Comp), amount);
+        SyncBloodAmount((ent, ent.Comp));
         return true;
     }
 
@@ -156,6 +162,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             return false;
 
         var leakedBlood = SolutionContainer.SplitSolution(ent.Comp.Solution.Value, amount);
+        SyncBloodAmount((ent, ent.Comp));
 
         if (!SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.TemporarySolutionName, ref ent.Comp.TemporarySolution, out var tempSolution))
             return true;
@@ -175,6 +182,33 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
     }
 
     /// <summary>
+    /// Tries to change the total bleeding of a body.
+    /// </summary>
+    /// <remarks>
+    /// A body without bleeding wounds can't be made to bleed this way.
+    /// </remarks>
+    /// <param name="ent">The body whose bleeding should be changed.</param>
+    /// <param name="amount">How much to change the total bleeding by. Negative to stop bleeding.</param>
+    /// <returns>True if the bleeding has changed.</returns>
+    public bool TryModifyBleeding(Entity<BloodstreamComponent?> ent, FixedPoint2 amount)
+    {
+        if (!_bloodstreamQuery.Resolve(ent, ref ent.Comp, false) || amount == FixedPoint2.Zero)
+            return false;
+
+        RefreshBleeding((ent, ent.Comp));
+
+        var bleeding = ent.Comp.Bleeding;
+        if (bleeding <= FixedPoint2.Zero)
+            return false;
+
+        var ev = new ModifyBleedingEvent(amount);
+        RaiseLocalEvent(ent, ref ev);
+
+        UpdateBleeding(ent);
+        return ent.Comp.Bleeding != bleeding;
+    }
+
+    /// <summary>
     /// Attempts to modify the blood level of this entity directly.
     /// </summary>
     public bool TryModifyBloodLevel(Entity<BloodstreamComponent?> ent, FixedPoint2 amount)
@@ -189,17 +223,22 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             return false;
 
         var bloodData = GetEntityBloodData(ent);
-        var acceptedQuantity = FixedPoint2.Zero;
 
-        amount = FixedPoint2.Min(amount, ent.Comp.CurrentMaxVolume - ent.Comp.Amount);
+        if (amount > 0)
+        {
+            amount = FixedPoint2.Min(amount, FixedPoint2.Max(FixedPoint2.Zero, ent.Comp.CurrentMaxVolume - ent.Comp.Amount));
+            if (amount == FixedPoint2.Zero)
+                return true;
 
-        if (amount > 0 && !SolutionContainer.TryAddReagent(ent.Comp.Solution.Value, ent.Comp.Reagent, amount, out acceptedQuantity, data: bloodData))
-            return false;
+            if (!SolutionContainer.TryAddReagent(ent.Comp.Solution.Value, ent.Comp.Reagent, amount, out _, data: bloodData))
+                return false;
+        }
+        else
+        {
+            SolutionContainer.RemoveReagent(ent.Comp.Solution.Value, ent.Comp.Reagent, -amount, bloodData);
+        }
 
-        if (amount < 0)
-            acceptedQuantity = -SolutionContainer.RemoveReagent(ent.Comp.Solution.Value, ent.Comp.Reagent, amount, bloodData);
-
-        OnAmountChanged((ent, ent.Comp), acceptedQuantity);
+        SyncBloodAmount((ent, ent.Comp));
 
         return true;
     }
@@ -217,6 +256,8 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
             return false;
 
         solution = SolutionContainer.SplitSolution(ent.Comp.Solution.Value, quantity);
+        SyncBloodAmount((ent, ent.Comp));
+
         return solution.Volume > 0;
     }
 
@@ -333,17 +374,19 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         if (!_bloodstreamQuery.Resolve(ent, ref ent.Comp, logMissing: false) || reagent == ent.Comp.Reagent)
             return;
 
+        var oldReagent = ent.Comp.Reagent;
+
         ent.Comp.Reagent = reagent;
         DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.Reagent));
 
         if (!SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.SolutionName, ref ent.Comp.Solution, out var bloodSolution))
             return;
 
-        var currentVolume = bloodSolution.RemoveReagent(ent.Comp.Reagent, bloodSolution.Volume, ignoreReagentData: true);
-        if (currentVolume <= 0)
-            return;
+        var currentVolume = bloodSolution.RemoveReagent(oldReagent, bloodSolution.Volume, ignoreReagentData: true);
+        if (currentVolume > 0)
+            SolutionContainer.TryAddReagent(ent.Comp.Solution.Value, ent.Comp.Reagent, currentVolume, null, GetEntityBloodData(ent));
 
-        SolutionContainer.TryAddReagent(ent.Comp.Solution.Value, ent.Comp.Reagent, currentVolume, null, GetEntityBloodData(ent));
+        SyncBloodAmount((ent, ent.Comp));
     }
 
     /// <summary>
@@ -372,6 +415,46 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         }
 
         _puddle.TrySpillAt(ent, tempSol, out _);
+
+        SyncBloodAmount((ent, ent.Comp));
+    }
+
+    /// <summary>
+    /// Gathers the bleeding from all sources (body parts and their wounds) and caches it.
+    /// Called automatically when the sources change; between those calls the bleeding is extrapolated from the cache.
+    /// </summary>
+    public void UpdateBleeding(Entity<BloodstreamComponent?> ent)
+    {
+        if (!_bloodstreamQuery.Resolve(ent, ref ent.Comp, false))
+            return;
+
+        var ev = new GetBleedingEvent(FixedPoint2.Zero);
+        RaiseLocalEvent(ent, ref ev);
+
+        ent.Comp.BleedingBase = ev.Bleeding;
+        ent.Comp.BleedingDecay = ev.Decay;
+        ent.Comp.BleedingUpdatedAt = _gameTiming.CurTime;
+        ent.Comp.NextBleedingUpdate = ev.NextChange;
+
+        RefreshBleeding((ent, ent.Comp));
+    }
+
+    /// <summary>
+    /// Gathers the blood regeneration from all sources and caches it.
+    /// </summary>
+    public void UpdateBloodReduction(Entity<BloodstreamComponent?> ent)
+    {
+        if (!_bloodstreamQuery.Resolve(ent, ref ent.Comp, false))
+            return;
+
+        var ev = new GetBloodReductionEvent(FixedPoint2.Zero);
+        RaiseLocalEvent(ent, ref ev);
+
+        if (ent.Comp.BloodReduction == ev.Reduction)
+            return;
+
+        ent.Comp.BloodReduction = ev.Reduction;
+        DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.BloodReduction));
     }
 
     /// <summary>
@@ -438,26 +521,76 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
     }
 
     /// <summary>
-    /// If the blood amount was changed, this function should be called.
+    /// Updates the current bleeding from the cached sources: the cached bleeding minus its decay over the elapsed time.
     /// </summary>
-    /// <remarks>
-    /// This updates cached blood amount information.
-    /// </remarks>
-    private void OnAmountChanged(Entity<BloodstreamComponent> ent, FixedPoint2 amount)
+    private void RefreshBleeding(Entity<BloodstreamComponent> ent)
     {
-        if (ent.Comp.Amount + amount < FixedPoint2.Zero)
-            amount = -ent.Comp.Amount;
+        var elapsed = (float) (_gameTiming.CurTime - ent.Comp.BleedingUpdatedAt).TotalSeconds;
+        var bleeding = ent.Comp.BleedingBase - FixedPoint2.New(ent.Comp.BleedingDecay * MathF.Max(elapsed, 0f));
 
-        if (amount == FixedPoint2.Zero)
+        SetBodyBleeding(ent, FixedPoint2.Max(bleeding, FixedPoint2.Zero));
+    }
+
+    private void SetBodyBleeding(Entity<BloodstreamComponent> ent, FixedPoint2 bleeding)
+    {
+        var bleedingDelta = bleeding - ent.Comp.Bleeding;
+        if (bleedingDelta == 0)
             return;
 
-        ent.Comp.Amount += amount;
+        ent.Comp.Bleeding += bleedingDelta;
+        DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.Bleeding));
+
+        var ev = new BleedingChangedEvent(bleedingDelta);
+        RaiseLocalEvent(ent, ref ev);
+
+        UpdateAlert(ent);
+
+        var bleedingLevel = ent.Comp.BleedingThresholds.HighestMatch(ent.Comp.Bleeding) ?? BleedingLevel.Zero;
+        if (ent.Comp.BleedingLevel == bleedingLevel)
+            return;
+
+        ent.Comp.BleedingLevel = bleedingLevel;
+        DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.BleedingLevel));
+
+        var levelEv = new BleedingLevelChangedEvent(bleedingLevel);
+        RaiseLocalEvent(ent, ref levelEv);
+    }
+
+    /// <summary>
+    /// Recalculates the cached blood amount from the actual contents of the blood solution.
+    /// </summary>
+    private void SyncBloodAmount(Entity<BloodstreamComponent> ent)
+    {
+        if (!SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.SolutionName, ref ent.Comp.Solution, out var solution))
+            return;
+
+        SyncBloodAmount(ent, solution);
+    }
+
+    /// <inheritdoc cref="SyncBloodAmount(Entity{BloodstreamComponent})"/>
+    private void SyncBloodAmount(Entity<BloodstreamComponent> ent, Solution solution)
+    {
+        var amount = FixedPoint2.Zero;
+        foreach (var reagent in solution.Contents)
+        {
+            if (!BloodCompatible(ent.Comp, reagent.Reagent))
+                continue;
+
+            amount += reagent.Quantity;
+        }
+
+        var delta = amount - ent.Comp.Amount;
+        if (delta == FixedPoint2.Zero)
+            return;
+
+        ent.Comp.Amount = amount;
         DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.Amount));
 
         ent.Comp.Level = (ent.Comp.Amount / ent.Comp.CurrentMaxVolume).Float();
         DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.Level));
 
-        RaiseLocalEvent(ent, new BloodAmountChangedEvent(amount, ent.Comp.Level));
+        var ev = new BloodAmountChangedEvent(delta, ent.Comp.Level);
+        RaiseLocalEvent(ent, ref ev);
     }
 
     private void UpdateAlert(Entity<BloodstreamComponent> ent)
@@ -486,32 +619,6 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         _alerts.ShowAlert(ent, alert, severity);
     }
 
-    private void UpdateBleeding(Entity<BloodstreamComponent> ent)
-    {
-        var getBleedingEv = new GetBleedingEvent(FixedPoint2.Zero);
-        RaiseLocalEvent(ent, ref getBleedingEv);
-
-        var bleedingDelta = getBleedingEv.Bleeding - ent.Comp.Bleeding;
-        if (bleedingDelta == 0)
-            return;
-
-        ent.Comp.Bleeding += bleedingDelta;
-        DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.Bleeding));
-
-        RaiseLocalEvent(ent, new BleedingChangedEvent(bleedingDelta));
-
-        UpdateAlert(ent);
-
-        var bleedingLevel = ent.Comp.BleedingThresholds.HighestMatch(ent.Comp.Bleeding) ?? BleedingLevel.Zero;
-        if (ent.Comp.BleedingLevel == bleedingLevel)
-            return;
-
-        ent.Comp.BleedingLevel = bleedingLevel;
-        DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.BleedingLevel));
-
-        RaiseLocalEvent(ent, new BleedingLevelChangedEvent(bleedingLevel));
-    }
-
     private void UpdateBleedOut(Entity<BloodstreamComponent> ent)
     {
         if (ent.Comp.Bleeding == 0)
@@ -522,7 +629,10 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
 
         TryBleedOut(ent.AsNullable(), ev.Bleeding);
 
-        // TryModifyBleedAmount(ent.AsNullable(), -ev.BleedReductionAmount); TODO
+        if (ev.Reduction <= FixedPoint2.Zero)
+            return;
+
+        TryModifyBleeding(ent.AsNullable(), -ev.Reduction);
     }
 
     private void UpdateBloodstream(Entity<BloodstreamComponent> ent)
@@ -530,15 +640,10 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         ent.Comp.NextUpdate += ent.Comp.CurrentUpdateInterval;
         DirtyField(ent, ent.Comp, nameof(BloodstreamComponent.NextUpdate));
 
-        if (ent.Comp.Amount < ent.Comp.CurrentMaxVolume)
-        {
-            var getReductionEv = new GetBloodReductionEvent(FixedPoint2.Zero);
-            RaiseLocalEvent(ent, ref getReductionEv);
+        if (ent.Comp.BloodReduction > FixedPoint2.Zero && ent.Comp.Amount < ent.Comp.CurrentMaxVolume)
+            TryModifyBloodLevel(ent.AsNullable(), ent.Comp.BloodReduction);
 
-            TryModifyBloodLevel(ent.AsNullable(), getReductionEv.Reduction);
-        }
-
-        UpdateBleeding(ent);
+        RefreshBleeding(ent);
 
         UpdateBleedOut(ent);
     }
@@ -576,6 +681,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
 /// Event raised on an entity after its bleeding has changed.
 /// </summary>
 /// <param name="Bleeding">The amount by which the bleeding has changed.</param>
+[ByRefEvent]
 public record struct BleedingChangedEvent(FixedPoint2 Bleeding);
 
 /// <summary>
@@ -583,6 +689,7 @@ public record struct BleedingChangedEvent(FixedPoint2 Bleeding);
 /// </summary>
 /// <param name="Level">The new bleeding level.</param>
 /// <param name="Location">The specific body location when bleeding level changed.</param>
+[ByRefEvent]
 public record struct BleedingLevelChangedEvent(BleedingLevel Level, BodyProviderType Location = BodyProviderType.All);
 
 /// <summary>
@@ -590,6 +697,7 @@ public record struct BleedingLevelChangedEvent(BleedingLevel Level, BodyProvider
 /// </summary>
 /// <param name="Amount">The amount by which the blood has changed.</param>
 /// <param name="Level">The current blood level.</param>
+[ByRefEvent]
 public record struct BloodAmountChangedEvent(FixedPoint2 Amount, float Level) : IBodyRelayEvent
 {
     BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
@@ -600,22 +708,61 @@ public record struct BloodAmountChangedEvent(FixedPoint2 Amount, float Level) : 
 /// or the amount of reduction applied to bleeding.
 /// </summary>
 /// <param name="Bleeding">The current amount of blood the entity is about to lose.</param>
-/// <param name="BleedReductionAmount">The total amount of bleeding reduction.</param>
+/// <param name="Reduction">The total amount of bleeding reduction.</param>
 [ByRefEvent]
-public record struct BleedModifierEvent(FixedPoint2 Bleeding, FixedPoint2 BleedReductionAmount);
+public record struct BleedModifierEvent(FixedPoint2 Bleeding, FixedPoint2 Reduction);
 
 /// <summary>
 /// Event raised on an entity to request the total of bleeding from all relevant sources.
 /// </summary>
+/// <param name="Bleeding">The current total bleeding.</param>
+/// <param name="Decay">How fast the total bleeding decreases on its own, per second.</param>
+/// <param name="NextChange">
+/// The earliest time the bleeding stops decreasing linearly (e.g. a wound stops bleeding),
+/// after which it has to be requested again. Null if it never changes on its own.
+/// </param>
 [ByRefEvent]
-public record struct GetBleedingEvent(FixedPoint2 Bleeding) : IBodyRelayEvent, IWoundRelayEvent
+public record struct GetBleedingEvent(FixedPoint2 Bleeding, float Decay = 0f, TimeSpan? NextChange = null) : IBodyRelayEvent, IWoundRelayEvent
 {
     BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
     ProtoId<DamageTypePrototype>? IWoundRelayEvent.Type => null;
+
+    /// <summary>
+    /// Returns a copy with the given source of bleeding added.
+    /// </summary>
+    public readonly GetBleedingEvent Add(FixedPoint2 bleeding, float decay, TimeSpan? nextChange)
+    {
+        var next = NextChange;
+        if (nextChange is { } change && (next is null || change < next))
+            next = change;
+
+        return new GetBleedingEvent(Bleeding + bleeding, Decay + decay, next);
+    }
+
+    /// <summary>
+    /// Returns a copy with the bleeding of another request added.
+    /// </summary>
+    public readonly GetBleedingEvent Add(GetBleedingEvent other)
+    {
+        return Add(other.Bleeding, other.Decay, other.NextChange);
+    }
 }
 
 /// <summary>
-/// Event raised on an entity to request the total of blood reductions from all relevant sources.
+/// Event raised on an entity to request the total of blood regeneration from all relevant sources.
 /// </summary>
 [ByRefEvent]
-public record struct GetBloodReductionEvent(FixedPoint2 Reduction);
+public record struct GetBloodReductionEvent(FixedPoint2 Reduction) : IBodyRelayEvent
+{
+    BodyProviderType IBodyRelayEvent.Type => BodyProviderType.All;
+}
+
+/// <summary>
+/// Event relayed to all wounds of a body to change their bleeding proportionally.
+/// </summary>
+/// <param name="Bleeding">The relative change of each wound's bleeding. </param>
+[ByRefEvent]
+public record struct ModifyBleedingEvent(FixedPoint2 Bleeding) : IWoundRelayEvent
+{
+    ProtoId<DamageTypePrototype>? IWoundRelayEvent.Type => null;
+}

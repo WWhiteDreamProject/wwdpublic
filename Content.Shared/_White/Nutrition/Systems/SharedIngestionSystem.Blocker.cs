@@ -1,5 +1,6 @@
 using Content.Shared._White.Nutrition.Components;
 using Content.Shared.Clothing;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 
 namespace Content.Shared._White.Nutrition.Systems;
@@ -25,7 +26,7 @@ public abstract partial class SharedIngestionSystem
             return;
 
         args.Args.Cancelled = true;
-        args.Args.Popup = Loc.GetString("ingestion-attempt-ingested-blocker", ("entity", ent));
+        args.Args.Popup = Loc.GetString("ingestion-attempt-ingested-blocker", ("entity", Identity.Entity(ent, EntityManager)));
     }
 
     #endregion

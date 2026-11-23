@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared._White.Particles.Components;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
@@ -21,13 +22,20 @@ public sealed partial class ParticleSystem
             return;
         }
 
-        if (!_solutionContainer.TryGetSolution(args.LandedParticle, ent.Comp.LandSolutionName, out var lanSolution))
+        if (!_solutionContainer.TryGetSolution(args.LandedParticle, ent.Comp.LandSolutionName, out var landSolution, out var landSolutionValue))
         {
             Log.Error($"Liquid landed particle {ToPrettyString(ent)} without {ent.Comp.LandSolutionName} solution");
             return;
         }
 
-        _solutionContainer.TryAddSolution(lanSolution.Value, initialSolution);
+        var toLand = initialSolution.SplitSolution(FixedPoint2.Min(initialSolution.Volume, landSolutionValue.AvailableVolume));
+        if (toLand.Volume > FixedPoint2.Zero)
+            _solutionContainer.TryAddSolution(landSolution.Value, toLand);
+
+        if (initialSolution.Volume <= FixedPoint2.Zero)
+            return;
+
+        _puddle.TrySpillAt(args.LandedParticle, initialSolution, out _, sound: false);
     }
 
     public Entity<ParticleComponent, LiquidParticleComponent>? SpawnLiquidParticle(

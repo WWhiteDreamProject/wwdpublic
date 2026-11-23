@@ -21,7 +21,10 @@ public abstract partial class SharedBloodstreamSystem
         ent.Comp.Body = args.Body;
         DirtyField(ent, ent.Comp, nameof(BloodstreamProviderComponent.Body));
 
-        RaiseLocalEvent(args.Body, new BleedingLevelChangedEvent(ent.Comp.Level, ent.Comp.Location));
+        var ev = new BleedingLevelChangedEvent(ent.Comp.Level, ent.Comp.Location);
+        RaiseLocalEvent(args.Body, ref ev);
+
+        UpdateBleeding(args.Body.Owner);
     }
 
     private void OnGotRemoved(Entity<BloodstreamProviderComponent> ent, ref BodyProviderGotRemovedEvent args)
@@ -29,17 +32,20 @@ public abstract partial class SharedBloodstreamSystem
         ent.Comp.Body = null;
         DirtyField(ent, ent.Comp, nameof(BloodstreamProviderComponent.Body));
 
-        RaiseLocalEvent(args.Body, new BleedingLevelChangedEvent(BleedingLevel.None, ent.Comp.Location));
+        var ev = new BleedingLevelChangedEvent(BleedingLevel.None, ent.Comp.Location);
+        RaiseLocalEvent(args.Body, ref ev);
+
+        UpdateBleeding(args.Body.Owner);
     }
 
     private void OnGetBleeding(Entity<BloodstreamProviderComponent> ent, ref BodyRelayedEvent<GetBleedingEvent> args)
     {
-        var getBleedingEv = new GetBleedingEvent(FixedPoint2.Zero);
-        RaiseLocalEvent(ent, ref getBleedingEv);
+        var ev = new GetBleedingEvent(FixedPoint2.Zero);
+        RaiseLocalEvent(ent, ref ev);
 
-        SetBleeding(ent.AsNullable(), getBleedingEv.Bleeding);
+        SetBleeding(ent.AsNullable(), ev.Bleeding);
 
-        args.Args = new (args.Args.Bleeding + ent.Comp.Bleeding);
+        args.Args = args.Args.Add(ev);
     }
 
     #endregion
@@ -79,7 +85,8 @@ public abstract partial class SharedBloodstreamSystem
         if (ent.Comp.Body is not { } body)
             return;
 
-        RaiseLocalEvent(body, new BleedingLevelChangedEvent(bleedingLevel, ent.Comp.Location));
+        var ev = new BleedingLevelChangedEvent(bleedingLevel, ent.Comp.Location);
+        RaiseLocalEvent(body, ref ev);
     }
 
     #endregion

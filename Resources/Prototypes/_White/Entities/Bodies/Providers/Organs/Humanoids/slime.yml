@@ -23,7 +23,7 @@
 # Core: Central / Metabolizer
 - type: entity
   id: BodyProviderCoreSlime
-  parent: [BaseBodyProviderCoreOrganic, BaseBodyProviderCoreRespiratory, BaseBodyProviderOrganSlime]
+  parent: [BaseBodyProviderCoreOrganic, BaseBodyProviderCoreRespiratory, BaseBodyProviderOrganSlime, BaseMetabolizerSlime]
   components:
   - type: RespiratorConsumer
     consumption: 0.0045
@@ -57,7 +57,7 @@
 # Lungs
 - type: entity
   id: BodyProviderLungsSlime
-  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganSlime]
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganSlime, BaseMetabolizerSlime]
   components:
   - type: RespiratorConsumer
     consumption: 0.0005

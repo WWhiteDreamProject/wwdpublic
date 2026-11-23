@@ -28,9 +28,13 @@ public sealed partial class BloodstreamSystem
         if (ent.Comp.MinDamageThreshold > damage)
             return;
 
-        var chance = ((damage - ent.Comp.MinDamageThreshold) / (ent.Comp.MaxDamageThreshold - ent.Comp.MinDamageThreshold)).Float();
-        if (ent.Comp.MaxDamageThreshold > damage && !_random.Prob(chance))
-            return;
+        if (ent.Comp.MaxDamageThreshold > damage)
+        {
+            var range = ent.Comp.MaxDamageThreshold - ent.Comp.MinDamageThreshold;
+            var chance = range > FixedPoint2.Zero ? ((damage - ent.Comp.MinDamageThreshold) / range).Float() : 1f;
+            if (!_random.Prob(chance))
+                return;
+        }
 
         var bloodQuantity = FixedPoint2.Min(damage * ent.Comp.DamageToVolumeFactor * _random.NextFloat(1 / ent.Comp.EmissionSpreadVolume, ent.Comp.EmissionSpreadVolume), ent.Comp.MaxSplatterVolume * ent.Comp.MaxSplatterCount);
         if (!TryTakeBlood(body, bloodQuantity, out var solution))
@@ -43,7 +47,7 @@ public sealed partial class BloodstreamSystem
 
         var originalDirection = (bodyPosition - originPosition).Normalized();
         if (!originalDirection.IsValid())
-            originalDirection = _random.NextVector2();
+            originalDirection = _random.NextAngle().ToVec();
 
         var coordinates = _transform.GetMapCoordinates(body);
 
@@ -96,7 +100,7 @@ public sealed partial class BloodstreamSystem
 
         for (var i = 1; i < splatterCount + 1; i++)
         {
-            var particleSolution = bloodSolution.SplitSolution(bloodSolution.Volume / splatterCount);
+            var particleSolution = bloodSolution.SplitSolution(bloodSolution.Volume / (splatterCount - i + 1));
 
             var particle = _particle.SpawnLiquidParticle(ent.Comp.SplatterPrototype, coordinates, finalDirection, i * ent.Comp.EmissionSpreadDistance, particleSolution);
             if (!particle.HasValue)
@@ -120,7 +124,7 @@ public sealed partial class BloodstreamSystem
         {
             var finalDirection = GetEmissionSpreadDirection((float)ent.Comp.EmissionSpreadAngle.Theta, direction);
             var distance = damage.Float() * ent.Comp.DamageToDistanceFactor * _random.NextFloat(1 / ent.Comp.EmissionSpreadDistance, ent.Comp.EmissionSpreadDistance);
-            var particleSolution = bloodSolution.SplitSolution(bloodSolution.Volume / splatterCount);
+            var particleSolution = bloodSolution.SplitSolution(bloodSolution.Volume / (splatterCount - i));
 
             _particle.SpawnLiquidParticle(ent.Comp.SplatterPrototype, coordinates, finalDirection, distance, particleSolution);
         }

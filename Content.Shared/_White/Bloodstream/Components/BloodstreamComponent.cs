@@ -28,7 +28,7 @@ public sealed partial class BloodstreamComponent : Component
         {BleedingLevel.Mild, "Bleed"},
         {BleedingLevel.Moderate, "Bleed"},
         {BleedingLevel.Severe, "Bleed"},
-        {BleedingLevel.Mortal, "Bleed"},
+        {BleedingLevel.Mortal, "Bleed"}
     };
 
     /// <summary>
@@ -40,17 +40,17 @@ public sealed partial class BloodstreamComponent : Component
     {
         ["Respiration"] = new()
         {
-            NextStage = "Absorption",
+            NextStage = "Absorption"
         },
         ["Digestion"] = new()
         {
-            NextStage = "Absorption",
+            NextStage = "Absorption"
         },
         ["Absorption"] = new()
         {
-            NextStage = "Excretion",
+            NextStage = "Excretion"
         },
-        ["Excretion"] = new(),
+        ["Excretion"] = new()
     };
 
     /// <summary>
@@ -158,10 +158,10 @@ public sealed partial class BloodstreamComponent : Component
     public SortedDictionary<FixedPoint2, BleedingLevel> BleedingThresholds = new()
     {
         {0, BleedingLevel.Zero},
-        {1.6f, BleedingLevel.Mild},
-        {3.3f, BleedingLevel.Moderate},
-        {5.5f, BleedingLevel.Severe},
-        {16.6f , BleedingLevel.Mortal},
+        {0.01f, BleedingLevel.Mild},
+        {4.3f, BleedingLevel.Moderate},
+        {8.6f, BleedingLevel.Severe},
+        {16.6f , BleedingLevel.Mortal}
     };
 
     /// <summary>
@@ -200,9 +200,22 @@ public sealed partial class BloodstreamComponent : Component
 
     /// <summary>
     /// The current size of active bleeding, indicating how much blood is being lost per update.
+    /// Derived from <see cref="BleedingBase"/> and <see cref="BleedingDecay"/>.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public FixedPoint2 Bleeding = FixedPoint2.Zero;
+
+    /// <summary>
+    /// Total bleeding of all sources at <see cref="BleedingUpdatedAt"/>.
+    /// </summary>
+    [ViewVariables]
+    public FixedPoint2 BleedingBase = FixedPoint2.Zero;
+
+    /// <summary>
+    /// The amount of blood regenerated per update.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public FixedPoint2 BloodReduction = FixedPoint2.Zero;
 
     /// <summary>
     /// Calculates the current maximum blood volume, adjusted by the <see cref="MassAdjustMultiplier"/>.
@@ -212,11 +225,23 @@ public sealed partial class BloodstreamComponent : Component
     public FixedPoint2 CurrentMaxVolume => MaxVolume * MassAdjustMultiplier;
 
     /// <summary>
+    /// How fast the cached bleeding decays, per second (wounds that close on their own).
+    /// </summary>
+    [ViewVariables]
+    public float BleedingDecay;
+
+    /// <summary>
     /// Caches the raw reagent data associated with the entity's blood.
     /// This data typically contains DNA and blood type information.
     /// </summary>
     [ViewVariables]
     public List<ReagentData>? Data;
+
+    /// <summary>
+    /// When the bleeding was last gathered from its sources.
+    /// </summary>
+    [ViewVariables, AutoPausedField]
+    public TimeSpan BleedingUpdatedAt = TimeSpan.Zero;
 
     /// <summary>
     /// Calculates the actual update interval for this component, adjusted by the <see cref="UpdateIntervalMultiplier"/>.
@@ -229,6 +254,12 @@ public sealed partial class BloodstreamComponent : Component
     /// </summary>
     [ViewVariables, AutoNetworkedField, AutoPausedField]
     public TimeSpan NextUpdate = TimeSpan.Zero;
+
+    /// <summary>
+    /// When the cached bleeding stops being linear (e.g. a wound stops bleeding) and has to be gathered again.
+    /// </summary>
+    [ViewVariables, AutoPausedField]
+    public TimeSpan? NextBleedingUpdate;
 }
 
 [DataDefinition]
