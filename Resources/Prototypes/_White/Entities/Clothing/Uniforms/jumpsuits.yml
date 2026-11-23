@@ -151,3 +151,58 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/explorer.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/explorer.rsi
+    
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSecurityBouncer
+  name: Security Bouncer Uniform
+  description: Security Bouncer Uniform
+  components:
+    - type: Sprite
+      sprite: _White/Clothing/Uniforms/Jumpsuit/sec_bouncer.rsi
+    - type: Clothing
+      sprite: _White/Clothing/Uniforms/Jumpsuit/sec_bouncer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSecurityParade
+  name: Security Parade Uniform
+  description: Security Parade Uniform
+  components:
+    - type: Sprite
+      sprite: _White/Clothing/Uniforms/Jumpsuit/sec_parade.rsi
+    - type: Clothing
+      sprite: _White/Clothing/Uniforms/Jumpsuit/sec_parade.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSecurityClerk
+  name: Security Clerk Uniform
+  description: Security Clerk Uniform
+  components:
+    - type: Sprite
+      sprite: _White/Clothing/Uniforms/Jumpsuit/sec_clerk.rsi
+    - type: Clothing
+      sprite: _White/Clothing/Uniforms/Jumpsuit/sec_clerk.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSecurityTurtleneck
+  name: Security Turtleneck
+  description: Security Turtleneck
+  components:
+    - type: Sprite
+      sprite: _White/Clothing/Uniforms/Jumpsuit/sec_turtleneck.rsi
+    - type: Clothing
+      sprite: _White/Clothing/Uniforms/Jumpsuit/sec_turtleneck.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSecurityTurtleneckStripes
+  name: Security Turtleneck
+  description: Security Turtleneck
+  components:
+    - type: Sprite
+      sprite: _White/Clothing/Uniforms/Jumpsuit/sec_turtleneck_stripes.rsi
+    - type: Clothing
+      sprite: _White/Clothing/Uniforms/Jumpsuit/sec_turtleneck_stripes.rsi
