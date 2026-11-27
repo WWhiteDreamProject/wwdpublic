@@ -1,5 +1,6 @@
 using Content.Shared._White.Body;
 using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Physics.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Climbing.Components;
@@ -41,9 +42,10 @@ public sealed partial class ClimbSystem : VirtualController
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
+    [Dependency] private readonly PhysicsModifierSystem _physicsModifier = default!; // WD EDIT
 
     private const string ClimbingFixtureName = "climb";
-    private const int ClimbingCollisionGroup = (int) CollisionGroup.MidImpassable; // WWDP same as lying down in StandingStateSystem
+    private const int ClimbingCollisionGroup = (int) (CollisionGroup.TableLayer | CollisionGroup.LowImpassable);
 
     private EntityQuery<FixturesComponent> _fixturesQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -58,6 +60,7 @@ public sealed partial class ClimbSystem : VirtualController
 
         SubscribeLocalEvent<ClimbingComponent, UpdateCanMoveEvent>(OnMoveAttempt);
         SubscribeLocalEvent<ClimbingComponent, EntParentChangedMessage>(OnParentChange);
+        SubscribeLocalEvent<ClimbingComponent, UpdateCollisionEvent>(OnUpdateCollision); // WD EDIT
         SubscribeLocalEvent<ClimbingComponent, ClimbDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<ClimbingComponent, EndCollideEvent>(OnClimbEndCollide);
         SubscribeLocalEvent<ClimbingComponent, BuckledEvent>(OnBuckled);
@@ -298,6 +301,8 @@ public sealed partial class ClimbSystem : VirtualController
         climbing.IsClimbing = true;
         Dirty(uid, climbing);
 
+        _physicsModifier.RefreshCollision((uid, fixtures)); // WD EDIT
+
         _audio.PlayPredicted(comp.FinishClimbSound, climbable, user);
 
         var startEv = new StartClimbEvent(climbable);
@@ -332,26 +337,24 @@ public sealed partial class ClimbSystem : VirtualController
         _popupSystem.PopupPredicted(selfMessage, othersMessage, uid, user);
     }
 
+    // WD EDIT START
+    private void OnUpdateCollision(Entity<ClimbingComponent> ent, ref UpdateCollisionEvent args)
+    {
+        // While climbing, the hard fixtures stop colliding with climbables; the climb fixture detects the end of the climb.
+        if (!ent.Comp.IsClimbing || !args.Fixture.Hard || args.FixtureId == ClimbingFixtureName)
+            return;
+
+        args.Mask &= ~ClimbingCollisionGroup;
+    }
+    // WD EDIT END
+
     /// <summary>
-    /// Replaces the current fixtures with non-climbing collidable versions so that climb end can be detected
+    /// Adds a non-hard climbing fixture so that climb end can be detected.
+    /// The collision of the other fixtures is changed in <see cref="OnUpdateCollision"/>.
     /// </summary>
     /// <returns>Returns whether adding the new fixtures was successful</returns>
     private bool ReplaceFixtures(EntityUid uid, ClimbingComponent climbingComp, FixturesComponent fixturesComp)
     {
-        // Swap fixtures
-        foreach (var (name, fixture) in fixturesComp.Fixtures)
-        {
-            if (climbingComp.DisabledFixtureMasks.ContainsKey(name)
-                || fixture.Hard == false
-                || (fixture.CollisionMask & ClimbingCollisionGroup) == 0)
-            {
-                continue;
-            }
-
-            climbingComp.DisabledFixtureMasks.Add(name, fixture.CollisionMask & ClimbingCollisionGroup);
-            _physics.SetCollisionMask(uid, name, fixture, fixture.CollisionMask & ~ClimbingCollisionGroup, fixturesComp);
-        }
-
         if (!_fixtureSystem.TryCreateFixture(
                 uid,
                 new PhysShapeCircle(0.35f),
@@ -416,20 +419,10 @@ public sealed partial class ClimbSystem : VirtualController
         if (!Resolve(uid, ref climbing, ref fixtures, false))
             return;
 
-        foreach (var (name, fixtureMask) in climbing.DisabledFixtureMasks)
-        {
-            if (!fixtures.Fixtures.TryGetValue(name, out var fixture))
-            {
-                continue;
-            }
-
-            _physics.SetCollisionMask(uid, name, fixture, fixture.CollisionMask | fixtureMask, fixtures);
-        }
-
-        climbing.DisabledFixtureMasks.Clear();
         _fixtureSystem.DestroyFixture(uid, ClimbingFixtureName, manager: fixtures);
         climbing.IsClimbing = false;
         climbing.NextTransition = null;
+        _physicsModifier.RefreshCollision((uid, fixtures)); // WD EDIT
         var ev = new EndClimbEvent();
         RaiseLocalEvent(uid, ref ev);
         Dirty(uid, climbing);

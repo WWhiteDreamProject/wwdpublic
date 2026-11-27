@@ -43,7 +43,4 @@ public sealed partial class ClimbingComponent : Component
     /// </summary>
     [DataField]
     public float TransitionRate = 5f;
-
-    [AutoNetworkedField, DataField]
-    public Dictionary<string, int> DisabledFixtureMasks = new();
 }
